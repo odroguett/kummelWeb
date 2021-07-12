@@ -13,11 +13,11 @@ use  App\Http\Controllers\KummelControllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('kummel', [KummelControllers::class,'index']); 
+Route::get('kummel', [KummelControllers::class,'home']); 
     
 
 

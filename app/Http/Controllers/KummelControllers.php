@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class KummelControllers extends Controller
 {
-    public function index()
+    public function home()
     {
-        return view('kummel.index');
+        return view('kummel.home');
+      // echo('Hola');
         
     }
 }
