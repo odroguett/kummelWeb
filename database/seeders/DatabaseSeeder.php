@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Categorias;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //Este comando sirve para llamar las otras clases seeders
+        $this->call((CategoriaSeeder::class));
     }
 }

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Producto extends Model
+class VentaProductos extends Model
 {
     use HasFactory;
-    protected $table = 'PRODUCTOS';
-    protected $primaryKey = 'ID_PRODUCTO';
+    protected $table = 'VENTA_PRODUCTOS';
+    protected $primaryKey = 'CODIGO_PRECIO_PRODUCTO';
     public $timestamps = false;
     public $incrementing = false;
 }

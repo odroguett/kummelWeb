@@ -22,7 +22,7 @@ class CreateVENTAPRODUCTOSTable extends Migration
             $table->string('ID_PRODUCTO', 5);
             $table->integer('ID_UNIDAD');
             $table->string('IMAGEN', 45)->nullable();
-            $table->primary(['CODIGO_PRECIO_PRODUCTO', 'ID_PRODUCTO', 'ID_UNIDAD']);
+            $table->primary(['CODIGO_PRECIO_PRODUCTO', 'ID_PRODUCTO', 'ID_UNIDAD'],'venta_productos_pk');
             $table->foreign('ID_PRODUCTO', 'fk_PRECIO_PRODUCTO_PRODUCTOS1')->references('ID_PRODUCTO')->on('PRODUCTOS');
             $table->foreign('ID_UNIDAD', 'fk_VENTA_PRODUCTOS_UNIDADES1')->references('ID_UNIDAD')->on('UNIDADES');
         });
