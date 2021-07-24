@@ -1,14 +1,27 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Repositorio\IUnidadTrabajo;
 
 class KummelControllers extends Controller
 {
+  private $oUnidadTrabajo;
+ public function __construct(IUnidadTrabajo  $_oUnidadTrabajo)
+ {
+  $this->oUnidadTrabajo = $_oUnidadTrabajo;
+ }
+
     public function home()
     {
-        return view('kummel.home');
+
+    $categorias= $this->oUnidadTrabajo->CategoriasRepositorio();
+
+     return view('kummel.home',['categorias' => $categorias->todos()]);
+
+        
+
       // echo('Hola');
         
     }

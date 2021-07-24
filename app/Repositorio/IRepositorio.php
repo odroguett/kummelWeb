@@ -1,4 +1,7 @@
 <?php 
+
+namespace App\Repositorio;
+
 interface IRepositorio
 {
     public function todos();
@@ -9,7 +12,9 @@ interface IRepositorio
 
     public function eliminar($id);
 
-    public function encontrar($id);
+    public function buscar($id);
+
+    
 
 }
 ?>
