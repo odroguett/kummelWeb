@@ -5,6 +5,8 @@ interface IUnidadTrabajo
 {
     public function CategoriasRepositorio();
 
+    public function TipoPagoRepositorio();
+
   
 
     

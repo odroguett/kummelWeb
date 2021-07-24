@@ -16,13 +16,11 @@ class KummelControllers extends Controller
     public function home()
     {
 
-    $categorias= $this->oUnidadTrabajo->CategoriasRepositorio();
+    $categorias= $this->oUnidadTrabajo->TipoPagoRepositorio();
 
      return view('kummel.home',['categorias' => $categorias->todos()]);
 
-        
-
-      // echo('Hola');
+     
         
     }
 }
