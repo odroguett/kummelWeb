@@ -17,7 +17,6 @@ use App\Models\TipoPago;
 class UnidadTrabajo implements IUnidadTrabajo
 {
 
-
 public function CategoriasRepositorio()
 {
    $model = new Categorias();

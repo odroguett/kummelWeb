@@ -18,6 +18,8 @@ interface IUnidadTrabajo
     public function TipoPagoRepositorio();
     public function VentasRepositorio();
 
+    public function TipoPagoRepositorio();
+
   
 
     

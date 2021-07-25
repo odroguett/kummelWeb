@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Repositorio;
-
 use App\Models\TipoPago;
 
 class TipoPagoRepositorio extends Repositorio implements ITipoPagoRepositorio
