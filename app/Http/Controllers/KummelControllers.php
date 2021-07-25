@@ -3,22 +3,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositorio\IUnidadTrabajo;
+use App\Negocio\Interfaces\IProductosVenta;
+
 
 class KummelControllers extends Controller
 {
-  private $oUnidadTrabajo;
- public function __construct(IUnidadTrabajo  $_oUnidadTrabajo)
+  private $oProductosVenta;
+ public function __construct(IProductosVenta  $_oProductosVenta)
  {
-  $this->oUnidadTrabajo = $_oUnidadTrabajo;
+  $this->oProductosVenta = $_oProductosVenta;
  }
 
     public function home()
     {
 
-    $categorias= $this->oUnidadTrabajo->TipoPagoRepositorio();
+    $categorias= $this->oProductosVenta->obtenerProductosDestacados();
 
-     return view('kummel.home',['categorias' => $categorias->todos()]);
+     return view('kummel.home',['categorias' =>  $categorias]);
 
      
         
