@@ -2,6 +2,7 @@
 namespace App\Repositorio;
 use App\Models\CanalVenta;
 use App\Models\Categorias;
+
 use App\Models\Clientes;
 use App\Models\Comentarios;
 use App\Models\Contactos;
@@ -13,6 +14,8 @@ use App\Models\ProductosVenta;
 use App\Models\Proveedores;
 use App\Models\TipoDespacho;
 use App\Models\TipoPago;
+
+
 
 class UnidadTrabajo implements IUnidadTrabajo
 {
@@ -111,13 +114,6 @@ public function VentasRepositorio()
   return $oRespuesta;  
   
 }
-
- 
-
-
-
-
-
 }
 
 ?>
