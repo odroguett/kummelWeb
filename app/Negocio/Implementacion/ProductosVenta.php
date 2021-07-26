@@ -9,43 +9,30 @@ use App\OTD\ObtenerProductosDestacadosOtd;
 use Exception;
 
 
-class ProductosVenta implements IProductosVenta
+class ProductosVenta extends Productos implements IProductosVenta
 {
     private $oCategorias;
     private $oUnidadTrabajo;
-    //private $oUnidades;
+    private $oUnidades;
     
-public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo)//, IUnidades $_oUnidades )
+public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades )
 {
     $this->oCategorias=$_oCategorias;
     $this->oUnidadTrabajo=$_oUnidadTrabajo;
-    //$this->oUnidades=$_oUnidades;
+    $this->oUnidades=$_oUnidades;
 }
 
-    public function AgregarProducto()
-    {
-
-    }
-    public function EliminarProducto()
-    {
-
-
-    }
-    public function ActualizarProducto()
-    {
-
-
-    }
-    public function CargarProducto()
-    {
-
-    }
+   
 
     public function obtenerProductosDestacados()
     {
         try //Si es Excepcion, se utiliza este Try
         {
             $obtenerProductosDestacados = new ObtenerProductosDestacadosOtd();
+            
+
+
+
             $obtenerProductosDestacados->prueba="Hola";
             return json_encode($obtenerProductosDestacados,TRUE);
 

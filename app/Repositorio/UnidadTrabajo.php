@@ -14,8 +14,7 @@ use App\Models\ProductosVenta;
 use App\Models\Proveedores;
 use App\Models\TipoDespacho;
 use App\Models\TipoPago;
-
-
+use RawQueryRepositorio;
 
 class UnidadTrabajo implements IUnidadTrabajo
 {
@@ -114,6 +113,14 @@ public function VentasRepositorio()
   return $oRespuesta;  
   
 }
+
+public function RawQueryRepositorio()
+{
+  $oRespuesta = new RawQueryRepositorio();
+  return $oRespuesta;  
+  
+}
+
 }
 
 ?>

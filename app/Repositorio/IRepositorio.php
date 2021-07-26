@@ -14,7 +14,7 @@ interface IRepositorio
 
     public function buscar($id);
 
-    
+        
 
 }
 ?>

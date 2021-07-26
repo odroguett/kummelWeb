@@ -13,13 +13,13 @@ class FabricaProductos implements IFabricaProductos
 {
     private $oCategorias;
     private $oUnidadTrabajo;
-   // private $oUnidades;
+    private $oUnidades;
     
-public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo )
+public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades )
 {
     $this->oCategorias=$_oCategorias;
     $this->oUnidadTrabajo=$_oUnidadTrabajo;
-   // $this->oUnidades=$_oUnidades;
+    $this->oUnidades=$_oUnidades;
 }
 
 public function ConstruirProductosBodega()
@@ -30,7 +30,7 @@ return  $oProductosBodega();
 
 public function ConstruirProductosVenta()
 {
-    $oProductos = new ProductosVenta($this->oCategorias,$this->oUnidadTrabajo);//,$this->oUnidades);
+    $oProductos = new ProductosVenta($this->oCategorias,$this->oUnidadTrabajo, $this->oUnidades);
     return  $oProductos(); 
 }
 
