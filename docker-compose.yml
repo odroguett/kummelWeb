@@ -13,6 +13,8 @@ services:
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
+            XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9001 
+            PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
         volumes:
             - '.:/var/www/html'
         networks:

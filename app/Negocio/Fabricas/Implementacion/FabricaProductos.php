@@ -22,22 +22,22 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
     $this->oUnidades=$_oUnidades;
 }
 
-public function ConstruirProductosBodega()
+public function ProductosBodega()
 {
-$oProductosBodega = new ProductosBodega();
-return  $oProductosBodega();
+return new ProductosBodega();
+
 }
 
-public function ConstruirProductosVenta()
+public function ProductosVenta()
 {
-    $oProductos = new ProductosVenta($this->oCategorias,$this->oUnidadTrabajo, $this->oUnidades);
-    return  $oProductos(); 
+    return new ProductosVenta($this->oCategorias,$this->oUnidadTrabajo, $this->oUnidades);
+    
 }
 
-public function ConstruirProductosElaborados()
+public function ProductosElaborados()
 {
-    $oProductos = new ProductosElaborados();
-    return  $oProductos(); 
+return new ProductosElaborados();
+
 }
 
 }

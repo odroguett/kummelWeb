@@ -1,14 +1,19 @@
 <?php 
+namespace App\Repositorio;
 use Illuminate\Support\Facades\DB;
 class RawQueryRepositorio  implements IRawQueryRepositorio
 {
 public function obtieneProductosDestacados()
 {
-$productosDestacados = DB::table('PRODUCTOS_VENTA PV')
-                           ->join('UNIDADES U','U.UNIDAD','=','VP.UNIDAD')
-                           ->join ('CATEGORIAS C','C.ID_CATEGORIA','PD.ID_CATEGORIA')
-                           ->where('VP.DESTACADO','=','-1')
-                           ->select('U.*','PV.*','C.*');
+
+    return  DB::table('PRODUCTOS_VENTA')
+            ->join('UNIDADES','PRODUCTOS_VENTA.ID_UNIDAD','=','UNIDADES.ID_UNIDAD')
+            ->join ('CATEGORIAS','PRODUCTOS_VENTA.ID_CATEGORIA','CATEGORIAS.ID_CATEGORIA')
+            ->where('PRODUCTOS_VENTA.DESTACADO','=','-1')
+            ->select('UNIDADES.*','PRODUCTOS_VENTA.*','CATEGORIAS.*')
+            ->get();
+                          
+
 
 }
 

@@ -4,8 +4,8 @@ namespace App\Negocio\Fabricas\Interfaces;
 interface IFabricaProductos
 {
 
-    public function ConstruirProductosVenta();
-    public function ConstruirProductosBodega();
+    public function ProductosVenta();
+    public function ProductosBodega();
 }
 
 ?>

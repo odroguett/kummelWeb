@@ -20,9 +20,9 @@
 
 
 
-   <link rel="stylesheet" type="text/css" href="slick/slick.min.css" />
+   <link rel="stylesheet" type="text/css" href="public/slick/slick.min.css" />
    <link rel="stylesheet" type="text/css" href="slick/slick-theme.min.css" />
-   <link rel="stylesheet" type="text/css" href="css/alertify/alertify.css" />
+   <link rel="stylesheet" type="text/css" href="public/css/alertify/alertify.css" />
    <link rel="stylesheet" type="text/css" href="css/animate.css" />
    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
    <!-- Icofont Icon-->
@@ -310,7 +310,7 @@
 
 </html>
 
-<script src="jquery/jquery.min.js"></script>
+<script src="public/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
  <!-- slick Slider JS-->

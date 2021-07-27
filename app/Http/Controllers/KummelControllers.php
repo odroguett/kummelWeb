@@ -3,25 +3,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Negocio\Interfaces\IProductosVenta;
+use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
+
 
 
 class KummelControllers extends Controller
 {
-  private $oProductosVenta;
- public function __construct(IProductosVenta  $_oProductosVenta)
+  private $oFabricaProductos;
+ public function __construct(IFabricaProductos  $_oFabricaProductos)
  {
-  $this->oProductosVenta = $_oProductosVenta;
+  $this->oFabricaProductos = $_oFabricaProductos;
  }
 
     public function home()
     {
-
-    $categorias= $this->oProductosVenta->obtenerProductosDestacados();
-
-     return view('kummel.home',['categorias' =>  $categorias]);
-
-     
-        
+     return view('kummel.home',['categorias' =>  $this->oFabricaProductos->ProductosVenta()->obtenerProductosDestacados()]);
     }
 }

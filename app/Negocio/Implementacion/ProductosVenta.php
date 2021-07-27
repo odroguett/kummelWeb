@@ -28,13 +28,7 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
     {
         try //Si es Excepcion, se utiliza este Try
         {
-            $obtenerProductosDestacados = new ObtenerProductosDestacadosOtd();
-            
-
-
-
-            $obtenerProductosDestacados->prueba="Hola";
-            return json_encode($obtenerProductosDestacados,TRUE);
+            return json_encode($this->oUnidadTrabajo->RawQueryRepositorio()->obtieneProductosDestacados(),TRUE);
 
         }
         catch(Exception $e)

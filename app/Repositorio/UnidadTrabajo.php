@@ -14,7 +14,9 @@ use App\Models\ProductosVenta;
 use App\Models\Proveedores;
 use App\Models\TipoDespacho;
 use App\Models\TipoPago;
-use RawQueryRepositorio;
+use App\Models\Ventas;
+use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
+
 
 class UnidadTrabajo implements IUnidadTrabajo
 {
@@ -22,102 +24,101 @@ class UnidadTrabajo implements IUnidadTrabajo
 public function CategoriasRepositorio()
 {
    $model = new Categorias();
-  $oRespuesta = new CategoriaRepositorio($model);
-  return $oRespuesta;
+  return new CategoriaRepositorio($model);
 }
 
 public function CanalVentaRepositorio()
 {
    $model = new CanalVenta();
-  $oRespuesta = new CanalVentaRepositorio($model);
-  return $oRespuesta;
+  return new CanalVentaRepositorio($model);
+  
 }
 
 
 public function ClientesRepositorio()
 {
    $model = new Clientes();
-  $oRespuesta = new ClientesRepositorio($model);
-  return $oRespuesta;
+  return new ClientesRepositorio($model);
+  
 }
 
 public function ComentariosRepositorio()
 {
    $model = new Comentarios();
-  $oRespuesta = new ComentariosRepositorio($model);
-  return $oRespuesta;
+   return new ComentariosRepositorio($model);
+  
 }
 public function ContactosRepositorio()
 {
    $model = new Contactos();
-  $oRespuesta = new ContactosRepositorio($model);
-  return $oRespuesta;
+   return new ContactosRepositorio($model);
+  
 }
 public function DespachosRepositorio()
 {
    $model = new Despachos();
-  $oRespuesta = new DespachosRepositorio($model);
-  return $oRespuesta;
+   return new DespachosRepositorio($model);
+  
 }
 public function DetalleProductosVentaRepositorio()
 {
    $model = new DetalleProductosVenta();
-  $oRespuesta = new DetalleProductosVentaRepositorio($model);
-  return $oRespuesta;
+   return new DetalleProductosVentaRepositorio($model);
+  
 }
 
 public function ParametrosRepositorio()
 {
    $model = new Parametros();
-  $oRespuesta = new ParametrosRepositorio($model);
-  return $oRespuesta;
+  return new ParametrosRepositorio($model);
+  
 }
 public function ProductosRepositorio()
 {
    $model = new Productos();
-  $oRespuesta = new ProductosRepositorio($model);
-  return $oRespuesta;
+  return new ProductosRepositorio($model);
+  
 }
 
 public function ProductosVentaRepositorio()
 {
    $model = new ProductosVenta();
-  $oRespuesta = new ProductosVentaRepositorio($model);
-  return $oRespuesta;
+  return new ProductosVentaRepositorio($model);
+  
 }
 
 public function ProveedoresRepositorio()
 {
    $model = new Proveedores();
-  $oRespuesta = new ProveedoresRepositorio($model);
-  return $oRespuesta;
+  return new ProveedoresRepositorio($model);
+  
 }
 public function TipoDespachoRepositorio()
 {
   $model = new TipoDespacho();
-  $oRespuesta = new TipoDespachoRepositorio($model);
-  return $oRespuesta;
+  return new TipoDespachoRepositorio($model);
+  
 
 }
 public function TipoPagoRepositorio()
 {
   $model = new TipoPago();
-  $oRespuesta = new TipoPagoRepositorio($model);
-  return $oRespuesta;  
+  return new TipoPagoRepositorio($model);
+  
 }
  
 public function VentasRepositorio()
 {
-  $model = new TipoPago();
-  $oRespuesta = new TipoPagoRepositorio($model);
-  return $oRespuesta;  
+  $model = new Ventas();
+  return new VentasRepositorio($model);
+  
   
 }
 
 public function RawQueryRepositorio()
 {
-  $oRespuesta = new RawQueryRepositorio();
-  return $oRespuesta;  
+  return new RawQueryRepositorio();
+  
   
 }
 
