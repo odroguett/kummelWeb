@@ -10,6 +10,7 @@ use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 class KummelControllers extends Controller
 {
   private $oFabricaProductos;
+
  public function __construct(IFabricaProductos  $_oFabricaProductos)
  {
   $this->oFabricaProductos = $_oFabricaProductos;
@@ -17,6 +18,9 @@ class KummelControllers extends Controller
 
     public function home()
     {
-     return view('kummel.home',['categorias' =>  $this->oFabricaProductos->ProductosVenta()->obtenerProductosDestacados()]);
+
+ //dd($this->oFabricaProductos->ProductosVenta()->obtenerProductosDestacados());
+
+     return view('kummel.home',['productosDestacados' =>  $this->oFabricaProductos->ProductosVenta()->obtenerProductosDestacados()]);
     }
 }

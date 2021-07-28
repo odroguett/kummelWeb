@@ -26,6 +26,11 @@ class Repositorio extends Model  implements IRepositorio
         return $this->model->create($data);
     }
 
+    public function Insertar(array $oInsertar)
+    {
+        return $this->model->save($oInsertar);
+    }
+
     public function actualizar(array $data, $id)
     {
         return $this->model->where('id', $id)

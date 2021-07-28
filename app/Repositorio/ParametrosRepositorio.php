@@ -9,6 +9,12 @@ class ParametrosRepositorio extends Repositorio implements IParametrosRepositori
     {
         parent::__construct($model);
     }
+
+    public function obtieneParametros()
+    {
+
+       return $this->todos();
+    }
 }
 
 ?>

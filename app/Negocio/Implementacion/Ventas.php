@@ -13,6 +13,12 @@ class Ventas implements IVentas
 
     }
 
+    public function obtieneTopVentas()
+    {
+
+
+    }
+
 
 }
 ?>

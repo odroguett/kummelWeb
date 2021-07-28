@@ -4,6 +4,7 @@ interface IVentas
 {
 
 public function realizarPagoVenta();
+public function obtieneTopVentas();
 
 
 }

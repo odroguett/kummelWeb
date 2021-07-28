@@ -10,7 +10,7 @@ interface IProductosVenta extends IProductos
     public function EliminarProducto();
     public function ActualizarProducto();
     public function CargarProducto();
-    
+    public function obtieneDisponibleProductos($sProducto);
     
 }
 ?>

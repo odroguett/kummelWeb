@@ -28,7 +28,7 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
     {
         try //Si es Excepcion, se utiliza este Try
         {
-            return json_encode($this->oUnidadTrabajo->RawQueryRepositorio()->obtieneProductosDestacados(),TRUE);
+            return $this->oUnidadTrabajo->ProductosVentaRepositorio()->obtieneProductosDestacados();
 
         }
         catch(Exception $e)
@@ -42,6 +42,48 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
 
         }
     }
+
+
+    public function obtienePrecioProductos($categorias)
+    {
+        try //Si es Excepcion, se utiliza este Try
+        {
+            return json_encode($this->oUnidadTrabajo->ProductosVentaRepositorio()->obtienePrecioProductos($categorias),TRUE);
+
+        }
+        catch(Exception $e)
+        {
+            // $oRespuesta->bEsValido = false;
+            // $oRespuesta->sMensaje =" No es posible ingresar datos para despacho!!!";
+            // $mensaje= array('bEsValido' =>$oRespuesta->bEsValido, 'respuesta' => $oRespuesta->sMensaje);
+            //   echo json_encode($mensaje,JSON_FORCE_OBJECT);
+            // $oLog->EscribeLog("ERROR",$e->getMessage(),$e->getCode(),$e->getLine());
+            //  exit();
+
+        }
+    }
+
+    public function obtieneDisponibleProductos($sProducto)
+    {
+        try //Si es Excepcion, se utiliza este Try
+        {
+            return json_encode($this->oUnidadTrabajo->ProductosVentaRepositorio()->obtieneDisponibleProductos($sProducto),TRUE);
+
+        }
+        catch(Exception $e)
+        {
+            // $oRespuesta->bEsValido = false;
+            // $oRespuesta->sMensaje =" No es posible ingresar datos para despacho!!!";
+            // $mensaje= array('bEsValido' =>$oRespuesta->bEsValido, 'respuesta' => $oRespuesta->sMensaje);
+            //   echo json_encode($mensaje,JSON_FORCE_OBJECT);
+            // $oLog->EscribeLog("ERROR",$e->getMessage(),$e->getCode(),$e->getLine());
+            //  exit();
+
+        }
+    }
+
+
+
 
     public function ingresarDescuento()
     {

@@ -1,9 +1,17 @@
 <?php
 namespace App\Negocio\Implementacion;
 use App\Negocio\Interfaces\ICategorias;
+use App\Repositorio\IUnidadTrabajo;
 
 class Categorias implements ICategorias
 {
+  private $oUDT;
+
+  public function __construct(IUnidadTrabajo $_oUDT  )
+  {
+      $this->oUDT =  $_oUDT;
+  }
+  
     public function AgregarCategoria()
     {
 
@@ -21,7 +29,7 @@ class Categorias implements ICategorias
     }
     public function ObtenerCategorias()
     {
-
+      return $this->oUDT->CategoriasRepositorio()->obtieneCategorias();
         
     }
 

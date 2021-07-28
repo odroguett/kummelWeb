@@ -3,7 +3,10 @@ namespace App\Repositorio;
 
 interface IProductosVentaRepositorio
 {
-
+    public function obtieneProductosDestacados();
+    public function obtienePrecioProductos($sCategoria);
+    public function obtieneDisponibleProductos($sProducto);
+    public function obtieneProductosRelacionados($sProducto);
     
 }
 

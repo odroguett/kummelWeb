@@ -10,6 +10,14 @@ class DespachosRepositorio extends Repositorio implements IDespachosRepositorio
     {
         parent::__construct($model);
     }
+
+    public function obtieneDatosDespacho($idDespacho)
+    {
+    return $this->buscar($idDespacho);
+
+    }
+
+   
 }
 
 ?>

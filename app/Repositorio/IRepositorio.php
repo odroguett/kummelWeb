@@ -14,6 +14,8 @@ interface IRepositorio
 
     public function buscar($id);
 
+    public function Insertar(array $oInsertar);
+
         
 
 }

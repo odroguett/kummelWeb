@@ -9,6 +9,13 @@ class CategoriaRepositorio extends Repositorio implements ICategoriaRepositorio
     {
         parent::__construct($model);
     }
+
+     public function obtieneCategorias()
+     {
+        return $this->todos();
+
+     }
+
 }
 
 ?>
