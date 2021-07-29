@@ -7,9 +7,11 @@ use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Implementacion\Categorias;
 use App\Negocio\Implementacion\ProductosVenta;
 use App\Negocio\Implementacion\Unidades;
+use App\Negocio\Implementacion\Ventas;
 use App\Negocio\Interfaces\ICategorias;
 use App\Negocio\Interfaces\IProductosVenta;
 use App\Negocio\Interfaces\IUnidades;
+use App\Negocio\Interfaces\IVentas;
 use Illuminate\Support\ServiceProvider;
 use App\Repositorio\UnidadTrabajo;
 use App\Repositorio\Repositorio;
@@ -31,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IUnidades::class, Unidades ::class);
         $this->app->bind(ICategorias::class, Categorias ::class);
         $this->app->bind(IFabricaProductos::class, FabricaProductos ::class);
+        $this->app->bind(IVentas::class, Ventas ::class);
     }
 
     /**

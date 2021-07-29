@@ -17,16 +17,16 @@
 
 
 
-   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
-   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
+   <link rel="stylesheet" type="text/css" href="slick/slick.min.css" />
+   <link rel="stylesheet" type="text/css" href="slick/slick-theme.min.css" />
    <!-- Icofont Icon-->
-   <link href="vendor/icons/icofont.min.css" rel="stylesheet" type="text/css">
+   <link href="icons/icofont.min.css" rel="stylesheet" type="text/css">
    <!-- Bootstrap core CSS -->
-   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
    <!-- Custom styles for this template -->
    <link href="css/style.css" rel="stylesheet">
    <!-- Sidebar CSS -->
-   <link href="vendor/sidebar/demo.css" rel="stylesheet">
+   <link href="sidebar/demo.css" rel="stylesheet">
    <style type="text/css">
       .modal.left .modal-dialog {
          position: fixed;
@@ -124,9 +124,9 @@
          <div class="row">
 
             <?php 
-     $oCatalogo= new catalogoBD();
-     $Listafilas=$oCatalogo->obtieneTopVentas();
-     foreach($Listafilas as $filas => $value)
+     
+     
+     foreach($topVentas as  $value)
      {
          ?>
             <?php 
@@ -476,13 +476,13 @@
 </body>
 
 </html>
-<script src="vendor/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="vendor/jquery/dataTables.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="jquery/jquery.min.js"></script>
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- slick Slider JS-->
-<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
 <!-- Sidebar JS-->
-<script type="text/javascript" src="vendor/sidebar/hc-offcanvas-nav.js"></script>
+<script type="text/javascript" src="sidebar/hc-offcanvas-nav.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="js/osahan.js"></script>
 <script src="js/topuva.js"></script>
