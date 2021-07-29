@@ -19,9 +19,6 @@ class KummelControllers extends Controller
 
     public function home()
     {
-
- //dd($this->oFabricaProductos->ProductosVenta()->obtenerProductosDestacados());
-
      return view('kummel.home',['productosDestacados' =>  $this->oFabricaProductos->ProductosVenta()->obtenerProductosDestacados()],
                ['topVentas' =>  $this->oVentas->obtieneTopVentas()]);
     }
