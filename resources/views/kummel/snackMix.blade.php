@@ -31,7 +31,7 @@
 
         <!-- pick today -->
         <div class="d-flex align-items-center mb-3">
-            <h5 style="text-align: left;" class="text-kumel-titulo ">Semillas</h5>
+            <h5 style="text-align: left;" class="text-kumel-titulo ">Snack & Mix</h5>
         </div>
         <div class="pick_today">
 

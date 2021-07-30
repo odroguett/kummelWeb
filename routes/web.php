@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\KummelControllers;
+use  App\Http\Controllers\ProductosVentaControllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,14 @@ use  App\Http\Controllers\KummelControllers;
 // });
 
 Route::get('kummel', [KummelControllers::class,'home']); 
+
+Route::get('semillas', [ProductosVentaControllers::class,'cargaSemillas'])
+        ->name('semillas');
+Route::get('snackMix', [ProductosVentaControllers::class,'cargaSnackMix'])
+        ->name('snackMix');
+    
+    
+
     
 
 

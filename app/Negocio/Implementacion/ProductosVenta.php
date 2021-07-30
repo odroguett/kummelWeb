@@ -48,7 +48,7 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
     {
         try //Si es Excepcion, se utiliza este Try
         {
-            return json_encode($this->oUnidadTrabajo->ProductosVentaRepositorio()->obtienePrecioProductos($categorias),TRUE);
+            return $this->oUnidadTrabajo->ProductosVentaRepositorio()->obtienePrecioProductos($categorias);
 
         }
         catch(Exception $e)

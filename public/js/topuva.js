@@ -780,15 +780,15 @@ $(document).ready(function () {
   });
 
 
-  $("#ddlFrutosSecos").click(function (e) {
+  /* $("#ddlFrutosSecos").click(function (e) {
     e.preventDefault();
     e.stopImmediatePropagation();
 
     $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/frutosSecos.php');
 
-  });
+  }); */
 
-  $("#ddlSnackMix").click(function (e) {
+  /* $("#ddlSnackMix").click(function (e) {
 
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -849,7 +849,7 @@ $(document).ready(function () {
 
 
   });
-
+ */
   $("#btnContacto").click(function (e) {
     e.preventDefault();
     e.stopImmediatePropagation();

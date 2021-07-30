@@ -145,9 +145,9 @@
                         Tienda
                      </a>
                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item text-kumel-titulo " id="ddlSemillas">Semillas</a>
+                        <a href={{ route('semillas') }} class="dropdown-item text-kumel-titulo " id="">Semillas</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-kumel-titulo" id="ddlSnackMix">Snack y Mix</a>
+                        <a href="{{ route('snackMix') }}" class="dropdown-item text-kumel-titulo" id="">Snack y Mix</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-kumel-titulo" id="ddlFrutosSecos">Frutos Secos</a>
                         <div class="dropdown-divider"></div>
