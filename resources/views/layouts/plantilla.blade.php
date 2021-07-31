@@ -133,7 +133,7 @@
             <div class="container menu-bar d-flex align-items-center">
                <ul class="list-unstyled form-inline mb-0">
                   <li class="nav-item active">
-                     <a id="btnHome" class="nav-link font-weight-light text-kumel-titulo h5 " href="">Home <span
+                     <a href={{ route('kummel') }} id="" class="nav-link font-weight-light text-kumel-titulo h5 " href="">Home <span
                            class="sr-only border border-dark">(current)</span></a>
                   </li>
 
@@ -149,13 +149,13 @@
                         <div class="dropdown-divider"></div>
                         <a href="{{ route('snackMix') }}" class="dropdown-item text-kumel-titulo" id="">Snack y Mix</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-kumel-titulo" id="ddlFrutosSecos">Frutos Secos</a>
+                        <a href="{{ route('frutosSecos') }}" class="dropdown-item text-kumel-titulo" id="">Frutos Secos</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-kumel-titulo" id="ddlFrutasDeshidratadas">Frutas Deshidratadas</a>
+                        <a href="{{ route('frutasDeshidratadas') }}" class="dropdown-item text-kumel-titulo" id="">Frutas Deshidratadas</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-kumel-titulo" id="ddlChocolates">Chocolates</a>
+                        <a href="{{ route('chocolates') }}" class="dropdown-item text-kumel-titulo" id="">Chocolates</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-kumel-titulo" id="ddlEspecias">Especias y Condimentos</a>
+                        <a href="{{ route('especiasCondimientos') }}" class="dropdown-item text-kumel-titulo" id="">Especias y Condimentos</a>
                         <div class="dropdown-divider"></div>
                      </div>
                   </li>

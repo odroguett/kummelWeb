@@ -13,16 +13,16 @@
     <link rel="icon" type="image/png" href="img/logo.png">
     <title>Frutos Secos</title>
     <!-- Slick Slider -->
-    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
-    <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.min.css" />
     <!-- Icofont Icon-->
-    <link href="vendor/icons/icofont.min.css" rel="stylesheet" type="text/css">
+    <link href="icons/icofont.min.css" rel="stylesheet" type="text/css">
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <!-- Sidebar CSS -->
-    <link href="vendor/sidebar/demo.css" rel="stylesheet">
+    <link href="sidebar/demo.css" rel="stylesheet">
 </head>
 
 <body class="fixed-bottom-padding">
@@ -43,13 +43,13 @@
                     <div class="list-card bg-light h-100 rounded overflow-hidden position-relative shadow-sm">
                         <div class="list-card-image">
 
-                            <a onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN}}  ?>','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}} ?>','{{$value->TAMANO_UNIDAD}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->CODIGO_PRODUCTO}}')"
+                            <a onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN}}  ?>','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}} ?>','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')"
                                 href="#" class="text-dark">
 
                                 <div class=" claseTexto col-sm-12 col-md-12 col-lg-12">
 
                                     <input type="text" class="text-info codigo-precio-producto"
-                                        value="{{$value->CODIGO_PRODUCTO }}" hidden>
+                                        value="{{$value->ID_PRODUCTO }}" hidden>
                                     <input type="text" class="text-info stock-producto" value="{{$value->STOCK }}"
                                         hidden>
                                     <div class="contenedor-imagen col-sm-12 col-md-12 col-lg-12">
@@ -77,7 +77,7 @@
 
                                     <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
                                         <h6 class="textoProducto text-kumel-titulo">
-                                            {{$value->DESCRIPCION  . ' ' . $value->TAMANO_UNIDAD  .  $value->CODIGO_UNIDAD}}
+                                            {{$value->DESCRIPCION  . ' ' . $value->TAMANO  .  $value->CODIGO_UNIDAD}}
                                         </h6>
 
                                     </div>
@@ -136,12 +136,12 @@
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="list-card bg-light h-100 rounded overflow-hidden ">
                     <div class="list-card-image">
-                        <a onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN}}','{{ $value->DESCRIPCION}}','{{ $value->PRECIO_VENTA}}','{{ $value->TAMANO_UNIDAD}}','{{ $value->CODIGO_UNIDAD}}','{{ $value->STOCK}}','{{ $value->CODIGO_PRODUCTO}}')"
+                        <a onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN}}','{{ $value->DESCRIPCION}}','{{ $value->PRECIO_VENTA}}','{{ $value->TAMANO}}','{{ $value->CODIGO_UNIDAD}}','{{ $value->STOCK}}','{{ $value->CODIGO_PRODUCTO}}')"
                             href="#" class="text-dark">
 
                             <div class="col-sm-12 col-md-12 col-lg-12 claseTexto">
                                 <input type="text" class="text-info codigo-precio-producto"
-                                    value="{{ $value->CODIGO_PRODUCTO}}" hidden>
+                                    value="{{ $value->ID_PRODUCTO}}" hidden>
                                 <input type="text" class="text-info stock-producto"
                                     value="{{ $value->STOCK}}" hidden>
 
@@ -171,7 +171,7 @@
 
                                 <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
                                     <h6 class="textoProducto text-kumel-titulo">
-                                       {{$value->DESCRIPCION  . ' ' . $value->TAMANO_UNIDAD  .  $value->CODIGO_UNIDAD}}
+                                       {{$value->DESCRIPCION  . ' ' . $value->TAMANO  .  $value->CODIGO_UNIDAD}}
                                     </h6>
 
                                 </div>

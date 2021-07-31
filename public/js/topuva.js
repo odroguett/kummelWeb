@@ -688,11 +688,8 @@ debugger;
     if (sPatron != "") {
       $("#loader").show();
       $.ajax({
-        type: "POST",
-        url: '../TopuvaWeb/Vistas/buscar.php',
-        data: {
-          sPatron: sPatron
-        },
+        type: "GET",
+        url: "buscar/" +sPatron,
         success: function (data) {
           if (data) {
             $("#loader").hide();
