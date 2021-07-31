@@ -683,7 +683,7 @@ debugger;
 
   }
   this.BuscarProductos = function () {
-    
+    debugger;
     var sPatron = $('#idPatronBusqueda').val();
     if (sPatron != "") {
       $("#loader").show();

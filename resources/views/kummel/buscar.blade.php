@@ -1,21 +1,8 @@
-
-<?php 
-
-//include_once($_SERVER['DOCUMENT_ROOT'].'/TopuvaWeb/rutas.php');
-//require_once(BD . "catalogoBD.php");
-//require_once(COMPARTIDA . "parametros.php");
-//$oCatalogo= new catalogoBD();
-//$sPatron = $_POST['sPatron'];
-//Sanitizamos el patron de busqueda//
-//$sPatron = filter_var($sPatron, FILTER_SANITIZE_STRING);
-
-if(isset($sPatron))
-{
-    $Listafilas=$oCatalogo->buscador($sPatron);
-    if(isset($Listafilas))
-    {  echo    
-         "
-        <div class='modal-header bg-kumel-2'>
+@php
+    if(isset($buscarProductos))
+    {
+        echo
+        "<div class='modal-header bg-kumel-2'>
             <h6 class='modal-title text-kumel-titulo' id='exampleModalLabel'>Resultados de busqueda</h6>
             <button type='button' id='botonCerrarDespacho' class='close' data-dismiss='modal' aria-label='Close'>
             <span aria-hidden='true'>&times;</span>
@@ -36,40 +23,50 @@ if(isset($sPatron))
                  <th class='text-ligth'>stock</th>
               </tr>
             </thead><br>
-       <tbody>";
-      
-        
-        foreach($Listafilas as $filas => $value)
-        {
-        echo "<tr>
-        <td class='text-kumel-titulo'> <img id='imagen-producto' src=" .$value['IMAGEN'] . "  height='70' width='70'> </td>
-		<td class='text-kumel-titulo'>".$value['descripcion']."</td>	
-        <td class='text-kumel-titulo'> ".$value['tamano']. " " . $value['codigo_unidad']. "</td>
-        <td class='text-kumel-tituloh'> " . $value['precio_venta'] . "</td>
-        <td>".$value['codigo_precio_producto']."</td>	
-        <td>".$value['tamano']."</td>	
-        <td>".$value['codigo_unidad']."</td>	
-        <td>".$value['stock']."</td>	
-		</tr>";
-        
-        }
-        echo "</tbody>
-	</table>
-    </div>";
+       <tbody> ";
+        foreach($buscarProductos as $value)
+           {
+            echo"<tr>
+                <td class='text-kumel-titulo'> <img id='imagen-producto' src=" . $value->IMAGEN . "  height='70' width='70'> </td>
+                <td class='text-kumel-titulo'>". $value->DESCRIPCION."</td>	
+                <td class='text-kumel-titulo'> ". $value->TAMANO. " " . $value->CODIGO_UNIDAD. "</td>
+                <td class='text-kumel-tituloh'> " . $value->PRECIO_VENTA . "</td>
+                <td>".$value->ID_PRODUCTO."</td>	
+                <td>".$value->TAMANO."</td>	
+                <td>".$value->CODIGO_UNIDAD."</td>	
+                <td>".$value->STOCK."</td>	
+                </tr>";
+
+           }
+           
+            
+           
+          echo "</tbody>
+        </table>
+        </div>";
     }
-    
-}
 
-//include("../includes/footer.php");
+@endphp
 
 
 
 
 
-?>
 
+<script src="jquery/jquery.min.js"></script>
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+ <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+ <!-- slick Slider JS-->
+ <script type="text/javascript" src="slick/slick.min.js"></script>
+ <!-- Sidebar JS-->
+ <script type="text/javascript" src="sidebar/hc-offcanvas-nav.js"></script>
+ <!-- Custom scripts for all pages-->
+ <script src="js/osahan.js"></script>
+ <script src="js/topuva.js"></script>
+ <script src="js/alertify.js"></script>
+<script src="js/modalMensaje.js"></script>
 <script>
-   $(document).ready(function() {
+ $(document).ready(function() {
   $("#tablaBuscar").DataTable({
   
     "language":

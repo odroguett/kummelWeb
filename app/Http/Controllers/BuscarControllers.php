@@ -2,26 +2,24 @@
 
 
 namespace App\Http\Controllers;
+use App\Negocio\Interfaces\IBuscar;
 
-use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
-use App\Negocio\Interfaces\IVentas;
 
 class BuscarControllers extends Controller
 {
-  private $oFabricaProductos;
+  private $oBuscar;
   
 
- public function __construct(IFabricaProductos  $_oFabricaProductos)
+ public function __construct(IBuscar  $_oBuscar)
  {
-  $this->oFabricaProductos = $_oFabricaProductos;
+  $this->oBuscar = $_oBuscar;
   
  }
 
     public function buscarProductos($sPatron)
     {
-        
-
-        return view('kummel.buscar');
+      
+        return view('kummel.buscar',['buscarProductos' =>  $this->oBuscar->buscarProductos($sPatron)]);
                
     }
 }

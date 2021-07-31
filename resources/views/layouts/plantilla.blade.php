@@ -1,11 +1,3 @@
-<?php 
-//include_once($_SERVER['DOCUMENT_ROOT'].'/rutas.php');
-//require_once(BD . "catalogoBD.php");
-//require_once(COMPARTIDA . "parametros.php");
-//$parametros = Parametros::getInstance();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

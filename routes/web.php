@@ -38,6 +38,7 @@ Route::get('chocolates', [ProductosVentaControllers::class,'cargaChocolates'])
 ///Fin////
 
 ///buscar////
-Route::get('buscar/{sPatron}', [BuscarControllers::class,'buscarProductos'])->name('buscar'); 
+Route::get('buscar/{sPatron}', [BuscarControllers::class,'buscarProductos'])
+        ->name('buscar'); 
 
 
