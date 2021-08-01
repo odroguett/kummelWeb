@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BuscarControllers;
+use App\Http\Controllers\ComprarControllers;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\KummelControllers;
 use  App\Http\Controllers\ProductosVentaControllers;
@@ -9,17 +10,13 @@ use  App\Http\Controllers\ProductosVentaControllers;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
+//Paginas principales
 Route::get('kummel', [KummelControllers::class,'home'])->name('kummel');; 
+Route::get('contacto', [KummelControllers::class,'CargaVistaContacto'])->name('contacto');; 
+
 
 ///Menu principal pagina////
 
@@ -37,8 +34,10 @@ Route::get('chocolates', [ProductosVentaControllers::class,'cargaChocolates'])
         ->name('especiasCondimientos');
 ///Fin////
 
-///buscar////
+///buscador////
 Route::get('buscar/{sPatron}', [BuscarControllers::class,'buscarProductos'])
         ->name('buscar'); 
 
+///Comprar///
+Route::post('comprarProductos', [ComprarControllers::class,'comprarProductos'])->name('comprarProductos');
 

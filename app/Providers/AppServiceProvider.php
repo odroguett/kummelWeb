@@ -6,12 +6,12 @@ use App\Negocio\Fabricas\Implementacion\FabricaProductos;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Implementacion\Buscar;
 use App\Negocio\Implementacion\Categorias;
-use App\Negocio\Implementacion\ProductosVenta;
+use App\Negocio\Implementacion\Comprar;
 use App\Negocio\Implementacion\Unidades;
 use App\Negocio\Implementacion\Ventas;
 use App\Negocio\Interfaces\IBuscar;
 use App\Negocio\Interfaces\ICategorias;
-use App\Negocio\Interfaces\IProductosVenta;
+use App\Negocio\Interfaces\IComprar;
 use App\Negocio\Interfaces\IUnidades;
 use App\Negocio\Interfaces\IVentas;
 use Illuminate\Support\ServiceProvider;
@@ -37,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IFabricaProductos::class, FabricaProductos ::class);
         $this->app->bind(IVentas::class, Ventas ::class);
         $this->app->bind(IBuscar::class, Buscar ::class);
+        $this->app->bind(IComprar::class, Comprar ::class);
     }
 
     /**

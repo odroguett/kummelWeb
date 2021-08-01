@@ -18,6 +18,15 @@ public function BuscarProductos($sPatron)
            
 
 }
+public function revisaStock($sCodigoProducto)
+{
+    return  DB::table('PRODUCTOS_VENTA')
+    ->Where('PRODUCTOS_VENTA.ID_PRODUCTO','=',$sCodigoProducto )
+    ->value('STOCK');
+           
+
+}
+
 }
 
 ?>

@@ -187,13 +187,14 @@ debugger;
 
 
       });
-      console.log(JSON.stringify(arrayCarrito));
-
+      
       $.ajax({
-        type: "POST",
-        url: '../TopuvaWeb/Vistas/comprar.php',
+       // dataType:'json',
+       // contentType: 'json',
+        method: "POST",
+        url: "comprarProductos",
         data: {
-          arrayCarrito: JSON.stringify(arrayCarrito),
+          arrayCarrito: arrayCarrito,
           direccion: direccion,
           comuna: comuna,
           ciudad: ciudad,
@@ -201,8 +202,8 @@ debugger;
           departamento: departamento,
           idDespacho: idDespacho
         },
-        //contentType: "application/json; charset=utf-8",
-        //dataType: "json",
+        
+      
         success: function (data) {
           if (data) {
 
@@ -775,87 +776,6 @@ $(document).ready(function () {
 
     oCarrito.CargaCarrito();
   });
-
-
-  /* $("#ddlFrutosSecos").click(function (e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/frutosSecos.php');
-
-  }); */
-
-  /* $("#ddlSnackMix").click(function (e) {
-
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/snackMix.php');
-
-  });
-
-  $("#ddlFrutasDeshidratadas").click(function (e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/frutasDeshidratadas.php');
-
-  });
-
-  $("#ddlChocolates").click(function (e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/chocolates.php');
-
-  });
-  $("#ddlEspecias").click(function (e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/especias.php');
-
-  });
-
-
-  $("#ddlJugos").click(function (e) {
-
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/jugos.php');
-
-  });
-  $("#ddlHarinas").click(function (e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/harinas.php');
-
-  });
-  $("#ddlNovedades").click(function (e) {
-
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/novedades.php');
-
-  });
-
-  $("#ddlSemillas").click(function (e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/semillas.php');
-
-
-  });
- */
-  $("#btnContacto").click(function (e) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-
-    $("#ContenedorPaginas").load('../TopuvaWeb/Vistas/contacto.php');
-
-  });
-
-  
   
 
   $("#verMas").click(function (e) {

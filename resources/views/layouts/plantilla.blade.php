@@ -153,7 +153,7 @@
                   </li>
 
                   </li>
-                  <a href="/TopuvaWeb/Vistas/contacto.php" class=" btn  btn-sm">
+                  <a href="{{ route('contacto') }}" class=" btn  btn-sm">
                      <p class=" text-kumel-titulo font-weight-light h5 ">Contacto</p>
                   </a>
                </ul>

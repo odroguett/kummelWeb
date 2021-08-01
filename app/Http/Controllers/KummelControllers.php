@@ -22,4 +22,9 @@ class KummelControllers extends Controller
      return view('kummel.home',['productosDestacados' =>  $this->oFabricaProductos->ProductosVenta()->obtenerProductosDestacados()],
                ['topVentas' =>  $this->oVentas->obtieneTopVentas()]);
     }
+
+    public function CargaVistaContacto()
+    {
+     return view('kummel.contacto');
+    }
 }
