@@ -4,7 +4,7 @@ namespace App\Repositorio;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\Eloquent\Model;   
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
 class Repositorio extends Model  implements IRepositorio
 {
@@ -44,11 +44,7 @@ class Repositorio extends Model  implements IRepositorio
 
     public function buscar($id)
     {
-        if (null == $post = $this->model->find($id)) {
-            throw new ModelNotFoundException("Post not found");
-        }
-
-        return $post;
+       return $this->model->find($id);
     }
 
    

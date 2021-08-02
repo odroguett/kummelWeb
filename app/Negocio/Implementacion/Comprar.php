@@ -3,7 +3,7 @@ namespace App\Negocio\Implementacion;
 use App\Negocio\Interfaces\IComprar;
 use App\OTD\ComprarOtd;
 use App\Repositorio\IUnidadTrabajo;
-
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class Comprar implements IComprar
@@ -17,7 +17,7 @@ class Comprar implements IComprar
   
     public function agregarDatosCompra(Request $request)
     {
-
+      
     
       $arrayCarrito= collect($request->input('arrayCarrito'));
       
@@ -41,6 +41,7 @@ class Comprar implements IComprar
         $datosCompraOtd->region=$request->input('region');  
         $datosCompraOtd->departamento=$request->input('departamento');
         $datosCompraOtd->idDespacho=$request->input('idDespacho');
+       
         return  $datosCompraOtd;
         
        

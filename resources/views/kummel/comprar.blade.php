@@ -1,15 +1,16 @@
-@extends('layouts.plantilla')
 
-@section('content')
 
 @php
 $arrayCarrito = $datosCompraOtd->arrayCarrito;
+$arrayStock = $datosCompraOtd->arrayStock;
 $totalProductos=0;
 $totalPago=0;
 $stock=0;    
 $idDespacho = $datosCompraOtd->idDespacho;
 
-foreach ($arrayCarrito as $key => $value) {
+
+
+foreach ($arrayCarrito as  $value) {
     if(isset($value['Producto']))
     {
         $totalProductos = $totalProductos + (int)$value['Cantidad'];
@@ -63,34 +64,33 @@ foreach ($arrayCarrito as $key => $value) {
                   <span id="totalProductos">{{$totalProductos }} </span>
 
                </div>
-
-
-
             </div>
+            @php
+                
+                
+            @endphp
+        
             @foreach($arrayCarrito as $value)
-                            
-                @if(isset($value->CodigoProducto))
-                 {{$stock=$oCatalogo->RevisaStock( trim($value->CodigoProducto))}} 
-                 @endforeach
-
-
-                @if(isset($value->Producto))
+           
+           
+            
+                  @if(isset($value['CodigoProducto']))
             
                         <div class="comprar">
                         <input id="codigoProducto" type="text" class="text-info codigo-producto"
-                        value="{{ trim($value->CodigoProducto)}}  " hidden>
+                        value="{{ trim($value['CodigoProducto'])}}"   hidden>
                          <div class="form-inline precio_total">
 
-                        <div class="col-md-6">
+                         <div class="col-md-6">
                             <div class="d-flex  align-items-center p-3">
                                 <a href="#"><img src="img/cart/g1.png" class="img-fluid"></a>
                                     <a href="#" class="ml-3 text-kumel-titulo text-decoration-none w-100 ">
                                 <h6 class=" text-kumel-titulo">
-                                     @if(isset($value->Producto)) {{ $value->Producto}} @endif
+                                     @if(isset($value['Producto'])) {{ $value['Producto']}} @endif
                                 </h6>
                                 <div class="d-flex align-items-center   ">
                                     <p class=" m-0  text-kumel-bold mostrar-precio ">
-                                    @if(isset($value->Precio)) {{ '$ ' .  number_format($value->Precio*  $value->Cantidad,0,',','.') }}  
+                                    @if(isset($value['Precio'])) {{ '$ ' .  number_format($value['Precio']*  $value['Cantidad'],0,',','.') }} @endif 
                                     </p>
 
                                 </div>
@@ -99,15 +99,15 @@ foreach ($arrayCarrito as $key => $value) {
 
                             </div>
                         </div>
-                        <div class="col-md-1 clase-cantidad">
-                                <input type="text" class="precio-total" value=" {{ $value->Precio }} " hidden>
-                                <input id="stockProducto" type="text" class="text-info stock-producto"  value="{{  trim($stock)}}" hidden>
+                          <div class="col-md-1 clase-cantidad">
+                                <input type="text" class="precio-total" value= {{ $value['Precio'] }}  hidden>
+                                <input id="stockProducto" type="text" class="text-info stock-producto"  value={{  trim($arrayStock->get('stock'))}} hidden>
                                 <span class="ml-auto" href="#">
                                 <form id='myform' class="cart-items-number d-flex" method='POST' action='#'>
                                 <input type='button' value='-' class='qtyminus qtyBajar btn btn-success btn-sm '
                                 field='quantity' />
                                 <input type='text' name='quantity '
-                                value= @if(isset($value->Cantidad)) {{$value->Cantidad}}
+                                value= @if(isset($value['Cantidad'])) {{$value['Cantidad']}}@endif
                                 class='qty form-control cantidad ' />
                                 <input type='button' value='+' class='qtyplus qtySubir btn btn-success btn-sm '
                                 field='quantity' />
@@ -115,20 +115,20 @@ foreach ($arrayCarrito as $key => $value) {
 
                                 </span>
                             </div>
-                        </div>
-                        </div>
+                        </div> 
+                        </div> 
 
                 @endif
             @endforeach
 
-            <div class="rounded shadow bg-info d-flex align-items-center p-3 ">
+           <div class="rounded shadow bg-info d-flex align-items-center p-3 ">
 
                <div class="more">
 
                   <div class="form-inline">
                      <h6 class="text-left text-kumel-titulo "> SUB TOTAL CLP: </h6>
                      <h6 id="subTotal" class="text-left text-kumel-titulo">
-                        {{ '&nbsp' .  number_format($totalPago,0,',','.')  }}
+                        {{ ' ' .  number_format($totalPago,0,',','.')  }}
                      </h6>
                   </div>
                   <h7 class="text-left text-kumel-titulo">Costo por despacho se agrega al
@@ -203,7 +203,7 @@ foreach ($arrayCarrito as $key => $value) {
                               <div class="row">
                                  <div class="col-md-10">
                                     <label class=" margin-left text-kumel-titulo">Direccion: </label>
-                                    <label id="comDireccion" class=" text-kumel-titulo">{{$direccion}}
+                                    <label id="comDireccion" class=" text-kumel-titulo">  {{$datosCompraOtd->direccion}} 
                                     </label>
                                  </div>
 
@@ -213,12 +213,12 @@ foreach ($arrayCarrito as $key => $value) {
 
                                  <div class="col-md-6">
                                     <label type="text" class=" text-kumel-titulo">Comuna: </label>
-                                    <label id="comComuna" type="text" class=" text-kumel-titulo">{{ $comuna}}  
+                                    <label id="comComuna" type="text" class=" text-kumel-titulo">{{ $datosCompraOtd->comuna}}  
                                     </label>
                                  </div>
                                  <div class="col-md-6">
                                     <label type="text" class=" text-kumel-titulo">Ciudad: </label>
-                                    <label id="comCiudad" type="text" class=" text-kumel-titulo">{{ $ciudad }} 
+                                    <label id="comCiudad" type="text" class=" text-kumel-titulo">{{ $datosCompraOtd->ciudad }} 
                                     </label>
                                  </div>
 
@@ -227,7 +227,7 @@ foreach ($arrayCarrito as $key => $value) {
 
                                  <div class="col-md-6">
                                     <label type="text" class=" text-kumel-titulo">Region: </label>
-                                    <label id="comRegion" type="text" class=" text-kumel-titulo">{{ $region }} 
+                                    <label id="comRegion" type="text" class=" text-kumel-titulo">{{$datosCompraOtd->region }} 
                                     </label>
                                  </div>
 
@@ -235,7 +235,7 @@ foreach ($arrayCarrito as $key => $value) {
                                     <label type="text" class="text-kumel-titulo">Depto: </label>
 
                                     <label id="comDepartamento" type="text"
-                                       class="text-kumel-titulo">{{  $departamento }} 
+                                       class="text-kumel-titulo">{{  $datosCompraOtd->departamento }} 
                                     </label>
                                  </div>
                               </div>
@@ -273,7 +273,7 @@ foreach ($arrayCarrito as $key => $value) {
                      data-toggle="collapse" data-target="#collapsethree" aria-expanded="true"
                      aria-controls="collapsethree">Continuar Pago</a>
                </div>
-            </div>
+            </div> 
 
 
 
@@ -303,11 +303,19 @@ foreach ($arrayCarrito as $key => $value) {
 
 
 
-
+ 
 </body>
 
 </html>
+<script src="jquery/jquery.min.js"></script>
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- slick Slider JS-->
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<!-- Sidebar JS-->
+<script type="text/javascript" src="sidebar/hc-offcanvas-nav.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="js/osahan.js"></script>
+<script src="js/topuva.js"></script>
 
 
-
-@endsection

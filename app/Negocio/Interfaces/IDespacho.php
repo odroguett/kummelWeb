@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 interface IDespacho
 {
 public function InsertarDespacho(Request $oDespacho);
+public function ObtieneDatosDespacho(Request $request);
 
 }
 

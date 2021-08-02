@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BuscarControllers;
 use App\Http\Controllers\ComprarControllers;
+use App\Http\Controllers\DespachoControllers;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\KummelControllers;
 use  App\Http\Controllers\ProductosVentaControllers;
@@ -41,3 +42,5 @@ Route::get('buscar/{sPatron}', [BuscarControllers::class,'buscarProductos'])
 ///Comprar///
 Route::post('comprarProductos', [ComprarControllers::class,'comprarProductos'])->name('comprarProductos');
 
+//Despacho//
+Route::get('obtieneDatosDespacho/{idDespacho}', [DespachoControllers::class,'obtieneDatosDespacho'])->name('obtieneDespacho');

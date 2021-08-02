@@ -403,14 +403,15 @@ debugger;
 
 
   this.IngresaDireccion = function () {
+    debugger;
     var idDespacho = $('#comIdDespacho').val();
-
+    if(idDespacho.trim() =='' ) idDespacho=0;
     $.ajax({
-      type: "POST",
-      url: '../TopuvaWeb/Vistas/_incorporaDireccion.php',
-      data: {
+      type: "GET",
+      url: 'obtieneDatosDespacho/' + idDespacho ,
+     /*  data: {
         idDespacho: idDespacho
-      },
+      }, */
       //dataType: "json",
       success: function (data) {
         if (data) {

@@ -3,7 +3,7 @@ namespace App\Repositorio;
 
 interface IDespachosRepositorio
 {
-public function obtieneDatosDespacho($idDespacho);
+public function ObtieneDatosDespacho($idDespacho);
  
 }
 

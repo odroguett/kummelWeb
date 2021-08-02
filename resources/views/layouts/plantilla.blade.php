@@ -171,10 +171,11 @@
                <!-- home page -->
                <div class="osahan-home-page">
                   <!-- body -->
-                  <div class="osahan-body" id="ContenedorPaginas">
+                   <div class="osahan-body" >
                      <!-- categories -->
-                     @yield('content')
-                  </div>
+                     <div id="ContenedorPaginas">  @yield('content') </div>
+                    
+                  </div> 
 
                </div>
             </div>
