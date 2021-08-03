@@ -44,3 +44,5 @@ Route::post('comprarProductos', [ComprarControllers::class,'comprarProductos'])-
 
 //Despacho//
 Route::get('obtieneDatosDespacho/{idDespacho}', [DespachoControllers::class,'obtieneDatosDespacho'])->name('obtieneDespacho');
+
+Route::post('agregaMedioEntrega', [DespachoControllers::class,'agregaMedioEntrega'])->name('agregaMedioEntrega');

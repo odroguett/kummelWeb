@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="icon" type="image/png" href="img/logo.png">
     <title>Agregar Dirección</title>
     <!-- Slick Slider -->
@@ -56,15 +57,17 @@
             <div class="title d-flex align-items-center py-3">
                 <form action="" method="" class="">
 
+                    @csrf
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                     <div class="row form-group">
                         <div class="col-md-6">
-                            <input placeholder="Nombre" id="nombre" type="text" class="form-control input-personalizado"
+                            <input placeholder="Nombre" name="nombre" id="nombre" type="text" class="form-control input-personalizado"
                                 required value="{{$oDatosDespacho->sNombre}}">  </span>
 
                         </div>
                         <div class="col-md-6">
-                            <input placeholder="Apellidos" id="apellido" type="text"
+                            <input placeholder="Apellidos" name="apellido" id="apellido" type="text"
                                 class="form-control input-personalizado" required value="{{$oDatosDespacho->sApellido}}">
                         </div>
 
@@ -72,24 +75,24 @@
 
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <input placeholder="Dirección" id="direccion" type="text"
+                            <input placeholder="Dirección" name="direccion" id="direccion" type="text"
                                 class="form-control input-personalizado" required value="{{$oDatosDespacho->sDireccion}}">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <input placeholder="Departamento" id="departamento" type="text"
+                            <input placeholder="Departamento" name="departamento" id="departamento" type="text"
                                 class="form-control input-personalizado" value="{{$oDatosDespacho->sDepartamento}}">
                         </div>
                     </div>
                     <div class="row form-group">
 
                         <div class="col-md-6">
-                            <input placeholder="Ciudad" id="ciudad" type="text" class="form-control input-personalizado"
+                            <input placeholder="Ciudad" name="ciudad" id="ciudad" type="text" class="form-control input-personalizado"
                                 required value="{{$oDatosDespacho->sCiudad}}">
                         </div>
                         <div class="col-md-6">
-                            <input placeholder="Comuna" id="comuna" type="text" class="form-control input-personalizado"
+                            <input placeholder="Comuna" name="comuna" id="comuna" type="text" class="form-control input-personalizado"
                                 required value="{{$oDatosDespacho->sComuna}}">
                         </div>
                     </div>
@@ -97,34 +100,35 @@
 
                     <div class="row form-group">
                         <div class="col-md-12 ">
-                            <input placeholder="Region" id="region" type="text" class="form-control input-personalizado"
+                            <input placeholder="Region" name="region" id="region" type="text" class="form-control input-personalizado"
                                 value="{{$oDatosDespacho->sRegion}}">
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <input placeholder="Teléfono" id="telefono" type="text"
+                            <input placeholder="Teléfono" name="telefono" id="telefono" type="text"
                                 class="form-control input-personalizado" required value="{{$oDatosDespacho->sTelefono}}">
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <input placeholder="Email" id="email" type="email" class="form-control input-personalizado"
+                            <input placeholder="Email"  name="email" id="email" type="email" class="form-control input-personalizado"
                                 required value="{{$oDatosDespacho->sEmail}}">
                         </div>
 
                     </div>
-
+                    <div class="row form-group">
+                        <div class="col-md-11">
+                          <button type="submit" id="btnIngresar" class="btn btn-kumel-1 btn-block">Ingresar</button> 
+                             {{-- <button type="submit" id="" class="btn btn-kumel-1 btn-block">Ingresar</button>  --}}
+                        </div>
+                    </div>
                 </form>
 
             </div>
-            <div class="row form-group">
-                <div class="col-md-11">
-                    <button type="button" id="btnIngresar" class="btn btn-kumel-1 btn-block">Ingresar</button>
-                </div>
-            </div>
+           
         </section>
     </body>
 </div>
@@ -141,3 +145,10 @@
 <!-- Custom scripts for all pages-->
 <script src="js/osahan.js"></script>
 <script src="js/topuva.js"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    </script>

@@ -16,6 +16,10 @@ interface IRepositorio
 
     public function Insertar(array $oInsertar);
 
+    public function cantidad();
+
+    public function InsertarIndividual($oInsertar);
+
         
 
 }

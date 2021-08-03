@@ -1,13 +1,15 @@
 <?php 
 namespace App\Negocio\Implementacion;
 
+use App\Models\Despachos;
 use App\Negocio\Interfaces\ICategorias;
 use App\Negocio\Interfaces\IDespacho;
 use App\Negocio\Interfaces\IUnidades;
 use App\OTD\DatosDespachoOtd;
+use App\OTD\RespuestaOtd;
 use App\Repositorio\IUnidadTrabajo;
 use Illuminate\Http\Request;
-use PhpParser\Node\Stmt\Foreach_;
+
 
 class Despacho implements IDespacho
 {
@@ -21,11 +23,75 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
     $this->oUnidadTrabajo=$_oUnidadTrabajo;
     $this->oUnidades=$_oUnidades;
 }
-public function InsertarDespacho(Request $oDespacho)
+public function InsertaActualizaDespacho(Request $request)
 {
 
-    $this->oUnidadTrabajo->DespachosRepositorio()->insertar($oDespacho);
-    
+
+    /*  if($request->input('modificar') =='M')
+    {
+
+        return $this->ActualizaDespacho($request);
+    }
+    else */
+    //{   
+        return $this->InsertarDespacho($request);
+
+    //}
+}
+
+private function InsertarDespacho(Request $request)
+{
+$oDespacho = new Despachos;
+$idDespacho =$request->input('idDespacho');
+$oRespuesta = new RespuestaOtd();
+$oRespuesta->sMensaje ="Datos para despacho ingresados correctamente";
+$idDespacho= $this->oUnidadTrabajo->DespachosRepositorio()->cantidad();
+if($idDespacho==0)
+{
+    $idDespacho=1;
+
+}
+else
+{
+    $idDespacho= $idDespacho + 1;
+}
+
+
+
+$oDespacho->ID_DESPACHO = $idDespacho;
+$oDespacho->NOMBRE= $request->input('nombre');
+$oDespacho->APELLIDOS=$request->input('apellido');
+$oDespacho->DIRECCION=$request->input('direccion');
+$oDespacho->DEPARTAMENTO=$request->input('departamento');
+$oDespacho->COMUNA=$request->input('comuna');
+$oDespacho->CIUDAD=$request->input('ciudad');
+$oDespacho->REGION=$request->input('region');
+$oDespacho->COMENTARIOS="";
+$oDespacho->TELEFONO=$request->input('telefono');
+$oDespacho->EMAIL=$request->input('email');
+$oDespacho->ID_CLIENTE='1';
+$oDespacho->ID_TIPO_DESPACHO=1;
+
+$this->oUnidadTrabajo->DespachosRepositorio()->InsertarIndividual($oDespacho);
+$oRespuesta ->bEsValido =true;
+$oRespuesta ->idDespacho = $idDespacho;
+$oRespuesta ->sDireccion =$request->direccion;
+$oRespuesta ->sDepartamento =$request->departamento;
+$oRespuesta ->sComuna =$request->comuna;
+$oRespuesta ->sCiudad =$request->ciudad;
+$oRespuesta ->sRegion =$request->region;
+$oRespuesta ->sTelefono =$request->telefono;
+$oRespuesta ->sEmail =$request->email;
+
+
+return $oRespuesta;
+
+}
+
+private function ActualizaDespacho()
+{
+
+
 
 }
 

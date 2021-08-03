@@ -31,6 +31,11 @@ class Repositorio extends Model  implements IRepositorio
         return $this->model->save($oInsertar);
     }
 
+    public function InsertarIndividual($oInsertar)
+    {
+        return $oInsertar->save();
+    }
+
     public function actualizar(array $data, $id)
     {
         return $this->model->where('id', $id)
@@ -45,6 +50,10 @@ class Repositorio extends Model  implements IRepositorio
     public function buscar($id)
     {
        return $this->model->find($id);
+    }
+    public function cantidad()
+    {
+       return $this->model->count();
     }
 
    

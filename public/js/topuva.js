@@ -72,9 +72,10 @@ debugger;
 
   this.IncorporaDespacho = function () {
   
+    debugger;
     let modificar = '';
     debugger;
-    if ($('#comIdDespacho').val() != "") {
+    if ($('#comIdDespacho').val().trim() != "") {
 
       modificar = 'M';
     } else {
@@ -95,7 +96,7 @@ debugger;
     let tipoDespacho = $('#tipoDespacho').val();
     $.ajax({
       type: "POST",
-      url: '../TopuvaWeb/Negocio/despacho.php',
+      url: '/agregaMedioEntrega/',
       dataType: 'json',
       data: {
         modificar: modificar,
@@ -112,28 +113,24 @@ debugger;
       },
       success: function (data) {
         if (data.bEsValido) {
+          oModal.NotificacionAlertify(data.sMensaje,"success");
 
-
-          
-
-          oModal.NotificacionAlertify(data.respuesta,"success");
-
-          $('#comDireccion').text('Dirección: ' + data.direccion);
+          $('#comDireccion').text('Dirección: ' + data.sDireccion);
           if (data.departamento != null) {
-            $('#comDepartamento').text('Depto: ' + data.departamento);
+            $('#comDepartamento').text('Depto: ' + data.sDepartamento);
           }
-          $('#comComuna').text(data.comuna);
-          $('#comCiudad').text(data.ciudad);
-          $('#comRegion').text(data.region);
+          $('#comComuna').text(data.sComuna);
+          $('#comCiudad').text(data.sCiudad);
+          $('#comRegion').text(data.sRegion);
           $('#comIdDespacho').val(data.idDespacho);
           $('#botonCerrarDespacho').click();
 
 
-          localStorage.setItem('direccion', data.direccion);
-          localStorage.setItem('departamento', data.departamento);
-          localStorage.setItem('comuna', data.comuna);
-          localStorage.setItem('ciudad', data.ciudad);
-          localStorage.setItem('region', data.region);
+          localStorage.setItem('direccion', data.sDireccion);
+          localStorage.setItem('departamento', data.sDepartamento);
+          localStorage.setItem('comuna', data.sComuna);
+          localStorage.setItem('ciudad', data.sCiudad);
+          localStorage.setItem('region', data.sRegion);
           localStorage.setItem('idDespacho', data.idDespacho);
 
         } else {
@@ -187,13 +184,17 @@ debugger;
 
 
       });
+
+     
       
       $.ajax({
        // dataType:'json',
        // contentType: 'json',
+       
         method: "POST",
         url: "comprarProductos",
         data: {
+          
           arrayCarrito: arrayCarrito,
           direccion: direccion,
           comuna: comuna,
