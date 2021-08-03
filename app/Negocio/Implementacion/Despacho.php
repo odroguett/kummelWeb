@@ -23,42 +23,38 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
     $this->oUnidadTrabajo=$_oUnidadTrabajo;
     $this->oUnidades=$_oUnidades;
 }
+
 public function InsertaActualizaDespacho(Request $request)
 {
-
-
-    /*  if($request->input('modificar') =='M')
-    {
-
-        return $this->ActualizaDespacho($request);
-    }
-    else */
-    //{   
-        return $this->InsertarDespacho($request);
-
-    //}
-}
-
-private function InsertarDespacho(Request $request)
-{
 $oDespacho = new Despachos;
-$idDespacho =$request->input('idDespacho');
+
+$modificar = $request->input('modificar');
 $oRespuesta = new RespuestaOtd();
 $oRespuesta->sMensaje ="Datos para despacho ingresados correctamente";
-$idDespacho= $this->oUnidadTrabajo->DespachosRepositorio()->cantidad();
-if($idDespacho==0)
-{
-    $idDespacho=1;
 
+if($modificar=="M")
+{
+    $idDespacho =$request->input('idDespacho');
+    $oDespacho =$this->oUnidadTrabajo->DespachosRepositorio()->buscar($idDespacho);
+    
 }
 else
 {
-    $idDespacho= $idDespacho + 1;
+    $idDespacho= $this->oUnidadTrabajo->DespachosRepositorio()->cantidad();
+    if($idDespacho==0)
+    {
+        $idDespacho=1;
+    
+    }
+    else
+    {
+        $idDespacho= $idDespacho + 1;
+    }
+    $oDespacho->ID_CLIENTE='1';
+    $oDespacho->ID_TIPO_DESPACHO=1;
 }
 
-
-
-$oDespacho->ID_DESPACHO = $idDespacho;
+$oDespacho->ID_DESPACHO = trim($idDespacho);
 $oDespacho->NOMBRE= $request->input('nombre');
 $oDespacho->APELLIDOS=$request->input('apellido');
 $oDespacho->DIRECCION=$request->input('direccion');
@@ -69,8 +65,7 @@ $oDespacho->REGION=$request->input('region');
 $oDespacho->COMENTARIOS="";
 $oDespacho->TELEFONO=$request->input('telefono');
 $oDespacho->EMAIL=$request->input('email');
-$oDespacho->ID_CLIENTE='1';
-$oDespacho->ID_TIPO_DESPACHO=1;
+
 
 $this->oUnidadTrabajo->DespachosRepositorio()->InsertarIndividual($oDespacho);
 $oRespuesta ->bEsValido =true;
@@ -88,32 +83,25 @@ return $oRespuesta;
 
 }
 
-private function ActualizaDespacho()
-{
 
-
-
-}
 
 public function ObtieneDatosDespacho($idDespacho)
 {
-   // dd('Hola');
+   
     $oDatosDespacho = new DatosDespachoOtd;
-    $oRetorno = $this->oUnidadTrabajo->DespachosRepositorio()->ObtieneDatosDespacho($idDespacho);
+    $oRetorno = $this->oUnidadTrabajo->DespachosRepositorio()->ObtieneDatosDespacho(trim($idDespacho));
     if(isset($oRetorno))
     {
-foreach($oRetorno as $retorno)
-{
-    $oDatosDespacho->sNombre =  $retorno->NOMBRE;
-    $oDatosDespacho->sApellido =  $retorno->APELLIDOS;
-    $oDatosDespacho->sDireccion =  $retorno->DIRECCION;
-    $oDatosDespacho->sComuna =  $retorno->COMUNA;
-    $oDatosDespacho->sCiudad =  $retorno->CIUDAD;
-    $oDatosDespacho->sRegion = $retorno->REGION;
-    $oDatosDespacho->sTelefono = $retorno->TELEFONO;
-    $oDatosDespacho->sEmail = $retorno->EMAIL;
-}
-
+    $oDatosDespacho->sNombre =  $oRetorno->NOMBRE;
+    $oDatosDespacho->sApellido =  $oRetorno->APELLIDOS;
+    $oDatosDespacho->sDireccion =  $oRetorno->DIRECCION;
+    $oDatosDespacho->sComuna =  $oRetorno->COMUNA;
+    $oDatosDespacho->sCiudad = $oRetorno->CIUDAD;
+    $oDatosDespacho->sRegion = $oRetorno->REGION;
+    $oDatosDespacho->sTelefono = $oRetorno->TELEFONO;
+    $oDatosDespacho->sEmail = $oRetorno->EMAIL;
+    $oDatosDespacho->sDepartamento = $oRetorno->DEPARTAMENTO;
+ 
     }
     else
     {
@@ -125,13 +113,23 @@ foreach($oRetorno as $retorno)
     $oDatosDespacho->sRegion = "";
     $oDatosDespacho->sTelefono = "";
     $oDatosDespacho->sEmail = "";
-    return $oDatosDespacho;
+    $oDatosDespacho->sDepartamento = "";
+  
     }
-   
+    return $oDatosDespacho;
 
 }
 
+public function EliminarDatosDespacho(Request $request)
+{
+    $idDespacho =$request->input('idDespacho');
+    $oRespuesta = new RespuestaOtd();
+    $oRespuesta->sMensaje ="Datos Eliminados correctamente";
+    $oRespuesta->bEsValido=true;    
+    $this->oUnidadTrabajo->DespachosRepositorio()->eliminar($idDespacho);
+    return $oRespuesta;
 
+}
 
 }
 

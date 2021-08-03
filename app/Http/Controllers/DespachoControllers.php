@@ -20,7 +20,7 @@ class DespachoControllers extends Controller
   
  }
 
- public function agregaMedioEntrega(Request $request)
+ public function agregaDatosDespacho(Request $request)
  {
 
 
@@ -30,7 +30,7 @@ class DespachoControllers extends Controller
 
  }
 
-    public function obtieneDatosDespacho($idDespacho)
+public function obtieneDatosDespacho($idDespacho)
     {
         
      $oDatosDespacho = new DatosDespachoOtd();
@@ -38,4 +38,14 @@ class DespachoControllers extends Controller
       return view('kummel.incorporaDireccion',['oDatosDespacho' => $oDatosDespacho] );
                
     }
+
+public function eliminarDatosDespacho(Request $request)
+{
+
+  $oRespuesta = new OTDRespuestaOtd();
+  $oRespuesta = $this->oDespacho->EliminarDatosDespacho($request);
+  return response()->json($oRespuesta);
+
+}
+
 }

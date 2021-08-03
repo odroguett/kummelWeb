@@ -96,7 +96,7 @@ debugger;
     let tipoDespacho = $('#tipoDespacho').val();
     $.ajax({
       type: "POST",
-      url: '/agregaMedioEntrega/',
+      url: '/agregaDatosDespacho/',
       dataType: 'json',
       data: {
         modificar: modificar,
@@ -552,7 +552,7 @@ debugger;
       if (idDespacho !== 0) {
         $.ajax({
           type: "POST",
-          url: '../TopuvaWeb/Negocio/eliminarDatosDespacho.php',
+          url: '/eliminarDatosDespacho/',
           dataType: 'json',
           data: {
             idDespacho: idDespacho
@@ -573,12 +573,12 @@ debugger;
               localStorage.removeItem('region');
               localStorage.removeItem('idDespacho');
 
-              oModal.NotificacionAlertify(data.respuesta,"success");
+              oModal.NotificacionAlertify(data.sMensaje,"success");
               
               $("#loader").hide();
             } else {
               $("#loader").hide();
-              oModal.NotificacionAlertify(data.respuesta,"error");
+              oModal.NotificacionAlertify(data.sMensaje,"error");
 
               
             }
