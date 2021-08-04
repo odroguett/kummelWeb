@@ -19,6 +19,7 @@ interface IRepositorio
     public function cantidad();
 
     public function InsertarIndividual($oInsertar);
+    public function registroUnico();
 
         
 

@@ -13,7 +13,7 @@ class ParametrosRepositorio extends Repositorio implements IParametrosRepositori
     public function obtieneParametros()
     {
 
-       return $this->todos();
+       return $this->registroUnico();
     }
 }
 

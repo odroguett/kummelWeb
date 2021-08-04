@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Negocio\Interfaces\IComprar;
+use App\OTD\DatosPagoOtd;
+use App\OTD\RespuestaOtd;
 use Illuminate\Http\Request;
 
 class ComprarControllers extends Controller
@@ -21,4 +23,6 @@ class ComprarControllers extends Controller
       return view('kummel.comprar',['datosCompraOtd' =>  $datosCompraOtd]);
                
     }
+
+    
 }

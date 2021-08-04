@@ -17,9 +17,10 @@ class DespachosRepositorio extends Repositorio implements IDespachosRepositorio
     return $this->buscar($idDespacho);
 
     }
-
-  
    
 }
+  
+   
+
 
 ?>

@@ -55,7 +55,10 @@ class Repositorio extends Model  implements IRepositorio
     {
        return $this->model->count();
     }
-
+    public function registroUnico()
+    {
+        return $this->model->first();
+    }
    
 }
 

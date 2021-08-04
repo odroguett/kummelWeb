@@ -460,7 +460,7 @@ debugger;
       });
       $.ajax({
         type: "POST",
-        url: '../TopuvaWeb/Vistas/_datosPago.php',
+        url: 'pagoProductos',
         data: {
           arrayPago: JSON.stringify(arrayPago),
           idDespacho: idDespacho,
@@ -613,7 +613,7 @@ debugger;
 
     $.ajax({
       type: "POST",
-      url: '../TopuvaWeb/Negocio/pago.php',
+      url: '/finalizarPago/',
       data: {
         arrayPago: arrayPago,
         idDespacho: idDespacho,
@@ -640,7 +640,8 @@ debugger;
             $("#ContenedorPaginas").load('/TopuvaWeb/Vistas/home.php');
           } else {
             $('#modalDireccion').modal('hide');
-            oModal.MensajePersonalizadoCallBack('Información', data.respuesta, Constante_informacion, oCarrito.CargaCarrito);
+            oModal.NotificacionAlertify(data.sMensaje,"error");
+            //oModal.MensajePersonalizadoCallBack('Información', data.respuesta, Constante_informacion, oCarrito.CargaCarrito);
             $("#loader").hide();
 
           }

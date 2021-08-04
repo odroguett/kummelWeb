@@ -6,6 +6,8 @@ use App\Http\Controllers\DespachoControllers;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\KummelControllers;
 use  App\Http\Controllers\ProductosVentaControllers;
+use App\Http\Controllers\VentasControllers;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +17,8 @@ use  App\Http\Controllers\ProductosVentaControllers;
 */
 
 //Paginas principales
-Route::get('kummel', [KummelControllers::class,'home'])->name('kummel');; 
-Route::get('contacto', [KummelControllers::class,'CargaVistaContacto'])->name('contacto');; 
+Route::get('kummel', [KummelControllers::class,'home'])->name('kummel');
+Route::get('contacto', [KummelControllers::class,'CargaVistaContacto'])->name('contacto');
 
 
 ///Menu principal pagina////
@@ -39,8 +41,12 @@ Route::get('chocolates', [ProductosVentaControllers::class,'cargaChocolates'])
 Route::get('buscar/{sPatron}', [BuscarControllers::class,'buscarProductos'])
         ->name('buscar'); 
 
-///Comprar///
+///Comprar
 Route::post('comprarProductos', [ComprarControllers::class,'comprarProductos'])->name('comprarProductos');
+
+//Venta
+Route::post('pagoProductos', [VentasControllers::class,'pagoProductos'])->name('pagoProductos');
+Route::post('finalizarPago', [VentasControllers::class,'finalizarPago'])->name('finalizarPago');
 
 //Despacho//
 Route::get('obtieneDatosDespacho/{idDespacho}', [DespachoControllers::class,'obtieneDatosDespacho'])->name('obtieneDespacho');
