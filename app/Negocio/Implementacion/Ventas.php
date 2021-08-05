@@ -137,6 +137,45 @@ return $bOK ;
 }
 
 
+/* 
+function EnviarCorreoPago($idDespacho)
+{
+try{
+    $oMail = new envioMail();
+    $oCatalogo= new catalogoBD();
+    $sNombre="";
+    $sDestinarioEmail="";
+    $sAsunto="";
+    
+    
+    if($idDespacho !="")
+{
+    $Listafilas=$oCatalogo->obtieneDatosDespacho($idDespacho);
+    foreach($Listafilas as $filas => $value)
+{
+   $sNombre = $value['NOMBRE'];
+   $sDestinarioEmail = $value['EMAIL'];   
+
+
+}
+$oComprobantePago = new ComprobantePagoMail();
+$comprobantePDF = $oComprobantePago->GeneraComprobantePago($idDespacho);
+$sAsunto = " Su pedido con codigo " . $idDespacho . " recepcionado";
+$sCuerpo = "Estimado: $sNombre \n";
+$sCuerpo .=" Hemos recibido su pedido \n ";
+$sCuerpo .=" Nos podremos en contacto con usted \n ";
+$oMail->EnviarCorreo($sAsunto,$sCuerpo,$sDestinarioEmail,$comprobantePDF);
+    return true;
+}
+}
+catch(Exception $e)
+  {
+    return false;
+  }
+
+
+}
+ */
 
 
 }
