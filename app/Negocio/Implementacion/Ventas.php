@@ -1,6 +1,8 @@
 <?php 
 namespace App\Negocio\Implementacion;
 
+use App\Models\DetalleProductosVenta;
+use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Interfaces\ICategorias;
 use App\Negocio\Interfaces\IDespacho;
 use App\Negocio\Interfaces\IUnidades;
@@ -16,19 +18,22 @@ class Ventas implements IVentas
     private $oUnidadTrabajo;
     private $oUnidades;
     private $oDespachos;
+    private $oFabricaProductos;
     
-    public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades,IDespacho $_oDespachos )
+    public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades,IDespacho $_oDespachos, IFabricaProductos $_oFabricaProductos )
     {
         $this->oCategorias=$_oCategorias;
         $this->oUnidadTrabajo=$_oUnidadTrabajo;
         $this->oUnidades=$_oUnidades;
         $this->oDespachos=$_oDespachos;
+        $this->oFabricaProductos =$_oFabricaProductos;
     }
 
     
     public function realizarPagoVenta(Request $request)
     {
         $oRespuesta = new RespuestaOtd();
+        $oDetalleVentas = new DetalleProductosVenta();
         $oRespuesta->bEsValido=true;
         $oRespuesta->sMensaje="Pago ingresado correctamente, nos contactaremos para coordinar el despacho";
         $arrayPago = $request->input('arrayPago');
@@ -64,6 +69,28 @@ class Ventas implements IVentas
             $totalConDespacho =0;
             $this->oDespachos->ActualizaTipoDespacho( $idDespacho,$idTipoDespacho);
             
+        foreach($arrayPago as $value)
+        {
+            
+            $cantidadProducto=  $value['Cantidad'];
+            $codigoProducto=  $value['CodigoProducto'];
+            $datosVentaProducto=  $this->oUnidadTrabajo->VentasRepositorio()->obtieneDatosVentaProducto($codigoProducto);
+           
+            foreach($datosVentaProducto as $valueProducto)
+            {
+                $precioVenta= $valueProducto->PRECIO_VENTA;
+
+            }
+            
+            $this->oFabricaProductos->ProductosVenta()->RebajaStock($codigoProducto,$cantidadProducto);
+            $oDetalleVentas->ID_DETALLE=$idDetalle;
+            $oDetalleVentas->CANTIDAD=$cantidadProducto;
+            $oDetalleVentas->VENTA= $precioVenta;
+            $oDetalleVentas->ID_PRODUCTO= $codigoProducto;
+            $this->oUnidadTrabajo->VentasRepositorio()->InsertarDetallePago( $oDetalleVentas);
+            
+
+        }
             
            
         }
@@ -76,11 +103,7 @@ class Ventas implements IVentas
     return  $this->oUnidadTrabajo->VentasRepositorio()->obtieneTopVentas();
     }
 
-    public function finalizarPago()
-    {
-
-  //  return  $this->oUnidadTrabajo->VentasRepositorio()->obtieneTopVentas();
-    }
+ 
 
 
    private function ValidaPago($arrayPago,$sNombreProducto)
@@ -112,6 +135,9 @@ foreach($arrayPago as  $value)
 
 return $bOK ;
 }
+
+
+
 
 }
 ?>

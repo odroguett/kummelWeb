@@ -62,6 +62,15 @@ public function obtieneProductosRelacionados($sProducto)
 
 }
 
+public function RebajaStock($codigoProducto,$cantidad)
+{
+    
+    $productosVenta = $this->buscar($codigoProducto);
+    $productosVenta->STOCK = $productosVenta->STOCK - $cantidad;
+    $this->InsertarIndividual($productosVenta);
+    
+}
+
 }
 
 ?>

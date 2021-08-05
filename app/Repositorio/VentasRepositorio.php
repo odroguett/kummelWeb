@@ -2,6 +2,7 @@
 
 namespace App\Repositorio;
 
+use App\Models\DetalleProductosVenta;
 use App\Models\Ventas;
 use Illuminate\Support\Facades\DB;
 
@@ -11,6 +12,15 @@ class VentasRepositorio extends Repositorio implements IVentasRepositorio
     {
         parent::__construct($model);
     }
+
+
+    public function InsertarDetallePago(DetalleProductosVenta $detalleProductoVentas)
+    {
+        
+    $this->InsertarIndividual($detalleProductoVentas);
+     
+    }
+
 
     public function  obtieneTopVentas()
     {
@@ -71,6 +81,8 @@ class VentasRepositorio extends Repositorio implements IVentasRepositorio
          return $dmIdDetalle;
  
     }
+
+ 
 }
 
 ?>

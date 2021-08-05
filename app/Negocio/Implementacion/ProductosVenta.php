@@ -90,6 +90,13 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
     
     }
 
+    public function RebajaStock($codigoProducto,$cantidad)
+{
+   
+    $this->oUnidadTrabajo->ProductosVentaRepositorio()->RebajaStock($codigoProducto,$cantidad);
+    
+}
+
 }
 
 ?>

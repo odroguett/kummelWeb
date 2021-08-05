@@ -11,6 +11,7 @@ interface IProductosVenta extends IProductos
     public function ActualizarProducto();
     public function CargarProducto();
     public function obtieneDisponibleProductos($sProducto);
+    public function RebajaStock($codigoProducto,$cantidad);
     
 }
 ?>

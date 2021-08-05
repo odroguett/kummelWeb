@@ -7,6 +7,7 @@ interface IProductosVentaRepositorio
     public function obtienePrecioProductos($sCategoria);
     public function obtieneDisponibleProductos($sProducto);
     public function obtieneProductosRelacionados($sProducto);
+    public function RebajaStock($codigoProducto,$cantidad);
     
 }
 
