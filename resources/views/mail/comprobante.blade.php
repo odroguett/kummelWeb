@@ -1,1 +1,1 @@
-<div>{{ $comprobantePagoMail-> }}</div>
+<div>{{ $comprobantePagoMail->asunto }}</div>

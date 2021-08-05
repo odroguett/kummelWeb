@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\OTD\ComprobantePagoMailOtd;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,14 +12,16 @@ class ComprobantePago extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private  $comprobantePagoMail;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ComprobantePagoMailOtd $_comprobantePagoMail)
     {
-        //
+        $this->comprobantePagoMail = $_comprobantePagoMail;
     }
 
     /**
@@ -28,6 +31,7 @@ class ComprobantePago extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+       $this->comprobantePagoMail->asunto= "prueba";
+        return $this->view('mail.comprobante',['comprobantePagoMail'=> $this->comprobantePagoMail]);
     }
 }
