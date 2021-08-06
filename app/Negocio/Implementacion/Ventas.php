@@ -91,9 +91,10 @@ class Ventas implements IVentas
             $oDetalleVentas->VENTA= $precioVenta;
             $oDetalleVentas->ID_PRODUCTO= $codigoProducto;
             $this->oUnidadTrabajo->VentasRepositorio()->InsertarDetallePago( $oDetalleVentas);
-             $comprobantePagoMail = new ComprobantePagoMailOtd;
-             $comprobantePagoMail->asunto="hola";
-            // dd("holaaa");
+            
+            $comprobantePagoMail = new ComprobantePagoMailOtd;
+            // $comprobantePagoMail->asunto="hola";
+            
             Mail::to("odroguett@gmail.com")->send(new ComprobantePago($comprobantePagoMail));
         }
             

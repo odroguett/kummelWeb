@@ -46,10 +46,7 @@ foreach ($arrayCarrito as  $value) {
 <input id="comIdDespacho" type="text" class="text-info" value="  {{$idDespacho}} " hidden>
 <input id="totalProductosPago" type="text" class="text-info" value="{{ $totalProductos}}" hidden>
 
-
  <body>
-
-
 
 
    <section class="py-4 osahan-main-body">
@@ -137,11 +134,6 @@ foreach ($arrayCarrito as  $value) {
                      compra.</h7>
                </div>
             </div>
-
-
-
-
-
 
          </div>
          </br>
@@ -273,9 +265,11 @@ foreach ($arrayCarrito as  $value) {
                      data-toggle="collapse" data-target="#collapsethree" aria-expanded="true"
                      aria-controls="collapsethree">Continuar Pago</a>
 
-                    {{--  <a href="{{ route('comprobante') }}" class=" btn  btn-sm">
+                     <a href="{{ route('comprobante') }}" class=" btn  btn-sm">
                         <p class=" text-kumel-titulo font-weight-light h5 ">Contacto</p>
-                     </a> --}}
+                     </a>
+
+                    
                </div>
             </div> 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\comprobanteKummel;
 use App\Mail\ComprobantePago;
 use App\OTD\ComprobantePagoMailOtd;
 use Illuminate\Http\Request;
@@ -14,6 +15,6 @@ class ComprobanteController extends Controller
         $comprobantePagoMail = new ComprobantePagoMailOtd;
        $comprobantePagoMail->asunto="hola";
 
-       Mail::to("odroguett@gmail.com")->send(new ComprobantePago($comprobantePagoMail));
+       Mail::to("odroguett@gmail.com")->send(new comprobanteKummel($comprobantePagoMail));
     }
 }

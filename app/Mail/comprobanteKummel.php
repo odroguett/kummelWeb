@@ -8,12 +8,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ComprobantePago extends Mailable
+class comprobanteKummel extends Mailable
 {
     use Queueable, SerializesModels;
 
     private  $comprobantePagoMail;
-
     /**
      * Create a new message instance.
      *
@@ -31,8 +30,6 @@ class ComprobantePago extends Mailable
      */
     public function build()
     {
-      // $this->comprobantePagoMail->asunto= "prueba";
-        return $this->view('mail.comprobante',['comprobantePagoMail'=> $this->comprobantePagoMail])
-        ->with(['message' => $this]);
+        return $this->markdown('emails.orders.shipped');
     }
 }

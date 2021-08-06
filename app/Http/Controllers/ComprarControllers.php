@@ -21,7 +21,7 @@ class ComprarControllers extends Controller
     {
         $datosCompraOtd= $this->oComprar->agregarDatoscompra( $request);
     
-      return view('kummel.continuarPago',['datosCompraOtd' =>  $datosCompraOtd]);
+      return view('kummel.pago',['datosCompraOtd' =>  $datosCompraOtd]);
                
     }
 
