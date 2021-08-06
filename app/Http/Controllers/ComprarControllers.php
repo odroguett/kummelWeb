@@ -20,7 +20,8 @@ class ComprarControllers extends Controller
     public function comprarProductos(Request $request)
     {
         $datosCompraOtd= $this->oComprar->agregarDatoscompra( $request);
-      return view('kummel.comprar',['datosCompraOtd' =>  $datosCompraOtd]);
+    
+      return view('kummel.continuarPago',['datosCompraOtd' =>  $datosCompraOtd]);
                
     }
 

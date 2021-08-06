@@ -3,8 +3,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ComprobantePago;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Interfaces\IVentas;
+use App\OTD\ComprobantePagoMailOtd;
+use Illuminate\Support\Facades\Mail;
 
 class KummelControllers extends Controller
 {
@@ -26,5 +29,13 @@ class KummelControllers extends Controller
     public function CargaVistaContacto()
     {
      return view('kummel.contacto');
+    }
+
+    public function comprobante()
+    {
+        $comprobantePagoMail = new ComprobantePagoMailOtd;
+       $comprobantePagoMail->asunto="hola";
+
+       Mail::to("odroguett@gmail.com")->send(new ComprobantePago($comprobantePagoMail));
     }
 }

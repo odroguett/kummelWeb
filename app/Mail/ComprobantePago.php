@@ -31,7 +31,7 @@ class ComprobantePago extends Mailable
      */
     public function build()
     {
-       $this->comprobantePagoMail->asunto= "prueba";
+      // $this->comprobantePagoMail->asunto= "prueba";
         return $this->view('mail.comprobante',['comprobantePagoMail'=> $this->comprobantePagoMail]);
     }
 }

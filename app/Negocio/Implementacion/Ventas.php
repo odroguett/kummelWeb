@@ -1,15 +1,18 @@
 <?php 
 namespace App\Negocio\Implementacion;
 
+use App\Mail\ComprobantePago;
 use App\Models\DetalleProductosVenta;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Interfaces\ICategorias;
 use App\Negocio\Interfaces\IDespacho;
 use App\Negocio\Interfaces\IUnidades;
 use App\Negocio\Interfaces\IVentas;
+use App\OTD\ComprobantePagoMailOtd;
 use App\OTD\RespuestaOtd;
 use App\Repositorio\IUnidadTrabajo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class Ventas implements IVentas
 
@@ -88,8 +91,10 @@ class Ventas implements IVentas
             $oDetalleVentas->VENTA= $precioVenta;
             $oDetalleVentas->ID_PRODUCTO= $codigoProducto;
             $this->oUnidadTrabajo->VentasRepositorio()->InsertarDetallePago( $oDetalleVentas);
-            
-
+             $comprobantePagoMail = new ComprobantePagoMailOtd;
+             $comprobantePagoMail->asunto="hola";
+            // dd("holaaa");
+            Mail::to("odroguett@gmail.com")->send(new ComprobantePago($comprobantePagoMail));
         }
             
            

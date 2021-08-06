@@ -1,5 +1,4 @@
 
-
 @php
 $arrayCarrito = $datosCompraOtd->arrayCarrito;
 $arrayStock = $datosCompraOtd->arrayStock;
@@ -273,6 +272,10 @@ foreach ($arrayCarrito as  $value) {
                   <a href="#" id="btnContinuarPago" class="btn btn-kumel-1  btn-block" type="button"
                      data-toggle="collapse" data-target="#collapsethree" aria-expanded="true"
                      aria-controls="collapsethree">Continuar Pago</a>
+
+                    {{--  <a href="{{ route('comprobante') }}" class=" btn  btn-sm">
+                        <p class=" text-kumel-titulo font-weight-light h5 ">Contacto</p>
+                     </a> --}}
                </div>
             </div> 
 
@@ -324,5 +327,5 @@ foreach ($arrayCarrito as  $value) {
            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
        }
    });
-   </script>
+   </script> 
 

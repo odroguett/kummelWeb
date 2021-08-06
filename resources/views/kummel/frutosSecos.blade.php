@@ -77,7 +77,7 @@
 
                                     <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
                                         <h6 class="textoProducto text-kumel-titulo">
-                                            {{$value->DESCRIPCION  . ' ' . $value->TAMANO_UNIDAD  .  $value->CODIGO_UNIDAD}}
+                                            {{$value->DESCRIPCION  . ' ' . $value->TAMANO  .  $value->CODIGO_UNIDAD}}
                                         </h6>
 
                                     </div>

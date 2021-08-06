@@ -130,13 +130,13 @@
                 <div class="list-card bg-light h-100 rounded overflow-hidden position-relative shadow-sm">
                     <div class="list-card-image">
 
-                        <a onclick="oCarrito.LinkProducto( '{{$value->IMAGEN}}','{{$value->DESCRIPCION}}','{{ $value->PRECIO_VENTA}} ','{{$value->TAMANO_UNIDAD}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}',' {{$value->CODIGO_PRODUCTO }} ')"
+                        <a onclick="oCarrito.LinkProducto( '{{$value->IMAGEN}}','{{$value->DESCRIPCION}}','{{ $value->PRECIO_VENTA}} ','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}',' {{$value->ID_PRODUCTO }} ')"
                             href="#" class="text-dark">
 
                             <div class=" claseTexto col-sm-12 col-md-12 col-lg-12">
 
                                 <input type="text" class="text-info codigo-precio-producto"
-                                    value="{{ $value->CODIGO_PRODUCTO}} " hidden>
+                                    value="{{ $value->ID_PRODUCTO}} " hidden>
                                 <input type="text" class="text-info stock-producto" value="{{$value->STOCK}} "
                                     hidden>
                                 <div class="contenedor-imagen col-sm-12 col-md-12 col-lg-12">
@@ -146,12 +146,12 @@
 
                                         <div class="capa">
 
-                                            <h3 class=""><?php echo $value['titulo']; ?></h3>
+                                            <h3 class=""> @if(isset($value->TITULO)){{$value->TITULO}}@endif</h3>
                                             <p>
-                                                @if(isset($value['parrafo1'])){{$value->PARRAFO1}}@endif
-                                                @if(isset($value['parrafo2'])){{$value->PARRAFO2}}@endif
-                                                @if(isset($value['parrafo3'])){{$value->PARRAFO3}}@endif
-                                                @if(isset($value['parrafo4'])){{$value->PARRAFO4}}@endif
+                                                @if(isset($value->PARRAFO1)){{$value->PARRAFO1}}@endif
+                                                @if(isset($value->PARRAFO2)){{$value->PARRAFO2}}@endif
+                                                @if(isset($value->PARRAFO3)){{$value->PARRAFO3}}@endif
+                                                @if(isset($value->PARRAFO4)){{$value->PARRAFO4}}@endif
                                             </p>
 
                                         </div>
@@ -164,7 +164,7 @@
 
                                 <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
                                     <h6 class="textoProducto text-kumel-titulo">
-                                        {{ $value->DESCRIPCION . ' ' . $value->TAMANO_UNIDAD  .  $value->CODIGO_UNIDAD}}
+                                        {{ $value->DESCRIPCION . ' ' . $value->TAMANO  .  $value->CODIGO_UNIDAD}}
                                     </h6>
 
                                 </div>
@@ -220,28 +220,28 @@
             <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="list-card bg-light h-100 rounded overflow-hidden ">
                 <div class="list-card-image">
-                    <a onclick="oCarrito.LinkProducto( '<?php echo $value['imagen'] ?>','<?php echo $value['descripcion']  ?>','<?php echo $value['precio_venta'] ?>','<?php echo $value['tamano_unidad'] ?>','<?php echo $value['codigo_unidad'] ?>','<?php echo $value['stock'] ?>','<?php echo $value['codigo_precio_producto'] ?>')"
+                    <a onclick="oCarrito.LinkProducto( '{{$value->IMAGEN}}','{{$value->DESCRIPCION}}','{{ $value->PRECIO_VENTA}} ','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}',' {{$value->ID_PRODUCTO }} ')"
                         href="#" class="text-dark">
 
                         <div class="col-sm-12 col-md-12 col-lg-12 claseTexto">
                             <input type="text" class="text-info codigo-precio-producto"
-                                value="<?php echo $value['codigo_precio_producto']; ?>" hidden>
+                                value="{{$value->ID_PRODUCTO}}" hidden>
                             <input type="text" class="text-info stock-producto"
-                                value="<?php echo $value['stock']; ?>" hidden>
+                                value="{{$value->STOCK}}" hidden>
 
 
                             <div class="contenedor-imagen">
                                 <figure>
-                                    <img style="" src="<?php echo $value['imagen']; ?>">
+                                    <img style="" src="{{$value->IMAGEN}}">
 
                                     <div class="capa">
 
-                                        <h3 class="text-kumel-texto_bold"><?php echo $value['titulo']; ?></h3>
-                                        <p class="text-kumel-texto">
-                                            <?php if(isset($value['parrafo1'])){echo $value['parrafo1']; }  ?>
-                                            <?php if(isset($value['parrafo2'])){echo $value['parrafo2']; }   ?>
-                                            <?php if(isset($value['parrafo3'])){echo $value['parrafo3']; }  ?>
-                                            <?php if(isset($value['parrafo4'])){echo $value['parrafo4']; }  ?>
+                                        <h3 class=""> @if(isset($value->TITULO)){{$value->TITULO}}@endif</h3>
+                                        <p>
+                                            @if(isset($value->PARRAFO1)){{$value->PARRAFO1}}@endif
+                                            @if(isset($value->PARRAFO2)){{$value->PARRAFO2}}@endif
+                                            @if(isset($value->PARRAFO3)){{$value->PARRAFO3}}@endif
+                                            @if(isset($value->PARRAFO4)){{$value->PARRAFO4}}@endif
                                         </p>
 
                                     </div>
@@ -255,7 +255,7 @@
 
                             <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
                                 <h6 class="textoProducto text-kumel-titulo">
-                                    <?php echo $value['descripcion'] . ' ' . $value['tamano_unidad']  .  $value['codigo_unidad']    ?>
+                                    {{ $value->DESCRIPCION . ' ' . $value->TAMANO  .  $value->CODIGO_UNIDAD}}
                                 </h6>
 
                             </div>
@@ -265,7 +265,7 @@
 
                             <div class=" col-sm-12 col-md-12 col-lg-12 price" style="text-align: center;">
                                 <h6 class=" text-kumel-bold" style="margin-bottom: 4%;">
-                                    <?php echo  ' CLP '  . number_format($value['precio_venta'],0,',','.')    ?>
+                                    <?php echo  ' CLP '  . number_format($value->PRECIO_VENTA,0,',','.')    ?>
                                 </h6>
                             </div>
 
@@ -298,7 +298,7 @@
 
                                     <div class="col-sm-4 col-lg-3 col-md-5 ">
                                         <h7 class="text-kumel-texto-1">
-                                            <?php echo  'Stock:'. ' ' . $value['stock']  ?> </h7>
+                                            <?php echo  'Stock:'. ' ' . $value->STOCK  ?> </h7>
                                     </div>
                                 </div>
                             </div>

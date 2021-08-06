@@ -26,11 +26,16 @@ class Comprar implements IComprar
       $datosCompraOtd = new ComprarOtd();
       foreach($arrayCarrito  as  $value)
         { 
+          
           if(isset($value))
           {
+            
+
             $stock= $this->oUDT->RawQueryRepositorio()->revisaStock(trim($value['CodigoProducto']));
+            
             $collStock = $collStock->combine([$value['CodigoProducto'], $stock]);
             $datosCompraOtd->arrayCarrito=$value;
+            
           }   
         }
         $datosCompraOtd->arrayStock =$collStock;

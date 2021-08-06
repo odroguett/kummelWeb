@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BuscarControllers;
 use App\Http\Controllers\ComprarControllers;
+use App\Http\Controllers\ComprobanteController;
 use App\Http\Controllers\DespachoControllers;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\KummelControllers;
@@ -52,3 +53,6 @@ Route::post('finalizarPago', [VentasControllers::class,'finalizarPago'])->name('
 Route::get('obtieneDatosDespacho/{idDespacho}', [DespachoControllers::class,'obtieneDatosDespacho'])->name('obtieneDespacho');
 Route::post('agregaDatosDespacho', [DespachoControllers::class,'agregaDatosDespacho'])->name('agregaDatosDespacho');
 Route::post('eliminarDatosDespacho', [DespachoControllers::class,'eliminarDatosDespacho'])->name('eliminarDatosDespacho');
+
+//Correo//
+Route::get('comprobante', [KummelControllers::class,'comprobante'])->name('comprobante');
