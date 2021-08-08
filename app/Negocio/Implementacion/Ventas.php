@@ -7,6 +7,7 @@ use App\Models\DetalleProductosVenta;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Interfaces\ICategorias;
 use App\Negocio\Interfaces\IDespacho;
+use App\Negocio\Interfaces\IGeneraPDF;
 use App\Negocio\Interfaces\IUnidades;
 use App\Negocio\Interfaces\IVentas;
 use App\OTD\ComprobantePagoMailOtd;
@@ -25,14 +26,18 @@ class Ventas implements IVentas
     private $oUnidades;
     private $oDespachos;
     private $oFabricaProductos;
+    private $oGeneraPDF; 
     
-    public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades,IDespacho $_oDespachos, IFabricaProductos $_oFabricaProductos )
+    public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades,
+                                 IDespacho $_oDespachos, IFabricaProductos $_oFabricaProductos,
+                                 IGeneraPDF $_oGeneraPDF )
     {
         $this->oCategorias=$_oCategorias;
         $this->oUnidadTrabajo=$_oUnidadTrabajo;
         $this->oUnidades=$_oUnidades;
         $this->oDespachos=$_oDespachos;
         $this->oFabricaProductos =$_oFabricaProductos;
+        $this->oGeneraPDF =$_oGeneraPDF;
     }
 
     
@@ -158,9 +163,9 @@ try{
     $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespacho($idDespacho);
     $comprobantePagoMail->idDespacho =$idDespacho;
     $comprobantePagoMail->sNombre = $oDatosDespacho->sNombre;
-    //$oComprobantePago = new Compro();
-    //$comprobantePDF = $oComprobantePago->GeneraComprobantePago($idDespacho);
-    Mail::to($oDatosDespacho->sEmail)->send(new comprobanteKummel($comprobantePagoMail));
+    
+  
+  //  Mail::to($oDatosDespacho->sEmail)->send(new comprobanteKummel($comprobantePagoMail));
     return true;
 }
 }

@@ -141,6 +141,15 @@ public function ActualizaTipoDespacho($idDespacho,$tipoDespacho)
 
 }
 
+public function ObtieneCabeceraDespacho($idDespacho)
+{
+    
+    $oDespacho =  $this->oUnidadTrabajo->DespachosRepositorio()->ObtieneCabeceraDespacho($idDespacho);
+
+
+}
+
+
 }
 
 ?>

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Mail\comprobanteKummel;
 use App\Mail\ComprobantePago;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
+use App\Negocio\Interfaces\IGeneraPDF;
 use App\Negocio\Interfaces\IVentas;
 use App\OTD\ComprobantePagoMailOtd;
 use Illuminate\Support\Facades\Mail;
@@ -14,11 +15,13 @@ class KummelControllers extends Controller
 {
   private $oFabricaProductos;
   private $oVentas;
+  private $oGeneraPDF; 
 
- public function __construct(IFabricaProductos  $_oFabricaProductos,IVentas $_oVentas)
+ public function __construct(IFabricaProductos  $_oFabricaProductos,IVentas $_oVentas, IGeneraPDF $_oGeneraPDF )
  {
   $this->oFabricaProductos = $_oFabricaProductos;
   $this->oVentas =$_oVentas;
+  $this->oGeneraPDF = $_oGeneraPDF;
  }
 
     public function home()
@@ -36,7 +39,8 @@ class KummelControllers extends Controller
     {
         $comprobantePagoMail = new ComprobantePagoMailOtd;
        $comprobantePagoMail->asunto="hola";
-
-       Mail::to("odroguett@gmail.com")->send(new comprobanteKummel($comprobantePagoMail));
+       //dd('hola');
+       Mail::to("odroguett@gmail.com")->send(new comprobanteKummel($comprobantePagoMail,$this->oGeneraPDF));
+       
     }
 }

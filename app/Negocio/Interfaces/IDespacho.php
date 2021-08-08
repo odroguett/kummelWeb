@@ -10,6 +10,7 @@ public function InsertaActualizaDespacho(Request $oDespacho);
 public function ObtieneDatosDespacho(Request $request);
 public function EliminarDatosDespacho(Request $request);
 public function ActualizaTipoDespacho($idDespacho,$tipoDespacho);
+public function ObtieneCabeceraDespacho($idDespacho);
 
 }
 

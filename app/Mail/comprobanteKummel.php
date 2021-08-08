@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Negocio\Interfaces\IGeneraPDF;
 use App\OTD\ComprobantePagoMailOtd;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -18,9 +19,12 @@ class comprobanteKummel extends Mailable
      *
      * @return void
      */
-    public function __construct(ComprobantePagoMailOtd $_comprobantePagoMail)
+    private $oGeneraPDF; 
+
+    public function __construct(ComprobantePagoMailOtd $_comprobantePagoMail, IGeneraPDF $_oGeneraPDF )
     {
         $this->comprobantePagoMail = $_comprobantePagoMail;
+        $this->oGeneraPDF = $_oGeneraPDF;
     }
 
     /**
@@ -30,7 +34,13 @@ class comprobanteKummel extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.orders.venta',['comprobante'=>  $this->comprobantePagoMail]);
+        
+        $comprobantePDF = $this->oGeneraPDF->GenerarComprobantePagoPDF(3);
+        
+        return $this->markdown('emails.orders.venta',['comprobante'=>  $this->comprobantePagoMail])
+        ->attachData( $comprobantePDF, 'name.pdf', [
+            'mime' => 'application/pdf',
+        ]);
         
         
     }
