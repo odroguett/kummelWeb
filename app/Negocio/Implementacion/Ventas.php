@@ -1,6 +1,7 @@
 <?php 
 namespace App\Negocio\Implementacion;
 
+use App\Mail\comprobanteKummel;
 use App\Mail\ComprobantePago;
 use App\Models\DetalleProductosVenta;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
@@ -9,8 +10,10 @@ use App\Negocio\Interfaces\IDespacho;
 use App\Negocio\Interfaces\IUnidades;
 use App\Negocio\Interfaces\IVentas;
 use App\OTD\ComprobantePagoMailOtd;
+use App\OTD\DatosDespachoOtd;
 use App\OTD\RespuestaOtd;
 use App\Repositorio\IUnidadTrabajo;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -91,12 +94,11 @@ class Ventas implements IVentas
             $oDetalleVentas->VENTA= $precioVenta;
             $oDetalleVentas->ID_PRODUCTO= $codigoProducto;
             $this->oUnidadTrabajo->VentasRepositorio()->InsertarDetallePago( $oDetalleVentas);
+           
             
-            $comprobantePagoMail = new ComprobantePagoMailOtd;
-            // $comprobantePagoMail->asunto="hola";
-            
-            Mail::to("odroguett@gmail.com")->send(new ComprobantePago($comprobantePagoMail));
+         
         }
+        $this->EnviarCorreoPago($idDespacho);
             
            
         }
@@ -143,34 +145,22 @@ return $bOK ;
 }
 
 
-/* 
-function EnviarCorreoPago($idDespacho)
+ 
+private function EnviarCorreoPago($idDespacho)
 {
 try{
-    $oMail = new envioMail();
-    $oCatalogo= new catalogoBD();
-    $sNombre="";
-    $sDestinarioEmail="";
-    $sAsunto="";
+    $oDatosDespacho = new DatosDespachoOtd;
+    $comprobantePagoMail = new ComprobantePagoMailOtd;
     
     
     if($idDespacho !="")
 {
-    $Listafilas=$oCatalogo->obtieneDatosDespacho($idDespacho);
-    foreach($Listafilas as $filas => $value)
-{
-   $sNombre = $value['NOMBRE'];
-   $sDestinarioEmail = $value['EMAIL'];   
-
-
-}
-$oComprobantePago = new ComprobantePagoMail();
-$comprobantePDF = $oComprobantePago->GeneraComprobantePago($idDespacho);
-$sAsunto = " Su pedido con codigo " . $idDespacho . " recepcionado";
-$sCuerpo = "Estimado: $sNombre \n";
-$sCuerpo .=" Hemos recibido su pedido \n ";
-$sCuerpo .=" Nos podremos en contacto con usted \n ";
-$oMail->EnviarCorreo($sAsunto,$sCuerpo,$sDestinarioEmail,$comprobantePDF);
+    $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespacho($idDespacho);
+    $comprobantePagoMail->idDespacho =$idDespacho;
+    $comprobantePagoMail->sNombre = $oDatosDespacho->sNombre;
+    //$oComprobantePago = new Compro();
+    //$comprobantePDF = $oComprobantePago->GeneraComprobantePago($idDespacho);
+    Mail::to($oDatosDespacho->sEmail)->send(new comprobanteKummel($comprobantePagoMail));
     return true;
 }
 }
@@ -181,7 +171,7 @@ catch(Exception $e)
 
 
 }
- */
+ 
 
 
 }

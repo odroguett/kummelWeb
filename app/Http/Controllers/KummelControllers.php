@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\comprobanteKummel;
 use App\Mail\ComprobantePago;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Interfaces\IVentas;
@@ -36,6 +37,6 @@ class KummelControllers extends Controller
         $comprobantePagoMail = new ComprobantePagoMailOtd;
        $comprobantePagoMail->asunto="hola";
 
-       Mail::to("odroguett@gmail.com")->send(new ComprobantePago($comprobantePagoMail));
+       Mail::to("odroguett@gmail.com")->send(new comprobanteKummel($comprobantePagoMail));
     }
 }
