@@ -440,8 +440,8 @@ debugger;
 
 
     let totalPago = Number(oCarrito.quitarCaractererNoNumericos($('#subTotal').text()));
-    //let tipoPago=1;
-    if (idDespacho != null && idDespacho != "") {
+    idDespacho =  idDespacho.trim();
+    if ( idDespacho != null && idDespacho != "") {
       var recorre = document.querySelectorAll(".comprar");
       var iRecorre = 0;
       recorre.forEach(item => {
@@ -635,9 +635,13 @@ debugger;
             localStorage.removeItem('ciudad');
             localStorage.removeItem('region');
             localStorage.removeItem('idDespacho');
-            oModal.NotificacionAlertify(data.respuesta,"success");
-            window.location.replace("/TopuvaWeb/Negocio/comprobantePagoPDF.php?idDespacho=" + idDespacho);
-            $("#ContenedorPaginas").load('/TopuvaWeb/Vistas/home.php');
+            localStorage.removeItem('numeroCarrito');
+            $("#numCarrito").attr('hidden',true) ;
+            oModal.NotificacionAlertify(data.sMensaje,"success");
+           
+            window.location = "/kummel";
+            
+
           } else {
             $('#modalDireccion').modal('hide');
             oModal.NotificacionAlertify(data.sMensaje,"error");

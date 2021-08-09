@@ -21,10 +21,10 @@ class comprobanteKummel extends Mailable
      */
     private $oGeneraPDF; 
 
-    public function __construct(ComprobantePagoMailOtd $_comprobantePagoMail, IGeneraPDF $_oGeneraPDF )
+    public function __construct(ComprobantePagoMailOtd $_comprobantePagoMail )
     {
         $this->comprobantePagoMail = $_comprobantePagoMail;
-        $this->oGeneraPDF = $_oGeneraPDF;
+        
     }
 
     /**
@@ -35,10 +35,10 @@ class comprobanteKummel extends Mailable
     public function build()
     {
         
-        $comprobantePDF = $this->oGeneraPDF->GenerarComprobantePagoPDF(3);
+        //$comprobantePDF = 
         
         return $this->markdown('emails.orders.venta',['comprobante'=>  $this->comprobantePagoMail])
-        ->attachData( $comprobantePDF, 'name.pdf', [
+        ->attachData( $this->comprobantePagoMail->sComprobante, 'ComprobantePago.pdf', [
             'mime' => 'application/pdf',
         ]);
         

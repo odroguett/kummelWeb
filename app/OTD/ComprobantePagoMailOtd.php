@@ -9,6 +9,7 @@ class ComprobantePagoMailOtd
     public $sNombre="";
     public $sApellido="";
     public $sEmail="";
+    public $sComprobante="";
       
 
 

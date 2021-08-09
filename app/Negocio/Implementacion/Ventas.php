@@ -57,6 +57,8 @@ class Ventas implements IVentas
         $totalConDespacho =0;
         $sNombreProducto="";
         $fechaVenta ="";
+        $oRespuesta->bEsValido=true;
+        $oRespuesta->sMensaje='Pedido ingresado con exito, nos pondremos en contacto para coordinar entrega.';
         
         if($this->ValidaPago($arrayPago,$sNombreProducto))
         {
@@ -103,7 +105,11 @@ class Ventas implements IVentas
             
          
         }
-        $this->EnviarCorreoPago($idDespacho);
+     if( $this->EnviarCorreoPago($idDespacho))
+     {
+
+        return $oRespuesta;
+     }
             
            
         }
@@ -163,9 +169,9 @@ try{
     $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespacho($idDespacho);
     $comprobantePagoMail->idDespacho =$idDespacho;
     $comprobantePagoMail->sNombre = $oDatosDespacho->sNombre;
-    
-  
-  //  Mail::to($oDatosDespacho->sEmail)->send(new comprobanteKummel($comprobantePagoMail));
+
+    $comprobantePagoMail->sComprobante = $this->oGeneraPDF->GenerarComprobantePagoPDF($idDespacho);
+    Mail::to($oDatosDespacho->sEmail)->send(new comprobanteKummel($comprobantePagoMail));
     return true;
 }
 }

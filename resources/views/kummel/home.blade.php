@@ -461,4 +461,21 @@
 <!-- Custom scripts for all pages-->
 <script src="js/osahan.js"></script>
 <script src="js/topuva.js"></script>
+<script>
+    $(document).ready(function () {
+ 
+       $("#loader").show();
+       $('#numCarrito').text(Number(localStorage.getItem('numeroCarrito')));
+ 
+       if($('#numCarrito').text()>0)
+       {
+          $('#numCarrito').removeAttr('hidden',true);
+       }
+       else
+       {
+          $('#numCarrito').attr('hidden',true);
+       }
+       $("#loader").hide();
+    });
+ </script>
 @endsection
