@@ -265,9 +265,9 @@ foreach ($arrayCarrito as  $value) {
                      data-toggle="collapse" data-target="#collapsethree" aria-expanded="true"
                      aria-controls="collapsethree">Continuar Pago</a>
 
-                     <a href="{{ route('comprobante') }}" class=" btn  btn-sm">
+                  {{--    <a href="{{ route('comprobante') }}" class=" btn  btn-sm">
                         <p class=" text-kumel-titulo font-weight-light h5 ">Contacto</p>
-                     </a>
+                     </a> --}}
 
                     
                </div>

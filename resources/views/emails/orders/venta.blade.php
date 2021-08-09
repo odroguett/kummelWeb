@@ -13,13 +13,13 @@
 
 {{ 'Tu Pedido N° : ' .  $comprobante->idDespacho . '  ha sido confirmado. '   }}
 
-    {{ 'Nos pondremos en contacto por Whatsapp para coordinar la entrega.' }}
+{{ 'Nos pondremos en contacto por Whatsapp para coordinar la entrega.' }}
 
-        {{ ' En documento adjunto se encuentra detalle de tu compra. '}}
+{{ ' En documento adjunto se encuentra detalle de tu compra. '}}
 
 
-            {{ ' Gracias por confiar en nosotros, '}} <br>
-                {{ 'Equipo Kummel.'  }} 
+{{ ' Gracias por confiar en nosotros, '}}
+{{ 'Equipo Kummel.'  }} 
 
 @endcomponent
 
