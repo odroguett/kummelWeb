@@ -7,6 +7,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -28,7 +29,8 @@
 <body class="fixed-bottom-padding">
     <!-- body -->
     <section class="py-4 osahan-main-body">
-
+        @csrf
+        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
         <!-- pick today -->
         <div class="d-flex align-items-center mb-3">
             <h5 style="text-align: left;" class="text-kumel-titulo ">Chocolates</h5>
@@ -261,4 +263,11 @@
 <!-- Custom scripts for all pages-->
 <script src="js/osahan.js"></script>
 <script src="js/topuva.js"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    </script>
 @endsection

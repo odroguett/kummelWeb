@@ -1,6 +1,8 @@
 <?php
 namespace App\Negocio\Interfaces;
 
+use Illuminate\Http\Request;
+
 interface IProductosVenta extends IProductos
 {
 
@@ -12,6 +14,7 @@ interface IProductosVenta extends IProductos
     public function CargarProducto();
     public function obtieneDisponibleProductos($sProducto);
     public function RebajaStock($codigoProducto,$cantidad);
+    public function DetalleProductosVenta(Request $request);
     
 }
 ?>

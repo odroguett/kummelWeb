@@ -4,11 +4,11 @@
 namespace App\Http\Controllers;
 
 use App\Mail\comprobanteKummel;
-use App\Mail\ComprobantePago;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Interfaces\IGeneraPDF;
 use App\Negocio\Interfaces\IVentas;
 use App\OTD\ComprobantePagoMailOtd;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class KummelControllers extends Controller
@@ -34,6 +34,8 @@ class KummelControllers extends Controller
     {
      return view('kummel.contacto');
     }
+
+  
 
     public function comprobante()
     {

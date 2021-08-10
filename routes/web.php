@@ -4,6 +4,7 @@ use App\Http\Controllers\BuscarControllers;
 use App\Http\Controllers\ComprarControllers;
 use App\Http\Controllers\ComprobanteController;
 use App\Http\Controllers\DespachoControllers;
+use App\Http\Controllers\DetalleProductosControllers;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\KummelControllers;
 use  App\Http\Controllers\ProductosVentaControllers;
@@ -36,6 +37,8 @@ Route::get('chocolates', [ProductosVentaControllers::class,'cargaChocolates'])
         ->name('chocolates');
         Route::get('especiasCondimientos', [ProductosVentaControllers::class,'cargaEspeciasCondimientos'])
         ->name('especiasCondimientos');
+        //Detalle Productos//
+Route::post('detalleProductosVenta', [ProductosVentaControllers::class,'detalleProductosVenta'])->name('detalleProductosVenta');
 ///Fin////
 
 ///buscador////
@@ -56,3 +59,4 @@ Route::post('eliminarDatosDespacho', [DespachoControllers::class,'eliminarDatosD
 
 //Correo//
 Route::get('comprobante', [KummelControllers::class,'comprobante'])->name('comprobante');
+

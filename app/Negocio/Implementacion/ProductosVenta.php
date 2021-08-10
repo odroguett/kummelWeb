@@ -4,10 +4,11 @@ namespace App\Negocio\Implementacion;
 use App\Negocio\Interfaces\ICategorias;
 use App\Negocio\Interfaces\IProductosVenta;
 use App\Negocio\Interfaces\IUnidades;
+use App\OTD\DetalleProductosVentaOtd;
 use App\Repositorio\IUnidadTrabajo;
 use App\OTD\ObtenerProductosDestacadosOtd;
 use Exception;
-
+use Illuminate\Http\Request;
 
 class ProductosVenta extends Productos implements IProductosVenta
 {
@@ -94,6 +95,42 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
 {
    
     $this->oUnidadTrabajo->ProductosVentaRepositorio()->RebajaStock($codigoProducto,$cantidad);
+    
+}
+
+public function DetalleProductosVenta(Request $request)
+{
+$detalleProductosVenta = new DetalleProductosVentaOtd();
+$detalleProductosVenta->descripcion = $request->input('descripcion');
+$detalleProductosVenta->precioVenta = $request->input('precioVenta');
+$detalleProductosVenta->tamanoUnidad = $request->input('tamanoUnidad');
+$detalleProductosVenta->codigoUnidad = $request->input('codigoUnidad');
+$detalleProductosVenta->cantidad = $request->input('cantidad');
+$detalleProductosVenta->stock = $request->input('stock');
+$detalleProductosVenta->codigoProducto = $request->input('codigoProducto');
+$detalleProductosVenta->imagen = $request->input('imagen');
+$productoDisponible =  $this->oUnidadTrabajo->ProductosVentaRepositorio()->obtieneDisponibleProductos($detalleProductosVenta->codigoProducto);
+
+
+foreach($productoDisponible as $value)
+{
+    $detalleProductosVenta->disponible = $detalleProductosVenta->disponible . ' ' .  $value->TAMANO . $value->CODIGO_UNIDAD . ', ' ;
+
+}
+
+
+
+$detalleProductosVenta->arrProductosRelacionados =$this->oUnidadTrabajo->ProductosVentaRepositorio()->obtieneProductosRelacionados($detalleProductosVenta->codigoProducto);
+return  $detalleProductosVenta;
+    
+
+
+
+
+
+
+
+
     
 }
 

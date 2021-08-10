@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Interfaces\IVentas;
+use App\OTD\DetalleProductosVentaOtd;
+use Illuminate\Http\Request;
 
 class ProductosVentaControllers extends Controller
 {
@@ -49,5 +51,15 @@ class ProductosVentaControllers extends Controller
       return view('kummel.especiasCondimientos',['precioProductos' =>  $this->oFabricaProductos->ProductosVenta()->obtienePrecioProductos('EC')]);
     }
 
+    public function detalleProductosVenta(Request $request)
+    {
+   $detalleProductosVenta = new DetalleProductosVentaOtd;
+   $detalleProductosVenta =  $this->oFabricaProductos->ProductosVenta()->DetalleProductosVenta($request);
+   //dd('hola');
+   return view('kummel.detalleProducto',['detalleProductosVenta' => $detalleProductosVenta]);
 
+   
+   
+    }
+   
 }

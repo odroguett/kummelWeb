@@ -97,8 +97,8 @@ foreach ($arrayCarrito as  $value) {
                             </div>
                         </div>
                           <div class="col-md-1 clase-cantidad">
-                                <input type="text" class="precio-total" value= {{ $value['Precio'] }}  hidden>
-                                <input id="stockProducto" type="text" class="text-info stock-producto"  value={{  trim($arrayStock->get('stock'))}} hidden>
+                                <input type="text" class="precio-total" value= '{{ $value['Precio'] }}'  hidden>
+                                <input id="stockProducto" type="text" class="text-info stock-producto"  value='{{  trim($arrayStock->get('stock'))}}' hidden>
                                 <span class="ml-auto" href="#">
                                 <form id='myform' class="cart-items-number d-flex" method='POST' action='#'>
                                 <input type='button' value='-' class='qtyminus qtyBajar btn btn-success btn-sm '
@@ -298,6 +298,7 @@ foreach ($arrayCarrito as  $value) {
       </div>
    </div>
 
+   
 
 
 

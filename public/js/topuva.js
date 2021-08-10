@@ -40,9 +40,11 @@ debugger;
       }
   
       $.ajax({
+        
         type: "POST",
-        url: '../TopuvaWeb/Vistas/promo1.php',
+        url: '/detalleProductosVenta/',
         data: {
+          "_token": $("meta[name='csrf-token']").attr("content"),
           descripcion: descripcion,
           precioVenta: precioVenta,
           tamanoUnidad: tamanoUnidad,
@@ -54,7 +56,7 @@ debugger;
   
         },
         //contentType: "application/json; charset=utf-8",
-        //dataType: "json",
+       // dataType: "json",
         success: function (data) {
           if (data) {
   
@@ -661,11 +663,15 @@ debugger;
 
   this.BorrarCarritoCompras = function (confirmacion) {
     if (confirmacion) {
+      
       $('#modalDireccion').modal('hide');
       localStorage.removeItem('Carrito');
-      $("#ContenedorPaginas").load('/TopuvaWeb/Vistas/home.php');
+      localStorage.removeItem('numeroCarrito');
+      window.location = "/kummel";
+      $("#loader").hide();
+      
     }
-    $("#loader").hide();
+    
 
 
   }
