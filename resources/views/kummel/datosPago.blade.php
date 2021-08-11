@@ -90,16 +90,16 @@ else
                         </div>
                         <div class="row">
                             <div class="form-group">
-                                <h7 class=" font-weight-light">Total Productos : </h7>
-                                <h7 class=" font-weight-light">{{ $datosPagoOtd->totalProductosPago }} 
+                                <h7 class=" text-kumel-bold">Total Productos : </h7>
+                                <h7 class=" text-kumel-bold">{{ $datosPagoOtd->totalProductosPago }} 
                                 </h7>
                             </div>
                         </div> 
 
                          <div class="row">
                             <div class="form-group">
-                                <h7 class=" font-weight-light">Subtotal : </h7>
-                                <h7 class=" font-weight-light">
+                                <h7 class=" text-kumel-bold">Subtotal : </h7>
+                                <h7 class=" text-kumel-bold">
                                     {{ ' ' . number_format($datosPagoOtd->totalPago,0,',','.')  . " (CLP)" }}
                                     
                                 </h7>
@@ -107,8 +107,8 @@ else
                         </div>
                         <div class="row">
                             <div class="form-group">
-                                <h7 class=" font-weight-light">Cargo Despacho : </h7>
-                                <h7 class=" font-weight-light">
+                                <h7 class=" text-kumel-bold">Cargo Despacho : </h7>
+                                <h7 class=" text-kumel-bold">
                                     {{' ' .  number_format($costoEnvio,0,',','.')   . " (CLP)"  }}
                                       
                                 </h7>
@@ -117,8 +117,8 @@ else
                         </div>
                         <div class="row">
                             <div class="form-group">
-                                <h7 class=" font-weight-light">Total a Pago : </h7>
-                                <h7 class=" font-weight-light">
+                                <h7 class=" text-kumel-bold">Total a Pago : </h7>
+                                <h7 class=" text-kumel-bold">
                                     {{ ' ' .  number_format($totalConDespacho,0,',','.') . " (CLP)"     }}
                                      </h7>
                             </div>
@@ -150,18 +150,18 @@ else
                         <div class="row">
 
 
-                            <div class="form-check form-check-inlinev class-transferencia">
+                            <div class="form-check form-check-inline class-transferencia">
                                 <input class="form-check-input" id="rdTransferencia" type="radio" name="rdTransferencia"
                                     value="option1" checked>
-                                <label class="form-check-label h7  font-weight-light"
-                                    for="inlineRadio1">Transferencia</label>
+                                <label class="form-check-label h7  text-kumel-bold"
+                                    for="inlineRadio1">Transferencia  </label>
                             </div>
 
 
                             <div class="form-check form-check-inline class-transferencia ">
                                 <input class="form-check-input" id="rdEntrega" type="radio" name="rdEntrega"
                                     value="option2">
-                                <label class="form-check-label h7  font-weight-light text-right" for="inlineRadio2">
+                                <label  class="form-check-label h7  text-kumel-bold text-right" for="inlineRadio2">
                                     Pago a momento de entrega</label>
                             </div>
 
@@ -174,37 +174,37 @@ else
                             <div id="idTransferencia">
                                 <div class="row">
                                     <div class="form-group">
-                                        <h7 class=" font-weight-light">Telefono : </h7>
-                                        <h7 class=" font-weight-light"> 999999999
+                                        <h7 class=" text-kumel-bold">Telefono : </h7>
+                                        <h7 class=" text-kumel-bold"> 999999999
                                         </h7>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group">
-                                        <h7 class=" font-weight-light">Banco : </h7>
-                                        <h7 class=" font-weight-light"> Santander
+                                        <h7 class=" text-kumel-bold">Banco : </h7>
+                                        <h7 class=" text-kumel-bold"> Santander
                                         </h7>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group">
-                                        <h7 class=" font-weight-light">RUT : </h7>
-                                        <h7 class=" font-weight-light"> 99999999-9
+                                        <h7 class=" text-kumel-bold">RUT : </h7>
+                                        <h7 class=" text-kumel-bold"> 99999999-9
                                         </h7>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group">
-                                        <h7 class=" font-weight-light">Nombre : </h7>
-                                        <h7 class=" font-weight-light"> Pepito paga doble
+                                        <h7 class=" text-kumel-bold">Nombre : </h7>
+                                        <h7 class=" text-kumel-bold"> Pepito paga doble
                                         </h7>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group">
-                                        <h7 class=" font-weight-light">Correo : </h7>
-                                        <h7 class=" font-weight-light"> Pepito@gmail.com
+                                        <h7 class=" text-kumel-bold">Correo : </h7>
+                                        <h7 class=" text-kumel-bold"> Pepito@gmail.com
                                         </h7>
                                     </div>
                                 </div>

@@ -36,7 +36,7 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
 
         Fpdf::AddPage('P','Letter');
         // Logo
-        Fpdf::Image('img/logo.png',10,8,15);
+       // Fpdf::Image('img/logo.png',10,8,15);
         Fpdf::Ln(6);
         // Arial bold 15
         Fpdf::SetFont('Arial','B',14);

@@ -37,7 +37,7 @@
         </div>
 
         <div class="col-md-9">
-            <p class="text-kumel-titulo" style="margin-top: 5%;"> Por favor completa los datos correctamente. </p>
+            <p class="text-kumel-titulo" style="margin-top: 5%;"> Datos obligatorios (*). </p>
         </div>
 
 
@@ -62,12 +62,12 @@
 
                     <div class="row form-group">
                         <div class="col-md-6">
-                            <input placeholder="Nombre" name="nombre" id="nombre" type="text" class="form-control input-personalizado"
+                            <input placeholder="Nombre (*)" name="nombre" id="nombre" type="text" class="form-control input-personalizado"
                                 required value="{{$oDatosDespacho->sNombre}}">  </span>
 
                         </div>
                         <div class="col-md-6">
-                            <input placeholder="Apellidos" name="apellido" id="apellido" type="text"
+                            <input placeholder="Apellidos (*)" name="apellido" id="apellido" type="text"
                                 class="form-control input-personalizado" required value="{{$oDatosDespacho->sApellido}}">
                         </div>
 
@@ -75,7 +75,7 @@
 
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <input placeholder="Dirección" name="direccion" id="direccion" type="text"
+                            <input placeholder="Dirección (*)" name="direccion" id="direccion" type="text"
                                 class="form-control input-personalizado" required value="{{$oDatosDespacho->sDireccion}}">
                         </div>
                     </div>
@@ -88,11 +88,11 @@
                     <div class="row form-group">
 
                         <div class="col-md-6">
-                            <input placeholder="Ciudad" name="ciudad" id="ciudad" type="text" class="form-control input-personalizado"
+                            <input placeholder="Ciudad (*)" name="ciudad" id="ciudad" type="text" class="form-control input-personalizado"
                                 required value="{{$oDatosDespacho->sCiudad}}">
                         </div>
                         <div class="col-md-6">
-                            <input placeholder="Comuna" name="comuna" id="comuna" type="text" class="form-control input-personalizado"
+                            <input placeholder="Comuna (*)" name="comuna" id="comuna" type="text" class="form-control input-personalizado"
                                 required value="{{$oDatosDespacho->sComuna}}">
                         </div>
                     </div>
@@ -100,7 +100,7 @@
 
                     <div class="row form-group">
                         <div class="col-md-12 ">
-                            <input placeholder="Region" name="region" id="region" type="text" class="form-control input-personalizado"
+                            <input placeholder="Region (*)" name="region" id="region" type="text" class="form-control input-personalizado"
                                 value="{{$oDatosDespacho->sRegion}}">
                         </div>
 
@@ -114,13 +114,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <input placeholder="Email"  name="email" id="email" type="email" class="form-control input-personalizado"
+                            <input placeholder="Email (*)"  name="email" id="email" type="email" class="form-control input-personalizado"
                                 required value="{{$oDatosDespacho->sEmail}}">
                         </div>
 
                     </div>
                     <div class="row form-group">
-                        <div class="col-md-11">
+                        <div class="col-md-12">
                           <button type="submit" id="btnIngresar" class="btn btn-kumel-1 btn-block">Ingresar</button> 
                              {{-- <button type="submit" id="" class="btn btn-kumel-1 btn-block">Ingresar</button>  --}}
                         </div>

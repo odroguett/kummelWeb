@@ -169,12 +169,14 @@ debugger;
         var producto = item.querySelector('.textoProducto').innerHTML;
         var cantidad = item.querySelector('.cantidadProducto').innerHTML;
         var codigoProducto = item.querySelector('.codigoProducto').innerHTML;
+        var imagen = item.querySelector('.imagen').innerHTML;
 
         var vCarrito = {
           Precio: Number(oCarrito.quitarCaractererNoNumericos(precio)),
           Producto: producto,
           Cantidad: Number(oCarrito.quitarCaractererNoNumericos(cantidad)),
-          CodigoProducto: codigoProducto
+          CodigoProducto: codigoProducto,
+          Imagen:  imagen
         };
         arrayCarrito[iRecorre] = vCarrito;
         arrayCarrito["precio"] = precio;
@@ -241,6 +243,7 @@ debugger;
     contenido = '<div class="container container_modal bg-light"> ' +
       '<br>' +
     ' <h6 class="codigoProducto font-weight-light text-dark" hidden>  ' + codigoProducto + ' </h6> ' +
+    ' <h6 class="imagen font-weight-light text-dark" hidden>  ' + urImagen + ' </h6> ' +
     ' <div class="col-lg-12 "> ' +
        ' <div class="form-inline"> ' +
          ' <div class="col-lg-7 "> ' +
@@ -249,7 +252,7 @@ debugger;
          ' </div> ' +
          
          ' <div class="col-lg-5 "> ' +
-         '<img src= ' + urImagen + ' class="img-fluid">' +
+         '<img src= ' + urImagen + ' class="img-fluid ">' +
          ' </div> ' +
     ' </div> ' +
     ' </div> ' +
@@ -258,7 +261,7 @@ debugger;
                 ' <div class="col-lg-10 "> ' +
                       ' <h6 class="price_modal m-0 font-weight-light text-kumel-texto-1"> Precio: ' + precio + '</h6> ' +
                       ' <h6 class=" cantidadProducto m-0 font-weight-light text-kumel-texto-1"> Cantidad: ' + cantidad + ' </h6> ' +
-                      ' <h6 class=" cantidadProducto m-0 font-weight-light text-kumel-texto-1">  SubTotal: ' + (Number(oCarrito.quitarCaractererNoNumericos(precio)) * Number(oCarrito.quitarCaractererNoNumericos(cantidad))) + ' </h6> ' +
+                      ' <h6 class=" cantidadProducto m-0 font-weight-light text-kumel-texto-1">  SubTotal: ' +  (Number(oCarrito.quitarCaractererNoNumericos(precio)) * Number(oCarrito.quitarCaractererNoNumericos(cantidad))) + ' </h6> ' +
                   ' </div> ' +
                   ' <div class="col-lg-2 "> ' +
                       '  <button "type="button" class="btn btn-danger btn-eliminar" id="eliminarProducto"  onclick= "oCarrito.EliminarProducto(this)">X</button> ' +
@@ -546,9 +549,9 @@ debugger;
 
 
 
-  this.EliminarDatosDespacho = function (confirmacion) {
+  this.EliminarDatosDespacho = function () {
     $("#loader").show();
-    if (confirmacion) {
+   // if (confirmacion) {
 
       let idDespacho = $('#comIdDespacho').val();
       if (idDespacho !== 0) {
@@ -589,7 +592,7 @@ debugger;
       }
 
 
-    }
+   // }
 
 
   }
@@ -888,8 +891,10 @@ $(document).ready(function () {
     e.stopImmediatePropagation();
     if ($('#comIdDespacho').val() !== "") {
 
-      oModal.confirmacion("Confirmación", "¿Desea Eliminar datos para despacho?", oCarrito.EliminarDatosDespacho);
-    } else {
+      oCarrito.EliminarDatosDespacho();
+//      oModal.confirmacion("Confirmación", "¿Desea Eliminar datos para despacho?", oCarrito.EliminarDatosDespacho);
+    } 
+    else {
 
       oModal.NotificacionAlertify("No existe información de despacho para eliminar.","error");
 
@@ -1009,7 +1014,8 @@ $(document).ready(function () {
     } else if (currentVal == 0) {
 
       $(this).closest('.precio_total').find('.mostrar-precio').text('$ ');
-      //$(this).closest('.precio_total').find('.mostrar-precio').text( '$ ' +  precioTotal);
+      $(this).closest('.clase-cantidad').find('.cantidad').val(0);
+      $(this).closest('.precio_total').find('.mostrar-precio').text( '$ 0 ' );
     }
     oCarrito.MontoTotalCompra();
   });

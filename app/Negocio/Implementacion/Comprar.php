@@ -46,6 +46,7 @@ class Comprar implements IComprar
         $datosCompraOtd->region=$request->input('region');  
         $datosCompraOtd->departamento=$request->input('departamento');
         $datosCompraOtd->idDespacho=$request->input('idDespacho');
+        
        
         return  $datosCompraOtd;
         

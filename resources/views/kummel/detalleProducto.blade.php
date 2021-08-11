@@ -82,6 +82,9 @@
                <input type="text" class="text-info codigo-precio-producto" value="{{$detalleProductosVenta->codigoProducto}}"
                   hidden>
 
+                  <input type="text" class="text-info stock-producto" value="{{$detalleProductosVenta->stock }}"
+                  hidden>
+
                <div class="p-4 bg-light rounded shadow-sm ">
 
 
@@ -177,6 +180,9 @@
 
          <div class="row">
 
+      @isset($detalleProductosVenta->arrProductosRelacionados)
+               
+           
            
            @foreach($detalleProductosVenta->arrProductosRelacionados as  $value)
            
@@ -349,6 +355,8 @@
                </div>
             </div>
          @endforeach
+
+         @endisset
          </div>
       </div>
       </div>

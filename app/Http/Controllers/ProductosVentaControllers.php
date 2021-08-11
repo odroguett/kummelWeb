@@ -55,7 +55,7 @@ class ProductosVentaControllers extends Controller
     {
    $detalleProductosVenta = new DetalleProductosVentaOtd;
    $detalleProductosVenta =  $this->oFabricaProductos->ProductosVenta()->DetalleProductosVenta($request);
-   //dd('hola');
+   //dd($detalleProductosVenta);
    return view('kummel.detalleProducto',['detalleProductosVenta' => $detalleProductosVenta]);
 
    

@@ -27,7 +27,7 @@ class VentasControllers extends Controller
       $datosPagoOtd->idTipoDespacho = $request->input('tipoDespacho');
       $datosPagoOtd->totalProductosPago = $request->input('totalProductosPago');
       $datosPagoOtd->totalPago =$request->input('totalPago');
-     
+  
       return view('kummel.datosPago',['datosPagoOtd' =>  $datosPagoOtd]);
                
     }
