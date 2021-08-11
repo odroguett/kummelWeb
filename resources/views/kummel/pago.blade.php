@@ -66,15 +66,28 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
 
                 @endphp
 
+
+
+
+
                 @foreach($arrayCarrito as $value)
+                  @if(isset($value['CodigoProducto']))
+
+                  
+                  @foreach ($arrayStock as $carrito )
+                    @if($value['CodigoProducto'] ==$carrito['codigoProducto'])
+                     
+                    @php
+                        $stock = $carrito['stock']
+                    @endphp
                     
+                    
+
+
+                        @break
+                    @endif
+                  @endforeach
                    
-
-                @if(isset($value['CodigoProducto']))
-
-{{$arrayStock}}
-                
-               
 
                 <div class="comprar">
                     <input id="codigoProducto" type="text" class="text-info codigo-producto"

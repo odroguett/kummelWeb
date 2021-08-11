@@ -5,6 +5,7 @@ function Carrito_class() {
     vCarrito.Precio = null;
     vCarrito.Producto = null;
     vCarrito.Cantidad = null;
+    vCarrito.Stock = null;
   }
 
   this.LinkProducto = function (imagen,descripcion, precioVenta, tamanoUnidad, codigoUnidad,stock,codigoProducto) {
@@ -176,13 +177,15 @@ debugger;
           Producto: producto,
           Cantidad: Number(oCarrito.quitarCaractererNoNumericos(cantidad)),
           CodigoProducto: codigoProducto,
-          Imagen:  imagen
+          Imagen:  imagen,
+          Stock: 0
         };
         arrayCarrito[iRecorre] = vCarrito;
         arrayCarrito["precio"] = precio;
         arrayCarrito["producto"] = producto;
         arrayCarrito["cantidad"] = cantidad;
         arrayCarrito["codigoProducto"] = codigoProducto;
+        
         vCarrito = null;
         iRecorre = iRecorre + 1;
 

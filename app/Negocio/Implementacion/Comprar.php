@@ -20,10 +20,10 @@ class Comprar implements IComprar
       
     
       $arrayCarrito= collect($request->input('arrayCarrito'));
-      
-      $collStock=collect(['codigoProducto','stock']);
-      
+      $collStock = collect();
+      $bPrimera = true;
       $datosCompraOtd = new ComprarOtd();
+      
       foreach($arrayCarrito  as  $value)
         { 
           
@@ -32,9 +32,13 @@ class Comprar implements IComprar
             
 
             $stock= $this->oUDT->RawQueryRepositorio()->revisaStock(trim($value['CodigoProducto']));
+           
+              $collStock =  $collStock->prepend(['codigoProducto' => $value['CodigoProducto'], 'stock' => $stock]);
+              $bPrimera=false;
+           
             
-            $collStock = $collStock->combine([$value['CodigoProducto'], $stock]);
-            $datosCompraOtd->arrayCarrito=$value;
+            
+             
             
           }   
         }
