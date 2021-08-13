@@ -481,8 +481,8 @@ debugger;
         success: function (data) {
           if (data) {
             $("#loader").hide();
-            //  localStorage.removeItem('Carrito');
             $('#mContent').html(data);
+            $('#modalDireccion').modal({backdrop: 'static', keyboard: false})
             $('#modalDireccion').modal('show');
 
 
@@ -605,6 +605,7 @@ debugger;
 
     $("#loader").show();
     let tipoPago = "";
+    let UrlPago ="";
 
     $("#btnBorrarCarrito").attr('disabled', true);
     $("#btnFinalizarPago").attr('disabled', true);
@@ -627,10 +628,111 @@ debugger;
 
     }
      
+    if(tipoPago=="1" || tipoPago =="2")
+    {
+
+      UrlPago ='/finalizarPago/'
+      $.ajax({
+        type: "POST",
+        url:  UrlPago ,
+        data: {
+          arrayPago: arrayPago,
+          idDespacho: idDespacho,
+          totalProductosPago: totalProductosPago,
+          totalPago: totalPago,
+          tipoDespacho: tipoDespacho,
+          tipoPago: tipoPago
+        },
+        //contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+          if (data) {
+            if (data.bEsValido) {
+              $('#modalDireccion').modal('hide');
+              localStorage.removeItem('Carrito');
+              localStorage.removeItem('direccion');
+              localStorage.removeItem('departamento');
+              localStorage.removeItem('comuna');
+              localStorage.removeItem('ciudad');
+              localStorage.removeItem('region');
+              localStorage.removeItem('idDespacho');
+              localStorage.removeItem('numeroCarrito');
+              $("#numCarrito").attr('hidden',true) ;
+              oModal.NotificacionAlertify(data.sMensaje,"success");
+             
+              window.location = "/kummel";
+              
+  
+            } else {
+              $('#modalDireccion').modal('hide');
+              oModal.NotificacionAlertify(data.sMensaje,"error");
+              //oModal.MensajePersonalizadoCallBack('Información', data.respuesta, Constante_informacion, oCarrito.CargaCarrito);
+              $("#loader").hide();
+  
+            }
+  
+          }
+  
+  
+        }
+      });
+    }   
+    else
+    {
+      UrlPago='/pagoFlow/'
+      $.ajax({
+        type: "POST",
+        url:  UrlPago ,
+        data: {
+          arrayPago: arrayPago,
+          idDespacho: idDespacho,
+          totalProductosPago: totalProductosPago,
+          totalPago: totalPago,
+          tipoDespacho: tipoDespacho,
+          tipoPago: tipoPago
+        },
+        //contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+          if (data) {
+            if (data.bEsValido) {
+              $(location).attr('href',data.url);
+              
+              $('#modalDireccion').modal('hide');
+              /* localStorage.removeItem('Carrito');
+              localStorage.removeItem('direccion');
+              localStorage.removeItem('departamento');
+              localStorage.removeItem('comuna');
+              localStorage.removeItem('ciudad');
+              localStorage.removeItem('region');
+              localStorage.removeItem('idDespacho');
+              localStorage.removeItem('numeroCarrito');
+              $("#numCarrito").attr('hidden',true) ;
+              oModal.NotificacionAlertify(data.sMensaje,"success");
+             
+              window.location = "/kummel"; */ 
+              
+  
+            } else {
+              $('#modalDireccion').modal('hide');
+              oModal.NotificacionAlertify(data.sMensaje,"error");
+              //oModal.MensajePersonalizadoCallBack('Información', data.respuesta, Constante_informacion, oCarrito.CargaCarrito);
+              $("#loader").hide();
+  
+            }
+  
+          }
+  
+  
+        }
+      });
+
+    }
+
 
     $.ajax({
       type: "POST",
-      url: '/finalizarPago/',
+      url:  UrlPago ,
       data: {
         arrayPago: arrayPago,
         idDespacho: idDespacho,

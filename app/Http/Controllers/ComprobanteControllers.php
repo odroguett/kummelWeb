@@ -12,9 +12,11 @@ class ComprobanteController extends Controller
 {
     public function comprobante()
     {
-        $comprobantePagoMail = new ComprobantePagoMailOtd;
+      /*   $comprobantePagoMail = new ComprobantePagoMailOtd;
        $comprobantePagoMail->asunto="hola";
 
-       Mail::to("odroguett@gmail.com")->send(new comprobanteKummel($comprobantePagoMail));
+       Mail::to("odroguett@gmail.com")->send(new comprobanteKummel($comprobantePagoMail)); */
+
+       
     }
 }

@@ -7,6 +7,7 @@ use App\Models\DetalleProductosVenta;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
 use App\Negocio\Interfaces\ICategorias;
 use App\Negocio\Interfaces\IDespacho;
+use App\Negocio\Interfaces\IFlowApi;
 use App\Negocio\Interfaces\IGeneraPDF;
 use App\Negocio\Interfaces\IUnidades;
 use App\Negocio\Interfaces\IVentas;
@@ -27,10 +28,11 @@ class Ventas implements IVentas
     private $oDespachos;
     private $oFabricaProductos;
     private $oGeneraPDF; 
+    private $oFlowApI;
     
     public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades,
                                  IDespacho $_oDespachos, IFabricaProductos $_oFabricaProductos,
-                                 IGeneraPDF $_oGeneraPDF )
+                                 IGeneraPDF $_oGeneraPDF, IFlowApi $_oFlowApi  )
     {
         $this->oCategorias=$_oCategorias;
         $this->oUnidadTrabajo=$_oUnidadTrabajo;
@@ -38,6 +40,7 @@ class Ventas implements IVentas
         $this->oDespachos=$_oDespachos;
         $this->oFabricaProductos =$_oFabricaProductos;
         $this->oGeneraPDF =$_oGeneraPDF;
+        $this->oFlowApI =$_oFlowApi;
     }
 
     
@@ -184,6 +187,62 @@ catch(Exception $e)
 }
  
 
+public function pagoFlow(Request $request)
+{
+
+$oDatosDespacho = new DatosDespachoOtd;
+
+ 
+ $totalPago= $request->input('totalPago');
+ $respuestaOtd = new RespuestaOtd;
+ $respuestaOtd->bEsValido  = true;
+ $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespacho($request->input('idDespacho'));
+  
+  //Prepara el arreglo de datos
+
+  $params = array(
+    "commerceOrder" => rand(1100,2000),
+    "subject" => "Pago Kummel",
+    "currency" => "CLP",
+    "amount" =>  $totalPago,
+    "email" =>  $oDatosDespacho->sEmail,
+    "paymentMethod" => 9,
+    "urlConfirmation" => ConfigPagoFlow::get("BASEURL") . "confirmacion",
+    "urlReturn" => ConfigPagoFlow::get("BASEURL") ."Kummel#"
+    //, "optional" => $optional
+  );
+  //Define el metodo a usar
+  $serviceName = "payment/create";
+ 
+  try {
+    // Instancia la clase FlowApi
+ 
+    
+    // Ejecuta el servicio
+    $response = $this->oFlowApI->send($serviceName, $params,"POST");
+  
+    
+   
+    //Prepara url para redireccionar el browser del pagador
+    $redirect = $response["url"] . "?token=" . $response["token"];
+   // dd($redirect);
+    header("location:$redirect");
+  } catch (Exception $e) {
+    echo $e->getCode() . " - " . $e->getMessage();
+  }
+  
+
+  $respuestaOtd->url  = $redirect;
+  //dd('hola');
+  return $respuestaOtd; // redirect($redirect);
+   
+}
+
+   public function confirmacion(Request $request)
+   {
+       return 'Exito';
+              
+   }
 
 }
 ?>

@@ -2,11 +2,10 @@
 
 use App\Http\Controllers\BuscarControllers;
 use App\Http\Controllers\ComprarControllers;
-use App\Http\Controllers\ComprobanteController;
 use App\Http\Controllers\DespachoControllers;
-use App\Http\Controllers\DetalleProductosControllers;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\KummelControllers;
+use App\Http\Controllers\PagoFlowControllers;
 use  App\Http\Controllers\ProductosVentaControllers;
 use App\Http\Controllers\VentasControllers;
 
@@ -58,5 +57,7 @@ Route::post('agregaDatosDespacho', [DespachoControllers::class,'agregaDatosDespa
 Route::post('eliminarDatosDespacho', [DespachoControllers::class,'eliminarDatosDespacho'])->name('eliminarDatosDespacho');
 
 //Correo//
-Route::get('comprobante', [KummelControllers::class,'comprobante'])->name('comprobante');
+Route::post('pagoFlow', [VentasControllers::class,'pagoFlow'])->name('pagoFlow');
 
+//Comprobante de pago
+Route::post('confirmacion', [VentasControllers::class,'confirmacion'])->name('confirmacion');

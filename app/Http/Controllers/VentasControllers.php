@@ -1,10 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Negocio\Implementacion\ConfigPagoFlow;
 use App\Negocio\Interfaces\IComprar;
 use App\Negocio\Interfaces\IVentas;
 use App\OTD\DatosPagoOtd;
 use App\OTD\RespuestaOtd;
+use Exception;
 use Illuminate\Http\Request;
 
 class VentasControllers extends Controller
@@ -42,4 +44,21 @@ class VentasControllers extends Controller
     return response()->json($oRespuesta);
 
     } 
+
+    
+ public function pagoFlow(Request $request)
+ {
+    $oRespuesta = $this->oVentas->pagoFlow($request);
+    return response()->json($oRespuesta);
+  
+ }
+
+    public function confirmacion(Request $request)
+    {
+        return 'Exito';
+
+      //return view('kummel.pago',['datosCompraOtd' =>  $datosCompraOtd]);
+               
+    }
+
 }

@@ -8,7 +8,8 @@ interface IVentas
 
 public function realizarPagoVenta(Request $request);
 public function obtieneTopVentas();
-
+function pagoFlow(Request $request);
+function confirmacion(Request $request);
 
 
 
