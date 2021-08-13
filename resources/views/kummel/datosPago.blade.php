@@ -162,13 +162,13 @@ else
                                 <input class="form-check-input" id="rdEntrega" type="radio" name="rdEntrega"
                                     value="option2">
                                 <label  class="form-check-label h7  text-kumel-bold text-right" for="inlineRadio2">
-                                    Pago a momento de entrega</label>
+                                    Domicilio</label>
                             </div>
                             <div class="form-check form-check-inline class-transferencia ">
                                 <input class="form-check-input" id="rdTarjetasBancarias" type="radio" name="rdTarjetasBancarias"
                                     value="option3">
                                 <label  class="form-check-label h7  text-kumel-bold text-right" for="inlineRadio2">
-                                    Pago Tarjetas Bancarias</label>
+                                    Pago Tarjetas</label>
                             </div>
 
 
