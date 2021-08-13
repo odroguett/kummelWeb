@@ -11,6 +11,7 @@ use App\Negocio\Interfaces\IFlowApi;
 use App\Negocio\Interfaces\IGeneraPDF;
 use App\Negocio\Interfaces\IUnidades;
 use App\Negocio\Interfaces\IVentas;
+use App\Negocio\Utiles\ConfigPagoFlow;
 use App\OTD\ComprobantePagoMailOtd;
 use App\OTD\DatosDespachoOtd;
 use App\OTD\RespuestaOtd;

@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Negocio\Implementacion;
+namespace App\Negocio\Utiles;
 
 use Exception;
 use FFI\Exception as FFIException;

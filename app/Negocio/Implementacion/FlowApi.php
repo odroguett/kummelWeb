@@ -2,6 +2,7 @@
 namespace App\Negocio\Implementacion;
 
 use App\Negocio\Interfaces\IFlowApi;
+use App\Negocio\Utiles\ConfigPagoFlow;
 use Exception;
 use FFI\Exception as FFIException;
 
