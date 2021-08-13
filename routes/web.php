@@ -60,4 +60,4 @@ Route::post('eliminarDatosDespacho', [DespachoControllers::class,'eliminarDatosD
 Route::post('pagoFlow', [VentasControllers::class,'pagoFlow'])->name('pagoFlow');
 
 //Comprobante de pago
-Route::post('confirmacion', [VentasControllers::class,'confirmacion'])->name('confirmacion');
+Route::get('confirmacion', [VentasControllers::class,'confirmacion'])->name('confirmacion');

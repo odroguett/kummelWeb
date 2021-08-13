@@ -55,9 +55,9 @@ class VentasControllers extends Controller
 
     public function confirmacion(Request $request)
     {
-        return 'Exito';
+        //return 'Exito';
 
-      //return view('kummel.pago',['datosCompraOtd' =>  $datosCompraOtd]);
+      return view('kummel.confirmacionFlow');
                
     }
 
