@@ -35,9 +35,11 @@ class VentasControllers extends Controller
      public function finalizarPago(Request $request)
     {
 
-  $oRespuesta = new RespuestaOtd();
-  $oRespuesta = $this->oVentas->realizarPagoVenta($request);
-  return response()->json($oRespuesta);
+      
+
+     $oRespuesta = new RespuestaOtd();
+    $oRespuesta = $this->oVentas->realizarPagoVenta($request);
+    return response()->json($oRespuesta);
 
     } 
 }
