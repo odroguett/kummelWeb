@@ -63,19 +63,23 @@
 
 <body class="fixed-bottom-padding ">
     <br>
-    <div class="row">
+    <div class="row bg-kumel-2">
         <div class=" col-sm-12 col-md-12 col-lg-12 ">
             <div class="form-inline">
                 <div class="col-sm-7 col-md-7 col-lg-7 bg-ligth">
-                    {{--  <div class="bg-ligth form-inline"> --}}
-                    <img class="img-fluid logo-img  " src="img/logo.png">
-                    {{--  <div class="col-sm-4 col-md-4 col-lg-4  bg-ligth "> --}}
-                    <div class="bg-ligth" style="margin-top: 5px;">
-                        <h5 class="text-kumel-titulo">Productos naturales, chocolatería y gourmet</h5>
+                    
+                    <div class="form-inline">
+                        <img class="img-fluid logo-img  " src="img/logo.png">
+                    
+                        <div class="bg-ligth" style="margin-top: 5px;">
+                            <h5 class="text-kumel-titulo">Productos naturales, chocolatería y gourmet</h5>
+                        </div>
+
                     </div>
-                    {{--  --}}
+                    
+                    
                 </div>
-                <div class="col-sm-5 col-md-5 col-lg-5" style="margin-bottom: -40px;">
+                <div class="col-sm-5 col-md-5 col-lg-5" >
                     <div class="form-inline">
                         <input type="text" class="form-control idPatronBusqueda" id="idPatronBusqueda"
                             placeholder="Buscar Productos">

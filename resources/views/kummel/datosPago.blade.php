@@ -164,6 +164,12 @@ else
                                 <label  class="form-check-label h7  text-kumel-bold text-right" for="inlineRadio2">
                                     Pago a momento de entrega</label>
                             </div>
+                            <div class="form-check form-check-inline class-transferencia ">
+                                <input class="form-check-input" id="rdTarjetasBancarias" type="radio" name="rdTarjetasBancarias"
+                                    value="option3">
+                                <label  class="form-check-label h7  text-kumel-bold text-right" for="inlineRadio2">
+                                    Pago Tarjetas Bancarias</label>
+                            </div>
 
 
 
@@ -228,6 +234,17 @@ else
                                 </div>
                             </div>
                         </div>
+
+                        <div id="idPagoBancario" hidden>
+                            <div class="row">
+                                <div class="col-lg-12">
+
+                                    <p class="">El cobro se efectuará mediante Pago Flow</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
 
                     </div>
 

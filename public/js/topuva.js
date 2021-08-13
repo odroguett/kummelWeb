@@ -614,10 +614,19 @@ debugger;
     if ($('#rdTransferencia').is(':checked')) {
 
       tipoPago = "1";
-    } else {
+    } 
+    else if ($('#rdEntrega').is(':checked')) 
+     {
+      
       tipoPago = "2";
 
     }
+    else
+    {
+      tipoPago="3";
+
+    }
+     
 
     $.ajax({
       type: "POST",
@@ -845,15 +854,30 @@ $(document).ready(function () {
 
   $("#rdTransferencia").click(function () {
     $("#rdEntrega").prop("checked", false);
+    $("#rdTarjetasBancarias").prop("checked", false);
     $('#idTransferencia').removeAttr('hidden');
     $('#idPagoDomicilio').attr('hidden', true);
+    $('#idPagoBancario').attr('hidden', true);
 
   });
 
   $("#rdEntrega").click(function () {
     $("#rdTransferencia").prop("checked", false);
+    $("#rdTarjetasBancarias").prop("checked", false);
     $('#idPagoDomicilio').removeAttr('hidden');
     $('#idTransferencia').attr('hidden', true);
+    $('#idPagoBancario').attr('hidden', true);
+
+
+  });
+
+  $("#rdTarjetasBancarias").click(function () {
+    $("#rdTransferencia").prop("checked", false);
+    $("#rdEntrega").prop("checked", false);
+    $('#idDomicilio').attr('hidden', true);
+    $('#idTransferencia').attr('hidden', true);
+    $('#idPagoDomicilio').attr('hidden', true);
+    $('#idPagoBancario').removeAttr('hidden');
 
 
   });

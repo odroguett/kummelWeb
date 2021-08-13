@@ -142,7 +142,7 @@
                                     value="{{ $value->ID_PRODUCTO}} " hidden>
                                 <input type="text" class="text-info stock-producto" value="{{$value->STOCK}} "
                                     hidden>
-                                <div class="contenedor-imagen col-sm-12 col-md-12 col-lg-12">
+                                <div class="contenedor-imagen col-sm-12 col-md-12 col-lg-12 ">
                                     <figure>
                                         <img class="imagen-producto" src=" {{$value->IMAGEN}}">
 
@@ -167,7 +167,7 @@
 
                                 <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
                                     <h6 class="textoProducto text-kumel-titulo">
-                                        {{ $value->DESCRIPCION . ' ' . $value->TAMANO  .  $value->CODIGO_UNIDAD}}
+                                        {{ $value->DESCRIPCION }}
                                     </h6>
 
                                 </div>
@@ -258,7 +258,7 @@
 
                             <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
                                 <h6 class="textoProducto text-kumel-titulo">
-                                    {{ $value->DESCRIPCION . ' ' . $value->TAMANO  .  $value->CODIGO_UNIDAD}}
+                                    {{ $value->DESCRIPCION }}
                                 </h6>
 
                             </div>

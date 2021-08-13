@@ -575,10 +575,10 @@ span.c-number {
 }
 
 .cart-items .img-fluid {
-	width: 20px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 	object-fit: scale-down;
-	min-width: 20px;
+	min-width: 30px;
 	padding: 7px;
 	border-radius: 6px;
 }
@@ -1186,8 +1186,8 @@ label {
 
 /* logo-size */
 .logo-img {
-	height: 80px !important;
-	width: 80px !important;
+	height: 100px !important;
+	width: 100px !important;
 }
 
 .search-size {
