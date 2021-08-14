@@ -1552,6 +1552,10 @@ label {
 	color: #fbdb9b !important;
 }
 
+.btn-link {
+	color: #553d22 !important;
+}
+
 * {
 	margin: 0;
 	padding: 0;

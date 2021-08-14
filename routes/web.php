@@ -20,6 +20,8 @@ use App\Http\Controllers\VentasControllers;
 //Paginas principales
 Route::get('kummel', [KummelControllers::class,'home'])->name('kummel');
 Route::get('contacto', [KummelControllers::class,'CargaVistaContacto'])->name('contacto');
+Route::get('recetas', [KummelControllers::class,'recetas'])->name('recetas');
+Route::get('condiciones', [KummelControllers::class,'condiciones'])->name('condiciones');
 
 
 ///Menu principal pagina////

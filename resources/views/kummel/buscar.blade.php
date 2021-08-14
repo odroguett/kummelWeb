@@ -27,7 +27,7 @@
         foreach($buscarProductos as $value)
            {
             echo"<tr>
-                <td class='text-kumel-titulo'> <img id='imagen-producto' src=" . $value->IMAGEN . "  height='70' width='70'> </td>
+                <td class='text-kumel-titulo'> <img id='imagen-producto' src=" . $value->IMAGEN1 . "  height='70' width='70'> </td>
                 <td class='text-kumel-titulo'>". $value->DESCRIPCION."</td>	
                 <td class='text-kumel-titulo'> ". $value->TAMANO. " " . $value->CODIGO_UNIDAD. "</td>
                 <td class='text-kumel-tituloh'> " . $value->PRECIO_VENTA . "</td>

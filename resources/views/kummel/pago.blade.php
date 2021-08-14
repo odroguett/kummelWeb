@@ -208,7 +208,7 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
                                             <div class="row form-group">
                                                 <div class="col-md-6">
                                                     <button type="button" id="btnAgregarDireccion" style="border: none;"
-                                                        class="btn btn-kumel-1">Agregar/Modificar</button>
+                                                        class="btn btn-kumel-1">Agregar Dirección</button>
                                                     </span>
                                                 </div>
 

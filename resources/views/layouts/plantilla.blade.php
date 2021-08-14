@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-sm-5 col-md-5 col-lg-5" >
                     <div class="form-inline">
-                        <input type="text" class="form-control idPatronBusqueda" id="idPatronBusqueda"
+                        <input type="text" class="form-control bg-light idPatronBusqueda" id="idPatronBusqueda"
                             placeholder="Buscar Productos">
                         <div class="input-group-prepend border-right  ">
                             <div id="btnBuscarProductos" class="btn btn-light rounded-right"><i
@@ -244,15 +244,16 @@
                     <aside class="col-md">
                         <h5 class="title text-kumel-texto ">Extras</h5>
                         <ul class="list-unstyled list-padding">
-                            <li><a href="promo_details.html" class="text-kumel-texto"> Detalles </a></li>
-                           <li><a href="terms_conditions.html" class="text-kumel-texto"> Condiciones </a></li>
+                            <li><a href={{"recetas"}} class="text-kumel-texto"> Recetas </a></li>
+                           <li><a href={{"condiciones"}} class="text-kumel-texto"> Condiciones </a></li>
                            <li><a href="help_support.html" class="text-kumel-texto"> Ayuda </a></li>
-                           <li><a href="faq.html" class="text-kumel-texto"> FAQ </a></li>
+                           <li><a href="faq.html" class="text-kumel-texto"> Preguntas Frecuentes </a></li>
                            
                         </ul>
                      </aside>
                 </div>
-                
+                {{-- <a  class="float-bottom-right float-floating " style="height: 50px"> <img src="img/Whatsapp.png">  </a>  --}}
+
             </div>
         <br>
         </div>

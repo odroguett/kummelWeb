@@ -40,7 +40,14 @@ class KummelControllers extends Controller
      return view('kummel.contacto');
     }
 
-  
+    public function recetas()
+    {
+     return view('kummel.recetas');
+    }
+    public function condiciones()
+    {
+     return view('kummel.condiciones');
+    }
 
   
 }

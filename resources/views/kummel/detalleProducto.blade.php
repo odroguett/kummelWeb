@@ -99,7 +99,7 @@
                   <input type="text" class="text-info stock-producto" value="{{$detalleProductosVenta->stock }}"
                   hidden>
 
-               <div class="p-4 bg-light rounded shadow-sm ">
+               <div class="p-4 bg-kumel-2 rounded shadow-sm ">
 
 
                   <h5 tyle="text-align: left;" class="text-kumel-titulo textoProducto">
@@ -169,18 +169,12 @@
                            <p class="text-kumel-texto-1">{{ $detalleProductosVenta->disponible }} </p>
                         </div>
                      </div>
+                     <p class="text-kumel-titulo">Finas almendras naturales.........</p>
+                     <p class="text-kumel-titulo">Finas almendras naturales.........</p>
+                     <p class="text-kumel-titulo">Finas almendras naturales.........</p>
+                     <p class="text-kumel-titulo">Finas almendras naturales.........</p>
                   </div>
-
-
-                  <div class="details">
-                     <div class="pt-3 bg-light">
-                        <p class="text-kumel-texto-1">Finas almendras naturales.........</p>
-                     </div>
-
-                  </div>
-
-
-
+                 
                </div>
 
 
