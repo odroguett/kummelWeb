@@ -13,6 +13,8 @@ public $imagen;
 //public $productoDisponible;
 public $arrProductosRelacionados;
 public $disponible;
+public $imagen2;
+public $imagen3;
 
 
 }

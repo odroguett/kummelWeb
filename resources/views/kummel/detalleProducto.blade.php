@@ -67,11 +67,25 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-6">
+               <div class="recommend-slider mb-3">
+                  <div class="osahan-slider-item">
+                     <img id="imagenProducto" src="{{$detalleProductosVenta->imagen }}" class="img-fluid mx-auto shadow-sm rounded "
+                     alt="Responsive image">
+                  </div>
+                  <div class="osahan-slider-item">
+                     <img id="imagenProducto" src="{{$detalleProductosVenta->imagen2 }}" class="img-fluid mx-auto shadow-sm rounded "
+                     alt="Responsive image">
+                  </div>
+                  <div class="osahan-slider-item">
+                     <img id="imagenProducto" src="{{$detalleProductosVenta->imagen3 }}" class="img-fluid mx-auto shadow-sm rounded "
+                     alt="Responsive image">
+                  </div>
+               </div>
 
-               <div class="osahan-slider-item">
+               {{-- <div class="osahan-slider-item">
                   <img id="imagenProducto" src="{{$detalleProductosVenta->imagen }}" class="img-fluid mx-auto shadow-sm rounded "
                      alt="Responsive image">
-               </div>
+               </div> --}}
                </br>
                <div class="row">
 

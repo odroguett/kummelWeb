@@ -109,6 +109,8 @@ $detalleProductosVenta->cantidad = $request->input('cantidad');
 $detalleProductosVenta->stock = $request->input('stock');
 $detalleProductosVenta->codigoProducto = $request->input('codigoProducto');
 $detalleProductosVenta->imagen = $request->input('imagen');
+$detalleProductosVenta->imagen2 = $request->input('imagen2');
+$detalleProductosVenta->imagen3 = $request->input('imagen3');
 $productoDisponible =  $this->oUnidadTrabajo->ProductosVentaRepositorio()->obtieneDisponibleProductos($detalleProductosVenta->codigoProducto);
 
 
