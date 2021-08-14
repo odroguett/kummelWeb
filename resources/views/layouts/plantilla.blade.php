@@ -211,20 +211,50 @@
             <br />
             <div class="form-inline">
 
-                <div class="col-md-1 offset-md-1"></div>
+                <aside class="col-md-3" style="height: 200px">
+                    <h5 class="title text-kumel-texto">Tienda</h5>
+                    <ul class="list-unstyled list-padding">
+                       <li> <a href="{{ route('semillas') }}" class="text-kumel-texto">Semillas</a></li>
+                       <li> <a href="{{ route('snackMix') }}" class="text-kumel-texto">Snack y Mix</a></li>
+                       <li> <a href="{{ route('frutosSecos') }}" class="text-kumel-texto">Frutos Secos</a></li>
+                       <li> <a href="{{ route('frutasDeshidratadas') }}"  class="text-kumel-texto">Frutas Deshidratadas</a></li>
+                       <li> <a href="{{ route('chocolates') }}" class="text-kumel-texto">Chocolates</a></li>
+                       <li> <a href="{{ route('especiasCondimientos') }}" class="text-kumel-texto">Especias y Condimentos</a></li>
+                    </ul>
+                 </aside>
+
+
+               
                 <div class="row" style="height: 200px">
 
 
-                    <div class=" col-lg-6">
-                        <h5 style="text-align: left;" class="text-kumel-texto">Contactanos</h5>
-                        <ul>
-                            <li class="text-kumel-texto ">topuva@gmail.com</li>
-                            <li class="text-kumel-texto">+569999999</li>
+                    <aside class="col-md-3" style="height: 200px">
+                        <h5 class="title text-kumel-texto">Contactanos</h5>
+                        <ul class="list-unstyled list-padding">
+                           <li class="text-kumel-texto"> Whatsapp:9999999</li>
+                           <li class="text-kumel-texto"> Email: prueba@gmail.com</a></li>
+                           <li class="text-kumel-texto"> Faceboob:www.faceboork.com</a></li>
+                           
                         </ul>
-                    </div>
+                     </aside>
+    
                 </div>
+                <div class="col-md-1 offset-md-1"></div>
+                <div class="row" style="height: 200px">
+                    <aside class="col-md">
+                        <h5 class="title text-kumel-texto ">Extras</h5>
+                        <ul class="list-unstyled list-padding">
+                            <li><a href="promo_details.html" class="text-kumel-texto"> Detalles </a></li>
+                           <li><a href="terms_conditions.html" class="text-kumel-texto"> Condiciones </a></li>
+                           <li><a href="help_support.html" class="text-kumel-texto"> Ayuda </a></li>
+                           <li><a href="faq.html" class="text-kumel-texto"> FAQ </a></li>
+                           
+                        </ul>
+                     </aside>
+                </div>
+                
             </div>
-
+        <br>
         </div>
     </footer>
     <div class="modal left fade" id="myModal2" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
