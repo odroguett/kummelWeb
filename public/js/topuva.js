@@ -614,21 +614,21 @@ debugger;
     
     if ($('#rdTransferencia').is(':checked')) {
 
-      tipoPago = "1";
+      tipoPago = 1;
     } 
     else if ($('#rdEntrega').is(':checked')) 
      {
       
-      tipoPago = "2";
+      tipoPago = 2;
 
     }
     else
     {
-      tipoPago="3";
+      tipoPago=3;
 
     }
      
-    if(tipoPago=="1" || tipoPago =="2")
+    if(tipoPago==1 || tipoPago ==2)
     {
 
       UrlPago ='/finalizarPago/'
@@ -659,8 +659,8 @@ debugger;
               localStorage.removeItem('numeroCarrito');
               $("#numCarrito").attr('hidden',true) ;
               oModal.NotificacionAlertify(data.sMensaje,"success");
-             
-              window.location = "/kummel";
+              $(location).attr('href',"/confirmacion#/");
+              
               
   
             } else {
@@ -679,6 +679,11 @@ debugger;
     }   
     else
     {
+      localStorage.setItem('arrayPago',JSON.stringify(arrayPago));
+      localStorage.setItem('totalProductosPago', totalProductosPago);
+      localStorage.setItem('totalPago', totalPago);
+      localStorage.setItem('tipoDespacho', tipoDespacho);
+      localStorage.setItem('tipoPago', tipoPago);
       UrlPago='/pagoFlow/'
       $.ajax({
         type: "POST",
@@ -696,21 +701,11 @@ debugger;
         success: function (data) {
           if (data) {
             if (data.bEsValido) {
-              $(location).attr('href',data.url);
-              
-              $('#modalDireccion').modal('hide');
-              /* localStorage.removeItem('Carrito');
-              localStorage.removeItem('direccion');
-              localStorage.removeItem('departamento');
-              localStorage.removeItem('comuna');
-              localStorage.removeItem('ciudad');
-              localStorage.removeItem('region');
-              localStorage.removeItem('idDespacho');
-              localStorage.removeItem('numeroCarrito');
-              $("#numCarrito").attr('hidden',true) ;
-              oModal.NotificacionAlertify(data.sMensaje,"success");
              
-              window.location = "/kummel"; */ 
+             
+              $(location).attr('href',data.url);
+       
+            
               
   
             } else {
@@ -777,6 +772,67 @@ debugger;
 
 
   }
+
+  this.ProcesarPago = function () {
+  
+    debugger;
+
+   
+    let tipoPago = "";
+    let UrlPago ="";
+    
+    
+
+      UrlPago ='/confirmaPago/'
+      $.ajax({
+        type: "POST",
+        url:  UrlPago ,
+        data: {
+          arrayPago: JSON.parse(localStorage.getItem('arrayPago')),
+          idDespacho: localStorage.getItem('idDespacho'),
+          totalProductosPago: localStorage.getItem('totalProductosPago'),
+          totalPago: localStorage.getItem('totalPago'),
+          tipoDespacho: localStorage.getItem('tipoDespacho'),
+          tipoPago: localStorage.getItem('tipoPago')
+        },
+        //contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+          if (data) {
+            if (data.bEsValido) {
+              
+              localStorage.removeItem('Carrito');
+              localStorage.removeItem('direccion');
+              localStorage.removeItem('departamento');
+              localStorage.removeItem('comuna');
+              localStorage.removeItem('ciudad');
+              localStorage.removeItem('region');
+              localStorage.removeItem('idDespacho');
+              localStorage.removeItem('numeroCarrito');
+              localStorage.removeItem('arrayPago');
+              localStorage.removeItem('idDespacho');
+              localStorage.removeItem('totalProductosPago');
+              localStorage.removeItem('totalPago');
+              localStorage.removeItem('tipoDespacho'),
+              localStorage.removeItem('tipoPago')
+
+
+              $("#numCarrito").attr('hidden',true) ;
+              oModal.NotificacionAlertify(data.sMensaje,"success");
+             
+              
+            }
+          }
+        }
+      });
+     
+      }
+    
+    
+
+    
+
+  
 
   this.BorrarCarritoCompras = function (confirmacion) {
     if (confirmacion) {
