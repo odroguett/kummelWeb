@@ -50,6 +50,10 @@ Route::post('comprarProductos', [ComprarControllers::class,'comprarProductos'])-
 //Venta
 Route::post('pagoProductos', [VentasControllers::class,'pagoProductos'])->name('pagoProductos');
 Route::post('finalizarPago', [VentasControllers::class,'finalizarPago'])->name('finalizarPago');
+Route::post('pagoFlow', [VentasControllers::class,'pagoFlow'])->name('pagoFlow');
+Route::post('confirmacion', [VentasControllers::class,'confirmacion'])->name('confirmacion');
+Route::get('confirmacion', [VentasControllers::class,'confirmacion'])->name('confirmacion');
+Route::post('confirmaPago', [VentasControllers::class,'confirmaPago'])->name('confirmaPago');
 
 //Despacho//
 Route::get('obtieneDatosDespacho/{idDespacho}', [DespachoControllers::class,'obtieneDatosDespacho'])->name('obtieneDespacho');
@@ -57,7 +61,3 @@ Route::post('agregaDatosDespacho', [DespachoControllers::class,'agregaDatosDespa
 Route::post('eliminarDatosDespacho', [DespachoControllers::class,'eliminarDatosDespacho'])->name('eliminarDatosDespacho');
 
 //Correo//
-Route::post('pagoFlow', [VentasControllers::class,'pagoFlow'])->name('pagoFlow');
-
-//Comprobante de pago
-Route::get('confirmacion', [VentasControllers::class,'confirmacion'])->name('confirmacion');

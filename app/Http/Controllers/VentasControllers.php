@@ -48,6 +48,8 @@ class VentasControllers extends Controller
     
  public function pagoFlow(Request $request)
  {
+   
+    
     $oRespuesta = $this->oVentas->pagoFlow($request);
     return response()->json($oRespuesta);
   
@@ -55,10 +57,14 @@ class VentasControllers extends Controller
 
     public function confirmacion(Request $request)
     {
-        //return 'Exito';
-
       return view('kummel.confirmacionFlow');
-               
+    }
+
+    public function confirmaPago(Request $request)
+    {
+      
+      $oRespuesta = $this->oVentas->realizarPagoVenta($request);
+      return response()->json($oRespuesta);
     }
 
 }

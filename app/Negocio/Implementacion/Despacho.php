@@ -135,8 +135,10 @@ public function ActualizaTipoDespacho($idDespacho,$tipoDespacho)
 {
     $oDespacho = new Despachos();
     $oDespacho =$this->oUnidadTrabajo->DespachosRepositorio()->buscar($idDespacho);
+
     $oDespacho->ID_TIPO_DESPACHO =$tipoDespacho;
     $this->oUnidadTrabajo->DespachosRepositorio()->InsertarIndividual($oDespacho);
+   
     return true;
 
 }

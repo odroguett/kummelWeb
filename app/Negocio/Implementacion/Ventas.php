@@ -57,16 +57,15 @@ class Ventas implements IVentas
         $totalProductosPago = $request->input('totalProductosPago');
         $totalPago = $request->input('totalPago');
         $idTipoPago =$request->input('tipoPago');
-
         $totalConDespacho =0;
         $sNombreProducto="";
         $fechaVenta ="";
         $oRespuesta->bEsValido=true;
-        $oRespuesta->sMensaje='Pedido ingresado con exito, nos pondremos en contacto para coordinar entrega.';
+        $oRespuesta->sMensaje='Generación de comprobante exitosa.';
         
         if($this->ValidaPago($arrayPago,$sNombreProducto))
         {
-            
+        
             $parametros = $this->oUnidadTrabajo->ParametrosRepositorio()->obtieneParametros();
            
             $costoEnvio =   $parametros->COSTO_ENVIO;
@@ -81,14 +80,17 @@ class Ventas implements IVentas
                 $totalConDespacho = $totalPago; 
             
             }
+            
             $fechaVenta = date('Y-m-d');
+            
             $idDetalle= $this->oUnidadTrabajo->VentasRepositorio()->InsertarCabeceraPago($idDespacho,$totalProductosPago,$idTipoPago,$totalConDespacho, $fechaVenta);
+           
             $totalConDespacho =0;
             $this->oDespachos->ActualizaTipoDespacho( $idDespacho,$idTipoDespacho);
             
         foreach($arrayPago as $value)
         {
-            
+           
             $cantidadProducto=  $value['Cantidad'];
             $codigoProducto=  $value['CodigoProducto'];
             $datosVentaProducto=  $this->oUnidadTrabajo->VentasRepositorio()->obtieneDatosVentaProducto($codigoProducto);
@@ -105,18 +107,22 @@ class Ventas implements IVentas
             $oDetalleVentas->VENTA= $precioVenta;
             $oDetalleVentas->ID_PRODUCTO= $codigoProducto;
             $this->oUnidadTrabajo->VentasRepositorio()->InsertarDetallePago( $oDetalleVentas);
+            
            
             
          
         }
-     if( $this->EnviarCorreoPago($idDespacho))
-     {
+    
 
-        return $oRespuesta;
-     }
-            
-           
+        if( $this->EnviarCorreoPago($idDespacho))
+        {
+   
+         
         }
+         return $oRespuesta;
+      
+    }   
+           
 
     }
 
@@ -135,7 +141,7 @@ class Ventas implements IVentas
 
 foreach($arrayPago as  $value)
 { 
-   
+    
     $codigoProducto=  $value['CodigoProducto'];
     
     $datosVentaProducto=  $this->oUnidadTrabajo->VentasRepositorio()->obtieneDatosVentaProducto($codigoProducto);
@@ -190,53 +196,67 @@ catch(Exception $e)
 
 public function pagoFlow(Request $request)
 {
+    $totalPago =0;
+    $arrayPago = $request->input('arrayPago');
+    $totalPago = $request->input('totalPago');
+    $sNombreProducto="";
 
-$oDatosDespacho = new DatosDespachoOtd;
-
- 
- $totalPago= $request->input('totalPago');
- $respuestaOtd = new RespuestaOtd;
- $respuestaOtd->bEsValido  = true;
- $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespacho($request->input('idDespacho'));
-  
-  //Prepara el arreglo de datos
-
-  $params = array(
-    "commerceOrder" => rand(1100,2000),
-    "subject" => "Pago Kummel",
-    "currency" => "CLP",
-    "amount" =>  $totalPago,
-    "email" =>  $oDatosDespacho->sEmail,
-    "paymentMethod" => 9,
-    "urlConfirmation" => ConfigPagoFlow::get("BASEURL") . "confirmacion",
-    "urlReturn" => ConfigPagoFlow::get("BASEURL") ."Kummel#"
-    //, "optional" => $optional
-  );
-  //Define el metodo a usar
-  $serviceName = "payment/create";
- 
-  try {
-    // Instancia la clase FlowApi
- 
+    if($this->ValidaPago($arrayPago,$sNombreProducto))
+    {
     
-    // Ejecuta el servicio
-    $response = $this->oFlowApI->send($serviceName, $params,"POST");
+        $parametros = $this->oUnidadTrabajo->ParametrosRepositorio()->obtieneParametros();
+       
+        $costoEnvio =   $parametros->COSTO_ENVIO;
+        $topeCostoEnvio =   $parametros->TOPE_COSTO_ENVIO;
+        if($totalPago < $topeCostoEnvio)
+        {
+            $totalConDespacho = $totalPago + $costoEnvio;
+        
+        }
+        else
+        {
+            $totalConDespacho = $totalPago; 
+        
+        }
+        
+        $oDatosDespacho = new DatosDespachoOtd;
+        $totalPago= $request->input('totalPago');
+        $respuestaOtd = new RespuestaOtd;
+        $respuestaOtd->bEsValido  = true;
+        $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespacho($request->input('idDespacho'));
   
-    
-   
-    //Prepara url para redireccionar el browser del pagador
-    $redirect = $response["url"] . "?token=" . $response["token"];
-   // dd($redirect);
-    header("location:$redirect");
-  } catch (Exception $e) {
-    echo $e->getCode() . " - " . $e->getMessage();
-  }
-  
+        //Prepara el arreglo de datos
 
-  $respuestaOtd->url  = $redirect;
-  //dd('hola');
-  return $respuestaOtd; // redirect($redirect);
-   
+        $params = array(
+                "commerceOrder" => rand(1100,2000),
+                "subject" => "Pago Kummel",
+                "currency" => "CLP",
+                "amount" =>  $totalConDespacho,
+                "email" =>  $oDatosDespacho->sEmail,
+                "paymentMethod" => 9,
+                "urlConfirmation" => ConfigPagoFlow::get("BASEURL") . "confirmacion",
+                "urlReturn" => ConfigPagoFlow::get("BASEURL") ."confirmacion"
+                //, "optional" => $optional
+            );
+            //Define el metodo a usar
+            $serviceName = "payment/create";
+ 
+          try {
+                // Instancia la clase FlowApi
+                // Ejecuta el servicio
+                $response = $this->oFlowApI->send($serviceName, $params,"POST");
+                //Prepara url para redireccionar el browser del pagador
+                $redirect = $response["url"] . "?token=" . $response["token"];
+                // dd($redirect);
+                header("location:$redirect");
+                } catch (Exception $e) {
+                    echo $e->getCode() . " - " . $e->getMessage();
+            }
+
+              $respuestaOtd->url  = $redirect;  
+            
+    }
+    return $respuestaOtd; // redirect($redirect);
 }
 
    public function confirmacion(Request $request)
