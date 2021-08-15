@@ -27,12 +27,12 @@
 </head>
 
 <body class="fixed-bottom-padding">
-   
-        <div class="container">
+    <div class="col-lg-10 col-sm-10 col-md-10 mx-auto   " style="margin-top: 5px;  ">
+        <h5 class="text-kumel-titulo  ">Recetas</h5>
+    </div>
+        <div class="container" style="  max-width: 90%; min-height: 40vh">
            
-            <div class="col-lg10 col-sm-10 col-md-10  " style="margin-top: 5px; ">
-                <h5 class="text-kumel-titulo  ">Recetas</h5>
-            </div>
+           
               <div class="col-lg-10 col-sm-10 col-md-10 p-4 bg-kummel ">
                 <div id="accordion">
                     <div class="card">
