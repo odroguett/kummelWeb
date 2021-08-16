@@ -22,6 +22,7 @@ Route::get('kummel', [KummelControllers::class,'home'])->name('kummel');
 Route::get('contacto', [KummelControllers::class,'CargaVistaContacto'])->name('contacto');
 Route::get('recetas', [KummelControllers::class,'recetas'])->name('recetas');
 Route::get('condiciones', [KummelControllers::class,'condiciones'])->name('condiciones');
+Route::get('preguntasFrecuentes', [KummelControllers::class,'preguntasFrecuentes'])->name('preguntasFrecuentes');
 
 
 ///Menu principal pagina////

@@ -14,6 +14,8 @@
               <tr>
                 
                  <th class='bg-kumel-2 text-kumel-titulo'>Imagen</th>
+                 <th class='bg-kumel-2 text-kumel-titulo'>Imagen2</th>
+                 <th class='bg-kumel-2 text-kumel-titulo'>Imagen3</th>
                  <th class='bg-kumel-2 text-kumel-titulo'>Producto</th>
                  <th class='bg-kumel-2 text-kumel-titulo'>Unidad</th>
                  <th class='bg-kumel-2 text-kumel-titulo'>precio</th>
@@ -28,6 +30,8 @@
            {
             echo"<tr>
                 <td class='text-kumel-titulo'> <img id='imagen-producto' src=" . $value->IMAGEN1 . "  height='70' width='70'> </td>
+                <td class='text-kumel-titulo'> <img id='imagen-producto' src=" . $value->IMAGEN2 . "  height='70' width='70'> </td>
+                <td class='text-kumel-titulo'> <img id='imagen-producto' src=" . $value->IMAGEN3 . "  height='70' width='70'> </td>
                 <td class='text-kumel-titulo'>". $value->DESCRIPCION."</td>	
                 <td class='text-kumel-titulo'> ". $value->TAMANO. " " . $value->CODIGO_UNIDAD. "</td>
                 <td class='text-kumel-tituloh'> " . $value->PRECIO_VENTA . "</td>
@@ -76,6 +80,8 @@
     },
     'columns' : [
         null,
+        {'visible' : false,"width": "0px" },
+        {'visible' : false,"width": "0px" },
         null,
         null,
         null,
@@ -104,7 +110,9 @@ var table = $('#tablaBuscar').DataTable();
 $('#tablaBuscar tbody').on('click', 'tr', function () {
         var data = table.row( this ).data();
         var imagen = $(data[0]).attr("src");
-        oCarrito.LinkProducto(imagen, data[1],data[3],data[5],data[6] , data[7],data[4]);
+        var imagen1 = $(data[1]).attr("src");
+        var imagen2 = $(data[2]).attr("src");
+        oCarrito.LinkProducto(imagen,imagen1,imagen2,data[3],data[5],data[7],data[8] , data[9],data[6]);
         $("#botonCerrarDespacho").click();
                         
     } );

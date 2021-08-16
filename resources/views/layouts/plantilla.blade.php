@@ -246,8 +246,8 @@
                         <ul class="list-unstyled list-padding">
                             <li><a href={{"recetas"}} class="text-kumel-texto"> Recetas </a></li>
                            <li><a href={{"condiciones"}} class="text-kumel-texto"> Condiciones </a></li>
-                           <li><a href="help_support.html" class="text-kumel-texto"> Ayuda </a></li>
-                           <li><a href="faq.html" class="text-kumel-texto"> Preguntas Frecuentes </a></li>
+                           <li><a href={{"contacto"}}  class="text-kumel-texto"> Contacto </a></li>
+                           <li><a href={{"preguntasFrecuentes"}} class="text-kumel-texto"> Preguntas Frecuentes </a></li>
                            
                         </ul>
                      </aside>

@@ -49,5 +49,10 @@ class KummelControllers extends Controller
      return view('kummel.condiciones');
     }
 
+    public function preguntasFrecuentes()
+    {
+     return view('kummel.preguntasFrecuentes');
+    }
+
   
 }
