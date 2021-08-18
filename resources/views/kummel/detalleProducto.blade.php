@@ -64,29 +64,20 @@
     <section class="py-4 osahan-main-body">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-sm-4 col-md-4 col-lg-4">
 
                     <div class="recommend-slider mb-3">
-                        <div class="contenedor-1">
-
-                            <div class="osahan-slider-item">
-                                <img id="imagenProducto" src="{{$detalleProductosVenta->imagen }}"
-                                    class="img-fluid mx-auto shadow-sm rounded " alt="Responsive image">
-                            </div>
-
-
+                        <div class="osahan-slider-item">
+                            <img id="imagenProducto" src="{{$detalleProductosVenta->imagen }}"
+                                class="img-fluid mx-auto shadow-sm rounded contenedor-1 " alt="Responsive image">
                         </div>
-                        <div class="contenedor-1">
-                            <div class="osahan-slider-item">
-                                <img id="imagenProducto" src="{{$detalleProductosVenta->imagen2 }}"
-                                    class="img-fluid mx-auto shadow-sm rounded " alt="Responsive image">
-                            </div>
+                        <div class="osahan-slider-item">
+                            <img id="imagenProducto" src="{{$detalleProductosVenta->imagen2 }}"
+                                class="img-fluid mx-auto shadow-sm rounded contenedor-1  " alt="Responsive image">
                         </div>
-                        <div class="contenedor-1">
-                            <div class="osahan-slider-item">
-                                <img id="imagenProducto" src="{{$detalleProductosVenta->imagen3 }}"
-                                    class="img-fluid mx-auto shadow-sm rounded " alt="Responsive image">
-                            </div>
+                        <div class="osahan-slider-item">
+                            <img id="imagenProducto" src="{{$detalleProductosVenta->imagen3 }}"
+                                class="img-fluid mx-auto shadow-sm rounded contenedor-1  " alt="Responsive image">
                         </div>
                     </div>
 
@@ -102,7 +93,7 @@
 
                 </div>
             </div>
-            <div class="col-lg-6 claseTexto">
+            <div class="col-lg-7 col-sm-7 col-md-7 claseTexto">
 
                 <input type="text" class="text-info codigo-precio-producto"
                     value="{{$detalleProductosVenta->codigoProducto}}" hidden>
@@ -187,6 +178,7 @@
                         <p class="text-kumel-titulo">Finas almendras naturales.........</p>
                         <p class="text-kumel-titulo">Finas almendras naturales.........</p>
                         <p class="text-kumel-titulo">Finas almendras naturales.........</p>
+                       
                     </div>
 
                 </div>

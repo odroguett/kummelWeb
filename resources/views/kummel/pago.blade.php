@@ -100,10 +100,11 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
                             <div class="form-inline precio_total">
 
                                 <div class="col-md-2 col-sm-2 col-lg-2">
-                                    <img src="{{ $value['Imagen']}}" class="img-fluid">
+                                        <img src="{{ $value['Imagen']}}" class="contenedor">
+                                    
                                 </div>
 
-                                <div class="col-md-4 col-sm-4 col-lg-4">
+                                <div class="col-md-6 col-sm-6 col-lg-6">
 
                                     <h6 class=" text-kumel-titulo">
                                         @if(isset($value['Producto'])) {{ $value['Producto']}} @endif

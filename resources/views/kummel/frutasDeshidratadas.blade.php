@@ -108,7 +108,7 @@
                                             <div class="col-lg-4" hidden>
                                                 <div class="input-group-prepend">
                                                     <div class=" btn btn-icon btn-light btn-valor"><i
-                                                            class="icofont-shopping-cart"></i></div>
+                                                            class="icofont-cart"></i></div>
                                                 </div>
                                             </div>
 
@@ -213,7 +213,7 @@
                                         <div class="col-lg-3 col-sm-4 col-md-4">
                                             <div class="input-group-prepend">
                                                 <div class=" btn btn-icon btn-light btn-valor"><i
-                                                        class="icofont-shopping-cart"></i>
+                                                        class="icofont-cart"></i>
                                                 </div>
                                             </div>
                                         </div>

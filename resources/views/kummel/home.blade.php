@@ -95,13 +95,13 @@
 
                             <div class="carousel-item">
                                 <div class="contenedor">
-                                    <img class="d-block w-100" src="img/tienda.jpg" alt="Second slide">
+                                    <img class="d-block w-100" src="img/miami.jpg" alt="Second slide">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="contenedor">
 
-                                    <img class="d-block w-100" src="img/despacho.jpg" alt="">
+                                    <img class="d-block w-100" src="img/volcanOsorno.jpg" alt="">
 
                                 </div>
                             </div>
@@ -207,7 +207,7 @@
                                             <div class="col-lg-4" hidden>
                                                 <div class="input-group-prepend">
                                                     <div class=" btn btn-icon btn-light btn-valor"><i
-                                                            class="icofont-shopping-cart"></i></div>
+                                                            class="icofont-cart"></i></div>
                                                 </div>
                                             </div>
 

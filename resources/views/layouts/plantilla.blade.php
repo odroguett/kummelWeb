@@ -88,7 +88,7 @@
                     </div>
                     <a href="#" id="carrito"
                         class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
-                        <i class="icofont-shopping-cart"></i>
+                        <i class="icofont-brand-aliexpress"></i>
                     </a>
                     <div class="Contenedor-Carrito">
                         <label id="numCarrito" class="text-kumel-bold numberCircle  "
@@ -110,11 +110,12 @@
 
 
 
-
-
     <div class="col-lg-12 ">
         <hr></span>
         <nav class="navbar navbar-expand-lg navbar-light ">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
             <div class="container-fluid">
 
 
@@ -338,7 +339,9 @@
 
 <script src="jquery/jquery.min.js"></script>
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- slick Slider JS-->
 <script type="text/javascript" src="slick/slick.min.js"></script>
 <!-- Sidebar JS-->
