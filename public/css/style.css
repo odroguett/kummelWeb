@@ -1569,8 +1569,17 @@ label {
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	height: 50vh;
+	height: 10vh;
 }
+
+.contenedor-1 {
+	width: 100%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	height: 40vh;
+}
+
 
 .contenedor figure {
 	position: relative;
@@ -1829,3 +1838,12 @@ label {
 .alertify-notifier .ajs-message.ajs-error{
     color: #ffffff;
 }
+
+.navbar-nav > li{
+	margin-left:20px;
+	margin-right:20px;
+  }
+
+  .verticalLine {
+	border-left:  solid #553d22;
+  }

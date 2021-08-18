@@ -62,124 +62,106 @@
 </head>
 
 <body class="fixed-bottom-padding ">
-    <br>
-    <div class="row bg-kumel-2">
-        <div class=" col-sm-12 col-md-12 col-lg-12 ">
-            <div class="form-inline">
-                <div class="col-sm-7 col-md-7 col-lg-7 bg-ligth">
-                    
-                    <div class="form-inline">
-                        <img class="img-fluid logo-img  " src="img/logo.png">
-                    
-                        <div class="bg-ligth" style="margin-top: 5px;">
-                            <h5 class="text-kumel-titulo">Productos naturales, chocolatería y gourmet</h5>
-                        </div>
 
-                    </div>
-                    
-                    
-                </div>
-                <div class="col-sm-5 col-md-5 col-lg-5" >
-                    <div class="form-inline">
-                        <input type="text" class="form-control bg-light idPatronBusqueda" id="idPatronBusqueda"
-                            placeholder="Buscar Productos">
-                        <div class="input-group-prepend border-right  ">
-                            <div id="btnBuscarProductos" class="btn btn-light rounded-right"><i
-                                    class="icofont-search"></i>
-                            </div>
-                        </div>
-                        <a href="#" id="carrito"
-                            class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
-                            <i class="icofont-shopping-cart"></i>
-                        </a>
-                        <div class="Contenedor-Carrito">
-                            <label id="numCarrito" class="text-kumel-bold numberCircle  "
-                                style="margin-bottom: 35px; margin-left: -4px;" hidden>0</label>
+  
 
-                        </div>
-                        <h6 style="margin-bottom: -10px; margin-left: 100px;" class="text-kumel-titulo ">Siguenos en: </h6> 
-                        <div class=""  style="margin-left: 10px;" >
-                            <a href="https://web.facebook.com/K%C3%BCmmel-738292063549140" target="_blank"
-                                rel="nofollow noopener" class="btn btn-icon btn-light"> <i class="icofont-facebook"></i></a>
-                            <a href="https://www.instagram.com/kummel.cl/" target="_blank" rel="nofollow noopener"
-                                class="btn btn-icon btn-light "><i class="icofont-instagram"></i></a>
-                        </div>
+    <div class=" col-sm-12 col-md-12 col-lg-12 ">
+        <div class="form-inline ">
+
+            <div class="col-sm-7 col-md-7 col-lg-7 bg-ligth">
+
+                <div class="form-inline">
+                    <img class="img-fluid logo-img  " src="img/logo.png">
+
+                    <div class="bg-ligth" style="margin-top: 5px;">
+                        <h5 class="text-kumel-titulo">Productos naturales, chocolatería y gourmet</h5>
                     </div>
                 </div>
-             
-                
-
-
             </div>
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="form-inline">
+                    <input type="text" class="form-control bg-light idPatronBusqueda rounded" id="idPatronBusqueda"
+                        placeholder="Buscar Productos">
+                    <div class="input-group-prepend border-right  ">
+                        <div id="btnBuscarProductos" class="btn btn-light rounded"><i class="icofont-search"></i>
+                        </div>
+                    </div>
+                    <a href="#" id="carrito"
+                        class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
+                        <i class="icofont-shopping-cart"></i>
+                    </a>
+                    <div class="Contenedor-Carrito">
+                        <label id="numCarrito" class="text-kumel-bold numberCircle  "
+                            style="margin-bottom: 35px; margin-left: -4px;" hidden>0</label>
 
+                    </div>
+                    <h6 style="margin-bottom: -10px; margin-left: 100px;" class="text-kumel-titulo ">Siguenos en:
+                    </h6>
+                    <div class="" style="margin-left: 10px;">
+                        <a href="https://web.facebook.com/K%C3%BCmmel-738292063549140" target="_blank"
+                            rel="nofollow noopener" class="btn btn-icon btn-light"> <i class="icofont-facebook"></i></a>
+                        <a href="https://www.instagram.com/kummel.cl/" target="_blank" rel="nofollow noopener"
+                            class="btn btn-icon btn-light "><i class="icofont-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </div>
     </div>
 
 
-    </div>
 
-    </div>
-    </div>
 
-    <div class="col-lg-12">
+
+    <div class="col-lg-12 ">
         <hr></span>
-
-    </div>
-    <!-- Nav bar -->
-    <div class="form-inline  ">
-        <div class="col-md-2 offset-md-2"></div>
-        <div class="col-md-5">
-            <div class="">
-                <div class="container menu-bar d-flex align-items-center">
-                    <ul class="list-unstyled form-inline mb-0">
-                        <li class="nav-item active">
-                            <a href={{ route('kummel') }} id="" class="nav-link font-weight-light text-kumel-titulo h5 "
-                                href="">Home <span class="sr-only border border-dark">(current)</span></a>
-                        </li>
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container-fluid">
 
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-kumel-titulo h5 font-weight-light dropdown-toggle" href="#"
-                                id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                Tienda
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a href={{ route('semillas') }} class="dropdown-item text-kumel-titulo "
-                                    id="">Semillas</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="{{ route('snackMix') }}" class="dropdown-item text-kumel-titulo" id="">Snack y
-                                    Mix</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="{{ route('frutosSecos') }}" class="dropdown-item text-kumel-titulo"
-                                    id="">Frutos Secos</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="{{ route('frutasDeshidratadas') }}" class="dropdown-item text-kumel-titulo"
-                                    id="">Frutas Deshidratadas</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="{{ route('chocolates') }}" class="dropdown-item text-kumel-titulo"
-                                    id="">Chocolates</a>
-                                <div class="dropdown-divider"></div>
-                                <a href="{{ route('especiasCondimientos') }}" class="dropdown-item text-kumel-titulo"
-                                    id="">Especias y Condimentos</a>
-                                <div class="dropdown-divider"></div>
-                            </div>
-                        </li>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav text-kumel-titulo m-auto">
+                        <li class="nav-item  active ">
+                            <a href="{{ route('kummel') }}" class="h6  nav-link   " id="">Inicio</a>
 
                         </li>
-                        <a href="{{ route('contacto') }}" class=" btn  btn-sm">
-                            <p class=" text-kumel-titulo font-weight-light h5 ">Contacto</p>
-                        </a>
+                        <li class="menu-item">
+                            <a class="nav-link  h6  " aria-current="page" href={{ route('semillas') }}>Semillas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  h6" href="{{ route('frutosSecos') }}">Frutos Secos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  h6" href="{{ route('frutasDeshidratadas') }}">Frutas Deshidratadas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('especiasCondimientos') }}" class="h6 level-1 nav-link  " id="">Especias y
+                                Condimentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('snackMix') }}" class="h6 level-1 nav-link  " id="">Snack y
+                                Mix</a>
+                        </li>
+                        <li class="nav-item">
+                            <a a href="{{ route('chocolates') }}" class="h6 level-1 nav-link  " id="">Chocolates</a>
+                        </li>
+                        <li class="nav-item">
+
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
+        <hr></span>
+
     </div>
 
+
+
+    <!-- Nav bar -->
+
+
     <div class="col-lg-12">
-        <hr></span>
+
         <div class="container" style="max-width: 100%;">
 
             <div class="row">
@@ -214,30 +196,32 @@
                 <aside class="col-md-3" style="height: 200px">
                     <h5 class="title text-kumel-texto">Tienda</h5>
                     <ul class="list-unstyled list-padding">
-                       <li> <a href="{{ route('semillas') }}" class="text-kumel-texto">Semillas</a></li>
-                       <li> <a href="{{ route('snackMix') }}" class="text-kumel-texto">Snack y Mix</a></li>
-                       <li> <a href="{{ route('frutosSecos') }}" class="text-kumel-texto">Frutos Secos</a></li>
-                       <li> <a href="{{ route('frutasDeshidratadas') }}"  class="text-kumel-texto">Frutas Deshidratadas</a></li>
-                       <li> <a href="{{ route('chocolates') }}" class="text-kumel-texto">Chocolates</a></li>
-                       <li> <a href="{{ route('especiasCondimientos') }}" class="text-kumel-texto">Especias y Condimentos</a></li>
+                        <li> <a href="{{ route('semillas') }}" class="text-kumel-texto ">Semillas</a></li>
+                        <li> <a href="{{ route('snackMix') }}" class="text-kumel-texto">Snack y Mix</a></li>
+                        <li> <a href="{{ route('frutosSecos') }}" class="text-kumel-texto">Frutos Secos</a></li>
+                        <li> <a href="{{ route('frutasDeshidratadas') }}" class="text-kumel-texto">Frutas
+                                Deshidratadas</a></li>
+                        <li> <a href="{{ route('chocolates') }}" class="text-kumel-texto">Chocolates</a></li>
+                        <li> <a href="{{ route('especiasCondimientos') }}" class="text-kumel-texto">Especias y
+                                Condimentos</a></li>
                     </ul>
-                 </aside>
+                </aside>
 
 
-               
+
                 <div class="row" style="height: 200px">
 
 
                     <aside class="col-md-3" style="height: 200px">
                         <h5 class="title text-kumel-texto">Contactanos</h5>
                         <ul class="list-unstyled list-padding">
-                           <li class="text-kumel-texto"> Whatsapp:9999999</li>
-                           <li class="text-kumel-texto"> Email: prueba@gmail.com</a></li>
-                           <li class="text-kumel-texto"> Faceboob:www.faceboork.com</a></li>
-                           
+                            <li class="text-kumel-texto"> Whatsapp:9999999</li>
+                            <li class="text-kumel-texto"> Email: prueba@gmail.com</a></li>
+                            <li class="text-kumel-texto"> Faceboob:www.faceboork.com</a></li>
+
                         </ul>
-                     </aside>
-    
+                    </aside>
+
                 </div>
                 <div class="col-md-1 offset-md-1"></div>
                 <div class="row" style="height: 200px">
@@ -245,17 +229,18 @@
                         <h5 class="title text-kumel-texto ">Extras</h5>
                         <ul class="list-unstyled list-padding">
                             <li><a href={{"recetas"}} class="text-kumel-texto"> Recetas </a></li>
-                           <li><a href={{"condiciones"}} class="text-kumel-texto"> Condiciones </a></li>
-                           <li><a href={{"contacto"}}  class="text-kumel-texto"> Contacto </a></li>
-                           <li><a href={{"preguntasFrecuentes"}} class="text-kumel-texto"> Preguntas Frecuentes </a></li>
-                           
+                            <li><a href={{"condiciones"}} class="text-kumel-texto"> Condiciones </a></li>
+                            <li><a href={{"contacto"}} class="text-kumel-texto"> Contacto </a></li>
+                            <li><a href={{"preguntasFrecuentes"}} class="text-kumel-texto"> Preguntas Frecuentes </a>
+                            </li>
+
                         </ul>
-                     </aside>
+                    </aside>
                 </div>
                 {{-- <a  class="float-bottom-right float-floating " style="height: 50px"> <img src="img/Whatsapp.png">  </a>  --}}
 
             </div>
-        <br>
+            <br>
         </div>
     </footer>
     <div class="modal left fade" id="myModal2" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
