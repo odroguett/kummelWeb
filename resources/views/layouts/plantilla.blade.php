@@ -90,6 +90,10 @@
                         class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
                         <i class="icofont-brand-aliexpress"></i>
                     </a>
+                    <a href="{{'register'}}" id="usuario"
+                    class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
+                    <i class="icofont-user-alt-5"></i>
+                </a>
                     <div class="Contenedor-Carrito">
                         <label id="numCarrito" class="text-kumel-bold numberCircle  "
                             style="margin-bottom: 35px; margin-left: -4px;" hidden>0</label>
