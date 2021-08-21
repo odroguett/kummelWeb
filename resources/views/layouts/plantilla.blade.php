@@ -65,7 +65,7 @@
 
 
     <div class=" col-sm-12 col-md-12 col-lg-12  ">
-        <div class="form-inline ">
+        <div class="form-inline  bg-kumel-2  ">
 
             <div class="col-sm-4 col-md-4 col-lg-4 ">
 
@@ -79,38 +79,39 @@
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <div class="form-inline">
-                   
-                    <input type="text" class="form-control input-lg bg-light idPatronBusqueda " id="idPatronBusqueda"
+
+                    <div class="input-group col-lg-6 ">
+                        <input type="text" class="form-control bg-light idPatronBusqueda " id="idPatronBusqueda"
                         placeholder="Buscar Productos              ">
                     <div class="input-group-prepend border-right  ">
                         <div id="btnBuscarProductos" class="btn btn-light rounded"><i class="icofont-search"></i>
                         </div>
                     </div>
-                   
-                    <div class="col-md-4 offset-md-1 "></div>
+                    </div>    
+                    
+                    <div class="col-md-1 offset-md-1 "></div>
+                    
+                    <a href="#" id="carrito"
+                        class="ml-2 text-dark  icofont-size " >
+                        <i class="icofont-brand-aliexpress"><span class="border-left"> Carrito</span></i>
+                    </a>
+                    <div class="Contenedor-Carrito bg-kumel-2">
+                        
+                        <p id="numCarrito" class="text-kumel-bold numberCircle  bg-kumel-2   "
+                            style="margin-bottom: 35px; margin-left: -4px;" hidden>0</p>
 
-              
-                        <a href="#" id="carrito"
-                            class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
-                            <i class="icofont-brand-aliexpress"><span class="border-left"> Carrito</span></i>
-                        </a>
-                        <div class="Contenedor-Carrito">
-                            <label id="numCarrito" class="text-kumel-bold numberCircle  "
-                                style="margin-bottom: 35px; margin-left: -4px;" hidden>0</label>
+                    </div>
 
-                        </div>
-                       
-                       
-                    <div style="margin-left: 40px">
+                    <div class="border-right"  >
 
                         @if (isset(auth()->user()->name))
                         <a href="{{'register'}}" id="usuario"
-                            class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
+                            class="ml-2 text-dark bg-kumel-2 rounded-pill p-2 icofont-size ">
                             <i class="icofont-user-alt-5"></i>
 
                             @else
                             <a href="{{'register'}}" id="usuario"
-                                class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
+                                class="ml-2 text-dark bg-kumel-2 rounded-pill p-2 icofont-size ">
                                 <i class="icofont-user-alt-5"><span>Ingresa</span></i>
                                 @endif
 
@@ -120,7 +121,7 @@
                             </a>
                             @isset(auth()->user()->name)
                             <a href={{'logout'}} id="logout"
-                                class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm"
+                                class="ml-2 text-dark bg-kumel-2 rounded-pill p-2 icofont-size "
                                 data-toggle="tooltip" title="Cerrar Sesión">
                                 <i class="icofont-logout"></i>
                             </a>
@@ -137,7 +138,7 @@
 
 
 
-        <div class="col-lg-12 bg-kumel-2  border">
+        <div class="col-lg-12 border">
 
             <nav class="navbar navbar-expand-lg navbar-light ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -149,46 +150,35 @@
 
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav text-kumel-titulo m-auto">
-                            <li class="nav-item  active ">
-                                <a href="{{ route('kummel') }}" class="h6  nav-link   " id="">Inicio</a>
+                            <li class="nav-item  active border-right  ">
+                                <a href="{{ route('kummel') }}" class="h6  nav-link    " id="">Inicio</a>
 
                             </li>
-                            <li class="menu-item border-right">
-                                <a class="nav-link  h6   " aria-current="page" href={{ route('semillas') }}>Semillas</a>
+                            <li class="menu-item border-right  ">
+                                <a class="nav-link  h6 text-dark   " aria-current="page" href={{ route('semillas') }}>Semillas</a>
                             </li>
                             <li class="nav-item border-right">
-                                <a class="nav-link  h6" href="{{ route('frutosSecos') }}">Frutos Secos</a>
+                                <a class="nav-link  h6 text-dark" href="{{ route('frutosSecos') }}">Frutos Secos</a>
                             </li>
                             <li class="nav-item border-right">
-                                <a class="nav-link  h6" href="{{ route('frutasDeshidratadas') }}">Frutas
+                                <a class="nav-link  h6 text-dark" href="{{ route('frutasDeshidratadas') }}">Frutas
                                     Deshidratadas</a>
                             </li>
                             <li class="nav-item border-right">
-                                <a href="{{ route('especiasCondimientos') }}" class="h6 level-1 nav-link  "
+                                <a href="{{ route('especiasCondimientos') }}" class="h6 level-1 nav-link text-dark  "
                                     id="">Especias y
                                     Condimentos</a>
                             </li>
-                            <li class="nav-item border">
-                                <a href="{{ route('snackMix') }}" class="h6 level-1 nav-link  " id="">Snack y
+                            <li class="nav-item border-right">
+                                <a href="{{ route('snackMix') }}" class="h6 level-1 nav-link text-dark  " id="">Snack y
                                     Mix</a>
                             </li>
-                            <li class="nav-item border">
-                                <a a href="{{ route('chocolates') }}" class="h6 level-1 nav-link  " id="">Chocolates</a>
+                            <li class="nav-item border-right">
+                                <a a href="{{ route('chocolates') }}" class="h6 level-1 nav-link  text-dark " id="">Chocolates</a>
                             </li>
                             <li class="nav-item">
 
-                                <div class="form-inline">
-                                    <h6 class="text-kumel-titulo " style="margin-left: 50px;">Siguenos en:
-                                    </h6>
-                                    <div class="" style="margin-left: 10px; margin-bottom: 10px">
-                                        <a href="https://web.facebook.com/K%C3%BCmmel-738292063549140" target="_blank"
-                                            rel="nofollow noopener" class="btn btn-icon btn-light"> <i
-                                                class="icofont-facebook"></i></a>
-                                        <a href="https://www.instagram.com/kummel.cl/" target="_blank"
-                                            rel="nofollow noopener" class="btn btn-icon btn-light "><i
-                                                class="icofont-instagram"></i></a>
-                                    </div>
-                                </div>
+
 
                             </li>
                         </ul>
@@ -253,21 +243,7 @@
 
 
 
-                    <div class="row " style="height: 200px">
 
-
-                        <aside class="col-md-3" style="height: 200px">
-                            <h5 class="title text-kumel-texto">Contactanos</h5>
-                            <ul class="list-unstyled list-padding">
-                                <li class="text-kumel-texto"> Whatsapp:9999999</li>
-                                <li class="text-kumel-texto"> Email: prueba@gmail.com</a></li>
-                                <li class="text-kumel-texto"> Faceboob:www.faceboork.com</a></li>
-
-                            </ul>
-                        </aside>
-
-                    </div>
-                    <div class="col-md-1 offset-md-1"></div>
                     <div class="row" style="height: 200px">
                         <aside>
                             <h5 class="title text-kumel-texto ">Extras</h5>
@@ -309,62 +285,97 @@
 
                     </div>
 
+                    <div class="row">
+                        <aside style="height: 200px; margin-left:100px">
+                            <h5 class="title text-kumel-texto">Contactanos</h5>
+                            <ul class="list-unstyled list-padding">
+                                <li class="text-kumel-texto"> Whatsapp:9999999</li>
+                                <li class="text-kumel-texto"> Email: prueba@gmail.com</a></li>
+
+                            </ul>
+
+                            <hr style="border: 0.5px solid #fbdb9b">
+
+                            <h5 class="title text-kumel-texto ">Siguenos en</h5>
+                            <div class="form-inline">
+                                <div class="col-sm-3">
+                                    <a href="https://web.facebook.com/K%C3%BCmmel-738292063549140" target="_blank"
+                                        rel="nofollow noopener" class="btn btn-icon btn-light"> <i
+                                            class="icofont-facebook"></i></a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <a href="https://www.instagram.com/kummel.cl/" target="_blank"
+                                        rel="nofollow noopener" class="btn btn-icon btn-light "><i
+                                            class="icofont-instagram"></i></a>
+                                </div>
+                            </div>
+
+
+
+                    </div>
+
+                    </aside>
+
                 </div>
-                <br>
+
+
 
             </div>
-        </footer>
-        <div class="modal left fade" id="myModal2" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 style="text-align: center;" class="text-kumel-bold">TU CARRITO</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
+            <br>
 
-                    </div>
-                    <div class="modal-footer">
-                        <h4 style="text-align: left;" class=" text-kumel-titulo"> Total (CLP): </h4>
-                        <h4 style="text-align: left;" class="totalizador text-kumel-bold"> </h4>
-                        <button type="button" onclick="oCarrito.Comprar()"
-                            class="btn btn-kumel-1 btn-block">Comprar</button>
+    </div>
+    </footer>
+    <div class="modal left fade" id="myModal2" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 style="text-align: center;" class="text-kumel-bold">TU CARRITO</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
 
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h4 style="text-align: left;" class=" text-kumel-titulo"> Total (CLP): </h4>
+                    <h4 style="text-align: left;" class="totalizador text-kumel-bold"> </h4>
+                    <button type="button" onclick="oCarrito.Comprar()"
+                        class="btn btn-kumel-1 btn-block">Comprar</button>
+
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="modalConfirmacion" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header bg-light">
-                        <h6 class="" id="tituloConfirmacion"></h6>
-                    </div>
-                    <div id="mensajeConfirmacion" class="modal-body bg-light">
-                    </div>
-                    <div class="modal-footer bg-light">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <button id="btnConfirmacionOK" class="btn-primary" type="button">Aceptar </button>
-
-
-                            </div>
-                            <div class="col-lg-6">
-                                <button id="btnConfirmacionCANCEL" class="btn-primary" type="button">Cancelar</button>
+    <!-- Modal -->
+    <div class="modal fade" id="modalConfirmacion" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h6 class="" id="tituloConfirmacion"></h6>
+                </div>
+                <div id="mensajeConfirmacion" class="modal-body bg-light">
+                </div>
+                <div class="modal-footer bg-light">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button id="btnConfirmacionOK" class="btn-primary" type="button">Aceptar </button>
 
 
-                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <button id="btnConfirmacionCANCEL" class="btn-primary" type="button">Cancelar</button>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 </body>
 <div class="modal fade" id="MensajePersonalizado" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
