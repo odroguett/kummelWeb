@@ -1461,6 +1461,13 @@ label {
 }
 
 
+.navbar-light
+{
+
+	color: #341404 !important;
+	font-weight: 100;
+}
+
 .text-kumel-titulo {
 	color: #341404 !important;
 	font-weight: 100;
@@ -1855,4 +1862,12 @@ label {
 	min-width: 20px;
 	padding: 7px;
 	border-radius: 6px;
+}
+
+.hr1{ 
+  
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         5vh;
+    width:          1px;       
 }
