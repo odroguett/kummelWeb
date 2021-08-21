@@ -918,6 +918,8 @@ oCarrito = new Carrito_class();
 $(document).ready(function () {
 
 
+  $('[data-toggle="tooltip"]').tooltip();
+
   $(".btn-valor").click(function (e) {
     e.preventDefault();
     e.stopPropagation();

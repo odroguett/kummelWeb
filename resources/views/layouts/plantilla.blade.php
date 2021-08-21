@@ -63,12 +63,11 @@
 
 <body class="fixed-bottom-padding ">
 
-  
-
-    <div class=" col-sm-12 col-md-12 col-lg-12 ">
+ 
+     <div class=" col-sm-12 col-md-12 col-lg-12 bg-kumel-2 "> 
         <div class="form-inline ">
 
-            <div class="col-sm-7 col-md-7 col-lg-7 bg-ligth">
+            <div class="col-sm-7 col-md-7 col-lg-7 ">
 
                 <div class="form-inline">
                     <img class="img-fluid logo-img  " src="img/logo.png">
@@ -86,36 +85,55 @@
                         <div id="btnBuscarProductos" class="btn btn-light rounded"><i class="icofont-search"></i>
                         </div>
                     </div>
+
+                    
                     <a href="#" id="carrito"
                         class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
-                        <i class="icofont-brand-aliexpress"></i>
+                        <i class="icofont-brand-aliexpress"><span> Carrito</span></i>
                     </a>
-                    <a href="{{'register'}}" id="usuario"
-                    class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
-                    <i class="icofont-user-alt-5"></i>
-                </a>
                     <div class="Contenedor-Carrito">
                         <label id="numCarrito" class="text-kumel-bold numberCircle  "
                             style="margin-bottom: 35px; margin-left: -4px;" hidden>0</label>
 
                     </div>
-                    <h6 style="margin-bottom: -10px; margin-left: 100px;" class="text-kumel-titulo ">Siguenos en:
-                    </h6>
-                    <div class="" style="margin-left: 10px;">
-                        <a href="https://web.facebook.com/K%C3%BCmmel-738292063549140" target="_blank"
-                            rel="nofollow noopener" class="btn btn-icon btn-light"> <i class="icofont-facebook"></i></a>
-                        <a href="https://www.instagram.com/kummel.cl/" target="_blank" rel="nofollow noopener"
-                            class="btn btn-icon btn-light "><i class="icofont-instagram"></i></a>
+
+                    <div style="margin-left: 20px">
+
+                        @if (isset(auth()->user()->name)) 
+                        <a href="{{'register'}}" id="usuario"  
+                            class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
+                            <i class="icofont-user-alt-5"></i>    
+                        
+                        @else
+                        <a href="{{'register'}}" id="usuario"
+                        class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
+                        <i class="icofont-user-alt-5"><span>Ingresa</span></i>
+                        @endif
+
+                        
+                        @isset(auth()->user()->name) {{auth()->user()->name}} @endisset
+                        
+                        </a>
+                        @isset(auth()->user()->name)
+                        <a href={{'logout'}} id="logout"
+                        class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm" data-toggle="tooltip" title="Cerrar Sesión">
+                        <i class="icofont-logout"></i>
+                         </a>
+                         @endisset
                     </div>
+                   
+                    
+                  
                 </div>
             </div>
         </div>
-    </div>
+         <hr> 
+        </div>
+    
 
 
-
-    <div class="col-lg-12 ">
-        <hr></span>
+    <div class="col-lg-12 "> 
+        
         <nav class="navbar navbar-expand-lg navbar-light ">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -151,6 +169,17 @@
                         </li>
                         <li class="nav-item">
 
+                            <div class="form-inline">
+                                <h6  class="text-kumel-titulo " style="margin-left: 50px;">Siguenos en:
+                                </h6>
+                                <div class="" style="margin-left: 10px; margin-bottom: 10px">
+                                    <a href="https://web.facebook.com/K%C3%BCmmel-738292063549140" target="_blank"
+                                        rel="nofollow noopener" class="btn btn-icon btn-light"> <i class="icofont-facebook"></i></a>
+                                    <a href="https://www.instagram.com/kummel.cl/" target="_blank" rel="nofollow noopener"
+                                        class="btn btn-icon btn-light "><i class="icofont-instagram"></i></a>
+                                </div>
+                            </div>
+                            
                         </li>
                     </ul>
                 </div>
@@ -186,7 +215,7 @@
         </div>
     </div>
 
-    </div>
+   
 
 
 
@@ -368,5 +397,6 @@
         }
         // $("#ContenedorPaginas").load('/TopuvaWeb/Vistas/home.php');
         $("#loader").hide();
+       
     });
 </script>

@@ -26,12 +26,13 @@ use App\Http\Controllers\VentasControllers;
  */
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+});/* ->middleware(['auth'])->name('dashboard'); */
 
 require __DIR__.'/auth.php';
 //Paginas principales
-Route::get('kummel', [KummelControllers::class,'home'])->name('kummel')
-    ->middleware('guest');
+Route::get('kummel', [KummelControllers::class,'home'])->name('kummel');
+    
+   
 Route::get('contacto', [KummelControllers::class,'CargaVistaContacto'])->name('contacto');
 Route::get('recetas', [KummelControllers::class,'recetas'])->name('recetas');
 Route::get('condiciones', [KummelControllers::class,'condiciones'])->name('condiciones');
