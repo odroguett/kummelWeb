@@ -63,8 +63,8 @@
 
 <body class="fixed-bottom-padding ">
 
- 
-     <div class=" col-sm-12 col-md-12 col-lg-12 bg-kumel-2 "> 
+
+    <div class=" col-sm-12 col-md-12 col-lg-12 bg-kumel-2 ">
         <div class="form-inline ">
 
             <div class="col-sm-7 col-md-7 col-lg-7 ">
@@ -86,7 +86,7 @@
                         </div>
                     </div>
 
-                    
+
                     <a href="#" id="carrito"
                         class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
                         <i class="icofont-brand-aliexpress"><span> Carrito</span></i>
@@ -99,45 +99,47 @@
 
                     <div style="margin-left: 20px">
 
-                        @if (isset(auth()->user()->name)) 
-                        <a href="{{'register'}}" id="usuario"  
-                            class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
-                            <i class="icofont-user-alt-5"></i>    
-                        
-                        @else
+                        @if (isset(auth()->user()->name))
                         <a href="{{'register'}}" id="usuario"
-                        class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
-                        <i class="icofont-user-alt-5"><span>Ingresa</span></i>
-                        @endif
+                            class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
+                            <i class="icofont-user-alt-5"></i>
 
-                        
-                        @isset(auth()->user()->name) {{auth()->user()->name}} @endisset
-                        
-                        </a>
-                        @isset(auth()->user()->name)
-                        <a href={{'logout'}} id="logout"
-                        class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm" data-toggle="tooltip" title="Cerrar Sesión">
-                        <i class="icofont-logout"></i>
-                         </a>
-                         @endisset
+                            @else
+                            <a href="{{'register'}}" id="usuario"
+                                class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm">
+                                <i class="icofont-user-alt-5"><span>Ingresa</span></i>
+                                @endif
+
+
+                                @isset(auth()->user()->name) {{auth()->user()->name}} @endisset
+
+                            </a>
+                            @isset(auth()->user()->name)
+                            <a href={{'logout'}} id="logout"
+                                class="ml-2 text-dark bg-light rounded-pill p-2 icofont-size border shadow-sm"
+                                data-toggle="tooltip" title="Cerrar Sesión">
+                                <i class="icofont-logout"></i>
+                            </a>
+                            @endisset
                     </div>
-                   
-                    
-                  
+
+
+
                 </div>
             </div>
         </div>
-         <hr> 
-        </div>
-    
+        <hr>
+    </div>
 
 
-    <div class="col-lg-12 "> 
-        
+
+    <div class="col-lg-12 ">
+
         <nav class="navbar navbar-expand-lg navbar-light ">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
+            </button>
             <div class="container-fluid">
 
 
@@ -170,16 +172,18 @@
                         <li class="nav-item">
 
                             <div class="form-inline">
-                                <h6  class="text-kumel-titulo " style="margin-left: 50px;">Siguenos en:
+                                <h6 class="text-kumel-titulo " style="margin-left: 50px;">Siguenos en:
                                 </h6>
                                 <div class="" style="margin-left: 10px; margin-bottom: 10px">
                                     <a href="https://web.facebook.com/K%C3%BCmmel-738292063549140" target="_blank"
-                                        rel="nofollow noopener" class="btn btn-icon btn-light"> <i class="icofont-facebook"></i></a>
-                                    <a href="https://www.instagram.com/kummel.cl/" target="_blank" rel="nofollow noopener"
-                                        class="btn btn-icon btn-light "><i class="icofont-instagram"></i></a>
+                                        rel="nofollow noopener" class="btn btn-icon btn-light"> <i
+                                            class="icofont-facebook"></i></a>
+                                    <a href="https://www.instagram.com/kummel.cl/" target="_blank"
+                                        rel="nofollow noopener" class="btn btn-icon btn-light "><i
+                                            class="icofont-instagram"></i></a>
                                 </div>
                             </div>
-                            
+
                         </li>
                     </ul>
                 </div>
@@ -215,7 +219,7 @@
         </div>
     </div>
 
-   
+
 
 
 
@@ -243,7 +247,7 @@
 
 
 
-                <div class="row" style="height: 200px">
+                <div class="row " style="height: 200px">
 
 
                     <aside class="col-md-3" style="height: 200px">
@@ -259,7 +263,7 @@
                 </div>
                 <div class="col-md-1 offset-md-1"></div>
                 <div class="row" style="height: 200px">
-                    <aside class="col-md">
+                    <aside >
                         <h5 class="title text-kumel-texto ">Extras</h5>
                         <ul class="list-unstyled list-padding">
                             <li><a href={{"recetas"}} class="text-kumel-texto"> Recetas </a></li>
@@ -271,10 +275,36 @@
                         </ul>
                     </aside>
                 </div>
-                {{-- <a  class="float-bottom-right float-floating " style="height: 50px"> <img src="img/Whatsapp.png">  </a>  --}}
+
+
+                <div class="row">
+                    <aside  style="height: 200px; margin-left:100px">
+                        <h5 class="title text-kumel-texto ">Suscribete</h5>
+                        <div class="form-inline">
+                           
+                                <input type="text" placeholder="Email" class="form-control" name="">
+                                <button type="submit" class=" btn btn-kumel ">Ingresar</button>
+                        </div>
+                       
+                       <hr style="border: 0.5px solid #fbdb9b">
+                        
+                        <h5 class="title text-kumel-texto ">Medios de Pago</h5>
+                        <div class="form-inline">
+                            <div class="col-sm-4">
+                                <p class="text-kumel-texto">  Transferencia</p>
+                                <p class="text-kumel-texto">  Domicilio</p>
+                            </div>
+                            
+                            <img style=" margin-top:-10px "class="img-fluid-2 logo-img  " src="img/Flow.png">
+                        </div>
+                       
+                    </aside>
+
+                </div>
 
             </div>
             <br>
+
         </div>
     </footer>
     <div class="modal left fade" id="myModal2" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
@@ -397,6 +427,6 @@
         }
         // $("#ContenedorPaginas").load('/TopuvaWeb/Vistas/home.php');
         $("#loader").hide();
-       
+
     });
 </script>

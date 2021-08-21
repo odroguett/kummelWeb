@@ -1845,5 +1845,14 @@ label {
   }
 
   .verticalLine {
-	border-left:  solid #553d22;
+	border-left:  solid #fbdb9b;
   }
+
+   .img-fluid-2 {
+	width: 20px;
+	height: 20px;
+	object-fit: scale-down;
+	min-width: 20px;
+	padding: 7px;
+	border-radius: 6px;
+}
