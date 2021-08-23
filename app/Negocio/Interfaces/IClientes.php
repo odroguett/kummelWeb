@@ -6,5 +6,6 @@ interface IClientes
 {
     
     public function agregaClientes(Request $request);
+    public function obtieneDireccionCliente( $idCliente);
 }
 ?>

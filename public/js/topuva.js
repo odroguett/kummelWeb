@@ -432,13 +432,15 @@ debugger;
   this.IngresaDireccion = function () {
     debugger;
     var idDespacho = $('#comIdDespacho').val();
+    var idUsuario = $('#idUsuario').val();
     if(idDespacho.trim() =='' ) idDespacho=0;
     $.ajax({
-      type: "GET",
-      url: 'obtieneDatosDespacho/' + idDespacho ,
-     /*  data: {
-        idDespacho: idDespacho
-      }, */
+      type: "POST",
+      url: 'obtieneDatosDespacho',
+       data: {
+        idDespacho: idDespacho,
+        idUsuario:idUsuario
+      }, 
       //dataType: "json",
       success: function (data) {
         if (data) {

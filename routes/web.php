@@ -66,7 +66,8 @@ Route::get('confirmacion', [VentasControllers::class,'confirmacion'])->name('con
 Route::post('confirmaPago', [VentasControllers::class,'confirmaPago'])->name('confirmaPago');
 
 //Despacho//
-Route::get('obtieneDatosDespacho/{idDespacho}', [DespachoControllers::class,'obtieneDatosDespacho'])->name('obtieneDespacho');
+//Route::get('obtieneDatosDespacho/{idDespacho}', [DespachoControllers::class,'obtieneDatosDespacho'])->name('obtieneDespacho');
+Route::post('obtieneDatosDespacho', [DespachoControllers::class,'obtieneDatosDespacho'])->name('obtieneDespacho');
 Route::post('agregaDatosDespacho', [DespachoControllers::class,'agregaDatosDespacho'])->name('agregaDatosDespacho');
 Route::post('eliminarDatosDespacho', [DespachoControllers::class,'eliminarDatosDespacho'])->name('eliminarDatosDespacho');
 

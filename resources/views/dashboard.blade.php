@@ -56,6 +56,7 @@
                         <div class="p-0">
                             <form action="{{'agregaDatosClientes'}}" method="POST">
                                 @csrf
+                                <input type="text" class="form-control" name="idUsuario" id="idUsuario" value="{{auth()->user()->id}}" hidden  >
                                 <h6 class="mb-4 profile-title text-kumel-titulo"  style="margin-top: 5%;">Ingresa tus datos para despacho.</h6>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-1 col-md-1 col-lg-1 col-form-label text-kumel-titulo">Nombre</label>

@@ -30,11 +30,11 @@ class DespachoControllers extends Controller
 
  }
 
-public function obtieneDatosDespacho($idDespacho)
+public function obtieneDatosDespacho(Request $request)
     {
         
      $oDatosDespacho = new DatosDespachoOtd();
-     $oDatosDespacho =$this->oDespacho->ObtieneDatosDespacho($idDespacho);
+     $oDatosDespacho =$this->oDespacho->ObtieneDatosDespacho($request);
       return view('kummel.incorporaDireccion',['oDatosDespacho' => $oDatosDespacho] );
                
     }

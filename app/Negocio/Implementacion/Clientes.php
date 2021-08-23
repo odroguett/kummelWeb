@@ -23,16 +23,26 @@ class Clientes implements IClientes
         $oClientes = new ModelsClientes();
         
         $oClientes->ID_CLIENTE =DB::table('CLIENTES')->count() + 1;
-        $oClientes->NOMBRES = $request->input('nombre');
+        $oClientes->NOMBRE = $request->input('nombre');
         $oClientes->APELLIDOS = $request->input('apellido');
         $oClientes->EMAIL = $request->input('email');
         $oClientes->TELEFONO = $request->input('telefono');
+        $oClientes->DIRECCION = $request->input('direccion');
         $oClientes->COMUNA = $request->input('comuna');
         $oClientes->CIUDAD = $request->input('ciudad');
+        $oClientes->REGION = $request->input('region');
         $oClientes->DEPARTAMENTO = $request->input('departamento');
         $oClientes->ID_USUARIO = $request->input('idUsuario');
         
         $this->oUnidadTrabajo->ClientesRepositorio()->InsertarIndividual($oClientes);
+     
+
+    }
+
+    public function obtieneDireccionCliente( $idUsuario)
+    {   
+       
+     return  $this->oUnidadTrabajo->ClientesRepositorio()->ObtieneClientesIDUsuario($idUsuario);
      
 
     }

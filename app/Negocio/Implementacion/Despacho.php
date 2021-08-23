@@ -1,6 +1,7 @@
 <?php 
 namespace App\Negocio\Implementacion;
 
+use App\Models\Clientes;
 use App\Models\Despachos;
 use App\Negocio\Interfaces\ICategorias;
 use App\Negocio\Interfaces\IClientes;
@@ -94,11 +95,42 @@ return $oRespuesta;
 
 
 
-public function ObtieneDatosDespacho($idDespacho)
+public function ObtieneDatosDespacho( Request $request)
 {
    
     $oDatosDespacho = new DatosDespachoOtd;
+    $oClientes = new Clientes();
+    $idDespacho = $request->input('idDespacho');
+    $idUsuario = $request->input('idUsuario');
+    $existeDireccion = false;
+    //Buscamos la direccion del usuario.
+    if($idUsuario > 0 && trim($idDespacho) ==0)
+    {
+        $oRetorno =  $this->oClientes->obtieneDireccionCliente($idUsuario);
+        if(isset($oRetorno))
+        {
+           
+            foreach($oRetorno  as $value)
+            {
+                $oDatosDespacho->sNombre =   $value->NOMBRE;
+                $oDatosDespacho->sApellido =   $value->APELLIDOS;
+                $oDatosDespacho->sDireccion =   $value->DIRECCION;
+                $oDatosDespacho->sComuna =   $value->COMUNA;
+                $oDatosDespacho->sCiudad =  $value->CIUDAD;
+                $oDatosDespacho->sRegion =  $value->REGION;
+                $oDatosDespacho->sTelefono =  $value->TELEFONO;
+                $oDatosDespacho->sEmail =  $value->EMAIL;
+                $oDatosDespacho->sDepartamento =  $value->DEPARTAMENTO;
+                return $oDatosDespacho;
+            }
+            
+
+        }
+        
+     
+    }
     $oRetorno = $this->oUnidadTrabajo->DespachosRepositorio()->ObtieneDatosDespacho(trim($idDespacho));
+    
     if(isset($oRetorno))
     {
     $oDatosDespacho->sNombre =  $oRetorno->NOMBRE;
@@ -114,7 +146,7 @@ public function ObtieneDatosDespacho($idDespacho)
     }
     else
     {
-    $oDatosDespacho->sNombre =  "";
+    $oDatosDespacho->sNombre = "";
     $oDatosDespacho->sApellido =  "";
     $oDatosDespacho->sDireccion =  "";
     $oDatosDespacho->sComuna =  "";
