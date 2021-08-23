@@ -58,16 +58,37 @@
         .modal.right.fade.show .modal-dialog {
             right: 0;
         }
+
+        a:hover {
+            background-color: rgb(218, 218, 211);
+        }
     </style>
 </head>
 
 <body class="fixed-bottom-padding ">
-
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="l-top">
+                        <li><i class="icofont-checked"></i> Gourmet</a></li>
+                        <li><i class="icofont-checked"></i> Reposteria</a></li>
+                        <li><i class="icofont-checked"></i> Chocolates</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="r-top">
+                        <li><a href="#"><i class="icofont-headphone-alt"></i> WhatSapp : 910-313-1728</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class=" col-sm-12 col-md-12 col-lg-12  ">
         <div class="form-inline  bg-kumel-2  ">
 
-            <div class="col-sm-4 col-md-4 col-lg-4 ">
+            <div class="col-sm-5 col-md-5 col-lg-5 ">
 
                 <div class="form-inline">
                     <img class="img-fluid logo-img  " src="img/logo.png">
@@ -80,29 +101,32 @@
             <div class="col-sm-6 col-md-6 col-lg-6">
                 <div class="form-inline">
 
-                    <div class="input-group col-lg-6 ">
-                        <input type="text" class="form-control bg-light idPatronBusqueda " id="idPatronBusqueda"
-                        placeholder="Buscar Productos              ">
-                    <div class="input-group-prepend border-right  ">
-                        <div id="btnBuscarProductos" class="btn btn-light rounded"><i class="icofont-search"></i>
+                    <div class="input-group col-lg-4 ">
+                        <input type="text" class="form-control bg-light idPatronBusqueda rounded " id="idPatronBusqueda"
+                            placeholder="Buscar Productos              ">
+                        <div class="input-group-prepend border-right  ">
+                            <div id="btnBuscarProductos" class="btn bg-kumel-1 border rounded"><i
+                                    class="icofont-search"></i>
+                            </div>
                         </div>
                     </div>
-                    </div>    
-                    
-                    <div class="col-md-1 offset-md-1 "></div>
-                    
-                    <a href="#" id="carrito"
-                        class="ml-2 text-dark  icofont-size " >
-                        <i class="icofont-brand-aliexpress"><span class="border-left"> Carrito</span></i>
-                    </a>
-                    <div class="Contenedor-Carrito bg-kumel-2">
-                        
-                        <p id="numCarrito" class="text-kumel-bold numberCircle  bg-kumel-2   "
-                            style="margin-bottom: 35px; margin-left: -4px;" hidden>0</p>
 
+
+                    <div class="verticalLineLeft " style="margin-left: 50px;">
+
+                        <a href="#" id="carrito" class="ml-2 text-dark  icofont-size    ">
+                            <i class="icofont-brand-aliexpress"><span class="border-left"> Comprar</span></i>
+                        </a>
+                    </div>
+                        <div class="Contenedor-Carrito bg-kumel-2 ">
+
+                            <p id="numCarrito" class="text-kumel-bold numberCircle  bg-kumel-2   "
+                                style="margin-bottom: 35px; margin-left: -4px;" hidden>0</p>
+
+                       
                     </div>
 
-                    <div class="border-right"  >
+                    <div class="verticalLineLeft verticalLineRight" style="margin-left: 50px;">
 
                         @if (isset(auth()->user()->name))
                         <a href="{{'register'}}" id="usuario"
@@ -121,8 +145,8 @@
                             </a>
                             @isset(auth()->user()->name)
                             <a href={{'logout'}} id="logout"
-                                class="ml-2 text-dark bg-kumel-2 rounded-pill p-2 icofont-size "
-                                data-toggle="tooltip" title="Cerrar Sesión">
+                                class="ml-2 text-dark bg-kumel-2 rounded-pill p-2 icofont-size " data-toggle="tooltip"
+                                title="Cerrar Sesión">
                                 <i class="icofont-logout"></i>
                             </a>
                             @endisset
@@ -154,8 +178,9 @@
                                 <a href="{{ route('kummel') }}" class="h6  nav-link    " id="">Inicio</a>
 
                             </li>
-                            <li class="menu-item border-right  ">
-                                <a class="nav-link  h6 text-dark   " aria-current="page" href={{ route('semillas') }}>Semillas</a>
+                            <li class="menu-item border-right    ">
+                                <a class="nav-link  h6 text-dark   " aria-current="page"
+                                    href={{ route('semillas') }}>Semillas</a>
                             </li>
                             <li class="nav-item border-right">
                                 <a class="nav-link  h6 text-dark" href="{{ route('frutosSecos') }}">Frutos Secos</a>
@@ -174,7 +199,8 @@
                                     Mix</a>
                             </li>
                             <li class="nav-item border-right">
-                                <a a href="{{ route('chocolates') }}" class="h6 level-1 nav-link  text-dark " id="">Chocolates</a>
+                                <a a href="{{ route('chocolates') }}" class="h6 level-1 nav-link  text-dark "
+                                    id="">Chocolates</a>
                             </li>
                             <li class="nav-item">
 

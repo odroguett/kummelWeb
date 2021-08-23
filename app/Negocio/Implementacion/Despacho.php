@@ -3,6 +3,7 @@ namespace App\Negocio\Implementacion;
 
 use App\Models\Despachos;
 use App\Negocio\Interfaces\ICategorias;
+use App\Negocio\Interfaces\IClientes;
 use App\Negocio\Interfaces\IDespacho;
 use App\Negocio\Interfaces\IUnidades;
 use App\OTD\DatosDespachoOtd;
@@ -16,12 +17,14 @@ class Despacho implements IDespacho
     private $oCategorias;
     private $oUnidadTrabajo;
     private $oUnidades;
+    private $oClientes;
     
-public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades )
+public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades, IClientes $_oClientes )
 {
     $this->oCategorias=$_oCategorias;
     $this->oUnidadTrabajo=$_oUnidadTrabajo;
     $this->oUnidades=$_oUnidades;
+    $this->oClientes=$_oClientes;
 }
 
 public function InsertaActualizaDespacho(Request $request)
@@ -31,6 +34,12 @@ $oDespacho = new Despachos;
 $modificar = $request->input('modificar');
 $oRespuesta = new RespuestaOtd();
 $oRespuesta->sMensaje ="Datos para despacho ingresados correctamente";
+
+///Incorporamos la direccion del cliente
+if($request->input('grabaDireccion') ==-1)
+{
+    $this->oClientes->agregaClientes($request);
+}
 
 if($modificar=="M")
 {

@@ -53,6 +53,9 @@ class KummelControllers extends Controller
     {
      return view('kummel.preguntasFrecuentes');
     }
-
+    public function dashboard()
+    {
+     return view('/dashboard');
+    }
   
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BuscarControllers;
+use App\Http\Controllers\ClientesControllers;
 use App\Http\Controllers\ComprarControllers;
 use App\Http\Controllers\DespachoControllers;
 use  App\Http\Controllers\KummelControllers;
@@ -20,23 +21,15 @@ use App\Http\Controllers\VentasControllers;
 |
 */
 
-/* Route::get('/', function () {
-    return view('welcome');
-});
- */
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});/* ->middleware(['auth'])->name('dashboard'); */
-
 require __DIR__.'/auth.php';
 //Paginas principales
 Route::get('kummel', [KummelControllers::class,'home'])->name('kummel');
-    
-   
 Route::get('contacto', [KummelControllers::class,'CargaVistaContacto'])->name('contacto');
 Route::get('recetas', [KummelControllers::class,'recetas'])->name('recetas');
 Route::get('condiciones', [KummelControllers::class,'condiciones'])->name('condiciones');
 Route::get('preguntasFrecuentes', [KummelControllers::class,'preguntasFrecuentes'])->name('preguntasFrecuentes');
+Route::get('dashboard', [KummelControllers::class,'dashboard'])->name('dashboard') ->middleware('auth');
+
 
 
 ///Menu principal pagina////
@@ -77,4 +70,5 @@ Route::get('obtieneDatosDespacho/{idDespacho}', [DespachoControllers::class,'obt
 Route::post('agregaDatosDespacho', [DespachoControllers::class,'agregaDatosDespacho'])->name('agregaDatosDespacho');
 Route::post('eliminarDatosDespacho', [DespachoControllers::class,'eliminarDatosDespacho'])->name('eliminarDatosDespacho');
 
-//Correo//
+//Clientes//
+Route::post('agregaDatosClientes', [ClientesControllers::class,'agregaDatosClientes'])->name('agregaDatosClientes');

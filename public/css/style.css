@@ -1851,9 +1851,17 @@ label {
 	margin-right:20px;
   }
 
-  .verticalLine {
-	border-left:  solid #fbdb9b;
+  .verticalLineLeft {
+	border-left:  solid #85817b;
+	border-left-width: 0.5px;
+	
   }
+  .verticalLineRight {
+	border-right:  solid #85817b;
+	border-right-width: 0.5px;
+	
+  }
+
 
    .img-fluid-2 {
 	width: 20px;
@@ -1864,6 +1872,8 @@ label {
 	border-radius: 6px;
 }
 
+
+
 .hr1{ 
   
     border:         none;
@@ -1871,3 +1881,4 @@ label {
     height:         5vh;
     width:          1px;       
 }
+

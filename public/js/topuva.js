@@ -99,6 +99,20 @@ debugger;
     let email = $('#email').val();
     let cliente = $('#email').val();
     let tipoDespacho = $('#tipoDespacho').val();
+    let idUsuario =  $('#idUsuario').val();
+    let grabaDireccion;
+    if( $( "#chkDireccion" ).prop( "checked"))
+    {
+     grabaDireccion = -1;
+
+    }
+    else
+    {
+    grabaDireccion = 0;
+
+    }
+
+    
     $.ajax({
       type: "POST",
       url: '/agregaDatosDespacho/',
@@ -114,7 +128,9 @@ debugger;
         comuna: comuna,
         region: region,
         telefono: telefono,
-        email: email
+        email: email,
+        grabaDireccion:grabaDireccion,
+        idUsuario:idUsuario
       },
       success: function (data) {
         if (data.bEsValido) {
