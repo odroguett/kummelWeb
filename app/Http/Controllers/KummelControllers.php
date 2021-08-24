@@ -57,5 +57,11 @@ class KummelControllers extends Controller
     {
      return view('/dashboard');
     }
+
+    public function mantencion($idUsuario)
+    {
+           
+     return view('dashboard');
+    }
   
 }

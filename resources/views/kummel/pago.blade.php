@@ -44,7 +44,7 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
 
 <input id="comIdDespacho" type="text" class="text-info" value="  {{$idDespacho}} " hidden>
 <input id="totalProductosPago" type="text" class="text-info" value="{{ $totalProductos}}" hidden>
-<input id="idUsuario" type="text" class="text-info " value="{{ auth()->user()->id }}" hidden >
+<input id="idUsuario" type="text" class="text-info "  value= "@if (isset(auth()->user()->id)) {{ auth()->user()->id }}" @else  {{""}} @endif"  hidden  >
 
 <body>
 
@@ -317,14 +317,14 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
 
                         </div>
                     </div>
-
+                   
 
 
 
 
 
                 </div>
-
+                <br>
 
             </div>
 

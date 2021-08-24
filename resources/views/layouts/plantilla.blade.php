@@ -118,38 +118,44 @@
                             <i class="icofont-brand-aliexpress"><span class="border-left"> Comprar</span></i>
                         </a>
                     </div>
-                        <div class="Contenedor-Carrito bg-kumel-2 ">
+                    <div class="Contenedor-Carrito bg-kumel-2 ">
 
-                            <p id="numCarrito" class="text-kumel-bold numberCircle  bg-kumel-2   "
-                                style="margin-bottom: 35px; margin-left: -4px;" hidden>0</p>
+                        <p id="numCarrito" class="text-kumel-bold numberCircle  bg-kumel-2   "
+                            style="margin-bottom: 35px; margin-left: -4px;" hidden>0</p>
 
-                       
+
                     </div>
 
-                    <div class="verticalLineLeft verticalLineRight" style="margin-left: 50px;">
+                    <div class="verticalLineLeft verticalLineRight" style="margin-left: 70px;">
 
                         @if (isset(auth()->user()->name))
-                        <a href="{{'register'}}" id="usuario"
-                            class="ml-2 text-dark bg-kumel-2 rounded-pill p-2 icofont-size ">
-                            <i class="icofont-user-alt-5"></i>
 
-                            @else
+
+                        @else
+                        
                             <a href="{{'register'}}" id="usuario"
                                 class="ml-2 text-dark bg-kumel-2 rounded-pill p-2 icofont-size ">
                                 <i class="icofont-user-alt-5"><span>Ingresa</span></i>
-                                @endif
-
-
-                                @isset(auth()->user()->name) {{auth()->user()->name}} @endisset
 
                             </a>
+                            @endif
+
                             @isset(auth()->user()->name)
-                            <a href={{'logout'}} id="logout"
-                                class="ml-2 text-dark bg-kumel-2 rounded-pill p-2 icofont-size " data-toggle="tooltip"
-                                title="Cerrar Sesión">
-                                <i class="icofont-logout"></i>
-                            </a>
-                            @endisset
+
+                            <div class="dropdown">
+                                <a class="btn   dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icofont-user-alt-5"></i> 
+                                    {{auth()->user()->name}}
+                                </a>
+                              
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="{{'logout'}}">Cerrar Sesión</a>
+                                  <a class="dropdown-item" href={{route('mantencion', ['idUsuario' => auth()->user()->id]) }} }} >Mantención</a>
+                                 
+                                </div>
+                              </div>
+
+                        @endisset
                     </div>
 
 
