@@ -29,7 +29,7 @@ Route::get('recetas', [KummelControllers::class,'recetas'])->name('recetas');
 Route::get('condiciones', [KummelControllers::class,'condiciones'])->name('condiciones');
 Route::get('preguntasFrecuentes', [KummelControllers::class,'preguntasFrecuentes'])->name('preguntasFrecuentes');
 Route::get('dashboard', [KummelControllers::class,'dashboard'])->name('dashboard') ->middleware('auth');
-Route::get('mantencion/{idUsuario}', [KummelControllers::class,'mantencion'])->name('mantencion') ->middleware('auth');
+
 
 
 
@@ -74,3 +74,4 @@ Route::post('eliminarDatosDespacho', [DespachoControllers::class,'eliminarDatosD
 
 //Clientes//
 Route::post('agregaDatosClientes', [ClientesControllers::class,'agregaDatosClientes'])->name('agregaDatosClientes');
+Route::get('mantencion/{idUsuario}', [ClientesControllers::class,'mantencion'])->name('mantencion') ->middleware('auth');

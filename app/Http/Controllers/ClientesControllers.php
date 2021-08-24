@@ -39,6 +39,12 @@ class ClientesControllers extends Controller
         return redirect('/kummel#');
 
  }
-
+ public function mantencion($idUsuario)
+ {
+  
+  //dd($this->oClientes->obtieneDireccionCliente($idUsuario));
+        
+  return view('dashboard', ['datosCliente' => $this->oClientes->obtieneDireccionCliente($idUsuario)]);
+ }
 
 }
