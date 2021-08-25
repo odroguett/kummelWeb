@@ -1014,7 +1014,7 @@ $(document).ready(function () {
 
 
 
-  $("#rdDespacho").click(function () {
+  /* $("#rdDespacho").click(function () {
     $("#rdRetiro").prop("checked", false);
     $('#classDespacho').removeAttr('hidden');
     $('#classRetiro').attr('hidden', true);
@@ -1030,7 +1030,7 @@ $(document).ready(function () {
     //  $('#collapseOne').collapse();
 
 
-  });
+  }); */
 
   $("#rdTransferencia").click(function () {
     $("#rdEntrega").prop("checked", false);

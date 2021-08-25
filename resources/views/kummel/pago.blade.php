@@ -44,7 +44,8 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
 
 <input id="comIdDespacho" type="text" class="text-info" value="  {{$idDespacho}} " hidden>
 <input id="totalProductosPago" type="text" class="text-info" value="{{ $totalProductos}}" hidden>
-<input id="idUsuario" type="text" class="text-info "  value= "@if (isset(auth()->user()->id)) {{ auth()->user()->id }}" @else  {{""}} @endif"  hidden  >
+<input id="idUsuario" type="text" class="text-info " value="@if (isset(auth()->user()->id)) {{ auth()->user()->id }}"
+    @else {{""}} @endif" hidden>
 
 <body>
 
@@ -72,29 +73,29 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
 
 
                 @foreach($arrayCarrito as $value)
-                  @if(isset($value['CodigoProducto']))
-
-                  
-                  @foreach ($arrayStock as $carrito )
-                    @if($value['CodigoProducto'] ==$carrito['codigoProducto'])
-                     
-                    @php
-                        $stock = $carrito['stock']
-                    @endphp
-                    
-                    
+                @if(isset($value['CodigoProducto']))
 
 
-                        @break
-                    @endif
-                  @endforeach
-                   
+                @foreach ($arrayStock as $carrito )
+                @if($value['CodigoProducto'] ==$carrito['codigoProducto'])
+
+                @php
+                $stock = $carrito['stock']
+                @endphp
+
+
+
+
+                @break
+                @endif
+                @endforeach
+
 
                 <div class="comprar">
                     <input id="codigoProducto" type="text" class="text-info codigo-producto"
                         value="{{ trim($value['CodigoProducto'])}}" hidden>
 
-                     
+
                     <div class="col-md-12 col-sm-12 col-lg-12">
 
 
@@ -103,8 +104,8 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
                             <div class="form-inline precio_total">
 
                                 <div class="col-md-2 col-sm-2 col-lg-2">
-                                        <img src="{{ $value['Imagen']}}" class="contenedor">
-                                    
+                                    <img src="{{ $value['Imagen']}}" class="contenedor">
+
                                 </div>
 
                                 <div class="col-md-6 col-sm-6 col-lg-6">
@@ -187,146 +188,164 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
                 </div>
                 </br>
                 <div class="form-inline border-0">
-                    <div class="form-check bg-light  form-check-inline">
-                        <input class="form-check-input" id="rdDespacho" type="radio" name="inlineRadioOptions"
-                            id="inlineRadio1" value="option1" checked>
-                        <label class="form-check-label" for="inlineRadio1">Despacho</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" id="rdRetiro" type="radio" name="inlineRadioOptions"
-                            id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">Retiro</label>
-                    </div>
+
+
                 </div>
-                </br>
+              
+                <div class="row form-group ">
+                    <div class="verticalLineLeft" style="margin-left: 20px; ">
+                        <a href="#" id="btnAgregarDireccion" class="ml-2 text-dark  icofont-size    ">
+                            <i class="icofont-tick-boxed"><span class=""> Agregar Dirección</span></i>
+                        </a>
+                    </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div
-                                class="custom-control col-lg-6 custom-radio mb-3 position-relative border-custom-radio">
-
-                                <label class="custom-control-label w-100" for="customRadioInline1">
-                                    <div id="classDespacho">
-                                        <div class="p-3 bg-light rounded  ">
-                                            <div class="row form-group">
-                                                <div class="col-md-6">
-                                                    <button type="button" id="btnAgregarDireccion" style="border: none;"
-                                                        class="btn btn-kumel-1">Agregar Dirección</button>
-                                                    </span>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <button type="button" id="btnEliminarDespacho" style="border: none;"
-                                                        class=" btn  btn-kumel-1">Eliminar</button></span>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <hr></span>
-
-                                            </div>
-                                            <div class="d-flex align-items-center  mb-2 ">
-                                                <p class="mb-0 text-kumel-bold h6">Despacho</p>
-
-                                            </div>
-
-
-
-                                            <div class="row">
-                                                <div class="col-md-10">
-                                                    <label class=" margin-left text-kumel-titulo">Direccion:
-                                                    </label>
-                                                    <label id="comDireccion" class=" text-kumel-titulo">
-                                                        {{$datosCompraOtd->direccion}}
-                                                    </label>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="row ">
-
-                                                <div class="col-md-6">
-                                                    <label type="text" class=" text-kumel-titulo">Comuna: </label>
-                                                    <label id="comComuna" type="text"
-                                                        class=" text-kumel-titulo">{{ $datosCompraOtd->comuna}}
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label type="text" class=" text-kumel-titulo">Ciudad: </label>
-                                                    <label id="comCiudad" type="text"
-                                                        class=" text-kumel-titulo">{{ $datosCompraOtd->ciudad }}
-                                                    </label>
-                                                </div>
-
-                                            </div>
-                                            <div class="row">
-
-                                                <div class="col-md-6">
-                                                    <label type="text" class=" text-kumel-titulo">Region: </label>
-                                                    <label id="comRegion" type="text"
-                                                        class=" text-kumel-titulo">{{$datosCompraOtd->region }}
-                                                    </label>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <label type="text" class="text-kumel-titulo">Depto: </label>
-
-                                                    <label id="comDepartamento" type="text"
-                                                        class="text-kumel-titulo">{{  $datosCompraOtd->departamento }}
-                                                    </label>
-                                                </div>
-                                            </div>
-
-
-                                            <div hidden id="classRetiro">
-                                                <div class="col-lg-12">
-                                                    <hr></span>
-
-                                                </div>
-
-                                                <div class="d-flex align-items-center mb-2">
-                                                    <p class="mb-0 h6 text-kumel-bold"> Direcciones de Retiro</p>
-
-                                                </div>
-                                                <p class="text-kumel-titulo">Comuna Ñuñoa</p>
-                                                <p class="text-kumel-titulo"> Plaza Egaña/ Metro Linea 4</p>
-                                                <p class="text-kumel-titulo">Comuna La Florida</p>
-                                                <p class="text-kumel-titulo"> Rojas Magallanes/ Metro Linea 4</p>
-
-
-
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-
-                                </label>
-                            </div>
-
-
-                            <a href="#" id="btnContinuarPago" class="btn btn-kumel-1  btn-block" type="button"
-                                data-toggle="collapse" data-target="#collapsethree" aria-expanded="true"
-                                aria-controls="collapsethree">Continuar Pago</a>
-
-                            {{--    <a href="{{ route('comprobante') }}" class=" btn btn-sm">
-                            <p class=" text-kumel-titulo font-weight-light h5 ">Contacto</p>
-                            </a> --}}
-
-
-                        </div>
+                    <div class="verticalLineLeft " style="margin-left: 70px;">
+                        <a href="#" style="margin-left:50px" id="btnEliminarDespacho"
+                            class="ml-2 text-dark  icofont-size    ">
+                            <i class="icofont-close"><span class=""> Eliminar</span></i>
+                        </a>
+                       
                     </div>
                    
 
+                    {{--  <div style="margin-left: 130px" class="col-md-5">
+                        <button type="button" id="btnAgregarDireccion" 
+                            class="btn btn-kumel-1 d-flex ml-auto  ">Agregar Dirección</button>
+                        </span>
+                    </div> --}}
 
+                    {{--   <div class="col-md-3">
+                        <button type="button" id="btnEliminarDespacho" 
+                            class=" btn btn-kumel-1  ">Eliminar</button></span>
+                    </div> --}}
+                </div>
+
+                <div class="row">
+<hr>
+                    <div class="col-lg-6 border-1 border-custom-radio   rounded" id="classDespacho ">
+                        <div class="p-3 bg-kumel-2 rounded border  ">
+                            <div class="form-check bg-kumel-2  form-check-inline">
+                                <input class="form-check-input" id="rdDespacho" type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio1" value="option1" checked>
+                                <label class="text-kumel-titulo" for="inlineRadio1">Despacho</label>
+                            </div>
+                            <hr>
+
+
+
+
+
+
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <label class=" margin-left text-kumel-titulo">Direccion:
+                                    </label>
+                                    <label id="comDireccion" class=" text-kumel-titulo">
+                                        {{$datosCompraOtd->direccion}}
+                                    </label>
+                                </div>
+
+
+                            </div>
+                            <div class="row ">
+
+                                <div class="col-md-6">
+                                    <label type="text" class=" text-kumel-titulo">Comuna: </label>
+                                    <label id="comComuna" type="text"
+                                        class=" text-kumel-titulo">{{ $datosCompraOtd->comuna}}
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label type="text" class=" text-kumel-titulo">Ciudad: </label>
+                                    <label id="comCiudad" type="text"
+                                        class=" text-kumel-titulo">{{ $datosCompraOtd->ciudad }}
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <label type="text" class=" text-kumel-titulo">Region: </label>
+                                    <label id="comRegion" type="text"
+                                        class=" text-kumel-titulo">{{$datosCompraOtd->region }}
+                                    </label>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label type="text" class="text-kumel-titulo">Depto: </label>
+
+                                    <label id="comDepartamento" type="text"
+                                        class="text-kumel-titulo">{{  $datosCompraOtd->departamento }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            </br>
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6  w-100" id="classRetiro ">
+                        <div class="p-3 bg-kumel-2 rounded border  ">
+
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="rdRetiro" type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio2" value="option2">
+                                <label class="text-kumel-titulo" for="inlineRadio2">Retiro</label>
+                            </div>
+                            <hr>
+
+
+                            <label class="text-kumel-titulo">Comuna Ñuñoa :</label>
+                            <label class="text-kumel-titulo"> Plaza Egaña/ Metro Linea 4</label>
+
+
+                            <hr>
+                            <label class="text-kumel-titulo">Comuna La Florida: </label>
+                            <label class="text-kumel-titulo"> Rojas Magallanes/ Metro Linea 4</label>
+
+
+
+                        </div>
+                        <br>
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <a href="#" id="btnContinuarPago" class="btn btn-kumel-1  btn-block" type="button"
+                        data-toggle="collapse" data-target="#collapsethree" aria-expanded="true"
+                        aria-controls="collapsethree">Continuar Pago</a>
+
+                    {{--    <a href="{{ route('comprobante') }}" class=" btn btn-sm">
+                    <p class=" text-kumel-titulo font-weight-light h5 ">Contacto</p>
+                    </a> --}}
 
 
 
                 </div>
-                <br>
+
+
+
+
+
 
             </div>
+            <br>
+
+        </div>
 
 
 
