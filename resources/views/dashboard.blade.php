@@ -225,31 +225,15 @@
 
                                     </div>
                                     <div class="row form-group">
-                                        <div class="col-md-2 ml-auto d-flex">
-                                            <button type="submit" class="btn btn-kumel-1 ">Guardar</button>
+                                        <div  class="col-md-2 ml-auto d-flex">
+                                            <button  style="margin-left: 25px" type="submit" class="btn btn-kumel-1 ">Guardar</button>
 
                                         </div>
                                     </div>
                             </form>
                         </div>
                         <hr>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <a href="change_password.html"
-                                    class="p-3 btn-light border btn d-flex align-items-center text-kumel-titulo">Cambiar
-                                    Password
-                                    <i class="icofont-rounded-right ml-auto"></i></a>
-                            </div>
-
-                        </div>
-                        <div class="row form-group">
-                            <div class="col-md-12">
-                                <a href="deactivate_account.html"
-                                    class="p-3 btn-light border btn d-flex align-items-center text-kumel-titulo">Eliminar
-                                    Cuenta
-                                    <i class="icofont-rounded-right ml-auto"></i></a>
-                            </div>
-                        </div>
+                        
 
                     </div>
                 </div>

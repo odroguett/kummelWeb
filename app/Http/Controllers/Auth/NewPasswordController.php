@@ -33,6 +33,7 @@ class NewPasswordController extends Controller
      */
     public function store(Request $request)
     {
+        dd('hola');
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
