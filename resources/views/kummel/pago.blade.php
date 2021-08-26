@@ -195,7 +195,7 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
                 <div class="row form-group ">
                     <div class="verticalLineLeft" style="margin-left: 20px; ">
                         <a href="#" id="btnAgregarDireccion" class="ml-2 text-dark  icofont-size    ">
-                            <i class="icofont-tick-boxed"><span class=""> Agregar Dirección</span></i>
+                            <i class="icofont-envelope"><span class=""> Agregar Dirección</span></i>
                         </a>
                     </div>
 
@@ -244,7 +244,7 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
                                         {{$datosCompraOtd->direccion}}
                                     </label>
                                 </div>
-
+                               
 
                             </div>
                             <div class="row ">
@@ -261,6 +261,7 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
                                         class=" text-kumel-titulo">{{ $datosCompraOtd->ciudad }}
                                     </label>
                                 </div>
+                              
 
                             </div>
                             <div class="row">
