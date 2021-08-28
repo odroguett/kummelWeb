@@ -62,8 +62,9 @@ debugger;
        // dataType: "json",
         success: function (data) {
           if (data) {
-  
+            
             $("#ContenedorPaginas").html(data);
+            
   
           }
         }
@@ -446,7 +447,7 @@ debugger;
         if (data) {
 
           $('#mContent').html(data);
-          $('#modalDireccion').modal('show');
+          $('#modalBusqueda').modal('show');
 
         }
       }
@@ -502,8 +503,8 @@ debugger;
           if (data) {
             $("#loader").hide();
             $('#mContent').html(data);
-            $('#modalDireccion').modal({backdrop: 'static', keyboard: false})
-            $('#modalDireccion').modal('show');
+            $('#modalBusqueda').modal({backdrop: 'static', keyboard: false})
+            $('#modalBusqueda').modal('show');
 
 
           }
@@ -904,7 +905,7 @@ debugger;
             $("#loader").hide();
             $('#mContent').html(data);
             $('#modalBusqueda').modal('show');
-           
+            
           }
         }
       });

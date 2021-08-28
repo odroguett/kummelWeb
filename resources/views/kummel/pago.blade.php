@@ -1,3 +1,4 @@
+
 @php
 $arrayCarrito = $datosCompraOtd->arrayCarrito;
 $arrayStock = $datosCompraOtd->arrayStock;
@@ -351,22 +352,19 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
 
 
     </section>
-    <!-- Modal -->
-    <div class="modal fade" id="modalDireccion" tabindex="-1" role="dialog" aria-labelledby="modalDireccion">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" id="mContent">
+   
+</body>
+  <!-- Modal -->
+  <div class="modal " id="modalBusqueda" tabindex="-1" role="dialog" aria-labelledby="modalBusqueda">
 
+    <div class="modal-dialog modal-dialog-centered">
 
-            </div>
+        <div class="modal-content" id="mContent">
         </div>
     </div>
 
+</div>
 
-
-
-
-
-</body>
 
 </html>
 <script src="jquery/jquery.min.js"></script>
