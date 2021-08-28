@@ -93,6 +93,44 @@ return $oRespuesta;
 
 }
 
+public function ObtieneDatosDespachoId($idDespacho)
+{
+   
+    $oDatosDespacho = new DatosDespachoOtd;
+    $oClientes = new Clientes();
+    $existeDireccion = false;
+    $oRetorno = $this->oUnidadTrabajo->DespachosRepositorio()->ObtieneDatosDespacho($idDespacho);
+    if(isset($oRetorno))
+    {
+    $oDatosDespacho->sNombre =  $oRetorno->NOMBRE;
+    $oDatosDespacho->sApellido =  $oRetorno->APELLIDOS;
+    
+    $oDatosDespacho->sDireccion =  $oRetorno->DIRECCION;
+    $oDatosDespacho->sComuna =  $oRetorno->COMUNA;
+    $oDatosDespacho->sCiudad = $oRetorno->CIUDAD;
+    $oDatosDespacho->sRegion = $oRetorno->REGION;
+    $oDatosDespacho->sTelefono = $oRetorno->TELEFONO;
+    $oDatosDespacho->sEmail = $oRetorno->EMAIL;
+    $oDatosDespacho->sDepartamento = $oRetorno->DEPARTAMENTO;
+
+    }
+    else
+    {
+    $oDatosDespacho->sNombre = "";
+    $oDatosDespacho->sApellido =  "";
+    $oDatosDespacho->sDireccion =  "";
+    $oDatosDespacho->sComuna =  "";
+    $oDatosDespacho->sCiudad =  "";
+    $oDatosDespacho->sRegion = "";
+    $oDatosDespacho->sTelefono = "";
+    $oDatosDespacho->sEmail = "";
+    $oDatosDespacho->sDepartamento = "";
+  
+    }
+  
+    return $oDatosDespacho;
+
+}
 
 
 public function ObtieneDatosDespacho( Request $request)
@@ -100,13 +138,16 @@ public function ObtieneDatosDespacho( Request $request)
    
     $oDatosDespacho = new DatosDespachoOtd;
     $oClientes = new Clientes();
+  
     $idDespacho = $request->input('idDespacho');
     $idUsuario = $request->input('idUsuario');
     $existeDireccion = false;
     //Buscamos la direccion del usuario.
-    if($idUsuario > 0 && trim($idDespacho) ==0)
+ 
+  if($idUsuario > 0 && trim($idDespacho) ==0)
     {
         $oRetorno =  $this->oClientes->obtieneDireccionCliente($idUsuario);
+       
         if(isset($oRetorno))
         {
            
@@ -128,13 +169,15 @@ public function ObtieneDatosDespacho( Request $request)
         }
         
      
-    }
-    $oRetorno = $this->oUnidadTrabajo->DespachosRepositorio()->ObtieneDatosDespacho(trim($idDespacho));
-    
+    } 
+   
+    $oRetorno = $this->oUnidadTrabajo->DespachosRepositorio()->ObtieneDatosDespacho($idDespacho);
+  
     if(isset($oRetorno))
     {
     $oDatosDespacho->sNombre =  $oRetorno->NOMBRE;
     $oDatosDespacho->sApellido =  $oRetorno->APELLIDOS;
+    
     $oDatosDespacho->sDireccion =  $oRetorno->DIRECCION;
     $oDatosDespacho->sComuna =  $oRetorno->COMUNA;
     $oDatosDespacho->sCiudad = $oRetorno->CIUDAD;
@@ -142,7 +185,7 @@ public function ObtieneDatosDespacho( Request $request)
     $oDatosDespacho->sTelefono = $oRetorno->TELEFONO;
     $oDatosDespacho->sEmail = $oRetorno->EMAIL;
     $oDatosDespacho->sDepartamento = $oRetorno->DEPARTAMENTO;
- 
+
     }
     else
     {
@@ -157,6 +200,7 @@ public function ObtieneDatosDespacho( Request $request)
     $oDatosDespacho->sDepartamento = "";
   
     }
+  
     return $oDatosDespacho;
 
 }

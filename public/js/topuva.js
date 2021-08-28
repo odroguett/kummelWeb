@@ -661,7 +661,8 @@ debugger;
           totalProductosPago: totalProductosPago,
           totalPago: totalPago,
           tipoDespacho: tipoDespacho,
-          tipoPago: tipoPago
+          tipoPago: tipoPago,
+        //  idUsuario:idUsuario
         },
         //contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -679,7 +680,7 @@ debugger;
               localStorage.removeItem('numeroCarrito');
               $("#numCarrito").attr('hidden',true) ;
               oModal.NotificacionAlertify(data.sMensaje,"success");
-              $(location).attr('href',"/confirmacion#/");
+              window.location = "/kummel";
               
               
   
@@ -703,6 +704,7 @@ debugger;
       localStorage.setItem('totalProductosPago', totalProductosPago);
       localStorage.setItem('totalPago', totalPago);
       localStorage.setItem('tipoDespacho', tipoDespacho);
+      localStorage.setItem('idDespacho', idDespacho);
       localStorage.setItem('tipoPago', tipoPago);
       UrlPago='/pagoFlow/'
       $.ajax({
@@ -741,54 +743,54 @@ debugger;
   
         }
       });
-
+      $.ajax({
+        type: "POST",
+        url:  UrlPago ,
+        data: {
+          arrayPago: arrayPago,
+          idDespacho: idDespacho,
+          totalProductosPago: totalProductosPago,
+          totalPago: totalPago,
+          tipoDespacho: tipoDespacho,
+          tipoPago: tipoPago
+        },
+        //contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+          if (data) {
+            if (data.bEsValido) {
+              $('#modalDireccion').modal('hide');
+              localStorage.removeItem('Carrito');
+              localStorage.removeItem('direccion');
+              localStorage.removeItem('departamento');
+              localStorage.removeItem('comuna');
+              localStorage.removeItem('ciudad');
+              localStorage.removeItem('region');
+              localStorage.removeItem('idDespacho');
+              localStorage.removeItem('numeroCarrito');
+              $("#numCarrito").attr('hidden',true) ;
+              oModal.NotificacionAlertify(data.sMensaje,"success");
+              $(location).attr('href',"/confirmacion#/");
+             
+              
+  
+            } else {
+              $('#modalDireccion').modal('hide');
+              oModal.NotificacionAlertify(data.sMensaje,"error");
+              //oModal.MensajePersonalizadoCallBack('Información', data.respuesta, Constante_informacion, oCarrito.CargaCarrito);
+              $("#loader").hide();
+  
+            }
+  
+          }
+  
+  
+        }
+      });
     }
 
 
-    $.ajax({
-      type: "POST",
-      url:  UrlPago ,
-      data: {
-        arrayPago: arrayPago,
-        idDespacho: idDespacho,
-        totalProductosPago: totalProductosPago,
-        totalPago: totalPago,
-        tipoDespacho: tipoDespacho,
-        tipoPago: tipoPago
-      },
-      //contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      success: function (data) {
-        if (data) {
-          if (data.bEsValido) {
-            $('#modalDireccion').modal('hide');
-            localStorage.removeItem('Carrito');
-            localStorage.removeItem('direccion');
-            localStorage.removeItem('departamento');
-            localStorage.removeItem('comuna');
-            localStorage.removeItem('ciudad');
-            localStorage.removeItem('region');
-            localStorage.removeItem('idDespacho');
-            localStorage.removeItem('numeroCarrito');
-            $("#numCarrito").attr('hidden',true) ;
-            oModal.NotificacionAlertify(data.sMensaje,"success");
-           
-            window.location = "/kummel";
-            
-
-          } else {
-            $('#modalDireccion').modal('hide');
-            oModal.NotificacionAlertify(data.sMensaje,"error");
-            //oModal.MensajePersonalizadoCallBack('Información', data.respuesta, Constante_informacion, oCarrito.CargaCarrito);
-            $("#loader").hide();
-
-          }
-
-        }
-
-
-      }
-    });
+   
 
 
   }

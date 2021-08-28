@@ -40,6 +40,7 @@ class VentasControllers extends Controller
       
 
      $oRespuesta = new RespuestaOtd();
+    
     $oRespuesta = $this->oVentas->realizarPagoVenta($request);
     return response()->json($oRespuesta);
 
@@ -49,6 +50,7 @@ class VentasControllers extends Controller
  public function pagoFlow(Request $request)
  {
    
+
     
     $oRespuesta = $this->oVentas->pagoFlow($request);
     return response()->json($oRespuesta);

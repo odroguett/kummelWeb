@@ -20,20 +20,21 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
   
   public function GenerarComprobantePagoPDF($idDespacho)
   {
+   
     $nombre="";
     $totalProductos="";
     $totalVenta="";
     $tipoPago="";
     $tipoDespacho="";
     $listaDespacho =  $this->oUDT->DespachosRepositorio()->ObtieneCabeceraDespacho($idDespacho);
-
+    
    foreach($listaDespacho as $value)
     {
         $nombre = ' ' . $value->NOMBRE . ' ' . $value->APELLIDOS;
         $tipoDespacho=$value->DESCRIPCION_TIPO_DESPACHO;
         $tipoPago= $value->DESCRIPCION_TIPO_PAGO;
         $totalVenta=$value->TOTAL_VENTA;
-
+        
         Fpdf::AddPage('P','Letter');
         // Logo
        // Fpdf::Image('img/logo.png',10,8,15);

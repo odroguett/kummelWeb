@@ -49,8 +49,7 @@ class Ventas implements IVentas
     {
         $oRespuesta = new RespuestaOtd();
         $oDetalleVentas = new DetalleProductosVenta();
-        $oRespuesta->bEsValido=true;
-        $oRespuesta->sMensaje="Pago ingresado correctamente, nos contactaremos para coordinar el despacho";
+       
         $arrayPago = $request->input('arrayPago');
         $idDespacho = $request->input('idDespacho');
         $idTipoDespacho = $request->input('tipoDespacho');
@@ -62,10 +61,12 @@ class Ventas implements IVentas
         $fechaVenta ="";
         $oRespuesta->bEsValido=true;
         $oRespuesta->sMensaje='Generación de comprobante exitosa.';
-        
+       
         if($this->ValidaPago($arrayPago,$sNombreProducto))
         {
-        
+          
+            $oRespuesta->bEsValido=true;
+            $oRespuesta->sMensaje="Pago ingresado correctamente, nos contactaremos para coordinar el despacho";
             $parametros = $this->oUnidadTrabajo->ParametrosRepositorio()->obtieneParametros();
            
             $costoEnvio =   $parametros->COSTO_ENVIO;
@@ -84,7 +85,7 @@ class Ventas implements IVentas
             $fechaVenta = date('Y-m-d');
             
             $idDetalle= $this->oUnidadTrabajo->VentasRepositorio()->InsertarCabeceraPago($idDespacho,$totalProductosPago,$idTipoPago,$totalConDespacho, $fechaVenta);
-           
+         
             $totalConDespacho =0;
             $this->oDespachos->ActualizaTipoDespacho( $idDespacho,$idTipoDespacho);
             
@@ -106,24 +107,33 @@ class Ventas implements IVentas
             $oDetalleVentas->CANTIDAD=$cantidadProducto;
             $oDetalleVentas->VENTA= $precioVenta;
             $oDetalleVentas->ID_PRODUCTO= $codigoProducto;
+           
             $this->oUnidadTrabajo->VentasRepositorio()->InsertarDetallePago( $oDetalleVentas);
-            
+           
            
             
          
         }
-    
+       
 
         if( $this->EnviarCorreoPago($idDespacho))
         {
    
          
         }
-         return $oRespuesta;
+       
+         
       
     }   
-           
+    else
+    {
 
+        $oRespuesta->bEsValido=false;
+        $oRespuesta->sMensaje="Pago Erroneo, por favor intente nuevamente.";
+    }
+    
+    return $oRespuesta;
+      
     }
 
     public function obtieneTopVentas()
@@ -176,12 +186,16 @@ try{
     
     if($idDespacho !="")
 {
-    $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespacho($idDespacho);
+   
+    
+    $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespachoId($idDespacho);
+    
     $comprobantePagoMail->idDespacho =$idDespacho;
     $comprobantePagoMail->sNombre = $oDatosDespacho->sNombre;
-
+    
     $comprobantePagoMail->sComprobante = $this->oGeneraPDF->GenerarComprobantePagoPDF($idDespacho);
     Mail::to($oDatosDespacho->sEmail)->send(new comprobanteKummel($comprobantePagoMail));
+ 
     return true;
 }
 }
@@ -200,7 +214,7 @@ public function pagoFlow(Request $request)
     $arrayPago = $request->input('arrayPago');
     $totalPago = $request->input('totalPago');
     $sNombreProducto="";
-
+    
     if($this->ValidaPago($arrayPago,$sNombreProducto))
     {
     
@@ -223,7 +237,7 @@ public function pagoFlow(Request $request)
         $totalPago= $request->input('totalPago');
         $respuestaOtd = new RespuestaOtd;
         $respuestaOtd->bEsValido  = true;
-        $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespacho($request->input('idDespacho'));
+        $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespachoId($request->input('idDespacho'));
   
         //Prepara el arreglo de datos
 

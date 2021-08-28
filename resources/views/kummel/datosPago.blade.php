@@ -319,7 +319,7 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
         <div class="row float-right">
             <div class="col-md-12">
                 <button type="button" id="btnFinalizarPago" class="btn btn-kumel-1 btn-block"
-                    onclick='oCarrito.FinalizarPago(  {{  $datosPagoOtd->arrayPago}}, {{$datosPagoOtd->idDespacho }}  , {{ $datosPagoOtd->totalProductosPago}}  , {{ $datosPagoOtd->totalPago}} , {{$datosPagoOtd->idTipoDespacho }} )'>Solicitar
+                    onclick='oCarrito.FinalizarPago(  {{  $datosPagoOtd->arrayPago}}, {{$datosPagoOtd->idDespacho }}  , {{ $datosPagoOtd->totalProductosPago}}  , {{ $datosPagoOtd->totalPago}} , {{$datosPagoOtd->idTipoDespacho }})'>Solicitar
                     Pedido</button>
             </div>
         </div>

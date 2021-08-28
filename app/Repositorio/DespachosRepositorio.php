@@ -14,7 +14,7 @@ class DespachosRepositorio extends Repositorio implements IDespachosRepositorio
 
     public function ObtieneDatosDespacho($idDespacho)
     {
-    
+        
     return $this->buscar($idDespacho);
 
     }
