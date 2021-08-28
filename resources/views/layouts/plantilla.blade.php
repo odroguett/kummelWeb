@@ -94,7 +94,7 @@
                     <img class="img-fluid logo-img  " src="img/logo.png">
 
                     <div class="bg-ligth" style="margin-top: 5px;">
-                        <h5 class="text-kumel-titulo">Productos naturales, chocolatería y gourmet</h5>
+                        <h5 class="text-kumel-titulo">Productos naturales, gourmet y chocolates</h5>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                               
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                   <a class="dropdown-item" href="{{'logout'}}">Cerrar Sesión</a>
-                                  <a class="dropdown-item" href={{route('mantencion', ['idUsuario' => auth()->user()->id]) }} }} >Mantención</a>
+                                  <a class="dropdown-item" href={{route('mantencion', ['idUsuario' => auth()->user()->id]) }} }} >Ingresar Datos</a>
                                  
                                 </div>
                               </div>

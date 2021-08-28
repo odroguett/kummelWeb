@@ -136,9 +136,9 @@ debugger;
         if (data.bEsValido) {
           oModal.NotificacionAlertify(data.sMensaje,"success");
 
-          $('#comDireccion').text('Dirección: ' + data.sDireccion);
-          if (data.departamento != null) {
-            $('#comDepartamento').text('Depto: ' + data.sDepartamento);
+          $('#comDireccion').text( data.sDireccion);
+          if (data.sDepartamento != null) {
+            $('#comDepartamento').text( data.sDepartamento);
           }
           $('#comComuna').text(data.sComuna);
           $('#comCiudad').text(data.sCiudad);

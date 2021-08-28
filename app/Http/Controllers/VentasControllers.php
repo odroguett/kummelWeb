@@ -22,12 +22,19 @@ class VentasControllers extends Controller
 
     public function pagoProductos(Request $request)
     {
-              
+      $arrayPago = json_decode($request->input('arrayPago'));        
       $datosPagoOtd = new DatosPagoOtd();
       $datosPagoOtd->arrayPago = $request->input('arrayPago');
       $datosPagoOtd->idDespacho = $request->input('idDespacho');
       $datosPagoOtd->idTipoDespacho = $request->input('tipoDespacho');
-      $datosPagoOtd->totalProductosPago = $request->input('totalProductosPago');
+     // dd($datosPagoOtd->arrayPago);
+      foreach( $arrayPago as $value)
+      {
+       
+       $datosPagoOtd->totalProductosPago = $datosPagoOtd->totalProductosPago + $value->Cantidad;
+      }
+
+     // $datosPagoOtd->totalProductosPago = $request->input('totalProductosPago');
       $datosPagoOtd->totalPago =$request->input('totalPago');
   
       return view('kummel.datosPago',['datosPagoOtd' =>  $datosPagoOtd]);

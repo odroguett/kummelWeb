@@ -188,17 +188,17 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                                 </div>
 
 
-                                <div class="form-check form-check-inline class-transferencia ">
+                               {{--  <div class="form-check form-check-inline class-transferencia ">
                                     <input class="form-check-input" id="rdEntrega" type="radio" name="rdEntrega"
                                         value="option2">
                                     <label class="form-check-label h7  text-kumel-titulo text-right" for="inlineRadio2">
-                                        Domicilio</label>
-                                </div>
+                                        Pago a la entrega</label>
+                                </div> --}}
                                 <div class="form-check form-check-inline class-transferencia ">
                                     <input class="form-check-input" id="rdTarjetasBancarias" type="radio"
                                         name="rdTarjetasBancarias" value="option3">
                                     <label class="form-check-label h7  text-kumel-titulo text-right" for="inlineRadio2">
-                                        Pago Tarjetas</label>
+                                        Tarjetas Bancarias</label>
                                 </div>
 
 
