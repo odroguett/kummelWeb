@@ -966,6 +966,7 @@ $(document).ready(function () {
     var texto = $(this).closest('.claseTexto').find('.textoProducto').text()
     var codigoProducto = $(this).closest('.claseTexto').find('.codigo-precio-producto').val();
     var imagenProducto =  $("#imagenProducto").attr("src");  
+    var stockProducto = $('#stockProducto').val();  
     oCarrito.AgregarSeleccion(preVar, cantidad, texto, codigoProducto,imagenProducto);
 
   });

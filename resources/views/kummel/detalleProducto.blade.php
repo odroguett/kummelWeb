@@ -98,13 +98,13 @@
                 <input type="text" class="text-info codigo-precio-producto"
                     value="{{$detalleProductosVenta->codigoProducto}}" hidden>
 
-                <input type="text" class="text-info stock-producto" value="{{$detalleProductosVenta->stock }}" hidden>
+                <input id="stockProducto" type="text" class="text-info stock-producto" value="{{$detalleProductosVenta->stock }}" hidden>
 
                 <div class="p-4 bg-kumel-2 rounded shadow-sm ">
 
 
                     <h5 tyle="text-align: left;" class="text-kumel-titulo textoProducto">
-                        {{ $detalleProductosVenta->descripcion . ' ' . $detalleProductosVenta->tamanoUnidad .$detalleProductosVenta->codigoUnidad  }}
+                        {{ $detalleProductosVenta->descripcion   }}
                     </h5>
                     @if($detalleProductosVenta->stock==0)
                     <div class="row">
