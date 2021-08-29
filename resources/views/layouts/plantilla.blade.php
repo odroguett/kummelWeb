@@ -287,7 +287,7 @@
                 <br />
                 <div class="form-inline">
 
-                    <aside class="col-md-3" style="height: 200px">
+                    <aside class="col-md-3" style="height: 300px">
                         <h5 class="title text-kumel-texto">Tienda</h5>
                         <ul class="list-unstyled list-padding">
                             <li> <a href="{{ route('semillas') }}" class="text-kumel-texto ">Semillas</a></li>
@@ -296,15 +296,23 @@
                             <li> <a href="{{ route('frutasDeshidratadas') }}" class="text-kumel-texto">Frutas
                                     Deshidratadas</a></li>
                             <li> <a href="{{ route('chocolates') }}" class="text-kumel-texto">Chocolates</a></li>
-                            <li> <a href="{{ route('especiasCondimientos') }}" class="text-kumel-texto">Especias y
-                                    Condimentos</a></li>
+                            <li> <a href="{{ route('especiasCondimientos') }}" class="text-kumel-texto">Especias y Condimentos</a></li>
+                           {{--  <li> <a href="{{ route('jugos') }}" class="text-kumel-texto">Jugos</a></li>
+                            <li> <a href="{{ route('harinas') }}" class="text-kumel-texto">harinas</a></li> --}}
+                            <li> <a href="{{ route('azucares') }}" class="text-kumel-texto">azucares</a></li>
+                            <li> <a href="{{ route('confitados') }}" class="text-kumel-texto">confitados</a></li>
+                            <li> <a href="{{ route('sales') }}" class="text-kumel-texto">sales</a></li>
+                          {{--   <li> <a href="{{ route('te') }}" class="text-kumel-texto">te</a></li> --}}
+                            <li> <a href="{{ route('tostados') }}" class="text-kumel-texto">tostados</a></li>
+                                
+                                    
                         </ul>
                     </aside>
 
 
 
 
-                    <div class="row" style="height: 200px">
+                    <div class="row" style="height: 300px">
                         <aside>
                             <h5 class="title text-kumel-texto ">Extras</h5>
                             <ul class="list-unstyled list-padding">
@@ -321,7 +329,7 @@
 
 
                     <div class="row">
-                        <aside style="height: 200px; margin-left:100px">
+                        <aside style="height: 300px; margin-left:100px">
                             <h5 class="title text-kumel-texto ">Suscribete</h5>
                             <div class="form-inline">
 
@@ -346,7 +354,7 @@
                     </div>
 
                     <div class="row">
-                        <aside style="height: 200px; margin-left:100px">
+                        <aside style="height: 300px; margin-left:100px">
                             <h5 class="title text-kumel-texto">Contactanos</h5>
                             <ul class="list-unstyled list-padding">
                                 <li class="text-kumel-texto">WhatSApp : +56 9 82188050 o al +56 9 81747288</li>
