@@ -181,32 +181,60 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav text-kumel-titulo m-auto">
                             <li class="nav-item  active border-right  ">
-                                <a href="{{ route('kummel') }}" class="h6  nav-link    " id="">Inicio</a>
+                                <a href="{{ route('kummel') }}" class="h7  nav-link    " id="">Inicio</a>
 
                             </li>
                             <li class="menu-item border-right    ">
-                                <a class="nav-link  h6 text-dark   " aria-current="page"
+                                <a class="nav-link  h7 text-dark   " aria-current="page"
                                     href={{ route('semillas') }}>Semillas</a>
                             </li>
                             <li class="nav-item border-right">
-                                <a class="nav-link  h6 text-dark" href="{{ route('frutosSecos') }}">Frutos Secos</a>
+                                <a class="nav-link  h7 text-dark" href="{{ route('frutosSecos') }}">Frutos Secos</a>
                             </li>
                             <li class="nav-item border-right">
-                                <a class="nav-link  h6 text-dark" href="{{ route('frutasDeshidratadas') }}">Frutas
+                                <a class="nav-link  h7 text-dark" href="{{ route('frutasDeshidratadas') }}">Frutas
                                     Deshidratadas</a>
                             </li>
                             <li class="nav-item border-right">
-                                <a href="{{ route('especiasCondimientos') }}" class="h6 level-1 nav-link text-dark  "
+                                <a href="{{ route('especiasCondimientos') }}" class="h7 level-1 nav-link text-dark  "
                                     id="">Especias y
                                     Condimentos</a>
                             </li>
                             <li class="nav-item border-right">
-                                <a href="{{ route('snackMix') }}" class="h6 level-1 nav-link text-dark  " id="">Snack y
+                                <a href="{{ route('snackMix') }}" class="h7 level-1 nav-link text-dark  " id="">Snack y
                                     Mix</a>
                             </li>
                             <li class="nav-item border-right">
-                                <a a href="{{ route('chocolates') }}" class="h6 level-1 nav-link  text-dark "
+                                <a a href="{{ route('chocolates') }}" class="h7 level-1 nav-link  text-dark "
                                     id="">Chocolates</a>
+                            </li>
+                            <li class="nav-item border-right">
+                                <a a href="{{ route('jugos') }}" class="h7 level-1 nav-link  text-dark "
+                                    id="">Jugos</a>
+                            </li>
+                            <li class="nav-item border-right">
+                                <a a href="{{ route('harinas') }}" class="h7 level-1 nav-link  text-dark "
+                                    id="">Harinas</a>
+                            </li>
+                            <li class="nav-item border-right">
+                                <a a href="{{ route('azucares') }}" class="h7 level-1 nav-link  text-dark "
+                                    id="">Azucares</a>
+                            </li>
+                            <li class="nav-item border-right">
+                                <a a href="{{ route('confitados') }}" class="h7 level-1 nav-link  text-dark "
+                                    id="">Confitados</a>
+                            </li>
+                            <li class="nav-item border-right">
+                                <a a href="{{ route('sales') }}" class="h7 level-1 nav-link  text-dark "
+                                    id="">Sales</a>
+                            </li>
+                            <li class="nav-item border-right">
+                                <a a href="{{ route('te') }}" class="h7 level-1 nav-link  text-dark "
+                                    id="">Te</a>
+                            </li>
+                            <li class="nav-item border-right">
+                                <a a href="{{ route('tostados') }}" class="h7 level-1 nav-link  text-dark "
+                                    id="">Tostados</a>
                             </li>
                             <li class="nav-item">
 
@@ -321,8 +349,8 @@
                         <aside style="height: 200px; margin-left:100px">
                             <h5 class="title text-kumel-texto">Contactanos</h5>
                             <ul class="list-unstyled list-padding">
-                                <li class="text-kumel-texto">WhatSapp : +56 9 82188050 o al +56 9 81747288</li>
-                                <li class="text-kumel-texto"> Email: prueba@gmail.com</a></li>
+                                <li class="text-kumel-texto">WhatSApp : +56 9 82188050 o al +56 9 81747288</li>
+                                <li class="text-kumel-texto"> Email: kummel.cl@gmail.com</a></li>
 
                             </ul>
 

@@ -57,7 +57,7 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
         Fpdf::Ln(4);
         Fpdf::SetFont('Arial','',10);
         Fpdf::Cell(1);
-        Fpdf::Cell(1,10,utf8_decode('Sitio: www.kummel.cl,Telefono/Whatsapp:+56 9 82188050 o al +56 9 81747288,Email: Prueba@gmail.com,Instagram: https://www.instagram.com/kummel.cl/'));
+        Fpdf::Cell(1,10,utf8_decode('Sitio: www.kummel.cl,Telefono/Whatsapp:+56 9 82188050 o al +56 9 81747288,Email: kummel.cl@gmail.com,Instagram: https://www.instagram.com/kummel.cl/'));
         // Salto de línea
         Fpdf::Ln(10);
         

@@ -215,7 +215,7 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                                     
                                             <input type="text" 
                                             class="form-control form-control-sm text-kumel-titulo  "
-                                            name="direccion" id="direccion" value=" Santander"
+                                            name="direccion" id="direccion" value=" Banco de Chile"
                                             readonly>
                                         </div>
                                         
@@ -223,12 +223,12 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
 
                                     <div class="form-group  row ">
                                         <div class="col-md-6">
-                                            <h7 class=" text-kumel-titulo"> Cuenta Corriente   </h7>
+                                            <h7 class=" text-kumel-titulo"> Cuenta vista  </h7>
                                         
                                         
                                             <input type="text" 
                                             class="form-control form-control-sm text-kumel-titulo  "
-                                            name="direccion" id="direccion" value="  99999999-9 "
+                                            name="direccion" id="direccion" value=" 43521195 "
                                             readonly>
                                         </div>
 
@@ -239,7 +239,7 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                                         
                                                 <input type="text" 
                                                 class="form-control form-control-sm text-kumel-titulo  "
-                                                name="direccion" id="direccion" value="  99999999-9 "
+                                                name="direccion" id="direccion" value="  16.357.503-5 "
                                                 readonly>
                                             </div>
                                           
@@ -256,7 +256,7 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                                         
                                             <input type="text" 
                                             class="form-control form-control-sm text-kumel-titulo  "
-                                            name="direccion" id="direccion" value="  99999999-9 "
+                                            name="direccion" id="direccion" value=" Daphne Droguett Contreras "
                                             readonly>
                                         </div>
 
@@ -267,7 +267,7 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                                         
                                                 <input type="text" 
                                                 class="form-control form-control-sm text-kumel-titulo  "
-                                                name="direccion" id="direccion" value="  99999999-9 "
+                                                name="direccion" id="direccion" value=" daphnedroguett@gmail.com "
                                                 readonly>
                                             </div>
                                           

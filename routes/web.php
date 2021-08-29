@@ -45,9 +45,28 @@ Route::get('frutasDeshidratadas', [ProductosVentaControllers::class,'cargaFrutas
         ->name('frutasDeshidratadas');
 Route::get('chocolates', [ProductosVentaControllers::class,'cargaChocolates'])
         ->name('chocolates');
-        Route::get('especiasCondimientos', [ProductosVentaControllers::class,'cargaEspeciasCondimientos'])
+Route::get('especiasCondimientos', [ProductosVentaControllers::class,'cargaEspeciasCondimientos'])
         ->name('especiasCondimientos');
+Route::get('jugos', [ProductosVentaControllers::class,'jugos'])
+        ->name('jugos');
+
+Route::get('harinas', [ProductosVentaControllers::class,'harinas'])
+        ->name('harinas');
+Route::get('azucares', [ProductosVentaControllers::class,'azucares'])
+        ->name('azucares');
+Route::get('confitados', [ProductosVentaControllers::class,'confitados'])
+        ->name('confitados');
+
+Route::get('sales', [ProductosVentaControllers::class,'sales'])
+        ->name('sales');
+
+Route::get('te', [ProductosVentaControllers::class,'te'])
+        ->name('te');
+
+Route::get('tostados', [ProductosVentaControllers::class,'tostados'])
+        ->name('tostados');
         //Detalle Productos//
+
 Route::post('detalleProductosVenta', [ProductosVentaControllers::class,'detalleProductosVenta'])->name('detalleProductosVenta');
 ///Fin////
 

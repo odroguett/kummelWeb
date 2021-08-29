@@ -40,10 +40,10 @@
 
             <div class="row">
                 @foreach($precioProductos as $value)
-                {
+                
 
                 @if ($value->STOCK <=0) <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="list-card bg-light h-100 rounded overflow-hidden position-relative shadow-sm">
+                    <div class="list-card bg-light h-100 border rounded overflow-hidden position-relative shadow-sm">
                         <div class="list-card-image">
 
                             <a onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN1}}','{{ $value->IMAGEN2}}','{{ $value->IMAGEN3}}','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}}','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')"
@@ -121,7 +121,7 @@
                                     <div class="row">
                                         <div class="col-md-12 " style="text-align: center;">
                                             <h6 class="txtStock font-weight-light text-danger">
-                                                {{ 'PRODUCTO NO DISPONIBLE' }}} </h6>
+                                                {{ 'PRODUCTO NO DISPONIBLE' }} </h6>
                                         </div>
                                     </div>
 
@@ -131,13 +131,13 @@
                         </div>
                     </div>
             </div>
-
+            <br>
 
 
 
             @else
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="list-card bg-light h-100 rounded overflow-hidden ">
+                <div class="list-card bg-light h-100 border rounded overflow-hidden ">
                     <div class="list-card-image">
                         <a onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN1}}','{{ $value->IMAGEN2}}','{{ $value->IMAGEN3}}','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}}','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')"
                             href="#" class="text-dark">
@@ -246,7 +246,7 @@
 
                 </div>
             </div>
-
+            <br>
             @endif
             @endforeach
         </div>

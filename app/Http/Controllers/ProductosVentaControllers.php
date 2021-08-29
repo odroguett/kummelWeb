@@ -51,6 +51,36 @@ class ProductosVentaControllers extends Controller
       return view('kummel.especiasCondimientos',['precioProductos' =>  $this->oFabricaProductos->ProductosVenta()->obtienePrecioProductos('EC')]);
     }
 
+    public function jugos()
+    {
+      return view('kummel.jugos',['precioProductos' =>  $this->oFabricaProductos->ProductosVenta()->obtienePrecioProductos('JU')]);
+    }
+    public function harinas()
+    {
+      return view('kummel.harinas',['precioProductos' =>  $this->oFabricaProductos->ProductosVenta()->obtienePrecioProductos('HA')]);
+    }
+    public function azucares()
+    {
+      return view('kummel.azucares',['precioProductos' =>  $this->oFabricaProductos->ProductosVenta()->obtienePrecioProductos('AZ')]);
+    }
+
+    public function confitados()
+    {
+      return view('kummel.confitados',['precioProductos' =>  $this->oFabricaProductos->ProductosVenta()->obtienePrecioProductos('CON')]);
+    }
+    public function sales()
+    {
+      return view('kummel.sales',['precioProductos' =>  $this->oFabricaProductos->ProductosVenta()->obtienePrecioProductos('SAL')]);
+    }
+    public function te()
+    {
+      return view('kummel.te',['precioProductos' =>  $this->oFabricaProductos->ProductosVenta()->obtienePrecioProductos('TE')]);
+    }
+    public function tostados()
+    {
+      return view('kummel.tostados',['precioProductos' =>  $this->oFabricaProductos->ProductosVenta()->obtienePrecioProductos('TO')]);
+    }
+
     public function detalleProductosVenta(Request $request)
     {
    $detalleProductosVenta = new DetalleProductosVentaOtd;
