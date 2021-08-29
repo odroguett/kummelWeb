@@ -34,7 +34,7 @@ $oDespacho = new Despachos;
 
 $modificar = $request->input('modificar');
 $oRespuesta = new RespuestaOtd();
-$oRespuesta->sMensaje ="Datos para despacho ingresados correctamente";
+$oRespuesta->sMensaje ="Datos de contacto ingresados correctamente";
 
 ///Incorporamos la direccion del cliente
 if($request->input('grabaDireccion') ==-1)

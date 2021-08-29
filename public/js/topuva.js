@@ -513,7 +513,7 @@ debugger;
 
     } else {
 
-      oModal.NotificacionAlertify("Debe ingresar dirección antes de finalizar compra!!","warning");
+      oModal.NotificacionAlertify("Falta ingresar datos de contacto.","warning");
       $("#loader").hide();
     }
 
@@ -681,7 +681,8 @@ debugger;
               localStorage.removeItem('numeroCarrito');
               $("#numCarrito").attr('hidden',true) ;
               oModal.NotificacionAlertify(data.sMensaje,"success");
-              window.location = "/kummel";
+             // window.location = "/kummel";
+             $(location).attr('href',"/confirmacion#/");
               
               
   

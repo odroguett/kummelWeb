@@ -48,7 +48,7 @@ class Ventas implements IVentas
     public function realizarPagoVenta(Request $request)
     {
         $oRespuesta = new RespuestaOtd();
-        $oDetalleVentas = new DetalleProductosVenta();
+        
        
         $arrayPago = $request->input('arrayPago');
         $idDespacho = $request->input('idDespacho');
@@ -91,7 +91,8 @@ class Ventas implements IVentas
             
         foreach($arrayPago as $value)
         {
-           
+            $oDetalleVentas = new DetalleProductosVenta();
+            
             $cantidadProducto=  $value['Cantidad'];
             $codigoProducto=  $value['CodigoProducto'];
             $datosVentaProducto=  $this->oUnidadTrabajo->VentasRepositorio()->obtieneDatosVentaProducto($codigoProducto);
@@ -107,6 +108,7 @@ class Ventas implements IVentas
             $oDetalleVentas->CANTIDAD=$cantidadProducto;
             $oDetalleVentas->VENTA= $precioVenta;
             $oDetalleVentas->ID_PRODUCTO= $codigoProducto;
+            
            
             $this->oUnidadTrabajo->VentasRepositorio()->InsertarDetallePago( $oDetalleVentas);
            

@@ -57,7 +57,7 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
         Fpdf::Ln(4);
         Fpdf::SetFont('Arial','',10);
         Fpdf::Cell(1);
-        Fpdf::Cell(1,10,utf8_decode('Sitio: www.kummel.cl,Telefono/Whatsapp: +5699999999,Email: Prueba@gmail.com,Instagram: www.instagram.cl'));
+        Fpdf::Cell(1,10,utf8_decode('Sitio: www.kummel.cl,Telefono/Whatsapp:+56 9 82188050 o al +56 9 81747288,Email: Prueba@gmail.com,Instagram: https://www.instagram.com/kummel.cl/'));
         // Salto de línea
         Fpdf::Ln(10);
         
@@ -114,7 +114,7 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
         Fpdf::Ln(3);
         Fpdf::Cell(40,10,utf8_decode('o la devolución del dinero.'));
         Fpdf::Ln(4);
-        Fpdf::Cell(40,10,utf8_decode('Puedes contactarnos con nosotros en los medios que disponemos para aquello.'));
+        Fpdf::Cell(40,10,utf8_decode('Puedes contactarnos con nosotros en los medios que disponemos.'));
     
         Fpdf::Line(10, 110 , 200, 110);
         Fpdf::SetTextColor(34,14,04);
@@ -140,7 +140,7 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
             Fpdf::SetX(10);
             Fpdf::Cell(90,6,$value->DESCRIPCION. ' '.  $value->TAMANO . ' ' . $value->DESCRIPCION_UNIDAD,1,0,'C',false);
             Fpdf::Cell(60,6,$value->CANTIDAD,1,0,'C',false);
-            Fpdf::Cell(40,6,$value->VENTA,1,0,'C',false);
+            Fpdf::Cell(40,6,($value->VENTA * $value->CANTIDAD) ,1,0,'C',false);
         }
 
         return Fpdf::Output('S','ComprobantePago'. $idDespacho .'.pdf',false);

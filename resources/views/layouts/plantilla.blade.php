@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="r-top">
-                        <li><a href="#"><i class="icofont-headphone-alt"></i> WhatSapp : 910-313-1728</a></li>
+                        <li><a href="#"><i class="icofont-headphone-alt"></i> WhatSapp : +56 9 82188050 o al +56 9 81747288</a></li>
                     </ul>
                 </div>
             </div>
@@ -321,7 +321,7 @@
                         <aside style="height: 200px; margin-left:100px">
                             <h5 class="title text-kumel-texto">Contactanos</h5>
                             <ul class="list-unstyled list-padding">
-                                <li class="text-kumel-texto"> Whatsapp:9999999</li>
+                                <li class="text-kumel-texto">WhatSapp : +56 9 82188050 o al +56 9 81747288</li>
                                 <li class="text-kumel-texto"> Email: prueba@gmail.com</a></li>
 
                             </ul>
