@@ -1573,7 +1573,9 @@ label {
 
 .contenedor {
 	width: 100%;
-	display: inline-flex;
+	max-width:max-content;
+	min-width: max-content;
+	display:block;
 	justify-content: center;
 	align-items: center;
 	height: 10vh;
@@ -1587,6 +1589,15 @@ label {
 	height: 40vh;
 }
 
+.contenedor-2 {
+	width: 100%;
+	max-width:max-content;
+	min-width: max-content;
+	display:block;
+	justify-content: center;
+	align-items: center;
+	height: 5vh;
+}
 
 .contenedor figure {
 	position: relative;

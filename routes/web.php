@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministradorControllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BuscarControllers;
 use App\Http\Controllers\ClientesControllers;
@@ -29,6 +30,8 @@ Route::get('recetas', [KummelControllers::class,'recetas'])->name('recetas');
 Route::get('condiciones', [KummelControllers::class,'condiciones'])->name('condiciones');
 Route::get('preguntasFrecuentes', [KummelControllers::class,'preguntasFrecuentes'])->name('preguntasFrecuentes');
 Route::get('dashboard', [KummelControllers::class,'dashboard'])->name('dashboard') ->middleware('auth');
+
+Route::get('administrador', [AdministradorControllers::class,'administrador'])->name('administrador') ->middleware('auth');
 
 
 

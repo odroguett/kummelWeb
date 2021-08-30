@@ -143,7 +143,7 @@
                 @foreach($topVentas as $value)
 
                 @if ($value->STOCK <=0) <div class="col-sm-12 col-md-6 col-lg-3">
-                    <div class="list-card bg-light h-100 rounded overflow-hidden position-relative shadow-sm">
+                    <div class="list-card bg-light h-100 rounded border overflow-hidden position-relative shadow-sm">
                         <div class="list-card-image">
 
                             <a onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN1}}','{{ $value->IMAGEN2}}','{{ $value->IMAGEN3}}','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}}','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')"
@@ -234,7 +234,7 @@
 
             @else
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="list-card bg-light h-100 rounded overflow-hidden ">
+                <div class="list-card bg-light h-100 rounded border overflow-hidden ">
                     <div class="list-card-image">
                         <a onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN1}}','{{ $value->IMAGEN2}}','{{ $value->IMAGEN3}}','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}}','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')"
                             href="#" class="text-dark">

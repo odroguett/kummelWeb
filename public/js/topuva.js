@@ -262,7 +262,7 @@ debugger;
     modalContent.innerHTML = localStorage.getItem('Carrito');
     var cantidadTotalProductos=0;
     var recorre = modalContent.querySelectorAll('.container_modal');
-    contenido = '<div class="container container_modal bg-light"> ' +
+    contenido = '<div class="container border container_modal bg-light"> ' +
       '<br>' +
     ' <h6 class="codigoProducto font-weight-light text-dark" hidden>  ' + codigoProducto + ' </h6> ' +
     ' <h6 class="imagen font-weight-light text-dark" hidden>  ' + urImagen + ' </h6> ' +
@@ -303,7 +303,7 @@ debugger;
       if (textoProducto.innerHTML.trim() === texto.trim()) {
 
       } else {
-        modalContentAux.innerHTML = modalContentAux.innerHTML + '</hr><div class="container container_modal bg-light "> ' + item.innerHTML;
+        modalContentAux.innerHTML = modalContentAux.innerHTML + '</hr><div class="container border container_modal bg-light "> ' + item.innerHTML;
         total = total + (Number(oCarrito.quitarCaractererNoNumericos(precioTotal.innerHTML)) * Number(oCarrito.quitarCaractererNoNumericos(cantidadTotal.innerHTML)));
         
       }
