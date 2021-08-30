@@ -50,14 +50,17 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
         Fpdf::Cell(60);
         Fpdf::SetTextColor(34,14,04);
         Fpdf::Cell(1,1,'Comprobante de compra',0,1);
-        Fpdf::Ln(2);
+        Fpdf::Ln(4);
         Fpdf::Cell(1);
         Fpdf::SetFont('Arial','B',11);
         Fpdf::Cell(1,10,utf8_decode('Kummel, Productos Naturales y Gourmet'));
         Fpdf::Ln(4);
         Fpdf::SetFont('Arial','',10);
         Fpdf::Cell(1);
-        Fpdf::Cell(1,10,utf8_decode('Sitio: www.kummel.cl,Telefono/Whatsapp:+56 9 82188050 o al +56 9 81747288,Email: kummel.cl@gmail.com,Instagram: https://www.instagram.com/kummel.cl/'));
+        Fpdf::Cell(1,8,utf8_decode('Sitio: www.kummel.cl,Telefono/Whatsapp:+56 9 82188050 o al +56 9 81747288'));
+        Fpdf::Ln(4);
+        Fpdf::Cell(1,8,utf8_decode('Email: kummel.cl@gmail.com,Instagram: https://www.instagram.com/kummel.cl/'));
+        
         // Salto de línea
         Fpdf::Ln(10);
         
@@ -71,7 +74,7 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
         Fpdf::SetTextColor(14,14,18);
         Fpdf::SetFont('Arial','B',11);
         Fpdf::Cell(40,10,utf8_decode('Datos Compra.'));
-        Fpdf::Line(10, 55 , 200, 55);
+        //Fpdf::Line(10, 55 , 200, 55);
         Fpdf::Ln(12);
         Fpdf::SetTextColor(34,14,04);
         Fpdf::SetFont('Arial','',10);
@@ -121,10 +124,11 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
         Fpdf::SetFont('Arial','',10);
         Fpdf::SetTextColor(14,14,18);
         Fpdf::SetY(110);
-        Fpdf::SetFont('Arial','B',11);
-        Fpdf::Cell(40,10,utf8_decode('Detalle Compra.'));
+        Fpdf::SetFont('Arial','B',10);
+        Fpdf::Cell(40,10,utf8_decode('DETALLE COMPRA'));
         Fpdf::SetY(120);
         Fpdf::SetX(10);
+        Fpdf::SetFont('Arial','B',8);
         Fpdf::SetTextColor(226,197,158);
      //   Fpdf::SetTextColor(14,14,18);
         Fpdf::SetDrawColor(25,25,12);
@@ -138,9 +142,9 @@ class GeneraPDF extends Fpdf implements IGeneraPDF
         {
             Fpdf::Ln();
             Fpdf::SetX(10);
-            Fpdf::Cell(90,6,$value->DESCRIPCION. ' '.  $value->TAMANO . ' ' . $value->DESCRIPCION_UNIDAD,1,0,'C',false);
-            Fpdf::Cell(60,6,$value->CANTIDAD,1,0,'C',false);
-            Fpdf::Cell(40,6,($value->VENTA * $value->CANTIDAD) ,1,0,'C',false);
+            Fpdf::Cell(90,6,utf8_decode($value->DESCRIPCION. ' '.  $value->TAMANO . ' ' . $value->DESCRIPCION_UNIDAD),1,0,'C',false);
+            Fpdf::Cell(60,6,utf8_decode($value->CANTIDAD),1,0,'C',false);
+            Fpdf::Cell(40,6,utf8_decode(($value->VENTA * $value->CANTIDAD) ),1,0,'C',false);
         }
 
         return Fpdf::Output('S','ComprobantePago'. $idDespacho .'.pdf',false);

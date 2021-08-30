@@ -200,10 +200,10 @@
                                     id="">Especias y
                                     Condimentos</a>
                             </li>
-                            <li class="nav-item border-right">
+                           {{--  <li class="nav-item border-right">
                                 <a href="{{ route('snackMix') }}" class="h7 level-1 nav-link text-dark  " id="">Snack y
                                     Mix</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item border-right">
                                 <a a href="{{ route('chocolates') }}" class="h7 level-1 nav-link  text-dark "
                                     id="">Chocolates</a>
@@ -218,7 +218,7 @@
                             </li>
                             <li class="nav-item border-right">
                                 <a a href="{{ route('azucares') }}" class="h7 level-1 nav-link  text-dark "
-                                    id="">Azucares</a>
+                                    id="">Azucar</a>
                             </li>
                             <li class="nav-item border-right">
                                 <a a href="{{ route('confitados') }}" class="h7 level-1 nav-link  text-dark "
@@ -226,7 +226,7 @@
                             </li>
                             <li class="nav-item border-right">
                                 <a a href="{{ route('sales') }}" class="h7 level-1 nav-link  text-dark "
-                                    id="">Sales</a>
+                                    id="">Sal</a>
                             </li>
                             <li class="nav-item border-right">
                                 <a a href="{{ route('te') }}" class="h7 level-1 nav-link  text-dark "
@@ -291,7 +291,7 @@
                         <h5 class="title text-kumel-texto">Tienda</h5>
                         <ul class="list-unstyled list-padding">
                             <li> <a href="{{ route('semillas') }}" class="text-kumel-texto ">Semillas</a></li>
-                            <li> <a href="{{ route('snackMix') }}" class="text-kumel-texto">Snack y Mix</a></li>
+                           {{--  <li> <a href="{{ route('snackMix') }}" class="text-kumel-texto">Snack y Mix</a></li> --}}
                             <li> <a href="{{ route('frutosSecos') }}" class="text-kumel-texto">Frutos Secos</a></li>
                             <li> <a href="{{ route('frutasDeshidratadas') }}" class="text-kumel-texto">Frutas
                                     Deshidratadas</a></li>
@@ -299,11 +299,11 @@
                             <li> <a href="{{ route('especiasCondimientos') }}" class="text-kumel-texto">Especias y Condimentos</a></li>
                            {{--  <li> <a href="{{ route('jugos') }}" class="text-kumel-texto">Jugos</a></li>
                             <li> <a href="{{ route('harinas') }}" class="text-kumel-texto">harinas</a></li> --}}
-                            <li> <a href="{{ route('azucares') }}" class="text-kumel-texto">azucares</a></li>
-                            <li> <a href="{{ route('confitados') }}" class="text-kumel-texto">confitados</a></li>
-                            <li> <a href="{{ route('sales') }}" class="text-kumel-texto">sales</a></li>
+                            <li> <a href="{{ route('azucares') }}" class="text-kumel-texto">Azucar</a></li>
+                            <li> <a href="{{ route('confitados') }}" class="text-kumel-texto">Confitados</a></li>
+                            <li> <a href="{{ route('sales') }}" class="text-kumel-texto">Sal</a></li>
                           {{--   <li> <a href="{{ route('te') }}" class="text-kumel-texto">te</a></li> --}}
-                            <li> <a href="{{ route('tostados') }}" class="text-kumel-texto">tostados</a></li>
+                            <li> <a href="{{ route('tostados') }}" class="text-kumel-texto">Tostados</a></li>
                                 
                                     
                         </ul>

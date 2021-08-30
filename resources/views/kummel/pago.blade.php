@@ -101,11 +101,11 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
 
 
 
-                        <div class="d-flex  align-items-center p-3">
+                        <div class=" align-items-center p-3">
                             <div class="form-inline precio_total">
 
                                 <div class="col-md-2 col-sm-2 col-lg-2">
-                                    <img src="{{ $value['Imagen']}}" class="contenedor">
+                                    <img src="{{ $value['Imagen']}}"  class="contenedor" style="min-height: 80%; min-width:80%">
 
                                 </div>
 
@@ -124,7 +124,7 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
 
                                     </div>
                                 </div>
-                                <div class="col-md-2 col-sm-2 col-lg-2">
+                                <div class="col-md-3 col-sm-3 col-lg-3">
                                     <div class="col-md-1 clase-cantidad">
                                         <input type="text" class="precio-total" value='{{ $value['Precio'] }}' hidden>
                                         <input id="stockProducto" type="text" class="text-info stock-producto"
