@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Negocio\Interfaces\IAdministrador;
 use App\Negocio\Interfaces\IClientes;
 use App\Negocio\Interfaces\IDespacho;
 use App\OTD\DatosDespachoOtd;
@@ -11,31 +12,20 @@ use PhpParser\Node\Expr\FuncCall;
 
 class AdministradorControllers extends Controller
 {
-  
-  
+  private $oAdministrador;
+  public function __construct(IAdministrador $_oAdministrador)
+  {
+      $this->oAdministrador = $_oAdministrador;
 
- public function __construct()
- {
-  
-  
- }
+  }
+
+
 
  public function administrador()
  {
      
- /*    $request->validate([
-        'nombre' => 'required',
-        'apellido' => 'required',
-        'direccion' => 'required',
-        'ciudad' => 'required',
-        'comuna' => 'required',
-        'region' => 'required',
-        'email' => 'required|string|email|max:255|unique:users',
 
-      
-    ]);  */ 
-   // dd('hola');
-   return view('kummel.administrador');
+   return view('administrador.administrador',['cargarDatos' => $this->oAdministrador->CargarDatos()]);
 
  }
  

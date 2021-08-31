@@ -17,10 +17,8 @@ class CreateDETALLEPRODUCTOSVENTATable extends Migration
             $table->integer('ID_DETALLE');
             $table->decimal('CANTIDAD', 10, 0)->nullable();
             $table->decimal('VENTA', 10, 0)->nullable();
-            $table->string('idProducto', 10);
-            $table->primary(['ID_DETALLE', 'idProducto']);
-            $table->foreign('ID_DETALLE', 'fk_DETALLE_VENTAS_CARRITO1')->references('ID_DETALLE')->on('VENTAS');
-            $table->foreign('idProducto', 'fk_DETALLE_VENTAS_VENTA_PRODUCTOS1')->references('ID_PRODUCTO')->on('PRODUCTOS_VENTA');
+            $table->string('ID_PRODUCTO', 10);
+            $table->primary(['ID_DETALLE', 'ID_PRODUCTO']);
         });
     }
 

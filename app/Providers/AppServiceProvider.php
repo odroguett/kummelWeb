@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Clientes;
 use App\Negocio\Fabricas\Implementacion\FabricaProductos;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
+use App\Negocio\Implementacion\Administrador;
 use App\Negocio\Implementacion\Buscar;
 use App\Negocio\Implementacion\Categorias;
 use App\Negocio\Implementacion\Clientes as ImplementacionClientes;
@@ -14,6 +15,7 @@ use App\Negocio\Implementacion\FlowApi;
 use App\Negocio\Implementacion\GeneraPDF;
 use App\Negocio\Implementacion\Unidades;
 use App\Negocio\Implementacion\Ventas;
+use App\Negocio\Interfaces\IAdministrador;
 use App\Negocio\Interfaces\IBuscar;
 use App\Negocio\Interfaces\ICategorias;
 use App\Negocio\Interfaces\IClientes;
@@ -51,6 +53,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IGeneraPDF::class, GeneraPDF ::class);
         $this->app->bind(IFlowApi::class, FlowApi ::class);
         $this->app->bind(IClientes::class, ImplementacionClientes ::class);
+        $this->app->bind(IAdministrador::class, Administrador ::class);
     }
 
     /**
