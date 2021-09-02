@@ -61,12 +61,13 @@ class Ventas implements IVentas
         $fechaVenta ="";
         $oRespuesta->bEsValido=true;
         $oRespuesta->sMensaje='Generación de comprobante exitosa.';
-       
+        
         if($this->ValidaPago($arrayPago,$sNombreProducto))
         {
           
             $oRespuesta->bEsValido=true;
             $oRespuesta->sMensaje="Pago ingresado correctamente, nos contactaremos para coordinar el despacho";
+            
             $parametros = $this->oUnidadTrabajo->ParametrosRepositorio()->obtieneParametros();
            
             $costoEnvio =   $parametros->COSTO_ENVIO;
@@ -157,14 +158,14 @@ foreach($arrayPago as  $value)
     $codigoProducto=  $value['CodigoProducto'];
     
     $datosVentaProducto=  $this->oUnidadTrabajo->VentasRepositorio()->obtieneDatosVentaProducto($codigoProducto);
-    
+   
     foreach($datosVentaProducto as  $valueProducto)
     {
-        
+       
         $stock = $valueProducto->STOCK;
         $sNombreProducto = $valueProducto->DESCRIPCION . ' ' . $valueProducto->TAMANO . $valueProducto->CODIGO_UNIDAD;
 
-
+       
         if($stock ==0)
         {
 

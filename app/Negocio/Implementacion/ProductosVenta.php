@@ -24,6 +24,11 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
 }
 
    
+public function obtenerProductosVenta()
+{
+
+    return $this->oUnidadTrabajo->ProductosVentaRepositorio()->obtieneProductosVenta();
+}
 
     public function obtenerProductosDestacados()
     {

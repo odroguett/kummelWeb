@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdministradorControllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BuscarControllers;
+use App\Http\Controllers\CategoriasControllers;
 use App\Http\Controllers\ClientesControllers;
 use App\Http\Controllers\ComprarControllers;
 use App\Http\Controllers\DespachoControllers;
@@ -97,3 +98,7 @@ Route::post('eliminarDatosDespacho', [DespachoControllers::class,'eliminarDatosD
 //Clientes//
 Route::post('agregaDatosClientes', [ClientesControllers::class,'agregaDatosClientes'])->name('agregaDatosClientes');
 Route::get('mantencion/{idUsuario}', [ClientesControllers::class,'mantencion'])->name('mantencion') ->middleware('auth');
+
+//CATEGORIAS//
+Route::post('cargarCategorias', [CategoriasControllers::class,'cargarCategorias'])->name('cargarCategorias');
+Route::post('modificarCategoria', [CategoriasControllers::class,'modificarCategoria'])->name('modificarCategoria');

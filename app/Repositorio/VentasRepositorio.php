@@ -78,10 +78,11 @@ class VentasRepositorio extends Repositorio implements IVentasRepositorio
         $oVentas->FECHA_VENTA=$fechaVenta;
         $oVentas->ID_CANAL=1; 
         $oVentas->save();
+         
          return $dmIdDetalle;
- 
+        
     }
-
+    
  
 }
 

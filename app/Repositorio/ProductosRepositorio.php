@@ -9,6 +9,12 @@ class ProductosRepositorio extends Repositorio implements IProductosRepositorio
     {
         parent::__construct($model);
     }
+
+    public function obtieneProductos()
+    {
+
+        return $this->todos();
+    }
 }
 
 ?>

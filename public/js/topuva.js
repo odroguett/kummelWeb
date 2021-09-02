@@ -8,8 +8,38 @@ function Carrito_class() {
     vCarrito.Stock = null;
   }
 
+  this.cargarCategoria = function(categoria,descripcion)
+  {
+  //alert(categoria);
+  $("#loader").show();
+  $.ajax({
+    type: "POST",
+    url: '/cargarCategorias/',
+    data: {
+      categoria: categoria,
+      descripcion:descripcion
+     
+    },
+    success: function (data) {
+      
+        $("#loader").hide();
+            $('#mContent').html(data);
+            $('#modalModificar').modal('show');
+      
+    }
+  });
+
+
+  }
+
+  this.eliminarCategoria = function(categoria)
+  {
+  alert(categoria);
+
+  }
+
   this.LinkProducto = function (imagen,imagen2,imagen3,descripcion, precioVenta, tamanoUnidad, codigoUnidad,stock,codigoProducto) {
-debugger;
+  //debugger;
 
    var recorre =  document.querySelectorAll('.claseTexto')
    

@@ -1,6 +1,7 @@
 <?php
 namespace App\Negocio\Fabricas\Implementacion;
 use App\Negocio\Fabricas\Interfaces\IFabricaProductos;
+use App\Negocio\Implementacion\Productos;
 use App\Negocio\Implementacion\ProductosVenta;
 use App\Negocio\Implementacion\ProductosBodega;
 use App\Negocio\Implementacion\ProductosElaborados;
@@ -25,6 +26,12 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
 public function ProductosBodega()
 {
 return new ProductosBodega();
+
+}
+
+public function Productos()
+{
+return new Productos($this->oCategorias,$this->oUnidadTrabajo, $this->oUnidades);
 
 }
 

@@ -17,6 +17,7 @@ interface IUnidadTrabajo
     public function TipoDespachoRepositorio();
     public function VentasRepositorio();
     public function TipoPagoRepositorio();
+    public function UnidadesRepositorio();
     public function RawQueryRepositorio();
 
   

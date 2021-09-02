@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 interface IProductosVenta extends IProductos
 {
 
+    public function  obtenerProductosVenta();
     public function obtenerProductosDestacados();
     public function ingresarDescuento();
     public function AgregarProducto();

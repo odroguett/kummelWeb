@@ -27,6 +27,8 @@
     <div class="col-lg-8 col-sm-8 col-md-8 mx-auto   " style="margin-top: 5px;  ">
         <h5 class="text-kumel-titulo  ">Administador</h5>
     </div>
+    @csrf
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <div class="container" style="  max-width: 90%; min-height: 40vh">
 
 
@@ -52,8 +54,11 @@
                                     class="  responsive-table table table-hover table-bordered">
                                     <thead>
                                         <tr>
-                                            <th class="texto-parrafo">ID</th>
+                                            <th hidden class="texto-parrafo">ID</th>
                                             <th class="texto-parrafo">Descripcion</th>
+                                            <th style="Editar">
+                                            <th style="Eliminar">
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -61,9 +66,11 @@
                                   
                                         @foreach ($cargarDatos->categorias as $value )
                                         <tr>
-                                            |<td class="texto-parrafo">{{$value->ID_CATEGORIA}} </td>
+                                            |<td hidden class="texto-parrafo">{{$value->ID_CATEGORIA}} </td>
                                             <td class="texto-parrafo">{{$value->DESCRIPCION}}</td>
-
+                                            <td> <a href="#" onclick="oCarrito.cargarCategoria( '{{ $value->ID_CATEGORIA}}','{{$value->DESCRIPCION}}')" data-original-title="Editar" data-container="body" >Editar</a></td>
+                                            <td><a href="#" onclick="oCarrito.eliminarCategoria( '{{ $value->ID_CATEGORIA}}','{{$value->DESCRIPCION}}')" data-original-title="Delete" id="btnEliminarBonosAguinaldos" >  Eliminar </a></td>
+                                            
                                         </tr>
                                         @endforeach
                                   @endif
@@ -93,7 +100,7 @@
                     <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
                         <div class="card-body bg-light ">
                             <div class='modal-body '>
-                                <button type="submit">Modificar</button>
+                               
                                 <br>
                                 <table id="example"
                                     class="   responsive-table display table table-hover table-bordered">
@@ -101,33 +108,26 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Descripcion</th>
-                                            <th>Habilita Menu</th>
+                                            
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            |<td>Tiger Nixon</td>
-                                            <td>Tiger Nixon</td>
-                                            <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
+                                            @if(isset($cargarDatos->unidades))
+                                  
+                                                 @foreach ($cargarDatos->unidades as $value )
+                                                    <tr>
+                                                        |<td class="texto-parrafo">{{$value->ID_UNIDAD}} </td>
+                                                         <td class="texto-parrafo">{{$value->DESCRIPCION_UNIDAD}}</td>
+    
+                                                    </tr>
+                                                @endforeach
+                                            @endif
+                                            
 
                                         </tr>
-                                        <tr>
-                                            |<td>Tiger Nixon</td>
-                                            <td>Tiger Nixon</td>
-                                            <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
-                                        </tr>
-                                        <tr>
-                                            |<td>Tiger Nixon</td>
-                                            <td>Tiger Nixon</td>
-                                            <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
-                                        </tr>
-                                        <tr>
-                                            |<td>Tiger Nixon</td>
-                                            <td>Tiger Nixon</td>
-                                            <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
-
-                                        </tr>
+                                      
 
                                     </tbody>
 
@@ -156,38 +156,34 @@
                               <table id="example"
                                   class="   responsive-table display table table-hover table-bordered">
                                   <thead>
-                                      <tr>
-                                          <th>ID</th>
-                                          <th>Descripcion</th>
-                                          <th>Habilita Menu</th>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Descripcion</th>
+                                        <th>Imagen</th>
+                                        <th>Categoria</th>
 
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <tr>
-                                          |<td>Tiger Nixon</td>
-                                          <td>Tiger Nixon</td>
-                                          <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        |@if(isset($cargarDatos->productos))
+                                  
+                                        @foreach ($cargarDatos->productos as $value )
+                                           <tr>
+                                               |<td class="texto-parrafo">{{$value->ID_PRODUCTO}} </td>
+                                                <td class="texto-parrafo">{{$value->DESCRIPCION}}</td>
+                                                <td class="texto-parrafo">{{$value->IMAGEN}}</td>
+                                                <td class="texto-parrafo">{{$value->ID_CATEGORIA}}</td>
 
-                                      </tr>
-                                      <tr>
-                                          |<td>Tiger Nixon</td>
-                                          <td>Tiger Nixon</td>
-                                          <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
-                                      </tr>
-                                      <tr>
-                                          |<td>Tiger Nixon</td>
-                                          <td>Tiger Nixon</td>
-                                          <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
-                                      </tr>
-                                      <tr>
-                                          |<td>Tiger Nixon</td>
-                                          <td>Tiger Nixon</td>
-                                          <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
+                                           </tr>
+                                       @endforeach
+                                   @endif
 
-                                      </tr>
+                                    </tr>
+                                   
 
-                                  </tbody>
+                                </tbody>
+
 
                               </table>
 
@@ -210,7 +206,7 @@
                 <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
                     <div class="card-body bg-light ">
                         <div class='modal-body '>
-                            <button type="submit">Modificar</button>
+                            
                             <br>
                             <table id="example"
                                 class="   responsive-table display table table-hover table-bordered">
@@ -218,33 +214,54 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Descripcion</th>
-                                        <th>Habilita Menu</th>
+                                        <th>Precio Venta</th>
+                                        <th>Porcentaje Descuento</th>
+                                        <th>Stock</th>
+                                        <th>Destacado</th>
+                                        <th>UNIDAD</th>
+                                        <th>IMAGEN1</th>
+                                        <th>CATEGORIA</th>
+                                        <th>RELACIONADO</th>
+                                        <th>TITULO</th>
+                                        <th>PARRAFO1</th>
+                                        <th>PARRAFO2</th>
+                                        <th>PARRAFO3</th>
+                                        <th>PARRAFO4</th>
+                                        <th>IMAGEN2</th>
+                                        <th>IMAGEN3</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        |<td>Tiger Nixon</td>
-                                        <td>Tiger Nixon</td>
-                                        <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
+                                        |@if(isset($cargarDatos->productosVenta))
+                                  
+                                        @foreach ($cargarDatos->productosVenta as $value )
+                                           <tr>
+                                               |<td class="texto-parrafo">{{$value->ID_PRODUCTO}} </td>
+                                                <td class="texto-parrafo">{{$value->DESCRIPCION}}</td>
+                                                <td class="texto-parrafo">{{$value->PRECIO_VENTA}}</td>
+                                                <td class="texto-parrafo">{{$value->PORCENTAJE_DESCUENTO}}</td>
+                                                <td class="texto-parrafo">{{$value->STOCK}}</td>
+                                                <td class="texto-parrafo">{{$value->DESTACADO}}</td>
+                                                <td class="texto-parrafo">{{$value->ID_UNIDAD}}</td>
+                                                <td class="texto-parrafo">{{$value->IMAGEN1}}</td>
+                                                <td class="texto-parrafo">{{$value->ID_CATEGORIA}}</td>
+                                                <td class="texto-parrafo">{{$value->RELACIONADO}}</td>
+                                                <td class="texto-parrafo">{{$value->TITULO}}</td>
+                                                <td class="texto-parrafo">{{$value->PARRAFO1}}</td>
+                                                <td class="texto-parrafo">{{$value->PARRAFO2}}</td>
+                                                <td class="texto-parrafo">{{$value->PARRAFO3}}</td>
+                                                <td class="texto-parrafo">{{$value->PARRAFO4}}</td>
+                                                <td class="texto-parrafo">{{$value->IMAGEN2}}</td>
+                                                <td class="texto-parrafo">{{$value->IMAGEN3}}</td>
+
+                                           </tr>
+                                       @endforeach
+                                   @endif
 
                                     </tr>
-                                    <tr>
-                                        |<td>Tiger Nixon</td>
-                                        <td>Tiger Nixon</td>
-                                        <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
-                                    </tr>
-                                    <tr>
-                                        |<td>Tiger Nixon</td>
-                                        <td>Tiger Nixon</td>
-                                        <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
-                                    </tr>
-                                    <tr>
-                                        |<td>Tiger Nixon</td>
-                                        <td>Tiger Nixon</td>
-                                        <td><input type="text" id="row-1-age" name="row-1-age" value="61"></td>
-
-                                    </tr>
+                                   
 
                                 </tbody>
 
@@ -258,7 +275,18 @@
             </div>
         </div>
 
+
+
 </body>
+<div class="modal fade" id="modalModificar" tabindex="-1" role="dialog" aria-labelledby="modalModificar">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content" id="mContent">
+        </div>
+    </div>
+
+</div>
 
 <script src="jquery/jquery.min.js"></script>
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
@@ -270,10 +298,17 @@
 <!-- Custom scripts for all pages-->
 <script src="js/osahan.js"></script>
 <script src="js/topuva.js"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    </script>
 
 <script>
     $(document).ready(function () {
-        $("#example").DataTable({
+      $("#tbCategorias").DataTable({
 
             "language": {
                 "url": "js/Spanish.json.js",
@@ -299,9 +334,11 @@
             "ordering": false,
             "info": false,
             "lengthChange": true,
-
+           
 
 
         });
-    });
+      
+} );
+   
 </script>

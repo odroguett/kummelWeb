@@ -36,7 +36,7 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
     }
     public function CargarProducto()
     {
-
+       return $this->oUnidadTrabajo->ProductosRepositorio()->obtieneProductos();
     }
 
 }

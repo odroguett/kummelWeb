@@ -11,6 +11,12 @@ class ProductosVentaRepositorio extends Repositorio implements IProductosVentaRe
         parent::__construct($model);
     }
 
+public function obtieneProductosVenta()
+{
+ return $this->todos();
+
+}
+
     public function obtieneProductosDestacados()
 {
 

@@ -6,6 +6,7 @@ interface IFabricaProductos
 
     public function ProductosVenta();
     public function ProductosBodega();
+    public function Productos();
 }
 
 ?>

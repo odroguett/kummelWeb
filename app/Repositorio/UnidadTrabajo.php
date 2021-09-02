@@ -14,6 +14,7 @@ use App\Models\ProductosVenta;
 use App\Models\Proveedores;
 use App\Models\TipoDespacho;
 use App\Models\TipoPago;
+use App\Models\Unidades;
 use App\Models\Ventas;
 use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
@@ -111,6 +112,15 @@ public function VentasRepositorio()
 {
   $model = new Ventas();
   return new VentasRepositorio($model);
+  
+  
+}
+
+ 
+public function UnidadesRepositorio()
+{
+  $model = new Unidades();
+  return new UnidadesRepositorio($model);
   
   
 }
