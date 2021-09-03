@@ -225,6 +225,7 @@ public function pagoFlow(Request $request)
        
         $costoEnvio =   $parametros->COSTO_ENVIO;
         $topeCostoEnvio =   $parametros->TOPE_COSTO_ENVIO;
+        
         if($totalPago < $topeCostoEnvio)
         {
             $totalConDespacho = $totalPago + $costoEnvio;
@@ -241,7 +242,7 @@ public function pagoFlow(Request $request)
         $respuestaOtd = new RespuestaOtd;
         $respuestaOtd->bEsValido  = true;
         $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespachoId($request->input('idDespacho'));
-  
+       
         //Prepara el arreglo de datos
 
         $params = array(
@@ -259,6 +260,8 @@ public function pagoFlow(Request $request)
             $serviceName = "payment/create";
  
           try {
+
+          //  dd('hoola');
                 // Instancia la clase FlowApi
                 // Ejecuta el servicio
                 $response = $this->oFlowApI->send($serviceName, $params,"POST");
@@ -266,14 +269,20 @@ public function pagoFlow(Request $request)
                 $redirect = $response["url"] . "?token=" . $response["token"];
                 // dd($redirect);
                 header("location:$redirect");
-                } catch (Exception $e) {
+                } 
+                
+                catch (Exception $e) {
                     echo $e->getCode() . " - " . $e->getMessage();
+                    $respuestaOtd->bEsValido  = false;
+                    $respuestaOtd->sMensaje = $e->getCode() . " - " . $e->getMessage();
+                    return  $respuestaOtd;
             }
 
               $respuestaOtd->url  = $redirect;  
+              return $respuestaOtd; // redirect($redirect);
             
     }
-    return $respuestaOtd; // redirect($redirect);
+    
 }
 
    public function confirmacion(Request $request)

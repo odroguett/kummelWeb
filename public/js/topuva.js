@@ -58,7 +58,7 @@ function Carrito_class() {
 
     });
     //var cantidad = $('#cantidadProd').val();
-    if(cantidad >= stock || stock <=0)
+    if(cantidad > stock || stock <=0)
     {
       oModal.NotificacionAlertify("Sin stock para productos seleccionado.","error");
     }

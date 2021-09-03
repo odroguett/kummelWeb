@@ -35,7 +35,7 @@
 
         <!-- pick today -->
         <div class="d-flex align-items-center mb-3">
-            <h5 style="text-align: left;" class="text-kumel-titulo ">Frutas Deshidratadas</h5>
+            <h3 style="text-align: left;" class="text-kumel-titulo ">Frutas Deshidratadas</h3>
         </div>
         <div class="pick_today">
 
@@ -140,29 +140,32 @@
 
             @else
             <div class="col-sm-12 col-md-6 col-lg-3">
-                <div class="list-card bg-light h-100 border rounded overflow-hidden ">
+                <div class="list-card bg-light h-100 rounded border overflow-hidden ">
                     <div class="list-card-image">
-                        <a onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN1}}','{{ $value->IMAGEN2}}','{{ $value->IMAGEN3}}','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}}','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')"
-                            href="#" class="text-dark">
+                        
 
                             <div class="col-sm-12 col-md-12 col-lg-12 claseTexto">
                                 <input type="text" class="text-info codigo-precio-producto"
                                     value="{{ $value->ID_PRODUCTO}}" hidden>
-                                <input type="text" class="text-info stock-producto" value="{{ $value->STOCK}}" hidden>
+                                <input type="text" class="text-info stock-producto"
+                                    value="{{ $value->STOCK}}" hidden>
 
 
-                                <div class="contenedor-imagen">
+                                <div class="contenedor-imagen" onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN1}}','{{ $value->IMAGEN2}}','{{ $value->IMAGEN3}}','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}}','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')">
+                                   
                                     <figure>
-                                        <img style="" class="imagen-producto" src="{{ $value->IMAGEN1}}">
-
+                                        <img  class="imagen-producto" style="" src="{{ $value->IMAGEN1}}">
+                                       
                                         <div class="capa">
+                                            <a 
+                                                href="#" class="text-dark">
 
                                             <h3 class="text-kumel-texto_bold">{{ $value->TITULO}}</h3>
                                             <p class="text-kumel-texto">
-                                                @isset($value->PARRAFO1) {{$value->PARRAFO1 }} @endisset
-                                                @isset($value->PARRAFO2 ) {{$value->PARRAFO2 }} @endisset
-                                                @isset($value->PARRAFO3 ) {{$value->PARRAFO3 }} @endisset
-                                                @isset($value->PARRAFO4 ) {{$value->PARRAFO4 }} @endisset
+                                             @isset($value->PARRAFO1) {{$value->PARRAFO1 }}  @endisset 
+                                             @isset($value->PARRAFO2 ) {{$value->PARRAFO2 }} @endisset 
+                                             @isset($value->PARRAFO3 ) {{$value->PARRAFO3 }} @endisset 
+                                             @isset($value->PARRAFO4 ) {{$value->PARRAFO4 }}  @endisset
                                             </p>
 
                                         </div>
@@ -176,7 +179,7 @@
 
                                 <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
                                     <h6 class="textoProducto text-kumel-titulo">
-                                        {{$value->DESCRIPCION  }}
+                                       {{$value->DESCRIPCION  }}
                                     </h6>
 
                                 </div>
@@ -186,43 +189,43 @@
 
                                 <div class=" col-sm-12 col-md-12 col-lg-12 price" style="text-align: center;">
                                     <h6 class=" text-kumel-bold" style="margin-bottom: 4%;">
-                                        {{' CLP '  . number_format($value->PRECIO_VENTA,0,',','.')}}
-
+                                       {{' CLP '  . number_format($value->PRECIO_VENTA,0,',','.')}}
+                                        
                                     </h6>
                                 </div>
 
 
 
 
-                                <div class="col-lg-10 col-sm-12 col-md-12" style="margin-left: 8%;">
-                                    <div class="form-inline">
-                                        <div class="col-lg-4 col-sm-4 col-md-4">
+                                <div class="col-lg-10 col-sm-12 col-md-12 " style="margin-left: 14%;">
+                                   
+                                   
+                                    <div class="form-inline row align-items-center ">
+                                        
 
-                                            <span class="" href="#">
-                                                <form id='myform' class="cart-items-number d-flex" method='POST'
-                                                    action='#'>
+                                 
                                                     <input type='button' value='-'
-                                                        class='qtyminus btn btn-success btn-sm ' field='quantity' />
-                                                    <input type='text' name='quantity ' value='1'
-                                                        class='qty form-control cantidad' />
+                                                        class='qtyminus btn border btn-md border   '  field='quantity' />
+                                                    <input readonly type='text' name='quantity ' value='1' style="text-align:center"
+                                                        class='qty form-control cantidad border col-md-3 ' />
                                                     <input type='button' value='+'
-                                                        class='qtyplus btn btn-success btn-sm ' field='quantity' />
-                                                </form>
-
-                                            </span>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-4 col-md-4">
+                                                        class='qtyplus btn border btn-md ' field='quantity' />
+                                            
+                                        
+                                        <div  style="margin-left: 3%;" class="col-lg-2 col-sm-2 col-md-2">
                                             <div class="input-group-prepend">
-                                                <div class=" btn btn-icon btn-light btn-valor"><i
-                                                        class="icofont-cart"></i>
-                                                </div>
+                                                <button   class=" btn border btn-valor btn-md btn-kumel">
+                                                    <span><i
+                                                        class="icofont-cart"></i></span>
+
+                                                </button>
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-4 col-lg-3 col-md-5 ">
-                                            <h7 class="text-kumel-texto-1">
-                                                {{'Stock:'. ' ' . $value->STOCK}}
-
+                                        <div   class="col-sm-3 col-lg-3 col-md-3 ">
+                                            <h6 class=" text-kumel-bold" style="margin-bottom: 4%; margin-right: 4%">
+                                             {{'Stock:'. ' ' . $value->STOCK}}
+                                                
                                         </div>
                                     </div>
 
@@ -255,7 +258,7 @@
         </div>
     </section>
 </body>
-
+<hr>
 <script src="jquery/jquery.min.js"></script>
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
