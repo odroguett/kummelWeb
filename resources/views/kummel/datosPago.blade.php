@@ -132,7 +132,7 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                                     <div class="col-md-4">
                                         <input type="text" style="max-width: 99%"
                                             class="form-control form-control-sm text-dark text-right "
-                                            name="direccion" id="direccion" value=" {{' ' .  number_format($costoEnvio,0,',','.')   . " (CLP)"  }} "
+                                            name="direccion" id="direccion" value="@if($datosPagoOtd->totalPago >= 40000 ) {{ 0 }} @else {{' ' .  number_format($costoEnvio,0,',','.')   . " (CLP)"  }} @endif "
                                             readonly>
                                     </div>
                                   

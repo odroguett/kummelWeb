@@ -288,7 +288,7 @@
 
 
 
-                                <div class="col-lg-10 col-sm-12 col-md-12 " style="margin-left: 8%;">
+                                <div class="col-lg-10 col-sm-12 col-md-12 " style="margin-left: 12%;">
                                    
                                    
                                     <div class="form-inline row align-items-center ">

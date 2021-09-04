@@ -39,7 +39,7 @@
 
             <div class="row">
                 @foreach($precioProductos as $value)
-                
+
 
                 @if ($value->STOCK <=0) <div class="col-sm-12 col-md-6 col-lg-3">
                     <div class="list-card bg-light h-100 rounded  borderoverflow-hidden position-relative shadow-sm">
@@ -63,10 +63,10 @@
 
                                                 <h3 class="">{{$value->TITULO }}</h3>
                                                 <p>
-                                                     @isset($value->PARRAFO1) {{$value->PARRAFO1 }}  @endisset 
-                                                     @isset($value->PARRAFO2 ) {{$value->PARRAFO2 }} @endisset 
-                                                     @isset($value->PARRAFO3 ) {{$value->PARRAFO3 }} @endisset 
-                                                     @isset($value->PARRAFO4 ) {{$value->PARRAFO4 }}  @endisset
+                                                    @isset($value->PARRAFO1) {{$value->PARRAFO1 }} @endisset
+                                                    @isset($value->PARRAFO2 ) {{$value->PARRAFO2 }} @endisset
+                                                    @isset($value->PARRAFO3 ) {{$value->PARRAFO3 }} @endisset
+                                                    @isset($value->PARRAFO4 ) {{$value->PARRAFO4 }} @endisset
                                                 </p>
 
                                             </div>
@@ -138,104 +138,97 @@
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="list-card bg-light h-100 rounded border overflow-hidden ">
                     <div class="list-card-image">
-                        
-
-                            <div class="col-sm-12 col-md-12 col-lg-12 claseTexto">
-                                <input type="text" class="text-info codigo-precio-producto"
-                                    value="{{ $value->ID_PRODUCTO}}" hidden>
-                                <input type="text" class="text-info stock-producto"
-                                    value="{{ $value->STOCK}}" hidden>
 
 
-                                <div class="contenedor-imagen" onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN1}}','{{ $value->IMAGEN2}}','{{ $value->IMAGEN3}}','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}}','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')">
-                                   
-                                    <figure>
-                                        <img  class="imagen-producto" style="" src="{{ $value->IMAGEN1}}">
-                                       
-                                        <div class="capa">
-                                            <a 
-                                                href="#" class="text-dark">
+                        <div class="col-sm-12 col-md-12 col-lg-12 claseTexto">
+                            <input type="text" class="text-info codigo-precio-producto" value="{{ $value->ID_PRODUCTO}}"
+                                hidden>
+                            <input type="text" class="text-info stock-producto" value="{{ $value->STOCK}}" hidden>
+
+
+                            <div class="contenedor-imagen"
+                                onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN1}}','{{ $value->IMAGEN2}}','{{ $value->IMAGEN3}}','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}}','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')">
+
+                                <figure>
+                                    <img class="imagen-producto" style="" src="{{ $value->IMAGEN1}}">
+
+                                    <div class="capa">
+                                        <a href="#" class="text-dark">
 
                                             <h3 class="text-kumel-texto_bold">{{ $value->TITULO}}</h3>
                                             <p class="text-kumel-texto">
-                                             @isset($value->PARRAFO1) {{$value->PARRAFO1 }}  @endisset 
-                                             @isset($value->PARRAFO2 ) {{$value->PARRAFO2 }} @endisset 
-                                             @isset($value->PARRAFO3 ) {{$value->PARRAFO3 }} @endisset 
-                                             @isset($value->PARRAFO4 ) {{$value->PARRAFO4 }}  @endisset
+                                                @isset($value->PARRAFO1) {{$value->PARRAFO1 }} @endisset
+                                                @isset($value->PARRAFO2 ) {{$value->PARRAFO2 }} @endisset
+                                                @isset($value->PARRAFO3 ) {{$value->PARRAFO3 }} @endisset
+                                                @isset($value->PARRAFO4 ) {{$value->PARRAFO4 }} @endisset
                                             </p>
 
-                                        </div>
-
-                                    </figure>
-
-
-                                </div>
-
-
-
-                                <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
-                                    <h6 class="textoProducto text-kumel-titulo">
-                                       {{$value->DESCRIPCION  }}
-                                    </h6>
-
-                                </div>
-
-
-
-
-                                <div class=" col-sm-12 col-md-12 col-lg-12 price" style="text-align: center;">
-                                    <h6 class=" text-kumel-bold" style="margin-bottom: 4%;">
-                                       {{' CLP '  . number_format($value->PRECIO_VENTA,0,',','.')}}
-                                        
-                                    </h6>
-                                </div>
-
-
-
-
-                                <div class="col-lg-10 col-sm-12 col-md-12 " style="margin-left: 14%;">
-                                   
-                                   
-                                    <div class="form-inline row align-items-center ">
-                                        
-
-                                 
-                                                    <input type='button' value='-'
-                                                        class='qtyminus btn border btn-md border   '  field='quantity' />
-                                                    <input readonly type='text' name='quantity ' value='1' style="text-align:center"
-                                                        class='qty form-control cantidad border col-md-3 ' />
-                                                    <input type='button' value='+'
-                                                        class='qtyplus btn border btn-md ' field='quantity' />
-                                            
-                                        
-                                        <div  style="margin-left: 3%;" class="col-lg-2 col-sm-2 col-md-2">
-                                            <div class="input-group-prepend">
-                                                <button   class=" btn border btn-valor btn-md btn-kumel">
-                                                    <span><i
-                                                        class="icofont-cart"></i></span>
-
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div   class="col-sm-3 col-lg-3 col-md-3 ">
-                                            <h6 class=" text-kumel-bold" style="margin-bottom: 4%; margin-right: 4%">
-                                             {{'Stock:'. ' ' . $value->STOCK}}
-                                                
-                                        </div>
                                     </div>
 
-
-
-                                </div>
-
-
-
-
-                                <br>
+                                </figure>
 
 
                             </div>
+
+
+
+                            <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+                                <h6 class="textoProducto text-kumel-titulo">
+                                    {{$value->DESCRIPCION  }}
+                                </h6>
+
+                            </div>
+
+
+
+
+                            <div class=" col-sm-12 col-md-12 col-lg-12 price" style="text-align: center;">
+                                <h6 class=" text-kumel-bold" style="margin-bottom: 4%;">
+                                    {{' CLP '  . number_format($value->PRECIO_VENTA,0,',','.')}}
+
+                                </h6>
+                            </div>
+
+
+
+
+                            <div class="col-lg-10 col-sm-12 col-md-12 " style="margin-left: 14%;">
+
+                                <div class="form-inline row align-items-center ">
+                                    <input type='button' value='-' class='qtyminus btn border btn-md border   '
+                                        field='quantity' />
+                                    <input readonly type='text' name='quantity ' value='1' style="text-align:center"
+                                        class='qty form-control cantidad border col-md-3 ' />
+                                    <input type='button' value='+' class='qtyplus btn border btn-md '
+                                        field='quantity' />
+
+                                    <div style="margin-left: 3%;" class="col-lg-2 col-sm-2 col-md-2">
+                                        <div class="input-group-prepend">
+                                            <button class=" btn border btn-valor btn-md btn-kumel">
+                                                <span><i class="icofont-cart"></i></span>
+
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3 col-lg-3 col-md-3 ">
+                                        <h6 class=" text-kumel-bold" style="margin-bottom: 4%; margin-right: 4%">
+                                            {{'Stock:'. ' ' . $value->STOCK}}
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+                            <br>
+
+
+                        </div>
                         </a>
 
                     </div>
@@ -271,5 +264,5 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    </script>
+</script>
 @endsection

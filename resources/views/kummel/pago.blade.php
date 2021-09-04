@@ -124,7 +124,24 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
 
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-3 col-lg-3">
+                                <div class="form-inline row align-items-center clase-cantidad">
+                                    <input type="text" class="precio-total" value='{{ $value['Precio'] }}' hidden>
+                                    
+                                    <input id="stockProducto" type="text" class="text-info stock-producto"
+                                        value='{{  $stock }}' hidden>
+                                    <input type='button' value='-' class='qtyminus qtyBajar btn border btn-md border bg-white   '
+                                        field='quantity' />
+                                    <input readonly type='text' name='quantity ' value=@if(isset($value['Cantidad']))
+                                    {{$value['Cantidad']}}@endif  style="text-align:center"
+                                        class='qty form-control cantidad border col-md-3 ' />
+                                    <input type='button' value='+' class='qtyplus qtySubir btn border btn-md  bg-white' field='quantity' />
+        
+                                  
+                                  
+        
+                                </div>
+
+                              {{--   <div class="col-md-3 col-sm-3 col-lg-3">
                                     <div class="col-md-1 clase-cantidad">
                                         <input type="text" class="precio-total" value='{{ $value['Precio'] }}' hidden>
                                         <input id="stockProducto" type="text" class="text-info stock-producto"
@@ -143,7 +160,7 @@ $totalPago = ($totalPago + (int)$value['Precio'] * (int)$value['Cantidad'] );
                                         </span>
                                     </div>
                                 </div>
-
+ --}}
                             </div>
 
 

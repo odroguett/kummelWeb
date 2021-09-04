@@ -120,8 +120,8 @@
                     </div>
                     <div class="Contenedor-Carrito bg-kumel-2 ">
 
-                        <p id="numCarrito" class="text-kumel-bold numberCircle  bg-kumel-2   "
-                            style="margin-bottom: 35px; margin-left: -4px;" hidden>0</p>
+                        <p id="numCarrito" class="text-dark border    "
+                            style="" hidden>0</p>
 
 
                     </div>
@@ -232,10 +232,10 @@
                                 <a a href="{{ route('te') }}" class="h7 level-1 nav-link  text-dark "
                                     id="">Te</a>
                             </li>
-                            <li class="nav-item border-right">
+                            {{-- <li class="nav-item border-right">
                                 <a a href="{{ route('tostados') }}" class="h7 level-1 nav-link  text-dark "
                                     id="">Tostados</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
 
 
@@ -297,13 +297,13 @@
                                     Deshidratadas</a></li>
                             <li> <a href="{{ route('chocolates') }}" class="text-kumel-texto">Chocolates</a></li>
                             <li> <a href="{{ route('especiasCondimientos') }}" class="text-kumel-texto">Especias y Condimentos</a></li>
-                           {{--  <li> <a href="{{ route('jugos') }}" class="text-kumel-texto">Jugos</a></li>
-                            <li> <a href="{{ route('harinas') }}" class="text-kumel-texto">harinas</a></li> --}}
+                           {{--  <li> <a href="{{ route('jugos') }}" class="text-kumel-texto">Jugos</a></li>--}}
+                            <li> <a href="{{ route('harinas') }}" class="text-kumel-texto">harinas</a></li> 
                             <li> <a href="{{ route('azucares') }}" class="text-kumel-texto">Azucar</a></li>
                             <li> <a href="{{ route('confitados') }}" class="text-kumel-texto">Confitados</a></li>
                             <li> <a href="{{ route('sales') }}" class="text-kumel-texto">Sal</a></li>
                           {{--   <li> <a href="{{ route('te') }}" class="text-kumel-texto">te</a></li> --}}
-                            <li> <a href="{{ route('tostados') }}" class="text-kumel-texto">Tostados</a></li>
+                           {{--  <li> <a href="{{ route('tostados') }}" class="text-kumel-texto">Tostados</a></li>--}}
                                 
                                     
                         </ul>

@@ -195,7 +195,7 @@
 
 
 
-                                <div class="col-lg-10 col-sm-12 col-md-12 " style="margin-left: 14%;">
+                                <div class="col-lg-10 col-sm-6 col-md-6 " style="margin-left: 14%;">
                                    
                                    
                                     <div class="form-inline row align-items-center ">

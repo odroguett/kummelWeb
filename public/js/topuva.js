@@ -313,7 +313,7 @@ function Carrito_class() {
                 ' <div class="col-lg-10 "> ' +
                       ' <h6 class="price_modal m-0 font-weight-light text-kumel-texto-1"> Precio: ' + precio + '</h6> ' +
                       ' <h6 class=" cantidadProducto m-0 font-weight-light text-kumel-texto-1"> Cantidad: ' + cantidad + ' </h6> ' +
-                      ' <h6 class=" cantidadProducto m-0 font-weight-light text-kumel-texto-1">  SubTotal: ' +  (Number(oCarrito.quitarCaractererNoNumericos(precio)) * Number(oCarrito.quitarCaractererNoNumericos(cantidad))) + ' </h6> ' +
+                      ' <h6 class=" cantidadProducto m-0 font-weight-light text-kumel-texto-1">  SubTotal: ' +  new Intl.NumberFormat("de-DE").format(Number(oCarrito.quitarCaractererNoNumericos(precio)) * Number(oCarrito.quitarCaractererNoNumericos(cantidad)))   + ' </h6> ' +
                   ' </div> ' +
                   ' <div class="col-lg-2 "> ' +
                       '  <button "type="button" class="btn btn-danger btn-eliminar" id="eliminarProducto"  onclick= "oCarrito.EliminarProducto(this)">X</button> ' +
@@ -371,7 +371,7 @@ function Carrito_class() {
     $('.modal-body').html(modalContentAux);
     $('#myModal2').modal('show');
 
-    $('.totalizador').text(total);
+    $('.totalizador').text(new Intl.NumberFormat("de-DE").format(total));
 
     
   }
@@ -421,7 +421,7 @@ function Carrito_class() {
     $("#numCarrito").addClass('animate__animated animate__shakeY');
 
     total = total - (Number(oCarrito.quitarCaractererNoNumericos(precio.innerHTML)) * Number(oCarrito.quitarCaractererNoNumericos(cantidadProducto.innerHTML)));
-    $('.totalizador').text(total);
+    $('.totalizador').text(new Intl.NumberFormat("de-DE").format(total));
     event.closest('.container_modal').remove();
 
 
@@ -918,7 +918,7 @@ function Carrito_class() {
 
       cantidad = cantidad + Number(oCarrito.quitarCaractererNoNumericos(item.value));
     });
-    $('#subTotal').text(' ' + total);
+    $('#subTotal').text(' ' +  new Intl.NumberFormat("de-DE").format(total) );
     $('#totalProductos').text(' ' + cantidad);
 
 
@@ -1217,14 +1217,15 @@ $(document).ready(function () {
 
         $(this).closest('.clase-cantidad').find('.cantidad').val(Number(currentVal) + 1);
         precio = precio * (Number(currentVal) + 1);
-        $(this).closest('.precio_total').find('.mostrar-precio').text('$ ' + precio);
+        ;
+        $(this).closest('.precio_total').find('.mostrar-precio').text('Precio: (CLP)  ' + new Intl.NumberFormat("de-DE").format(precio));
       }
      
 
     } else {
 
 
-      $(this).closest('.precio_total').find('.mostrar-precio').text('$ ' + precio);
+      $(this).closest('.precio_total').find('.mostrar-precio').text(' Precio: (CLP) ' + new Intl.NumberFormat("de-DE").format(precio));
 
     }
     oCarrito.MontoTotalCompra();
@@ -1251,7 +1252,7 @@ $(document).ready(function () {
       $(this).closest('.clase-cantidad').find('.cantidad').val(Number(currentVal) - 1);
       
 
-      $(this).closest('.precio_total').find('.mostrar-precio').text('$ ' + (precioTotal - precio).toString());
+      $(this).closest('.precio_total').find('.mostrar-precio').text(' Precio: (CLP) ' + (new Intl.NumberFormat("de-DE").format(precioTotal - precio)).toString());
       //  $('.cantidad').val(Number(currentVal) + 1);
     } else if (currentVal == 0) {
 

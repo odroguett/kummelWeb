@@ -88,7 +88,7 @@
                     rounded "
                     alt="Responsive image">
                 </div> --}}
-                </br>
+                <hr>
                 <div class="row">
 
                 </div>
@@ -98,7 +98,8 @@
                 <input type="text" class="text-info codigo-precio-producto"
                     value="{{$detalleProductosVenta->codigoProducto}}" hidden>
 
-                <input id="stockProducto" type="text" class="text-info stock-producto" value="{{$detalleProductosVenta->stock }}" hidden>
+                <input id="stockProducto" type="text" class="text-info stock-producto"
+                    value="{{$detalleProductosVenta->stock }}" hidden>
 
                 <div class="p-4 bg-kumel-2 rounded shadow-sm ">
 
@@ -121,8 +122,8 @@
                     </p>
                     </br>
                     @if($detalleProductosVenta->stock==0)
-                    <div class="row justify-content-start ">
-                        <div class="col-3">
+                    <div class="row form-inline  ">
+                        <div class="col-sm-4">
                             <form id="myform" class="cart-items-number d-flex" method="POST" action="#">
                                 <input type="button" value="-" class="qtyminus btn btn-success btn-sm" field="quantity"
                                     disabled>
@@ -133,36 +134,40 @@
                             </form>
                         </div>
                         @else
-                        <div class="row justify-content-start ">
-                            <div class="col-3">
-                                <form id="myform" class="cart-items-number d-flex" method="POST" action="#">
-                                    <input type="button" value="-" class="qtyminus btn btn-success btn-sm"
-                                        field="quantity">
-                                    <input type="text" name="quantity" value='{{$detalleProductosVenta->cantidad }}'
-                                        class="qty form-control cantidad">
-                                    <input type="button" value="+" class="qtyplus btn btn-success btn-sm"
-                                        field="quantity">
-                                </form>
-                            </div>
-                            @endif
 
+
+                        <div class="form-inline row align-items-center ">
+                            <input type='button' value='-' class='qtyminus btn border btn-md border bg-white   '
+                                field='quantity' />
+                            <input readonly type='text' name='quantity ' value='1' style="text-align:center"
+                                class='qty form-control cantidad border col-md-3 ' />
+                            <input type='button' value='+' class='qtyplus btn border btn-md  bg-white' field='quantity' />
+
+                            <div  class="col-lg-1 col-sm-1 col-md-1">
+                                <div class="input-group-prepend">
+                                    <button class=" btn border btn-valor btn-md btn-kumel">
+                                        <span><i class="icofont-cart"></i></span>
+
+                                    </button>
+                                </div>
+                            </div>
                             @if($detalleProductosVenta->stock==0)
-                            <div class="col-9  align-items-right">
+                            <div class="col-lg-3 col-sm-3 col-md-32  align-items-right">
                                 <button type="button" id="btnAgregarCarro" class="btn btn-kumel-1 rounded  btn-block  "
                                     disabled> Agregar al
                                     Carro</button>
                             </div>
                             @else
-                            <div class="col-9  align-items-right">
+                            <div class="col-lg-3 col-sm-3 col-md-3  align-items-right">
                                 <button type="button" id="btnAgregarCarro" class="btn btn-kumel-1 rounded  btn-block  ">
                                     Agregar al
                                     Carro</button>
                             </div>
                             @endif
 
-
                         </div>
-                        </br>
+                        @endif
+                        <br>
                         <div class="row divider">
                             <div class="col-3">
                                 <p class="h6 text-kumel-titulo">Disponible en:</p>
@@ -178,8 +183,13 @@
                         <p class="text-kumel-titulo">Finas almendras naturales.........</p>
                         <p class="text-kumel-titulo">Finas almendras naturales.........</p>
                         <p class="text-kumel-titulo">Finas almendras naturales.........</p>
-                       
                     </div>
+
+
+
+
+
+
 
                 </div>
 
@@ -188,7 +198,7 @@
 
             </div>
         </div>
-        </div>
+        
         <h5 style="text-align: left;" class="text-kumel-titulo ">Productos Similares</h5>
         <div class="pick_today">
 
