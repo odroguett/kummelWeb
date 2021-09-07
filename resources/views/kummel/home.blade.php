@@ -353,7 +353,7 @@
 
             <div class="form-inline bg-kumel-2">
                 <div class=" col-sm-6  col-md-6 col-lg-6">
-                    <img class="img-nuestra-tienda" style="max-width: 100%;" src="img/despacho.jpg">
+                    <img class="img-nuestra-tienda" style="max-width: 100%;" src="img/tienda.jpg">
 
                 </div>
 
