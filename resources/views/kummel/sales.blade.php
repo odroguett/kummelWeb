@@ -218,11 +218,11 @@
                                             </div>
                                         </div>
 
-                                        <div   class="col-sm-3 col-lg-3 col-md-3 ">
+                                        {{-- <div   class="col-sm-3 col-lg-3 col-md-3 ">
                                             <h6 class=" text-kumel-bold" style="margin-bottom: 4%; margin-right: 4%">
                                              {{'Stock:'. ' ' . $value->STOCK}}
                                                 
-                                        </div>
+                                        </div> --}}
                                     </div>
 
 
