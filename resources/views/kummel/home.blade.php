@@ -101,7 +101,7 @@
                             <div class="carousel-item">
                                 <div class="contenedor">
 
-                                    <img class="d-block w-100" src="img/volcanOsorno.jpg" alt="">
+                                    <img class="d-block w-100" src="img/banner1.png" alt="">
 
                                 </div>
                             </div>
