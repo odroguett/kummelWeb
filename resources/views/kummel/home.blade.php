@@ -88,20 +88,20 @@
                             <div class="carousel-item active">
                                 <div class="contenedor">
 
-                                    <img class="d-block w-100" src="img/despacho.jpg" alt="">
+                                    <img  class="d-block  w-75" src="img/banner4.png" alt="">
 
                                 </div>
                             </div>
 
                             <div class="carousel-item">
-                                <div class="contenedor">
-                                    <img class="d-block w-100" src="img/miami.jpg" alt="Second slide">
+                                <div  class="contenedor">
+                                    <img  class=" d-block  w-75" src="img/banner2.png" alt="Second slide">
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="contenedor">
 
-                                    <img class="d-block w-100" src="img/banner1.png" alt="">
+                                    <img  class=" d-block  w-75" src="img/banner1.png" alt="">
 
                                 </div>
                             </div>
