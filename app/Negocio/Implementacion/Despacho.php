@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Negocio\Implementacion;
 
 use App\Models\Clientes;
@@ -19,7 +19,7 @@ class Despacho implements IDespacho
     private $oUnidadTrabajo;
     private $oUnidades;
     private $oClientes;
-    
+
 public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades, IClientes $_oClientes )
 {
     $this->oCategorias=$_oCategorias;
@@ -46,7 +46,7 @@ if($modificar=="M")
 {
     $idDespacho =$request->input('idDespacho');
     $oDespacho =$this->oUnidadTrabajo->DespachosRepositorio()->buscar($idDespacho);
-    
+
 }
 else
 {
@@ -54,7 +54,7 @@ else
     if($idDespacho==0)
     {
         $idDespacho=1;
-    
+
     }
     else
     {
@@ -95,7 +95,7 @@ return $oRespuesta;
 
 public function ObtieneDatosDespachoId($idDespacho)
 {
-   
+
     $oDatosDespacho = new DatosDespachoOtd;
     $oClientes = new Clientes();
     $existeDireccion = false;
@@ -104,7 +104,7 @@ public function ObtieneDatosDespachoId($idDespacho)
     {
     $oDatosDespacho->sNombre =  $oRetorno->NOMBRE;
     $oDatosDespacho->sApellido =  $oRetorno->APELLIDOS;
-    
+
     $oDatosDespacho->sDireccion =  $oRetorno->DIRECCION;
     $oDatosDespacho->sComuna =  $oRetorno->COMUNA;
     $oDatosDespacho->sCiudad = $oRetorno->CIUDAD;
@@ -125,9 +125,9 @@ public function ObtieneDatosDespachoId($idDespacho)
     $oDatosDespacho->sTelefono = "";
     $oDatosDespacho->sEmail = "";
     $oDatosDespacho->sDepartamento = "";
-  
+
     }
-  
+
     return $oDatosDespacho;
 
 }
@@ -135,22 +135,22 @@ public function ObtieneDatosDespachoId($idDespacho)
 
 public function ObtieneDatosDespacho( Request $request)
 {
-   
+
     $oDatosDespacho = new DatosDespachoOtd;
     $oClientes = new Clientes();
-  
+
     $idDespacho = $request->input('idDespacho');
     $idUsuario = $request->input('idUsuario');
     $existeDireccion = false;
     //Buscamos la direccion del usuario.
- 
+
   if($idUsuario > 0 && trim($idDespacho) ==0)
     {
         $oRetorno =  $this->oClientes->obtieneDireccionCliente($idUsuario);
-       
+
         if(isset($oRetorno))
         {
-           
+
             foreach($oRetorno  as $value)
             {
                 $oDatosDespacho->sNombre =   $value->NOMBRE;
@@ -164,20 +164,20 @@ public function ObtieneDatosDespacho( Request $request)
                 $oDatosDespacho->sDepartamento =  $value->DEPARTAMENTO;
                 return $oDatosDespacho;
             }
-            
+
 
         }
-        
-     
-    } 
-   
+
+
+    }
+
     $oRetorno = $this->oUnidadTrabajo->DespachosRepositorio()->ObtieneDatosDespacho($idDespacho);
-  
+
     if(isset($oRetorno))
     {
     $oDatosDespacho->sNombre =  $oRetorno->NOMBRE;
     $oDatosDespacho->sApellido =  $oRetorno->APELLIDOS;
-    
+
     $oDatosDespacho->sDireccion =  $oRetorno->DIRECCION;
     $oDatosDespacho->sComuna =  $oRetorno->COMUNA;
     $oDatosDespacho->sCiudad = $oRetorno->CIUDAD;
@@ -198,20 +198,23 @@ public function ObtieneDatosDespacho( Request $request)
     $oDatosDespacho->sTelefono = "";
     $oDatosDespacho->sEmail = "";
     $oDatosDespacho->sDepartamento = "";
-  
+
     }
-  
+
     return $oDatosDespacho;
 
 }
 
 public function EliminarDatosDespacho(Request $request)
 {
+    $oDespacho = new Despachos();
     $idDespacho =$request->input('idDespacho');
     $oRespuesta = new RespuestaOtd();
     $oRespuesta->sMensaje ="Datos Eliminados correctamente";
-    $oRespuesta->bEsValido=true;    
-    $this->oUnidadTrabajo->DespachosRepositorio()->eliminar($idDespacho);
+    $oRespuesta->bEsValido=true;
+    $oDespacho->delete($idDespacho);
+
+    //$this->oUnidadTrabajo->DespachosRepositorio()->eliminar($idDespacho);
     return $oRespuesta;
 
 }
@@ -223,14 +226,14 @@ public function ActualizaTipoDespacho($idDespacho,$tipoDespacho)
 
     $oDespacho->ID_TIPO_DESPACHO =$tipoDespacho;
     $this->oUnidadTrabajo->DespachosRepositorio()->InsertarIndividual($oDespacho);
-   
+
     return true;
 
 }
 
 public function ObtieneCabeceraDespacho($idDespacho)
 {
-    
+
     $oDespacho =  $this->oUnidadTrabajo->DespachosRepositorio()->ObtieneCabeceraDespacho($idDespacho);
 
 
