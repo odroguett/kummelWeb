@@ -25,7 +25,7 @@ use App\Http\Controllers\VentasControllers;
 
 require __DIR__.'/auth.php';
 //Paginas principales
-Route::get('kummel', [KummelControllers::class,'home'])->name('kummel');
+Route::get('/', [KummelControllers::class,'home'])->name('kummel');
 Route::get('contacto', [KummelControllers::class,'CargaVistaContacto'])->name('contacto');
 Route::get('recetas', [KummelControllers::class,'recetas'])->name('recetas');
 Route::get('condiciones', [KummelControllers::class,'condiciones'])->name('condiciones');
@@ -76,7 +76,7 @@ Route::post('detalleProductosVenta', [ProductosVentaControllers::class,'detalleP
 
 ///buscador////
 Route::get('buscar/{sPatron}', [BuscarControllers::class,'buscarProductos'])
-        ->name('buscar'); 
+        ->name('buscar');
 
 ///Comprar
 Route::post('comprarProductos', [ComprarControllers::class,'comprarProductos'])->name('comprarProductos');
