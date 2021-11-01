@@ -15,7 +15,7 @@ class ProductosVenta extends Productos implements IProductosVenta
     private $oCategorias;
     private $oUnidadTrabajo;
     private $oUnidades;
-    
+
 public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades )
 {
     $this->oCategorias=$_oCategorias;
@@ -23,7 +23,7 @@ public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadT
     $this->oUnidades=$_oUnidades;
 }
 
-   
+
 public function obtenerProductosVenta()
 {
 
@@ -93,14 +93,14 @@ public function obtenerProductosVenta()
 
     public function ingresarDescuento()
     {
-    
+
     }
 
     public function RebajaStock($codigoProducto,$cantidad)
 {
-   
+
     $this->oUnidadTrabajo->ProductosVentaRepositorio()->RebajaStock($codigoProducto,$cantidad);
-    
+
 }
 
 public function DetalleProductosVenta(Request $request)
@@ -122,6 +122,10 @@ $productoDisponible =  $this->oUnidadTrabajo->ProductosVentaRepositorio()->obtie
 foreach($productoDisponible as $value)
 {
     $detalleProductosVenta->disponible = $detalleProductosVenta->disponible . ' ' .  $value->TAMANO . $value->CODIGO_UNIDAD . ', ' ;
+    $detalleProductosVenta->parrafo1 = $value->PARRAFO1;
+    $detalleProductosVenta->parrafo2 = $value->PARRAFO2;
+    $detalleProductosVenta->parrafo3 = $value->PARRAFO3;
+    $detalleProductosVenta->parrafo4 = $value->PARRAFO4;
 
 }
 
@@ -129,7 +133,6 @@ foreach($productoDisponible as $value)
 
 $detalleProductosVenta->arrProductosRelacionados =$this->oUnidadTrabajo->ProductosVentaRepositorio()->obtieneProductosRelacionados($detalleProductosVenta->codigoProducto);
 return  $detalleProductosVenta;
-    
 
 
 
@@ -138,7 +141,8 @@ return  $detalleProductosVenta;
 
 
 
-    
+
+
 }
 
 }

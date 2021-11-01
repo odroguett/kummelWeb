@@ -62,12 +62,7 @@
                                             <div class="capa">
 
                                                 <h3 class="">{{$value->TITULO }}</h3>
-                                                <p>
-                                                    @isset($value->PARRAFO1) {{$value->PARRAFO1 }} @endisset
-                                                    @isset($value->PARRAFO2 ) {{$value->PARRAFO2 }} @endisset
-                                                    @isset($value->PARRAFO3 ) {{$value->PARRAFO3 }} @endisset
-                                                    @isset($value->PARRAFO4 ) {{$value->PARRAFO4 }} @endisset
-                                                </p>
+
 
                                             </div>
 
@@ -156,12 +151,7 @@
                                         <a href="#" class="text-dark">
 
                                             <h3 class="text-kumel-texto_bold">{{ $value->TITULO}}</h3>
-                                            <p class="text-kumel-texto">
-                                                @isset($value->PARRAFO1) {{$value->PARRAFO1 }} @endisset
-                                                @isset($value->PARRAFO2 ) {{$value->PARRAFO2 }} @endisset
-                                                @isset($value->PARRAFO3 ) {{$value->PARRAFO3 }} @endisset
-                                                @isset($value->PARRAFO4 ) {{$value->PARRAFO4 }} @endisset
-                                            </p>
+
 
                                     </div>
 

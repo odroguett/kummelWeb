@@ -176,13 +176,21 @@
                         </div>
                         <div class="row">
                             <div class="col-9">
-                                <p class="text-kumel-texto-1">{{ $detalleProductosVenta->disponible }} </p>
+                                <p class="text-kumel-texto-1">{{ $detalleProductosVenta->disponible }}  </p>
                             </div>
                         </div>
-                        <p class="text-kumel-titulo">Finas almendras naturales.........</p>
-                        <p class="text-kumel-titulo">Finas almendras naturales.........</p>
-                        <p class="text-kumel-titulo">Finas almendras naturales.........</p>
-                        <p class="text-kumel-titulo">Finas almendras naturales.........</p>
+                        <div class="row">
+                        <p class=" h6 text-kumel-titulo">  @if(isset($detalleProductosVenta->parrafo1)) {{ $detalleProductosVenta->parrafo1 }} @endif   </p>
+                        </div>
+                        <div class="row">
+                        <p class=" h6 text-kumel-titulo"> @if(isset($detalleProductosVenta->parrafo2)){{$detalleProductosVenta->parrafo2 }} @endif  </p>
+                        </div>
+                        <div class="row">
+                        <p class=" h6 text-kumel-titulo">@if(isset($detalleProductosVenta->parrafo3)) {{$detalleProductosVenta->parrafo3 }} @endif  </p>
+                        </div>
+
+
+
                     </div>
 
 
@@ -198,7 +206,7 @@
 
             </div>
         </div>
-        
+
         <h5 style="text-align: left;" class="text-kumel-titulo ">Productos Similares</h5>
         <div class="pick_today">
 
