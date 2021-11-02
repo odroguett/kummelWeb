@@ -132,7 +132,7 @@
 
 
                         @else
-                        
+
                             <a href="{{'register'}}" id="usuario"
                                 class="ml-2 text-dark bg-kumel-2 rounded-pill p-2 icofont-size ">
                                 <i class="icofont-user-alt-5"><span>Ingresa</span></i>
@@ -144,14 +144,14 @@
 
                             <div class="dropdown">
                                 <a class="btn   dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="icofont-user-alt-5"></i> 
+                                    <i class="icofont-user-alt-5"></i>
                                     {{auth()->user()->name}}
                                 </a>
-                              
+
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                   <a class="dropdown-item" href="{{'logout'}}">Cerrar Sesión</a>
                                   <a class="dropdown-item" href={{route('mantencion', ['idUsuario' => auth()->user()->id]) }} }} >Ingresar Datos</a>
-                                 
+
                                 </div>
                               </div>
 
@@ -298,14 +298,14 @@
                             <li> <a href="{{ route('chocolates') }}" class="text-kumel-texto">Chocolates</a></li>
                             <li> <a href="{{ route('especiasCondimientos') }}" class="text-kumel-texto">Especias y Condimentos</a></li>
                            {{--  <li> <a href="{{ route('jugos') }}" class="text-kumel-texto">Jugos</a></li>--}}
-                            <li> <a href="{{ route('harinas') }}" class="text-kumel-texto">harinas</a></li> 
+                            <li> <a href="{{ route('harinas') }}" class="text-kumel-texto">harinas</a></li>
                             <li> <a href="{{ route('azucares') }}" class="text-kumel-texto">Azucar</a></li>
                             <li> <a href="{{ route('confitados') }}" class="text-kumel-texto">Confitados</a></li>
                             <li> <a href="{{ route('sales') }}" class="text-kumel-texto">Sal</a></li>
                           {{--   <li> <a href="{{ route('te') }}" class="text-kumel-texto">te</a></li> --}}
                            {{--  <li> <a href="{{ route('tostados') }}" class="text-kumel-texto">Tostados</a></li>--}}
-                                
-                                    
+
+
                         </ul>
                     </aside>
 
@@ -343,7 +343,7 @@
                             <div class="form-inline">
                                 <div class="col-sm-4">
                                     <p class="text-kumel-texto"> Transferencia</p>
-                                    <p class="text-kumel-texto"> Domicilio</p>
+
                                 </div>
 
                                 <img style=" margin-top:-10px " class="img-fluid-2 logo-img  " src="img/Flow.png">
@@ -354,7 +354,7 @@
                     </div>
 
                     <div class="row">
-                        <aside style="height: 300px; margin-left:100px">
+                        <aside style="height: 300px; margin-left:50px">
                             <h5 class="title text-kumel-texto">Contactanos</h5>
                             <ul class="list-unstyled list-padding">
                                 <li class="text-kumel-texto">WhatSApp : +56 9 82188050 o al +56 9 81747288</li>

@@ -68,7 +68,7 @@
 
     @csrf
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-    
+
         <div class="row">
             <div class="col-lg-12">
 
@@ -124,7 +124,7 @@
                 </div>
             </div>
         </div>
-    
+
 
     <hr />
     <section class="py-4 osahan-main-body">
@@ -142,7 +142,7 @@
 
                 @foreach($topVentas as $value)
 
-                @if ($value->STOCK <=0) 
+                @if ($value->STOCK <=0)
                 <div class="col-sm-12 col-md-6 col-lg-3">
                     <div class="list-card bg-light h-100 rounded border overflow-hidden position-relative shadow-sm">
                         <div class="list-card-image">
@@ -237,7 +237,7 @@
             <div class="col-sm-12 col-md-6 col-lg-3">
                 <div class="list-card bg-light h-100 rounded border overflow-hidden ">
                     <div class="list-card-image">
-                      
+
 
                             <div class="col-sm-12 col-md-12 col-lg-12 claseTexto">
                                 <input type="text" class="text-info codigo-precio-producto"
@@ -247,7 +247,7 @@
 
                                 <div class="contenedor-imagen" onclick="oCarrito.LinkProducto( '{{ $value->IMAGEN1}}','{{ $value->IMAGEN2}}','{{ $value->IMAGEN3}}','{{$value->DESCRIPCION}}','{{$value->PRECIO_VENTA}}','{{$value->TAMANO}}','{{$value->CODIGO_UNIDAD}}','{{$value->STOCK}}','{{$value->ID_PRODUCTO}}')">
 
-                                    
+
                                     <figure>
                                         <img class="imagen-producto" style="" src="{{$value->IMAGEN1}}">
 
@@ -289,20 +289,20 @@
 
 
                                 <div class="col-lg-10 col-sm-12 col-md-12 " style="margin-left: 12%;">
-                                   
-                                   
-                                    <div class="form-inline row align-items-center ">
-                                        
 
-                                 
+
+                                    <div class="form-inline row align-items-center ">
+
+
+
                                                     <input type='button' value='-'
                                                         class='qtyminus btn border btn-md border   '  field='quantity' />
                                                     <input readonly type='text' name='quantity ' value='1' style="text-align:center"
                                                         class='qty form-control cantidad border col-md-3 ' />
                                                     <input type='button' value='+'
                                                         class='qtyplus btn border btn-md ' field='quantity' />
-                                            
-                                        
+
+
                                         <div  style="margin-left: 3%;" class="col-lg-2 col-sm-2 col-md-2">
                                             <div class="input-group-prepend">
                                                 <button   class=" btn border btn-valor btn-md btn-kumel">
@@ -316,7 +316,7 @@
                                      {{--    <div   class="col-sm-3 col-lg-3 col-md-3 ">
                                             <h6 class=" text-kumel-bold" style="margin-bottom: 4%; margin-right: 4%">
                                              {{'Stock:'. ' ' . $value->STOCK}}
-                                                
+
                                         </div> --}}
                                     </div>
 
@@ -438,7 +438,7 @@
 
             <div class="form-inline bg-kumel-2">
                 <div class=" col-sm-6 col-md-6 col-lg-6">
-                    <img class="img-nuestra-tienda" style="max-width: 100%;" src="img/tienda.jpg">
+                    <img class="img-nuestra-tienda" style="max-width: 100%;" src="img/kummel3.jpg">
 
                 </div>
 

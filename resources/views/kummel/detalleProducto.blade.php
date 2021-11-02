@@ -72,11 +72,11 @@
                                 class="img-fluid mx-auto shadow-sm rounded contenedor-1 " alt="Responsive image">
                         </div>
                         <div class="osahan-slider-item">
-                            <img id="imagenProducto" src="{{$detalleProductosVenta->imagen2 }}"
+                            <img id="imagenProducto" src="{{$detalleProductosVenta->imagen }}"
                                 class="img-fluid mx-auto shadow-sm rounded contenedor-1  " alt="Responsive image">
                         </div>
                         <div class="osahan-slider-item">
-                            <img id="imagenProducto" src="{{$detalleProductosVenta->imagen3 }}"
+                            <img id="imagenProducto" src="{{$detalleProductosVenta->imagen }}"
                                 class="img-fluid mx-auto shadow-sm rounded contenedor-1  " alt="Responsive image">
                         </div>
                     </div>
