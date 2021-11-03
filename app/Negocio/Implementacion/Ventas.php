@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Negocio\Implementacion;
 
 use App\Mail\comprobanteKummel;
@@ -28,9 +28,9 @@ class Ventas implements IVentas
     private $oUnidades;
     private $oDespachos;
     private $oFabricaProductos;
-    private $oGeneraPDF; 
+    private $oGeneraPDF;
     private $oFlowApI;
-    
+
     public function __construct(ICategorias $_oCategorias, IUnidadTrabajo $_oUnidadTrabajo, IUnidades $_oUnidades,
                                  IDespacho $_oDespachos, IFabricaProductos $_oFabricaProductos,
                                  IGeneraPDF $_oGeneraPDF, IFlowApi $_oFlowApi  )
@@ -44,12 +44,12 @@ class Ventas implements IVentas
         $this->oFlowApI =$_oFlowApi;
     }
 
-    
+
     public function realizarPagoVenta(Request $request)
     {
         $oRespuesta = new RespuestaOtd();
-        
-       
+
+
         $arrayPago = $request->input('arrayPago');
         $idDespacho = $request->input('idDespacho');
         $idTipoDespacho = $request->input('tipoDespacho');
@@ -61,82 +61,82 @@ class Ventas implements IVentas
         $fechaVenta ="";
         $oRespuesta->bEsValido=true;
         $oRespuesta->sMensaje='Generación de comprobante exitosa.';
-        
+
         if($this->ValidaPago($arrayPago,$sNombreProducto))
         {
-          
+
             $oRespuesta->bEsValido=true;
             $oRespuesta->sMensaje="Pago ingresado correctamente, nos contactaremos para coordinar el despacho";
-            
+
             $parametros = $this->oUnidadTrabajo->ParametrosRepositorio()->obtieneParametros();
-           
+
             $costoEnvio =   $parametros->COSTO_ENVIO;
             $topeCostoEnvio =   $parametros->TOPE_COSTO_ENVIO;
             if($totalPago < $topeCostoEnvio)
             {
                 $totalConDespacho = $totalPago + $costoEnvio;
-            
+
             }
             else
             {
-                $totalConDespacho = $totalPago; 
-            
+                $totalConDespacho = $totalPago;
+
             }
-            
+
             $fechaVenta = date('Y-m-d');
-            
+
             $idDetalle= $this->oUnidadTrabajo->VentasRepositorio()->InsertarCabeceraPago($idDespacho,$totalProductosPago,$idTipoPago,$totalConDespacho, $fechaVenta);
-         
+
             $totalConDespacho =0;
             $this->oDespachos->ActualizaTipoDespacho( $idDespacho,$idTipoDespacho);
-            
+
         foreach($arrayPago as $value)
         {
             $oDetalleVentas = new DetalleProductosVenta();
-            
+
             $cantidadProducto=  $value['Cantidad'];
             $codigoProducto=  $value['CodigoProducto'];
             $datosVentaProducto=  $this->oUnidadTrabajo->VentasRepositorio()->obtieneDatosVentaProducto($codigoProducto);
-           
+
             foreach($datosVentaProducto as $valueProducto)
             {
                 $precioVenta= $valueProducto->PRECIO_VENTA;
 
             }
-            
+
             $this->oFabricaProductos->ProductosVenta()->RebajaStock($codigoProducto,$cantidadProducto);
             $oDetalleVentas->ID_DETALLE=$idDetalle;
             $oDetalleVentas->CANTIDAD=$cantidadProducto;
             $oDetalleVentas->VENTA= $precioVenta;
             $oDetalleVentas->ID_PRODUCTO= $codigoProducto;
-            
-           
+
+
             $this->oUnidadTrabajo->VentasRepositorio()->InsertarDetallePago( $oDetalleVentas);
-           
-           
-            
-         
+
+
+
+
         }
-       
+
 
         if( $this->EnviarCorreoPago($idDespacho))
         {
-   
-         
+
+
         }
-       
-         
-      
-    }   
+
+
+
+    }
     else
     {
 
         $oRespuesta->bEsValido=false;
         $oRespuesta->sMensaje="Pago Erroneo, por favor intente nuevamente.";
     }
-    
+
     return $oRespuesta;
-      
+
     }
 
     public function obtieneTopVentas()
@@ -145,7 +145,7 @@ class Ventas implements IVentas
     return  $this->oUnidadTrabajo->VentasRepositorio()->obtieneTopVentas();
     }
 
- 
+
 
 
    private function ValidaPago($arrayPago,$sNombreProducto)
@@ -153,52 +153,52 @@ class Ventas implements IVentas
         $bOK = true;
 
 foreach($arrayPago as  $value)
-{ 
-    
+{
+
     $codigoProducto=  $value['CodigoProducto'];
-    
+
     $datosVentaProducto=  $this->oUnidadTrabajo->VentasRepositorio()->obtieneDatosVentaProducto($codigoProducto);
-   
+
     foreach($datosVentaProducto as  $valueProducto)
     {
-       
+
         $stock = $valueProducto->STOCK;
         $sNombreProducto = $valueProducto->DESCRIPCION . ' ' . $valueProducto->TAMANO . $valueProducto->CODIGO_UNIDAD;
 
-       
+
         if($stock ==0)
         {
 
             $bOK =false;
         }
     }
-    
+
 }
 
 return $bOK ;
 }
 
 
- 
+
 private function EnviarCorreoPago($idDespacho)
 {
 try{
     $oDatosDespacho = new DatosDespachoOtd;
     $comprobantePagoMail = new ComprobantePagoMailOtd;
-    
-    
+
+
     if($idDespacho !="")
 {
-   
-    
+
+
     $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespachoId($idDespacho);
-    
+
     $comprobantePagoMail->idDespacho =$idDespacho;
     $comprobantePagoMail->sNombre = $oDatosDespacho->sNombre;
-    
+
     $comprobantePagoMail->sComprobante = $this->oGeneraPDF->GenerarComprobantePagoPDF($idDespacho);
     Mail::to($oDatosDespacho->sEmail)->send(new comprobanteKummel($comprobantePagoMail));
- 
+
     return true;
 }
 }
@@ -209,7 +209,7 @@ catch(Exception $e)
 
 
 }
- 
+
 
 public function pagoFlow(Request $request)
 {
@@ -217,32 +217,32 @@ public function pagoFlow(Request $request)
     $arrayPago = $request->input('arrayPago');
     $totalPago = $request->input('totalPago');
     $sNombreProducto="";
-    
+
     if($this->ValidaPago($arrayPago,$sNombreProducto))
     {
-    
+
         $parametros = $this->oUnidadTrabajo->ParametrosRepositorio()->obtieneParametros();
-       
+
         $costoEnvio =   $parametros->COSTO_ENVIO;
         $topeCostoEnvio =   $parametros->TOPE_COSTO_ENVIO;
-        
+
         if($totalPago < $topeCostoEnvio)
         {
             $totalConDespacho = $totalPago + $costoEnvio;
-        
+
         }
         else
         {
-            $totalConDespacho = $totalPago; 
-        
+            $totalConDespacho = $totalPago;
+
         }
-        
+
         $oDatosDespacho = new DatosDespachoOtd;
         $totalPago= $request->input('totalPago');
         $respuestaOtd = new RespuestaOtd;
         $respuestaOtd->bEsValido  = true;
         $oDatosDespacho =  $this->oDespachos->ObtieneDatosDespachoId($request->input('idDespacho'));
-       
+
         //Prepara el arreglo de datos
 
         $params = array(
@@ -258,19 +258,20 @@ public function pagoFlow(Request $request)
             );
             //Define el metodo a usar
             $serviceName = "payment/create";
- 
+
           try {
 
-          //  dd('hoola');
+
                 // Instancia la clase FlowApi
                 // Ejecuta el servicio
-                $response = $this->oFlowApI->send($serviceName, $params,"POST");
+
+                $response = $this->oFlowApI->send($serviceName, $params,"GET");
                 //Prepara url para redireccionar el browser del pagador
                 $redirect = $response["url"] . "?token=" . $response["token"];
-                // dd($redirect);
+
                 header("location:$redirect");
-                } 
-                
+                }
+
                 catch (Exception $e) {
                     echo $e->getCode() . " - " . $e->getMessage();
                     $respuestaOtd->bEsValido  = false;
@@ -278,17 +279,17 @@ public function pagoFlow(Request $request)
                     return  $respuestaOtd;
             }
 
-              $respuestaOtd->url  = $redirect;  
+              $respuestaOtd->url  = $redirect;
               return $respuestaOtd; // redirect($redirect);
-            
+
     }
-    
+
 }
 
    public function confirmacion(Request $request)
    {
        return 'Exito';
-              
+
    }
 
 }

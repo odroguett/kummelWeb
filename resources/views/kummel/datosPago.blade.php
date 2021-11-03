@@ -106,7 +106,7 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                             </div>
                             <br />
 
-                          
+
 
 
                                 <div class="form-inline ">
@@ -119,10 +119,10 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                                             name="direccion" id="direccion" value="{{ ' ' . number_format($datosPagoOtd->totalPago,0,',','.')  . " (CLP)" }} "
                                             readonly>
                                     </div>
-                                  
+
                                 </div>
                                 <br />
-                              
+
 
 
                                 <div class="form-inline ">
@@ -135,11 +135,11 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                                             name="direccion" id="direccion" value="@if($datosPagoOtd->totalPago >= 40000 ) {{ 0 }} @else {{' ' .  number_format($costoEnvio,0,',','.')   . " (CLP)"  }} @endif "
                                             readonly>
                                     </div>
-                                  
+
                                 </div>
                                 <hr />
 
-                                
+
                                 <div class="form-inline ">
                                     <div class="col-lg-7">
                                         <h7 class=" text-kumel-titulo"> Total   </h7>
@@ -150,10 +150,10 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
                                             name="direccion" id="direccion" value="  {{ ' ' .  number_format($totalConDespacho,0,',','.') . " (CLP)"     }} "
                                             readonly>
                                     </div>
-                                  
+
                                 </div>
 
-                           
+
                         </div>
                     </div>
 
@@ -206,27 +206,27 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
 
                             </div>
                             <br>
-                            
+
                                 <div id="idTransferencia">
                                     <div class="form-group row">
                                         <div class="col-md-6">
                                             <h7 class=" text-kumel-titulo"> Banco   </h7>
-                                    
-                                    
-                                            <input type="text" 
+
+
+                                            <input type="text"
                                             class="form-control form-control-sm text-kumel-titulo  "
                                             name="direccion" id="direccion" value=" Banco de Chile"
                                             readonly>
                                         </div>
-                                        
+
                                     </div>
 
                                     <div class="form-group  row ">
                                         <div class="col-md-6">
                                             <h7 class=" text-kumel-titulo"> Cuenta vista  </h7>
-                                        
-                                        
-                                            <input type="text" 
+
+
+                                            <input type="text"
                                             class="form-control form-control-sm text-kumel-titulo  "
                                             name="direccion" id="direccion" value=" 43521195 "
                                             readonly>
@@ -235,26 +235,26 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
 
                                             <div class="col-md-6">
                                                 <h7 class=" text-kumel-titulo"> Rut   </h7>
-                                        
-                                        
-                                                <input type="text" 
+
+
+                                                <input type="text"
                                                 class="form-control form-control-sm text-kumel-titulo  "
                                                 name="direccion" id="direccion" value="  16.357.503-5 "
                                                 readonly>
                                             </div>
-                                          
 
-                                      
+
+
                                     </div>
-                                   
-                                   
-                                   
+
+
+
                                     <div class="form-group  row ">
                                         <div class="col-md-6">
                                             <h7 class=" text-kumel-titulo"> Nombre   </h7>
-                                        
-                                        
-                                            <input type="text" 
+
+
+                                            <input type="text"
                                             class="form-control form-control-sm text-kumel-titulo  "
                                             name="direccion" id="direccion" value=" Daphne Droguett Contreras "
                                             readonly>
@@ -263,16 +263,16 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
 
                                             <div class="col-md-6">
                                                 <h7 class=" text-kumel-titulo"> Correo   </h7>
-                                        
-                                        
-                                                <input type="text" 
+
+
+                                                <input type="text"
                                                 class="form-control form-control-sm text-kumel-titulo  "
                                                 name="direccion" id="direccion" value=" daphnedroguett@gmail.com "
                                                 readonly>
                                             </div>
-                                          
 
-                                      
+
+
                                     </div>
 
                                 </div>
@@ -280,14 +280,14 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
 
 
 
-                         
+
 
                             <div id="idPagoDomicilio" hidden>
                                 <div class="row">
                                     <div class="col-lg-12">
 
                                         <p class=" text-kumel-titulo h6">El cobro se efectuará al momento de entrega del producto.</p>
-                                       
+
                                         <p class=""> </p>
                                         <p class=""></p>
                                     </div>
@@ -319,7 +319,7 @@ if($datosPagoOtd->totalPago < 40000) { $totalConDespacho=$datosPagoOtd->totalPag
         <div class="row float-right">
             <div class="col-md-12">
                 <button type="button" id="btnFinalizarPago" class="btn btn-kumel-1 btn-block"
-                    onclick='oCarrito.FinalizarPago(  {{  $datosPagoOtd->arrayPago}}, {{$datosPagoOtd->idDespacho }}  , {{ $datosPagoOtd->totalProductosPago}}  , {{ $datosPagoOtd->totalPago}} , {{$datosPagoOtd->idTipoDespacho }})'>Solicitar
+                onclick='oCarrito.FinalizarPago(  {{  $datosPagoOtd->arrayPago}}, {{$datosPagoOtd->idDespacho }}  , {{ $datosPagoOtd->totalProductosPago}}  , {{ $datosPagoOtd->totalPago}} , {{$datosPagoOtd->idTipoDespacho }})'>Solicitar
                     Pedido</button>
             </div>
         </div>

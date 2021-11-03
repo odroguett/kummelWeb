@@ -102,3 +102,9 @@ Route::get('mantencion/{idUsuario}', [ClientesControllers::class,'mantencion'])-
 //CATEGORIAS//
 Route::post('cargarCategorias', [CategoriasControllers::class,'cargarCategorias'])->name('cargarCategorias');
 Route::post('modificarCategoria', [CategoriasControllers::class,'modificarCategoria'])->name('modificarCategoria');
+
+Route::get('/phpinfo', function()
+{
+
+phpinfo();
+});
