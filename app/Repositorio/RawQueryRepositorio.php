@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Repositorio;
 
 use Illuminate\Support\Facades\DB;
@@ -15,7 +15,7 @@ public function BuscarProductos($sPatron)
     ->orWhere('UNIDADES.TAMANO','like','%' . $sPatron . '%' )
     ->orWhere('UNIDADES.CODIGO_UNIDAD','like','%' . $sPatron . '%' )
     ->get();
-           
+
 
 }
 public function revisaStock($sCodigoProducto)
@@ -23,7 +23,7 @@ public function revisaStock($sCodigoProducto)
     return  DB::table('PRODUCTOS_VENTA')
     ->Where('PRODUCTOS_VENTA.ID_PRODUCTO','=',$sCodigoProducto )
     ->value('STOCK');
-           
+
 
 }
 

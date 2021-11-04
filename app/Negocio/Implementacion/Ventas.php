@@ -265,7 +265,7 @@ public function pagoFlow(Request $request)
                 // Instancia la clase FlowApi
                 // Ejecuta el servicio
 
-                $response = $this->oFlowApI->send($serviceName, $params,"GET");
+                $response = $this->oFlowApI->send($serviceName, $params,"POST");
                 //Prepara url para redireccionar el browser del pagador
                 $redirect = $response["url"] . "?token=" . $response["token"];
 

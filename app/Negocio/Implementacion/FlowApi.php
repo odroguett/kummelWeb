@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Negocio\Implementacion;
 
 use App\Negocio\Interfaces\IFlowApi;
@@ -7,17 +7,17 @@ use Exception;
 use FFI\Exception as FFIException;
 
 class FlowApi implements IFlowApi {
-	
+
 	protected $apiKey;
 	protected $secretKey;
-	
-	
+
+
 	public function __construct() {
 		$this->apiKey = ConfigPagoFlow::get("APIKEY");
 		$this->secretKey = ConfigPagoFlow::get("SECRETKEY");
 	}
-	
-	
+
+
 	/**
 	 * Funcion que invoca un servicio del Api de Flow
 	 * @param string $service Nombre del servicio a ser invocado
@@ -26,11 +26,11 @@ class FlowApi implements IFlowApi {
 	 * @return string en formato JSON
 	 * @throws Exception
 	 */
-	public function send( $service, $params, $method = "GET") {
+	public function send( $service, $params, $method = "POST") {
 		$method = strtoupper($method);
-		
+
 		$url = ConfigPagoFlow::get("APIURL") . "/" . $service;
-		
+
 		$params = array("apiKey" => $this->apiKey) + $params;
 		$params["s"] = $this->sign($params);
 		if($method == "GET") {
@@ -48,18 +48,18 @@ class FlowApi implements IFlowApi {
 		$body = json_decode($response["output"], true);
 		return $body;
 	}
-	
+
 	/**
 	 * Funcion para setear el apiKey y secretKey y no usar los de la configuracion
 	 * @param string $apiKey apiKey del cliente
-	 * @param string $secretKey secretKey del cliente 
+	 * @param string $secretKey secretKey del cliente
 	 */
 	public function setKeys($apiKey, $secretKey) {
 		$this->apiKey = $apiKey;
 		$this->secretKey = $secretKey;
 	}
-	
-	
+
+
 	/**
 	 * Funcion que firma los parametros
 	 * @param string $params Parametros a firmar
@@ -67,7 +67,7 @@ class FlowApi implements IFlowApi {
 	 * @throws Exception
 	 */
 	private function sign(Array $params) {
-		
+
         $keys = array_keys($params);
 		sort($keys);
 		$toSign = "";
@@ -79,8 +79,8 @@ class FlowApi implements IFlowApi {
 		}
 		return hash_hmac('sha256', $toSign , $this->secretKey);
 	}
-	
-	
+
+
 	/**
 	 * Funcion que hace el llamado via http GET
 	 * @param string $url url a invocar
@@ -102,7 +102,7 @@ class FlowApi implements IFlowApi {
 		curl_close($ch);
 		return array("output" =>$output, "info" => $info);
 	}
-	
+
 	/**
 	 * Funcion que hace el llamado via http POST
 	 * @param string $url url a invocar
@@ -125,8 +125,8 @@ class FlowApi implements IFlowApi {
 		curl_close($ch);
 		return array("output" =>$output, "info" => $info);
 	}
-	
-	
+
+
 }
 
 

@@ -4,6 +4,7 @@ LABEL maintainer="Taylor Otwell"
 
 ARG WWWGROUP
 ARG XDEBUG
+ARG XDEBUG_PORT
 WORKDIR /var/www/html
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -40,8 +41,9 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN if [ ${XDEBUG}] ; then \
-    apt-get install -y php-xdebug; \
+
+RUN if [ "${XDEBUG}" = 'true' ]; then \
+    apt-get install -y php-xdebug \
 fi;
 RUN setcap "cap_net_bind_service=+ep" /usr/bin/php7.4
 

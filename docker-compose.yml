@@ -2,19 +2,21 @@
 version: '3'
 services:
     laravel.test:
+
         build:
             context: ./docker/8.0
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
-                XDEBUG: ${SAIL_DEBUG}
+                XDEBUG: '${SAIL_XDEBUG_MODE}'
+                XDEBUG_PORT: '${SAIL_XDEBUG_PORT}:9003'
         image: sail-8.0/app
         ports:
             - '${APP_PORT:-80}:80'
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
-            XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9001
+            XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9003
             PHP_XDEBUG_ENABLED: 1 # Set 1 to enable.
         volumes:
             - '.:/var/www/html'

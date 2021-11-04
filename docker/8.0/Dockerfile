@@ -4,6 +4,7 @@ LABEL maintainer="Taylor Otwell"
 
 ARG WWWGROUP
 ARG XDEBUG
+ARG XDEBUG_PORT
 WORKDIR /var/www/html
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -42,8 +43,19 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-    RUN if [ ${XDEBUG}] ; then \
-    apt-get install -y php-xdebug; \
+
+RUN if [ "${XDEBUG}" = 'true' ] ; then \
+    apt-get update \
+        && apt-get install -y php-xdebug \
+        && echo "[XDebug]" > /etc/php/8.0/cli/php.ini \
+        && echo "zend_extension="$(find /usr/lib/php/20200930/ -name xdebug.so)" > /etc/php/8.0/cli/php.ini" \
+        && echo "xdebug.mode = debug" >> /etc/php/8.0/cli/php.ini \
+        && echo "xdebug.discover_client_host = true" >> /etc/php/8.0/cli/php.ini \
+        && echo "xdebug.client_host = host.docker.internal" >> /etc/php/8.0/cli/php.ini \
+        && echo "xdebug.client_port = ${XDEBUG_PORT}" >> /etc/php/8.0/cli/php.ini \
+        && apt-get -y autoremove \
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ;\
 fi;
 
 RUN setcap "cap_net_bind_service=+ep" /usr/bin/php8.0
